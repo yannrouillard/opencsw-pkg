@@ -24,9 +24,10 @@
 
 NAME = nss
 MAJOR_VERSION = 3
-MINOR_VERSION = 13
-PATCHLEVEL    = 6
-VERSION = $(MAJOR_VERSION).$(MINOR_VERSION).$(PATCHLEVEL)
+MINOR_VERSION = 14
+##  PATCHLEVEL    = 6
+##  VERSION = $(MAJOR_VERSION).$(MINOR_VERSION).$(PATCHLEVEL)
+VERSION = $(MAJOR_VERSION).$(MINOR_VERSION)
 GARTYPE = v2
 DESCRIPTION = Network Security Services library
 define BLURB
@@ -38,7 +39,8 @@ define BLURB
 endef
 SPKG_SOURCEURL = http://www.mozilla.org/projects/security/pki/nss/
 # TODO: Generate RTM_NAME from VERSION
-RTM_NAME = NSS_$(MAJOR_VERSION)_$(MINOR_VERSION)_$(PATCHLEVEL)_RTM
+##  RTM_NAME = NSS_$(MAJOR_VERSION)_$(MINOR_VERSION)_$(PATCHLEVEL)_RTM
+RTM_NAME = NSS_$(MAJOR_VERSION)_$(MINOR_VERSION)_RTM
 MASTER_SITES = http://ftp.mozilla.org/pub/mozilla.org/security/nss/releases/$(RTM_NAME)/src/
 DISTFILES  = $(NAME)-$(VERSION).tar.gz
 DISTFILES += mpl-tri-license-txt
@@ -139,9 +141,10 @@ CHECKPKG_OVERRIDES_CSWlibssl3 += soname-equals-filename|file=/opt/csw/lib/amd64/
 PACKAGES += CSWlibfreebl3
 CATALOGNAME_CSWlibfreebl3 = libfreebl3
 SPKG_DESC_CSWlibfreebl3 += $(DESCRIPTION), libfreebl libs
-PKGFILES_CSWlibfreebl3 += $(call baseisadirs,$(libdir),libfreebl.*3\.so)
-PKGFILES_CSWlibfreebl3 += $(call baseisadirs,$(libdir),libfreebl.*3\.so(\.\d+)*)
-PKGFILES_CSWlibfreebl3 += $(call baseisadirs,$(libdir),libfreebl.*3\.chk)
+# PKGFILES_CSWlibfreebl3 += $(call baseisadirs,$(libdir),libfreebl.*3\.so)
+# PKGFILES_CSWlibfreebl3 += $(call baseisadirs,$(libdir),libfreebl.*3\.so(\.\d+)*)
+# PKGFILES_CSWlibfreebl3 += $(call baseisadirs,$(libdir),libfreebl.*3\.chk)
+PKGFILES_CSWlibfreebl3 += $(call baseisadirs,$(libdir),libfreebl.*)
 RUNTIME_DEP_PKGS_CSWlibfreebl3 += CSWlibnssutil3
 RUNTIME_DEP_PKGS_CSWlibfreebl3 += CSWlibnspr4
 CHECKPKG_OVERRIDES_CSWlibfreebl3 += shared-lib-pkgname-mismatch
@@ -264,7 +267,8 @@ LICENSE = mpl-tri-license-txt
 PATCHFILES += include.patch
 PATCHFILES += ld-options.patch
 PATCHFILES += 0004-fix-xarch-and-add-SQLITE_LIB_DIR-var.patch
-PATCHFILES += 0005-platlibs.mk-linking-bltest.patch
+PATCHFILES += 0006-platlibs.mk-linking-bltest.patch
+PATCHFILES += 0006-config.mk-linking.patch
 PATCHFILES += 0005-change-rpath-for-bins-in-platlibs.mk.patch
 
 # http://lists.opencsw.org/pipermail/pkgsubmissions/2010-February/000167.html
@@ -300,7 +304,7 @@ build-dbm:
 build-nss-compile:
 	(cd $(WORKSRC)/mozilla/security/nss \
 		&& \
-	gmake -j1 RPATH=-R\'/opt/csw/lib/\$$\$$ISALIST\')
+	gmake -j1 RPATH=-R\'/opt/csw/lib/\$$\$$ISALIST\' BUILD_SUN_PKG=1)
 	@$(MAKECOOKIE)
 
 install-nss:
