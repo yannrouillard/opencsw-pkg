@@ -57,9 +57,8 @@ RUNTIME_DEP_PKGS_CSWlibnss3 += CSWlibnssutil3
 RUNTIME_DEP_PKGS_CSWlibnss3 += CSWlibplds4
 RUNTIME_DEP_PKGS_CSWlibnss3 += CSWlibnspr4
 RUNTIME_DEP_PKGS_CSWlibnss3 += CSWlibplc4
-CHECKPKG_OVERRIDES_CSWlibnss3 += soname-equals-filename|file=/opt/csw/lib/libnss3.so
-CHECKPKG_OVERRIDES_CSWlibnss3 += soname-equals-filename|file=/opt/csw/lib/sparcv9/libnss3.so
-CHECKPKG_OVERRIDES_CSWlibnss3 += soname-equals-filename|file=/opt/csw/lib/amd64/libnss3.so
+CHECKPKG_OVERRIDES_CSWlibnss3 += soname-equals-filename
+CHECKPKG_OVERRIDES_CSWlibnss3 += shared-lib-pkgname-mismatch
 
 PACKAGES += CSWlibnssckbi
 CATALOGNAME_CSWlibnssckbi = libnssckbi
@@ -69,6 +68,8 @@ SPKG_DESC_CSWlibnssckbi += $(DESCRIPTION), libnssckbi.so
 RUNTIME_DEP_PKGS_CSWlibnssckbi += CSWlibplds4
 RUNTIME_DEP_PKGS_CSWlibnssckbi += CSWlibnspr4
 RUNTIME_DEP_PKGS_CSWlibnssckbi += CSWlibplc4
+CHECKPKG_OVERRIDES_CSWlibnssckbi += soname-equals-filename
+CHECKPKG_OVERRIDES_CSWlibnssckb1 += shared-lib-pkgname-mismatch
 
 PACKAGES += CSWlibnssdbm3
 CATALOGNAME_CSWlibnssdbm3 = libnssdbm3
@@ -80,9 +81,10 @@ RUNTIME_DEP_PKGS_CSWlibnssdbm3 += CSWlibnssutil3
 RUNTIME_DEP_PKGS_CSWlibnssdbm3 += CSWlibplds4
 RUNTIME_DEP_PKGS_CSWlibnssdbm3 += CSWlibnspr4
 RUNTIME_DEP_PKGS_CSWlibnssdbm3 += CSWlibplc4
-CHECKPKG_OVERRIDES_CSWlibnssdbm3 += soname-equals-filename|file=/opt/csw/lib/libnssdbm3.so
-CHECKPKG_OVERRIDES_CSWlibnssdbm3 += soname-equals-filename|file=/opt/csw/lib/sparcv9/libnssdbm3.so
-CHECKPKG_OVERRIDES_CSWlibnssdbm3 += soname-equals-filename|file=/opt/csw/lib/amd64/libnssdbm3.so
+# i368 needs that, sparcs hates that
+CHECKPKG_OVERRIDES_CSWlibnssdbm3 += surplus-dependency|CSWlibplc4
+CHECKPKG_OVERRIDES_CSWlibnssdbm3 += soname-equals-filename
+CHECKPKG_OVERRIDES_CSWlibnssdbm3 += shared-lib-pkgname-mismatch
 
 PACKAGES += CSWlibnssutil3
 CATALOGNAME_CSWlibnssutil3 = libnssutil3
@@ -92,9 +94,8 @@ SPKG_DESC_CSWlibnssutil3 += $(DESCRIPTION), libnssutil3.so
 RUNTIME_DEP_PKGS_CSWlibnssutil3 += CSWlibplds4
 RUNTIME_DEP_PKGS_CSWlibnssutil3 += CSWlibnspr4
 RUNTIME_DEP_PKGS_CSWlibnssutil3 += CSWlibplc4
-CHECKPKG_OVERRIDES_CSWlibnssutil3 += soname-equals-filename|file=/opt/csw/lib/libnssutil3.so
-CHECKPKG_OVERRIDES_CSWlibnssutil3 += soname-equals-filename|file=/opt/csw/lib/sparcv9/libnssutil3.so
-CHECKPKG_OVERRIDES_CSWlibnssutil3 += soname-equals-filename|file=/opt/csw/lib/amd64/libnssutil3.so
+CHECKPKG_OVERRIDES_CSWlibnssutil3 += soname-equals-filename
+CHECKPKG_OVERRIDES_CSWlibnssutil3 += shared-lib-pkgname-mismatch
 
 PACKAGES += CSWlibsmime3
 CATALOGNAME_CSWlibsmime3 = libsmime3
@@ -106,9 +107,8 @@ RUNTIME_DEP_PKGS_CSWlibsmime3 += CSWlibnssutil3
 RUNTIME_DEP_PKGS_CSWlibsmime3 += CSWlibplds4
 RUNTIME_DEP_PKGS_CSWlibsmime3 += CSWlibnspr4
 RUNTIME_DEP_PKGS_CSWlibsmime3 += CSWlibplc4
-CHECKPKG_OVERRIDES_CSWlibsmime3 += soname-equals-filename|file=/opt/csw/lib/libsmime3.so
-CHECKPKG_OVERRIDES_CSWlibsmime3 += soname-equals-filename|file=/opt/csw/lib/sparcv9/libsmime3.so
-CHECKPKG_OVERRIDES_CSWlibsmime3 += soname-equals-filename|file=/opt/csw/lib/amd64/libsmime3.so
+CHECKPKG_OVERRIDES_CSWlibsmime3 += soname-equals-filename
+CHECKPKG_OVERRIDES_CSWlibsmine3 += shared-lib-pkgname-mismatch
 
 PACKAGES += CSWlibsoftokn3
 CATALOGNAME_CSWlibsoftokn3 = libsoftokn3
@@ -121,9 +121,8 @@ RUNTIME_DEP_PKGS_CSWlibsoftokn3 += CSWlibplc4
 RUNTIME_DEP_PKGS_CSWlibsoftokn3 += CSWlibsqlite3-0
 RUNTIME_DEP_PKGS_CSWlibsoftokn3 += CSWlibnssutil3 
 RUNTIME_DEP_PKGS_CSWlibsoftokn3 += CSWlibplds4
-CHECKPKG_OVERRIDES_CSWlibsoftokn3 += soname-equals-filename|file=/opt/csw/lib/libsoftokn3.so
-CHECKPKG_OVERRIDES_CSWlibsoftokn3 += soname-equals-filename|file=/opt/csw/lib/sparcv9/libsoftokn3.so
-CHECKPKG_OVERRIDES_CSWlibsoftokn3 += soname-equals-filename|file=/opt/csw/lib/amd64/libsoftokn3.so
+CHECKPKG_OVERRIDES_CSWlibsoftokn3 += soname-equals-filename
+CHECKPKG_OVERRIDES_CSWlibsoftokn3 += shared-lib-pkgname-mismatch
 
 PACKAGES += CSWlibssl3
 CATALOGNAME_CSWlibssl3 = libssl3
@@ -134,9 +133,8 @@ RUNTIME_DEP_PKGS_CSWlibssl3 += CSWlibnss3
 RUNTIME_DEP_PKGS_CSWlibssl3 += CSWlibnspr4
 RUNTIME_DEP_PKGS_CSWlibssl3 += CSWlibplc4
 RUNTIME_DEP_PKGS_CSWlibssl3 += CSWlibnssutil3
-CHECKPKG_OVERRIDES_CSWlibssl3 += soname-equals-filename|file=/opt/csw/lib/libssl3.so
-CHECKPKG_OVERRIDES_CSWlibssl3 += soname-equals-filename|file=/opt/csw/lib/sparcv9/libssl3.so
-CHECKPKG_OVERRIDES_CSWlibssl3 += soname-equals-filename|file=/opt/csw/lib/amd64/libssl3.so
+CHECKPKG_OVERRIDES_CSWlibssl3 += soname-equals-filename
+CHECKPKG_OVERRIDES_CSWlibssl3 += shared-lib-pkgname-mismatch
 
 PACKAGES += CSWlibfreebl3
 CATALOGNAME_CSWlibfreebl3 = libfreebl3
@@ -147,15 +145,9 @@ SPKG_DESC_CSWlibfreebl3 += $(DESCRIPTION), libfreebl libs
 PKGFILES_CSWlibfreebl3 += $(call baseisadirs,$(libdir),libfreebl.*)
 RUNTIME_DEP_PKGS_CSWlibfreebl3 += CSWlibnssutil3
 RUNTIME_DEP_PKGS_CSWlibfreebl3 += CSWlibnspr4
+# CHECKPKG_OVERRIDES_CSWlibfreebl3 += shared-lib-pkgname-mismatch
+CHECKPKG_OVERRIDES_CSWlibfreebl3 += soname-equals-filename
 CHECKPKG_OVERRIDES_CSWlibfreebl3 += shared-lib-pkgname-mismatch
-CHECKPKG_OVERRIDES_CSWlibfreebl3 += soname-equals-filename|file=/opt/csw/lib/sparcv9/libfreebl_64fpu_3.so
-CHECKPKG_OVERRIDES_CSWlibfreebl3 += soname-equals-filename|file=/opt/csw/lib/sparcv9/libfreebl_64int_3.so
-CHECKPKG_OVERRIDES_CSWlibfreebl3 += soname-equals-filename|file=/opt/csw/lib/libfreebl_32int_3.so
-CHECKPKG_OVERRIDES_CSWlibfreebl3 += soname-equals-filename|file=/opt/csw/lib/libfreebl_32int64_3.so
-CHECKPKG_OVERRIDES_CSWlibfreebl3 += soname-equals-filename|file=/opt/csw/lib/libfreebl_32fpu_3.so
-CHECKPKG_OVERRIDES_CSWlibfreebl3 += soname-equals-filename|file=/opt/csw/lib/sparcv9/libfreebl3.so
-CHECKPKG_OVERRIDES_CSWlibfreebl3 += soname-equals-filename|file=/opt/csw/lib/amd64/libfreebl3.so
-CHECKPKG_OVERRIDES_CSWlibfreebl3 += soname-equals-filename|file=/opt/csw/lib/libfreebl3.so
 
 PACKAGES += CSWlibnss-dev
 CATALOGNAME_CSWlibnss-dev = libnss_dev
@@ -172,9 +164,6 @@ RUNTIME_DEP_PKGS_CSWlibnss-dev += CSWlibnssutil3
 RUNTIME_DEP_PKGS_CSWlibnss-dev += CSWlibnssdbm3
 RUNTIME_DEP_PKGS_CSWlibnss-dev += CSWlibnssckbi
 RUNTIME_DEP_PKGS_CSWlibnss-dev += CSWlibfreebl3
-CHECKPKG_OVERRIDES_CSWlibnssckbi += soname-equals-filename|file=/opt/csw/lib/libnssckbi.so
-CHECKPKG_OVERRIDES_CSWlibnssckbi += soname-equals-filename|file=/opt/csw/lib/sparcv9/libnssckbi.so
-CHECKPKG_OVERRIDES_CSWlibnssckbi += soname-equals-filename|file=/opt/csw/lib/amd64/libnssckbi.so
 # OBSOLETED_BY_CSWlibnss-dev = CSWlibnss3-devel
 
 PACKAGES += CSWlibnss3-tools
