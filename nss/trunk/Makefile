@@ -167,7 +167,6 @@ RUNTIME_DEP_PKGS_CSWlibnss-dev += CSWlibfreebl3
 # OBSOLETED_BY_CSWlibnss-dev = CSWlibnss3-devel
 
 PACKAGES += CSWnss3-tools
-CATALOGNAME_CSWnss3-tools = libnss3_tools
 SPKG_DESC_CSWnss3-tools = Network Security Services library, command-line utilities
 PKGFILES_CSWnss3-tools = $(bindir).*
 RUNTIME_DEP_PKGS_CSWnss3-tools += CSWlibnss3
@@ -181,6 +180,10 @@ RUNTIME_DEP_PKGS_CSWnss3-tools += CSWlibnssutil3
 RUNTIME_DEP_PKGS_CSWnss3-tools += CSWlibsoftokn3
 RUNTIME_DEP_PKGS_CSWnss3-tools += CSWlibnssdbm3 
 RUNTIME_DEP_PKGS_CSWnss3-tools += CSWlibfreebl3
+CHECKPKG_OVERRIDES_CSWnss3-tools += surplus-dependency|CSWlibfreebl3
+CHECKPKG_OVERRIDES_CSWnss3-tools += surplus-dependency|CSWlibnssdbm3
+CHECKPKG_OVERRIDES_CSWnss3-tools += surplus-dependency|CSWlibsoftokn3
+OBSOLETED_BY_CSWnss3-tools = CSWlibnss3-tools
 
 BUILD_DEP_PKGS = $(RUNTIME_DEP_PKGS) CSWnspr-dev CSWlibsqlite3-dev
 
