@@ -14,6 +14,8 @@ endef
 MASTER_SITES = http://www.brendangregg.com/
 DISTFILES  = $(NAME)-$(VERSION).tar.gz
 
+VENDOR_URL = http://www.brendangregg.com/dtrace.html
+
 PACKAGES = CSWdtracetoolkit
 LICENSE = License
 
@@ -25,8 +27,6 @@ TEST_SCRIPTS =
 INSTALL_SCRIPTS = custom
 
 include gar/category.mk
-
-SPKG_SOURCEURL = http://www.brendangregg.com/dtrace.html
 
 USEFUL_SCRIPTS = dexplorer dtruss dvmstat errinfo execsnoop hotkernel hotuser \
 	iopattern iosnoop iotop opensnoop procsystime rwsnoop rwtop statsnoop
