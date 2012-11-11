@@ -2,8 +2,6 @@ NAME = nmap
 VERSION = 6.01
 GARTYPE = v2
 
-PACKAGING_PLATFORMS = solaris10-i386 solaris10-sparc
-
 DESCRIPTION = A network exploration tool and security/port scanner
 define BLURB
   Nmap is a utility for network exploration or security auditing. It supports
@@ -19,19 +17,6 @@ endef
 MASTER_SITES = http://nmap.org/dist/
 DISTFILES = $(NAME)-$(VERSION).tar.bz2
 
-# Patches unless this is fixed:
-#   http://seclists.org/nmap-dev/2011/q3/646
-#PATCHFILES += 0001-Add-definition-for-INT_MAX.patch
-#PATCHFILES += 0002-Add-definitions-for-CMSG_ALIGN-CMSG_SPACE-and-CMSG_L.patch
-#PATCHFILES += 0003-Do-not-use-__attribute__.patch
-#PATCHFILES += 0004-Make-lt_sockaddr_storage-operator-const-or-compiler-.patch
-#PATCHFILES += 0005-Fix-const-definition-of-route_dst-or-c-linkage-fails.patch
-
-# From http://seclists.org/nmap-dev/2011/q3/640
-# This is needed for pcre 8.13
-#PATCHFILES += collatingsvn.patch
-# The above doesn't apply, this is the forward-port:
-#PATCHFILES += 0006-Forward-port-of-collatingsvn.patch.patch
 
 BUILD_DEP_PKGS += CSWlibpcre-dev
 BUILD_DEP_PKGS += CSWlibpcap-dev
@@ -39,9 +24,8 @@ BUILD_DEP_PKGS += CSWlibssl-dev
 
 PACKAGES += CSWnmap
 SPKG_DESC_CSWnmap = A network exploration tool and security/port scanner
-RUNTIME_DEP_PKGS_CSWnmap += CSWstlport
 RUNTIME_DEP_PKGS_CSWnmap += CSWlibpcre0
-RUNTIME_DEP_PKGS_CSWnmap += CSWosslrt
+RUNTIME_DEP_PKGS_CSWnmap += CSWlibssl1-0-0
 RUNTIME_DEP_PKGS_CSWnmap += CSWlibpcap1
 RUNTIME_DEP_PKGS_CSWnmap += CSWlua
 RUNTIME_DEP_PKGS_CSWnmap += CSWpython
@@ -62,21 +46,18 @@ PKGFILES_CSWzenmap += $(libdir)/python/.*
 PKGFILES_CSWzenmap += $(mandir)/.*/zenmap\.1
 PKGFILES_CSWzenmap += $(sharedstatedir)/zenmap/.*
 
-# Without/with IPv6
-PACKAGING_PLATFORMS = solaris9-sparc solaris9-i386                                        
-PACKAGING_PLATFORMS += solaris10-sparc solaris10-i386
 
 # See standards(5) for details
-EXTRA_CPPFLAGS += -features=extensions -D_XOPEN_SOURCE -D_XOPEN_SOURCE_EXTENDED=1 -D__EXTENSIONS__
-EXTRA_CXXFLAGS += -features=extensions -D_XOPEN_SOURCE -D_XOPEN_SOURCE_EXTENDED=1 -D__EXTENSIONS__
-EXTRA_CXXFLAGS += -library=stlport4
+# we disable this (for) now, because we're switching the compiler to GCC4
+#EXTRA_CPPFLAGS += -features=extensions -D_XOPEN_SOURCE -D_XOPEN_SOURCE_EXTENDED=1 -D__EXTENSIONS__
+#EXTRA_CXXFLAGS += -features=extensions -D_XOPEN_SOURCE -D_XOPEN_SOURCE_EXTENDED=1 -D__EXTENSIONS__
+#EXTRA_CXXFLAGS += -library=stlport4
 
 CONFIGURE_ARGS  = $(DIRPATHS)
 CONFIGURE_ARGS += --with-libpcre=$(prefix)
 CONFIGURE_ARGS += --with-libpcap=$(prefix)
 CONFIGURE_ARGS += --with-openssl=$(prefix)
 
-CONFIGURE_ARGS_5.9 = --disable-ipv6
 CONFIGURE_ARGS += $(CONFIGURE_ARGS_$(GAROSREL))
 
 # Use included libdnet as it contains many important fixes as described at
@@ -89,10 +70,6 @@ CONFIGURE_ARGS += --with-liblua=$(prefix)
 # CONFIGURE_ARGS += --with-libnbase=
 # CONFIGURE_ARGS += --with-libnsock=
 
-# We can't put this in EXTRA_LINKER_FLAGS as LDFLAGS is used for cc too and -library=stlport4 breaks cc
-BUILD_OVERRIDE_VARS = STATIC
-BUILD_OVERRIDE_VAR_STATIC = -library=stlport4 -norunpath
-
 # There is no testsuite
 TEST_SCRIPTS =
 
@@ -100,6 +77,9 @@ PYCOMPILE = 1
 
 EXTRA_MERGE_EXCLUDE_FILES += $(bindir)/uninstall_zenmap
 EXTRA_PAX_ARGS += -s ',/ndiff,/nmap-ndiff,'
+
+
+GARCOMPILER = GCC4
 
 include gar/category.mk
 
