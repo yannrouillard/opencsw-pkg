@@ -13,7 +13,7 @@ define BLURB
   * A set of extensions for writing GUIs and "network aware" scripts.
 endef
 
-SF_PROJ = setoolkit
+SF_PROJECT = setoolkit
 MASTER_SITES = $(SF_MIRRORS)
 DISTFILES  = $(DISTNAME).tar.gz
 

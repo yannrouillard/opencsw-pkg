@@ -6,7 +6,7 @@ DESCRIPTION =  Command line SNMP based network adminstration tool for printers
 define BLURB
 endef
 
-SF_PROJ = lpr
+SF_PROJECT = lpr
 MASTER_SITES = $(SF_MIRRORS)
 DISTFILES  = $(NAME)-$(VERSION).tar.gz
 

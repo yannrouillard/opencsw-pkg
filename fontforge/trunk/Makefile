@@ -11,7 +11,7 @@ define BLURB
 endef
 SPKG_SOURCEURL = http://fontforge.sourceforge.net/
 MASTER_SITES = $(SF_MIRRORS)
-SF_PROJ = fontforge
+SF_PROJECT = fontforge
 RUNTIME_DEP_PKGS += CSWggettextrt
 RUNTIME_DEP_PKGS += CSWiconv
 RUNTIME_DEP_PKGS += CSWpython

@@ -19,7 +19,7 @@ define BLURB
   issues to the best of his knowledge.
 endef
 
-SF_PROJ = easytag
+SF_PROJECT = easytag
 MASTER_SITES = $(SF_MIRROR)
 DISTFILES  = $(DISTNAME).tar.bz2
 

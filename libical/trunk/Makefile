@@ -7,7 +7,7 @@ DESCRIPTION = Library that implements the iCal protocols in RFC2445, RFC2446, RF
 define BLURB
 endef
 
-SF_PROJ = freeassociation
+SF_PROJECT = freeassociation
 MASTER_SITES = $(SF_MIRROR)
 DISTFILES  = $(NAME)-$(VERSION).tar.gz
 

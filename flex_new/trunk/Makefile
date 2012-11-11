@@ -15,7 +15,7 @@ endef
 
 SPKG_SOURCEURL = http://flex.sourceforge.net/
 
-SF_PROJ = flex
+SF_PROJECT = flex
 MASTER_SITES = $(SF_MIRRORS)
 DISTNAME = flex-$(VERSION)
 DISTFILES  = $(DISTNAME).tar.bz2

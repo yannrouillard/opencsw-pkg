@@ -7,7 +7,7 @@ DESCRIPTION = Mail delivery agent with filtering abilities
 define BLURB
 endef
 
-SF_PROJ = courier
+SF_PROJECT = courier
 MASTER_SITES = $(SF_MIRROR)
 DISTFILES  = $(NAME)-$(VERSION).tar.bz2
 

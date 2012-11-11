@@ -19,7 +19,7 @@ endef
 
 # Usually we would use $(SF_MIRROR), but the procps folks didn't upload
 # procps the usual way
-SF_PROJ        = procps
+SF_PROJECT        = procps
 SF_PROJ_VER    = 3.2.8
 MASTER_SITES   = http://$(SF_PROJ).sourceforge.net/
 DISTFILES      = $(SF_PROJ)-$(SF_PROJ_VER).tar.gz

@@ -12,7 +12,7 @@ define BLURB
 endef
 
 VENDOR_URL = http://www.gtkpod.org
-SF_PROJ = gtkpod
+SF_PROJECT = gtkpod
 MASTER_SITES = $(SF_MIRRORS)
 DISTFILES  = $(NAME)-$(VERSION).tar.gz
 #PATCHFILES  = file_convert.diff

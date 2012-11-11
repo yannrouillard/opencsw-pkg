@@ -14,7 +14,7 @@ define BLURB
 endef
 
 MASTER_SITES = $(SF_MIRRORS)
-SF_PROJ = heirloom
+SF_PROJECT = heirloom
 DISTFILES  = $(NAME)-$(VERSION).tar.bz2
 
 SPKG_CLASSES = none cswcpsampleconf

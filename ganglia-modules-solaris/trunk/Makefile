@@ -18,7 +18,7 @@ define BLURB
   request rates, average service time and average wait time.
 endef
 
-SF_PROJ = gmod-solaris
+SF_PROJECT = gmod-solaris
 MASTER_SITES = $(SF_MIRRORS)
 DISTFILES  = $(NAME)-$(VERSION).tar.gz
 DISTFILES += $(PATCHFILES)

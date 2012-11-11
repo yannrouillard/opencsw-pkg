@@ -8,7 +8,7 @@ define BLURB
   under the GPLv2 license.
 endef
 
-SF_PROJ = faac
+SF_PROJECT = faac
 MASTER_SITES = $(SF_MIRRORS)
 DISTFILES = $(DISTNAME).tar.bz2
 PATCHFILES  = 0001-Remove-iquote-from-CFLAGS-unknown-to-SS.patch

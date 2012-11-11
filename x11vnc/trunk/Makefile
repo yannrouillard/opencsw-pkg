@@ -6,7 +6,7 @@ DESCRIPTION = Allows one to view remotely and interact with real X displays
 define BLURB
 endef
 
-SF_PROJ = libvncserver
+SF_PROJECT = libvncserver
 MASTER_SITES = $(SF_MIRROR)
 DISTFILES  = $(NAME)-$(VERSION).tar.gz
 

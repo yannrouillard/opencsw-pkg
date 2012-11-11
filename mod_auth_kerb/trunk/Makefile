@@ -9,7 +9,7 @@ define BLURB
   however, need to supply your own RADIUS server to perform the actual authentication.
 endef
 
-SF_PROJ = modauthkerb
+SF_PROJECT = modauthkerb
 MASTER_SITES = $(SF_MIRROR)
 DISTFILES  = $(NAME)-$(VERSION).tar.gz
 

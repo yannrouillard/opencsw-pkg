@@ -7,7 +7,7 @@ define BLURB
   PNP is an addon to nagios which analyzes performance data provided by plugins and stores them automatically into RRD-databases
 endef
 
-SF_PROJ = pnp4nagios
+SF_PROJECT = pnp4nagios
 MASTER_SITES = $(SF_MIRRORS)
 DISTFILES  = $(NAME)-$(VERSION).tar.gz
 DISTFILES += $(call admfiles,CSWpnp, prototype )

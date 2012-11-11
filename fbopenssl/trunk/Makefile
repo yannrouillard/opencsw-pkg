@@ -9,7 +9,7 @@ define BLURB
   - SPNEGO (RFC 2478)
 endef
 
-SF_PROJ = modgssapache
+SF_PROJECT = modgssapache
 MASTER_SITES = $(SF_MIRRORS)
 DISTNAME = $(NAME)
 DISTFILES  = $(NAME)-$(VERSION).tar.gz

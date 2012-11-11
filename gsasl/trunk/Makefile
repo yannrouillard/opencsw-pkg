@@ -10,7 +10,7 @@ define BLURB
   authentication from clients, and in clients to authenticate against servers.
 endef
 
-GNU_PROJ = gsasl
+GNU_PROJECT = gsasl
 MASTER_SITES = $(GNU_MIRROR)
 MASTER_SITES += http://daily.josefsson.org/gsasl/
 DISTFILES  = $(NAME)-$(VERSION).tar.gz

@@ -7,7 +7,7 @@ DESCRIPTION = XSPF Playlist Reading and Writing Support for C++ Applications
 define BLURB
 endef
 
-SF_PROJ = libspiff
+SF_PROJECT = libspiff
 MASTER_SITES = $(SF_MIRROR)
 DISTFILES  = $(NAME)-$(VERSION).tar.lzma
 

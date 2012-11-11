@@ -10,7 +10,7 @@ define BLURB
   and libraries will be available at this site, in addition to Xfig drawings.
 endef
 
-SF_PROJ = mcj
+SF_PROJECT = mcj
 MASTER_SITES = $(SF_MIRROR)
 DISTNAME = $(NAME).$(VERSION)
 DISTFILES  = $(DISTNAME).full.tar.gz

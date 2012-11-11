@@ -14,7 +14,7 @@ define BLURB
 	as well as being distributed in major linux environments. 
 endef
 
-SF_PROJ = lcms
+SF_PROJECT = lcms
 MASTER_SITES = $(SF_MIRRORS)
 DISTFILES  = $(NAME)-$(VERSION).tar.gz
 

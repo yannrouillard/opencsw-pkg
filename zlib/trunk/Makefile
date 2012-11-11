@@ -19,7 +19,7 @@ endef
 
 MASTER_SITES  = http://zlib.net/
 MASTER_SITES += $(SF_MIRROR)
-SF_PROJ = libpng
+SF_PROJECT = libpng
 DISTFILES  = $(DISTNAME).tar.bz2
 DISTFILES += COPYING
 

@@ -31,7 +31,7 @@ define BLURB
   design, it is remarkably easy to extend and add functionality. 
 endef
 
-SF_PROJ = sqsh
+SF_PROJECT = sqsh
 MASTER_SITES = $(SF_MIRRORS)
 DISTFILES  = $(DISTNAME).tar.gz
 

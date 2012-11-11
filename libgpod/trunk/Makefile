@@ -10,7 +10,7 @@ define BLURB
   playlists, playcounts, ratings, podcasts and cover art.
 endef
 
-SF_PROJ = gtkpod
+SF_PROJECT = gtkpod
 MASTER_SITES = $(SF_MIRRORS)
 DISTFILES  = $(NAME)-$(VERSION).tar.gz
 

@@ -7,7 +7,7 @@ define BLURB
 	An Open Implementation of SIP/Simple protocol for Pidgin
 endef
 
-SF_PROJ = sipe
+SF_PROJECT = sipe
 MASTER_SITES = $(SF_MIRRORS)
 UPSTREAM_USE_SF = 1
 DISTFILES  = $(NAME)-$(VERSION).tar.bz2

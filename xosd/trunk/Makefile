@@ -10,7 +10,7 @@ define BLURB
 endef
 
 MASTER_SITES = $(SF_MIRROR)
-SF_PROJ = libxosd
+SF_PROJECT = libxosd
 DISTFILES  = $(DISTNAME).tar.gz
 
 PATCHFILES += 0001-Do-not-unconditionally-use-Wall-on-Sun-Studio-compil.patch

@@ -7,7 +7,7 @@ DESCRIPTION = RFC 3986 Compliant URI Parsing Library
 define BLURB
 endef
 
-SF_PROJ = uriparser
+SF_PROJECT = uriparser
 MASTER_SITES = $(SF_MIRROR)
 DISTNAME = $(SF_PROJ)-$(VERSION)
 DISTFILES  = $(DISTNAME).tar.bz2

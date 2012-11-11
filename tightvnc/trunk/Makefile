@@ -10,7 +10,7 @@ define BLURB
   keyboard, just like you would do it sitting in the front of that computer.
 endef
 
-SF_PROJ = vnc-tight
+SF_PROJECT = vnc-tight
 MASTER_SITES = $(SF_MIRRORS)
 DISTFILES  = $(NAME)-$(VERSION)_unixsrc.tar.bz2
 DISTFILES += vncservers

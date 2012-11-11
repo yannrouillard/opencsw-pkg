@@ -13,7 +13,7 @@ define BLURB
 endef
 SPKG_SOURCEURL = http://roscidus.com/desktop/ROX-Filer
 MASTER_SITES = $(SF_MIRRORS)
-SF_PROJ = rox
+SF_PROJECT = rox
 DISTFILES  = $(NAME)-$(VERSION).tar.bz2
 UFILES_REGEX = $(NAME)-(\d+(?:\.\d+)*).tar.bz2
 RUNTIME_DEP_PKGS_CSWroxfiler  = CSWbash

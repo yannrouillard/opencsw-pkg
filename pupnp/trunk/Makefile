@@ -9,7 +9,7 @@ DESCRIPTION = Portable UPnP SDK
 define BLURB
 endef
 
-SF_PROJ = pupnp
+SF_PROJECT = pupnp
 MASTER_SITES = $(SF_MIRROR)
 DISTFILES += $(DISTNAME).tar.bz2
 

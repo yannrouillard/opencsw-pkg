@@ -6,7 +6,7 @@ DESCRIPTION = An ISO C library for reading and writing Matlab MAT files
 define BLURB
 endef
 
-SF_PROJ = matio
+SF_PROJECT = matio
 MASTER_SITES = $(SF_MIRRORS)
 DISTNAME = $(SF_PROJ)-$(VERSION)
 DISTFILES  = $(DISTNAME).tar.gz

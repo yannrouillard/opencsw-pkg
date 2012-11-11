@@ -6,7 +6,7 @@ DESCRIPTION = Tcl programming language v8.5
 define BLURB
 endef
 
-SF_PROJ = tcl
+SF_PROJECT = tcl
 MASTER_SITES = $(SF_MIRRORS)
 DISTNAME = $(SF_PROJ)$(VERSION)
 DISTFILES  = $(DISTNAME)-src.tar.gz

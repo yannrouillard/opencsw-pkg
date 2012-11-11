@@ -10,7 +10,7 @@ define BLURB
   are fully implemented.
 endef
 
-SF_PROJ = mad
+SF_PROJECT = mad
 MASTER_SITES = $(SF_MIRRORS)
 DISTFILES = $(DISTNAME).tar.gz
 DISTFILES += mad-32.pc mad-64.pc

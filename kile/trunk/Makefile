@@ -9,7 +9,7 @@ define BLURB
   example) and SPARC.
 endef
 
-SF_PROJ = kile
+SF_PROJECT = kile
 MASTER_SITES = $(SF_MIRRORS)
 DISTFILES  = $(NAME)-$(VERSION).tar.bz2
 DISTFILES += $(call admfiles,CSWkile,depend prototype)

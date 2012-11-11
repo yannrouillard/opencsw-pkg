@@ -12,7 +12,7 @@ define BLURB
   planned to be implemented soon.
 endef
 
-GNU_PROJ = lzip
+GNU_PROJECT = lzip
 MASTER_SITES = $(GNU_NMIRROR)
 DISTFILES  = $(DISTNAME).tar.gz
 PATCHFILES  = 0001-Add-prototype-for-kill-2.patch

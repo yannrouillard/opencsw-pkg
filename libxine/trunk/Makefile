@@ -7,7 +7,7 @@ define BLURB
 xine-lib is the engine of xine. It contains all basic plugins and is necessary to run anything that relies on xine.
 endef
 
-SF_PROJ = xine
+SF_PROJECT = xine
 MASTER_SITES = http://prdownloads.sourceforge.net/xine/
 
 DISTFILES  = xine-lib-$(VERSION).tar.bz2

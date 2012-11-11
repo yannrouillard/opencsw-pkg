@@ -7,7 +7,7 @@ define BLURB
 	# TODO: Add blurb
 endef
 
-SF_PROJ = modauthmysql
+SF_PROJECT = modauthmysql
 MASTER_SITES = $(SF_MIRRORS)
 DISTFILES += $(NAME)-$(VERSION).tar.gz
 ADMFILES   = depend prototype postinstall preremove copyright

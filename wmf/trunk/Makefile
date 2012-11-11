@@ -10,7 +10,7 @@ define BLURB
 	e.g., the W3C's XML-based Scaleable Vector Graphic (SVG) format. 
 endef
 
-SF_PROJ = wvware
+SF_PROJECT = wvware
 MASTER_SITES = $(SF_MIRRORS)
 DISTNAME = libwmf-$(VERSION)
 DISTFILES  = $(DISTNAME).tar.gz

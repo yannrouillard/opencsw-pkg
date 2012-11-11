@@ -6,7 +6,7 @@ DESCRIPTION = An enterprise-class system for sending and receiving facsimiles an
 define BLURB
 endef
 
-SF_PROJ = hylafax
+SF_PROJECT = hylafax
 MASTER_SITES = $(SF_MIRRORS)
 DISTFILES  = $(NAME)-$(VERSION).tar.gz
 DISTFILES += $(call admfiles,CSWhylafax,prototype depend postinstall preremove postremove)

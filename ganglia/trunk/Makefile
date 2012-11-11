@@ -27,7 +27,7 @@ define BLURB
   at federations of clusters.
 endef
 
-SF_PROJ = ganglia
+SF_PROJECT = ganglia
 MASTER_SITES = $(SF_MIRRORS)
 DISTFILES  = $(NAME)-$(VERSION).tar.gz
 DISTFILES += CSWgangliaweb.postinstall CSWgangliaweb.preremove

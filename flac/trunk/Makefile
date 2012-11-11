@@ -24,7 +24,7 @@ define BLURB
   would an MP3 file.
 endef
 
-SF_PROJ = flac
+SF_PROJECT = flac
 MASTER_SITES = $(SF_MIRRORS)
 DISTNAME = $(SF_PROJ)-$(VERSION)
 SOURCEFILES = $(foreach VERSION,$(MODULATIONS_VERSION),$(SF_PROJ)-$(VERSION).tar.gz)

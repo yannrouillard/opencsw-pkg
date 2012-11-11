@@ -8,7 +8,7 @@ define BLURB
 endef
 
 # It is hard to find the sources nowadays
-SF_PROJ = gnuwin32
+SF_PROJECT = gnuwin32
 MASTER_SITES = $(SF_MIRROR)
 DISTFILES  = $(NAME)-$(DISTVERSION)-2-src.zip
 

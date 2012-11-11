@@ -6,7 +6,7 @@ DESCRIPTION = An optimised MPEG Audio Layer 2 (MP2) encoder based on tooLAME
 define BLURB
 endef
 
-SF_PROJ = twolame
+SF_PROJECT = twolame
 MASTER_SITES = $(SF_MIRRORS)
 DISTFILES  = $(NAME)-$(VERSION).tar.gz
 

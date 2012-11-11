@@ -41,7 +41,7 @@ DISTFILES += libwx_gtk2u_gl-2.8.so.0.2.0-i386
 DISTFILES += libwx_gtk2u_gl-2.8.so.0.2.0-sparc
 SPKG_SOURCEURL = http://www.wxwidgets.org/
 MASTER_SITES  = $(SF_MIRRORS)
-SF_PROJ = wxwindows
+SF_PROJECT = wxwindows
 
 
 PATCHFILES_isa-i386-version-2.8.5  = 0500-wxT-macro-first-iteration.patch

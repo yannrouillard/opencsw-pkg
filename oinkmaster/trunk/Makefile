@@ -8,7 +8,7 @@ define BLURB
 endef
 
 MASTER_SITES += $(SF_MIRRORS)
-SF_PROJ = oinkmaster
+SF_PROJECT = oinkmaster
 DISTFILES += $(NAME)-$(VERSION).tar.gz
 
 LICENSE = LICENSE

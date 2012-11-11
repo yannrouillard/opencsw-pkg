@@ -6,7 +6,7 @@ DESCRIPTION = GUI toolkit for tcl
 define BLURB
 endef
 
-SF_PROJ = tcl
+SF_PROJECT = tcl
 MASTER_SITES = $(SF_MIRRORS)
 
 DISTNAME = $(NAME)$(VERSION)

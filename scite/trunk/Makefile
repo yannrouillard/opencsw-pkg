@@ -10,7 +10,7 @@ define BLURB
   Long description
 endef
 
-SF_PROJ = scintilla
+SF_PROJECT = scintilla
 MASTER_SITES = $(SF_MIRROR)
 DISTFILES  = scite$(VERSION).tgz
 

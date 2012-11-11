@@ -10,7 +10,7 @@ define BLURB
   long description of the differences.
 endef
 
-SF_PROJ = enlightenment
+SF_PROJECT = enlightenment
 MASTER_SITES = $(SF_MIRRORS)
 DISTFILES  = $(NAME)-$(VERSION).tar.bz2
 

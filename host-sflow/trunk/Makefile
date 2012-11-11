@@ -12,7 +12,7 @@ define BLURB
   on the systems being monitored.
 endef
 
-SF_PROJ = host-sflow
+SF_PROJECT = host-sflow
 MASTER_SITES = $(SF_MIRRORS)
 DISTFILES  = $(NAME)-$(VERSION).tar.gz
 

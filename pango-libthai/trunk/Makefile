@@ -6,7 +6,7 @@ DESCRIPTION = Pango bindings for Thai language support
 define BLURB
 endef
 
-SF_PROJ = libthai
+SF_PROJECT = libthai
 MASTER_SITES = $(SF_MIRRORS)
 DISTFILES  = $(NAME)-$(VERSION).tar.gz
 

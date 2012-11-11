@@ -14,7 +14,7 @@ cplay. If ncmpc is used with lirc and irpty it can be used
 to manage playlists and control MPD with a remote control.
 endef
 
-SF_PROJ = musicpd
+SF_PROJECT = musicpd
 MASTER_SITES = $(SF_MIRRORS)
 DISTFILES  = $(NAME)-$(VERSION).tar.gz
 

@@ -11,7 +11,7 @@ define BLURB
   diff, patch, join, etc utilities.
 endef
 
-SF_PROJ = xmlstar
+SF_PROJECT = xmlstar
 MASTER_SITES = $(SF_MIRRORS)
 DISTFILES = $(DISTNAME).tar.gz
 

@@ -12,7 +12,7 @@ define BLURB
   admins to block comment spammers, harvesters, and other malicious IPs.
 endef
 
-SF_PROJ = httpbl
+SF_PROJECT = httpbl
 # Project for download on CVS
 MASTER_SITES = http://httpbl.cvs.sourceforge.net/viewvc/httpbl/mod_httpbl_for_apache_2.0/mod_httpbl_source/
 DISTNAME =

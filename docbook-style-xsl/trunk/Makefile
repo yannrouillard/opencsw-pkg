@@ -29,7 +29,7 @@ SPKG_DESC_CSWdocbookxsl = Norman Walsh's XSL stylesheets for DocBook XML
 SPKG_DESC_CSWdocbookxsldoc = Documentation for the Docbook XSL stylesheets
 
 # docbook-xsl is housed in the docbook master project at SF.
-SF_PROJ = docbook
+SF_PROJECT = docbook
 MASTER_SITES = $(SF_MIRRORS)
 DISTFILES  = docbook-xsl-$(VERSION).tar.bz2
 DISTFILES += docbook-xsl-doc-$(VERSION).tar.bz2

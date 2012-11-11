@@ -11,7 +11,7 @@ define BLURB
 	ever-wider range of algorithms and modes
 endef
 
-SF_PROJ = mcrypt
+SF_PROJECT = mcrypt
 DISTNAME = lib$(NAME)-$(VERSION)
 MASTER_SITES = $(SF_MIRRORS)
 DISTFILES  = $(DISTNAME).tar.gz

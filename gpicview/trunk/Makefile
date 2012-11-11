@@ -9,7 +9,7 @@ endef
 
 VENDOR_URL   = http://lxde.sourceforge.net/gpicview/
 MASTER_SITES = $(SF_MIRRORS)
-SF_PROJ      = lxde
+SF_PROJECT      = lxde
 DISTFILES    = $(NAME)-$(VERSION).tar.gz
 
 RUNTIME_DEP_PKGS += CSWlibatk

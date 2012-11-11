@@ -16,7 +16,7 @@ define BLURB
   SNMP v1, SNMP v2c and SNMP v3 using both IPv4 and IPv6. The suite includes:
 endef
 
-SF_PROJ = net-snmp
+SF_PROJECT = net-snmp
 MASTER_SITES = $(SF_MIRRORS)
 DISTNAME = $(SF_PROJ)-$(VERSION)
 DISTFILES = $(DISTNAME).tar.gz

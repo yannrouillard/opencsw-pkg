@@ -8,7 +8,7 @@ define BLURB
 endef
 
 MASTER_SITES = $(SF_MIRRORS)
-SF_PROJ = $(NAME)
+SF_PROJECT = $(NAME)
 DISTFILES  = $(NAME)-$(VERSION).tar.bz2
 
 # We define upstream file regex so we can be notifed of new upstream software release

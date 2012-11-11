@@ -7,7 +7,7 @@ DESCRIPTION = A library for reading and (eventually) writing ID3 tags
 define BLURB
 endef
 
-SF_PROJ = mad
+SF_PROJECT = mad
 MASTER_SITES = $(SF_MIRRORS)
 DISTFILES  = $(NAME)-$(VERSION)$(REV).tar.gz
 DISTFILES += id3tag.pc-32 id3tag.pc-64

@@ -43,7 +43,7 @@ PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386
 
 # Imapproxy is now Squirrelmail IMAP Proxy and is now available
 # in squirrelaim sourceforge projet
-SF_PROJ = squirrelmail
+SF_PROJECT = squirrelmail
 MASTER_SITES = $(SF_MIRRORS)
 
 UPSTREAM_MASTER_SITES = http://squirrelmail.org/download.php#imap_proxy

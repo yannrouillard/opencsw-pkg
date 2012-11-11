@@ -9,7 +9,7 @@ define BLURB
 endef
 
 MASTER_SITES = $(SF_MIRRORS)
-SF_PROJ = $(NAME)
+SF_PROJECT = $(NAME)
 DISTFILES  = $(NAME)-src-$(VERSION).tar.gz
 
 VENDOR_URL = http://blogs.oracle.com/timc/entry/nicstat_the_solaris_and_linux

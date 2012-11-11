@@ -7,7 +7,7 @@ define BLURB
   FAAC is an open source MPEG-4 and MPEG-2 AAC encoder
 endef
 
-SF_PROJ = faac
+SF_PROJECT = faac
 MASTER_SITES = $(SF_MIRRORS)
 DISTFILES  = $(SF_PROJ)-$(VERSION).tar.bz2
 DISTNAME = $(SF_PROJ)-$(VERSION)

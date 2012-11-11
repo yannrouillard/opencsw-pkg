@@ -7,7 +7,7 @@ define BLURB
   Long description
 endef
 
-SF_PROJ = $(NAME)
+SF_PROJECT = $(NAME)
 MASTER_SITES = $(SF_MIRRORS)
 DISTFILES  = $(NAME)-$(VERSION).tar.gz
 

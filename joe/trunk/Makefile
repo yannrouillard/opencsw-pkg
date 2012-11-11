@@ -15,7 +15,7 @@ define BLURB
   UNIX-integration features of VI.
 endef
 
-SF_PROJ = joe-editor
+SF_PROJECT = joe-editor
 MASTER_SITES = $(SF_MIRROR)
 DISTFILES  = $(NAME)-$(VERSION).tar.gz
 

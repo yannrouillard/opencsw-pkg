@@ -20,7 +20,7 @@ endef
 # For example, faad.h test fails when faad.h is in /opt/csw/include.  This
 # might require patching.
 
-SF_PROJ = musicpd
+SF_PROJECT = musicpd
 MASTER_SITES = $(SF_MIRROR)
 DISTFILES  = $(NAME)-$(VERSION).tar.bz2
 DISTFILES += cswmpd.init

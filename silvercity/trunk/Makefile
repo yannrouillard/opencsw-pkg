@@ -8,7 +8,7 @@ define BLURB
 	analysis for over 20 programming and markup langauges.
 endef
 
-SF_PROJ = $(call TOLOWER,$(NAME))
+SF_PROJECT = $(call TOLOWER,$(NAME))
 MASTER_SITES = $(SF_MIRRORS)
 DISTFILES  = $(NAME)-$(VERSION).tar.gz
 PACKAGES = CSWsilvercity

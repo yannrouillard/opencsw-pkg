@@ -9,7 +9,7 @@ define BLURB
   NDOUtils allows you to export current and historical data from one or more Nagios instances to a MySQL database. Several community addons use this as one of their data sources.
 endef
 
-SF_PROJ = nagios
+SF_PROJECT = nagios
 MASTER_SITES = $(SF_MIRRORS)
 #MASTER_SITES = http://mesh.dl.sourceforge.net/sourceforge/nagios/
 DISTFILES  = $(NAME)-$(VERSION).tar.gz

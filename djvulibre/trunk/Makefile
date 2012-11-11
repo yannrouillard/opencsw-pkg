@@ -6,7 +6,7 @@ DESCRIPTION = DjVu standalone viewer, browser plug-in, command line tools
 define BLURB
 endef
 
-SF_PROJ = djvu
+SF_PROJECT = djvu
 MASTER_SITES = $(SF_MIRRORS)/DjVuLibre/$(VERSION)/
 DISTFILES  = $(NAME)-$(VERSION).tar.gz
 PATCHFILES += ddjvu.cpp.patch

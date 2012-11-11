@@ -18,7 +18,7 @@ systems and multi-user networks.
 endef
 
 MASTER_SITES = $(SF_MIRRORS)
-SF_PROJ = ijbswa
+SF_PROJECT = ijbswa
 DISTFILES  = $(NAME)-$(VERSION)-stable-src.tar.gz
 DISTNAME = $(NAME)-$(VERSION)-stable
 

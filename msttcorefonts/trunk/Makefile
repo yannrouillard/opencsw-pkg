@@ -19,7 +19,7 @@ define BLURB
 endef
 SPKG_SOURCEURL =
 MASTER_SITES = $(SF_MIRRORS)
-SF_PROJ = corefonts
+SF_PROJECT = corefonts
 EXE_FONT_FILES  = wd97vwr32.exe
 EXE_FONT_FILES += webdin32.exe
 EXE_FONT_FILES += verdan32.exe

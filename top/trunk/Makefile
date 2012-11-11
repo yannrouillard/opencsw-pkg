@@ -6,7 +6,7 @@ DESCRIPTION = Unix system state reporter
 define BLURB
 endef
 
-SF_PROJ = unixtop
+SF_PROJECT = unixtop
 MASTER_SITES = $(SF_MIRRORS)
 DISTFILES  = $(NAME)-$(VERSION).tar.gz
 

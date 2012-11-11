@@ -17,7 +17,7 @@ printed (for example, RTF or PostScript) or online (for example, HTML)
 format.  They are highly customizable.
 endef
 
-SF_PROJ = docbook
+SF_PROJECT = docbook
 MASTER_SITES = $(SF_MIRRORS)
 DISTFILES = docbook-dsssl-$(VERSION).tar.gz
 DISTFILES += CSWdocbookdsssl.postinstall CSWdocbookdsssl.preremove

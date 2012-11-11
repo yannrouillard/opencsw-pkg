@@ -10,7 +10,7 @@ define BLURB
 endef
 SPKG_SOURCEURL = http://www.phildev.net/pius/
 MASTER_SITES = $(SF_MIRRORS)
-SF_PROJ = pgpius
+SF_PROJECT = pgpius
 DISTFILES  = $(NAME)-$(VERSION).tar.bz2
 UFILES_REGEX = $(NAME)-(\d+(?:\.\d+)*).tar.bz2
 # What about CSWgnupg2?	

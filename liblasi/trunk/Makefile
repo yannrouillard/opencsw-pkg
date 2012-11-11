@@ -20,7 +20,7 @@ define BLURB
   ability to produce Postscript independent of any one application framework. 
 endef
 
-SF_PROJ = lasi
+SF_PROJECT = lasi
 MASTER_SITES = $(SF_MIRRORS)
 SOURCENAME = libLASi
 DISTNAME = $(SOURCENAME)-$(VERSION)
