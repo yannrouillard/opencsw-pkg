@@ -1,5 +1,5 @@
 NAME = nmap
-VERSION = 6.00
+VERSION = 6.01
 GARTYPE = v2
 
 PACKAGING_PLATFORMS = solaris10-i386 solaris10-sparc
@@ -21,21 +21,21 @@ DISTFILES = $(NAME)-$(VERSION).tar.bz2
 
 # Patches unless this is fixed:
 #   http://seclists.org/nmap-dev/2011/q3/646
-PATCHFILES += 0001-Add-definition-for-INT_MAX.patch
-PATCHFILES += 0002-Add-definitions-for-CMSG_ALIGN-CMSG_SPACE-and-CMSG_L.patch
-PATCHFILES += 0003-Do-not-use-__attribute__.patch
-PATCHFILES += 0004-Make-lt_sockaddr_storage-operator-const-or-compiler-.patch
-PATCHFILES += 0005-Fix-const-definition-of-route_dst-or-c-linkage-fails.patch
+#PATCHFILES += 0001-Add-definition-for-INT_MAX.patch
+#PATCHFILES += 0002-Add-definitions-for-CMSG_ALIGN-CMSG_SPACE-and-CMSG_L.patch
+#PATCHFILES += 0003-Do-not-use-__attribute__.patch
+#PATCHFILES += 0004-Make-lt_sockaddr_storage-operator-const-or-compiler-.patch
+#PATCHFILES += 0005-Fix-const-definition-of-route_dst-or-c-linkage-fails.patch
 
 # From http://seclists.org/nmap-dev/2011/q3/640
 # This is needed for pcre 8.13
 #PATCHFILES += collatingsvn.patch
 # The above doesn't apply, this is the forward-port:
-PATCHFILES += 0006-Forward-port-of-collatingsvn.patch.patch
+#PATCHFILES += 0006-Forward-port-of-collatingsvn.patch.patch
 
 BUILD_DEP_PKGS += CSWlibpcre-dev
 BUILD_DEP_PKGS += CSWlibpcap-dev
-BUILD_DEP_PKGS += CSWossldevel
+BUILD_DEP_PKGS += CSWlibssl-dev
 
 PACKAGES += CSWnmap
 SPKG_DESC_CSWnmap = A network exploration tool and security/port scanner
@@ -62,6 +62,10 @@ PKGFILES_CSWzenmap += $(libdir)/python/.*
 PKGFILES_CSWzenmap += $(mandir)/.*/zenmap\.1
 PKGFILES_CSWzenmap += $(sharedstatedir)/zenmap/.*
 
+# Without/with IPv6
+PACKAGING_PLATFORMS = solaris9-sparc solaris9-i386                                        
+PACKAGING_PLATFORMS += solaris10-sparc solaris10-i386
+
 # See standards(5) for details
 EXTRA_CPPFLAGS += -features=extensions -D_XOPEN_SOURCE -D_XOPEN_SOURCE_EXTENDED=1 -D__EXTENSIONS__
 EXTRA_CXXFLAGS += -features=extensions -D_XOPEN_SOURCE -D_XOPEN_SOURCE_EXTENDED=1 -D__EXTENSIONS__
@@ -71,6 +75,9 @@ CONFIGURE_ARGS  = $(DIRPATHS)
 CONFIGURE_ARGS += --with-libpcre=$(prefix)
 CONFIGURE_ARGS += --with-libpcap=$(prefix)
 CONFIGURE_ARGS += --with-openssl=$(prefix)
+
+CONFIGURE_ARGS_5.9 = --disable-ipv6
+CONFIGURE_ARGS += $(CONFIGURE_ARGS_$(GAROSREL))
 
 # Use included libdnet as it contains many important fixes as described at
 #   http://nmap.org/svn/libdnet-stripped/NMAP_MODIFICATIONS
@@ -96,5 +103,5 @@ EXTRA_PAX_ARGS += -s ',/ndiff,/nmap-ndiff,'
 
 include gar/category.mk
 
-post-extract-modulated:
-	-cd $(WORKSRC) && find . -type d | while read d; do touch $$d/makefile.dep; done
+#post-extract-modulated:
+#	-cd $(WORKSRC) && find . -type d | while read d; do touch $$d/makefile.dep; done
