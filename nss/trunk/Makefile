@@ -180,6 +180,7 @@ RUNTIME_DEP_PKGS_CSWnss3-tools += CSWlibnssutil3
 # plugins accessed via dlopen
 RUNTIME_DEP_PKGS_CSWnss3-tools += CSWlibsoftokn3
 RUNTIME_DEP_PKGS_CSWnss3-tools += CSWlibnssdbm3 
+RUNTIME_DEP_PKGS_CSWnss3-tools += CSWlibfreebl3
 
 BUILD_DEP_PKGS = $(RUNTIME_DEP_PKGS) CSWnspr-dev CSWlibsqlite3-dev
 
