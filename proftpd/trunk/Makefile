@@ -1,5 +1,5 @@
 NAME = proftpd
-VERSION = 1.3.4a
+VERSION = 1.3.4b
 GARTYPE = v2
 
 DESCRIPTION = Advanced, incredibly configurable and secure FTP daemon
@@ -13,36 +13,39 @@ define BLURB
 endef
 
 MASTER_SITES = ftp://ftp.proftpd.org/distrib/source/
-DISTFILES    = $(NAME)-$(VERSION).tar.bz2
+DISTFILES    = $(NAME)-$(VERSION).tar.gz
 DISTFILES   += cswproftpd
 
-LICENSE      = COPYING
-
 # We define upstream file regex so we can be notifed of new upstream software release
-UFILES_REGEX = $(NAME)-(\d+(?:\.\d+)*).tar.bz2
+UFILES_REGEX = $(NAME)-(\d+(?:\.\d+)*).tar.gz
 
-PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386
+RUNTIME_DEP_PKGS_CSWproftpd += CSWlibsqlite3-0
+RUNTIME_DEP_PKGS_CSWproftpd += CSWlibssl1-0-0
+RUNTIME_DEP_PKGS_CSWproftpd += CSWlibz1
+RUNTIME_DEP_PKGS_CSWproftpd += CSWlibintl8
+RUNTIME_DEP_PKGS_CSWproftpd += CSWlibmysqlclient18
+RUNTIME_DEP_PKGS_CSWproftpd += CSWlibiconv2
+RUNTIME_DEP_PKGS_CSWproftpd += CSWlibldap2-4-2
 
-RUNTIME_DEP_PKGS = CSWlibssl1-0-0 CSWlibintl8 CSWlibiconv2 CSWlibldap2-4-2 CSWliblber2-4-2 CSWlibz1 CSWlibmysqlclient18 CSWlibsqlite3-0
-
-EXTRA_BUILD_ISAS_i386  = amd64
-EXTRA_BUILD_ISAS_sparc = sparcv9
+BUILD64 = 1
 
 ISAEXEC_DIRS                = $(bindir) $(sbindir)
-EXTRA_ISAEXEC_EXCLUDE_FILES = $(bindir)/ftpasswd $(bindir)/ftpmail $(bindir)/ftpquota $(bindir)/prxs
+EXTRA_ISAEXEC_EXCLUDE_FILES += $(bindir)/ftpasswd
+EXTRA_ISAEXEC_EXCLUDE_FILES += $(bindir)/ftpmail
+EXTRA_ISAEXEC_EXCLUDE_FILES += $(bindir)/ftpquota
+EXTRA_ISAEXEC_EXCLUDE_FILES += $(bindir)/prxs
 
 EXTRA_MERGE_EXCLUDE_FILES_isa-amd64   = $(prefix)/bin/amd64/ftpasswd $(prefix)/bin/amd64/ftpmail $(prefix)/bin/amd64/ftpquota $(prefix)/bin/amd64/prxs
 EXTRA_MERGE_EXCLUDE_FILES_isa-sparcv9 = $(prefix)/bin/sparcv9/ftpasswd $(prefix)/bin/sparcv9/ftpmail $(prefix)/bin/sparcv9/ftpquota $(prefix)/bin/sparcv9/prxs
-
-sysconfdir      = /etc/opt/csw
-localstatedir   = /var/opt/csw
 
 MIGRATE_FILES   = proftpd.conf
 
 EXTRA_CONFIGURE_ENV  = install_user=$(USER) install_group=csw
 EXTRA_CONFIGURE_ENV += LD_LIBRARY_PATH="$(libdir)"
 
-NODIRPATHS      = --localstatedir --libexecdir
+libexecdir = $(libdir)/proftpd
+localstatedir = /var/run/proftpd
+
 CONFIGURE_ARGS += $(DIRPATHS)
 CONFIGURE_ARGS += --libexecdir=$(libdir)/proftpd
 CONFIGURE_ARGS += --localstatedir=/var/run/proftpd
