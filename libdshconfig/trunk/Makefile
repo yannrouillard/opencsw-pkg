@@ -4,7 +4,6 @@
 NAME = libdshconfig
 VERSION = 0.20.9
 GARTYPE = v2
-CATEGORIES = devel
 
 DESCRIPTION = Library for parsing dsh-style configuration files
 

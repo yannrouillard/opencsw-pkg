@@ -1,6 +1,5 @@
 NAME = xchm
 VERSION = 1.18
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = Cross-platform GUI front-end to chmlib (.chm reader)

@@ -4,7 +4,6 @@
 
 NAME = mpeg4ip
 VERSION = 1.6.1
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = Libraries for MPEG-4/H.261/MPEG-2/H.263 MP3/AAC/AMR

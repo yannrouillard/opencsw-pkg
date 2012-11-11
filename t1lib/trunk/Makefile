@@ -4,7 +4,6 @@
 NAME = t1lib
 VERSION = 5.1.2
 GARTYPE = v2
-CATEGORIES = lib
 
 DESCRIPTION = Type1 font renderering library
 define BLURB

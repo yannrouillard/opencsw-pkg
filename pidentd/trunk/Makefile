@@ -4,7 +4,6 @@
 NAME = pidentd
 VERSION = 3.0.19
 GARTYPE = v2
-CATEGORIES = utils
 
 DESCRIPTION = Portable ident daemon
 define BLURB

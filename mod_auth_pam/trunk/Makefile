@@ -2,7 +2,6 @@ NAME = mod_auth_pam
 ABIVERSION = 2.0
 VERSION = 1.1.1
 GARTYPE = v1
-CATEGORIES = server
 
 DESCRIPTION = Implements basic authentication on top of PAM
 define BLURB

@@ -3,7 +3,6 @@
 NAME = gwrap
 VERSION = 1.3.4
 GARTYPE = v2
-CATEGORIES = lib
 
 DESCRIPTION = A tool for exporting C libraries into Scheme interpreters
 define BLURB

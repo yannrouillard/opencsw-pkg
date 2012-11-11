@@ -1,6 +1,5 @@
 NAME = nsd
 VERSION = 3.2.13
-CATEGORIES = server
 GARTYPE = v2
 
 DESCRIPTION = An authoritative only non-recursive name server

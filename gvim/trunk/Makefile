@@ -2,7 +2,6 @@ NAME = vim
 DISTVERSION = 7.3
 PATCHREV = 055
 VERSION = $(DISTVERSION).$(PATCHREV)
-CATEGORIES = utils
 GARTYPE = v2
 SPKG_SOURCEURL = http://www.vim.org/download.php
 DESCRIPTION = Vi IMproved with GTK+ support

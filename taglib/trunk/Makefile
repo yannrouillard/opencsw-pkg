@@ -1,6 +1,5 @@
 NAME = taglib
 VERSION = 1.6.3
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = Library for reading and editing the meta-data of several popular audio formats

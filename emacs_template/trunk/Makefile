@@ -3,7 +3,6 @@
 NAME = emacs_template
 VERSION = 3.1c
 GARTYPE = v2
-CATEGORIES = xtra
 
 DESCRIPTION = Templates for Emacs
 define BLURB

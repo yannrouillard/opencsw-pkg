@@ -4,7 +4,6 @@
 NAME = tkimg
 VERSION = 1.4
 GARTYPE = v2
-CATEGORIES = lang
 LICENSE = license.terms
 DEPENDS = CSWtcl
 DISTNAME = $(NAME)$(VERSION)

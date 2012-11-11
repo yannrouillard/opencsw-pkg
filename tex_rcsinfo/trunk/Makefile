@@ -3,7 +3,6 @@
 NAME = tex_rcsinfo
 VERSION = 1.11
 GARTYPE = v2
-CATEGORIES = xtra
 
 DESCRIPTION = Extract the information provided by the RCS revision control system from TeX documents
 define BLURB

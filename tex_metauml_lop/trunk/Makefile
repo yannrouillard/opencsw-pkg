@@ -3,7 +3,6 @@
 NAME = tex_metauml_lop
 VERSION = 1.0
 GARTYPE = v2
-CATEGORIES = xtra
 
 DESCRIPTION = MetaUML Library of Patterns
 define BLURB

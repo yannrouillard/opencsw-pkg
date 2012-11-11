@@ -4,7 +4,6 @@
 NAME = thttpd
 VERSION = 2.25b
 GARTYPE = v2
-CATEGORIES = server
 
 DESCRIPTION = The tiny/turbo/throttling HTTP server
 

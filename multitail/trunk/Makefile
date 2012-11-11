@@ -1,6 +1,5 @@
 NAME = multitail
 VERSION = 5.2.9
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = View one or multiple files like the original tail program

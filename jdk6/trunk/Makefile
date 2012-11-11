@@ -1,7 +1,6 @@
 NAME = jdk6
 SPKG_VERSION = 1.6.0_37
 VERSION = 6u37
-CATEGORIES = lang
 GARTYPE = v2
 
 DESCRIPTION = Java Development Kit 6

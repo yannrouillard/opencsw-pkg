@@ -3,7 +3,6 @@
 
 NAME = freehdl
 VERSION = 0.0.7
-CATEGORIES = devel
 GARTYPE = v2
 
 DESCRIPTION = A free, open source, GPL'ed VHDL simulator

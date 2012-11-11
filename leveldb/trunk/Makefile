@@ -6,7 +6,6 @@
 NAME = leveldb
 VERSION = 1.4.0
 GARTYPE = v2
-CATEGORIES = apps
 
 DESCRIPTION = Brief description
 define BLURB

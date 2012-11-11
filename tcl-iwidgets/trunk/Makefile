@@ -6,7 +6,6 @@ PACKAGES = CSWtcliwidgets
 CATALOGNAME_CSWtcliwidgets = tcl-iwidgets
 VERSION = 4.0.1
 GARTYPE = v2
-CATEGORIES = lang
 ARCHALL_CSWtcliwidgets = 1
 DISTNAME = $(NAME)$(VERSION)
 RUNTIME_DEP_PKGS_CSWiwidgets = CSWtcl CSWtclitcl CSWtclitk

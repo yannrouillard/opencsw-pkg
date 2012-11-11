@@ -14,7 +14,6 @@
 
 NAME = lftp
 VERSION = 4.3.8
-CATEGORIES = net
 GARTYPE = v2
 
 DESCRIPTION = A sophisticated command-line ftp/http client

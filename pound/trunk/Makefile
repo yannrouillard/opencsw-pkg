@@ -1,6 +1,5 @@
 NAME = pound
 VERSION = 2.6
-CATEGORIES = net
 GARTYPE = v2
 
 DESCRIPTION = Reverse proxy load balancer

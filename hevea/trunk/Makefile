@@ -4,7 +4,6 @@
 NAME = hevea
 VERSION = 1.10
 GARTYPE = v2
-CATEGORIES = apps
 
 DESCRIPTION = A fast LaTeX to HTML translator
 define BLURB

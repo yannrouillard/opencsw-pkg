@@ -4,7 +4,6 @@
 NAME = ragel
 VERSION = 6.7
 GARTYPE = v2
-CATEGORIES = devel
 
 DESCRIPTION = Ragel State Machine Compiler
 define BLURB

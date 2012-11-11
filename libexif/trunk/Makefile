@@ -1,6 +1,5 @@
 NAME = libexif
 VERSION = 0.6.20
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = EXIF Tag Parsing Library

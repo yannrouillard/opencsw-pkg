@@ -1,6 +1,5 @@
 NAME = policyd-weight
 VERSION = 0.1.15.1
-CATEGORIES = net
 GARTYPE = v2
 WORKSRC = $(WORKDIR)
 

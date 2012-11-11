@@ -1,6 +1,5 @@
 NAME = gail
 VERSION = 1.21.5.1
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = Accessibility support for GTK+ and libgnomecanvas (stub, now in CSWgtk2)

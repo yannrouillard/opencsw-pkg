@@ -4,7 +4,6 @@
 NAME = gtklp
 VERSION = 1.2.9
 GARTYPE = v2
-CATEGORIES = apps
 
 DESCRIPTION = GTK Gui for CUPS
 define BLURB

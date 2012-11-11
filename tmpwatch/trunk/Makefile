@@ -1,6 +1,5 @@
 NAME = tmpwatch
 VERSION = 2.10.1
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = Removes files which haven't been accessed for a period of time

@@ -3,7 +3,6 @@
 NAME = qt
 VERSION = 4.8.1
 GARTYPE = v2
-CATEGORIES = lib
 
 DESCRIPTION = TrollTech C++ application framework
 define BLURB

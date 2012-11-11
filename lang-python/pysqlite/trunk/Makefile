@@ -1,6 +1,5 @@
 NAME = pysqlite
 VERSION = 1.1.8a
-CATEGORIES = lang
 GARTYPE = v2
 
 PYSQLITE_VERSION := $(shell echo $(VERSION) | sed -e 's/[a-z]//g')

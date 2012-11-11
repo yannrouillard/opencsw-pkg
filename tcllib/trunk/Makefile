@@ -4,7 +4,6 @@
 NAME = tcllib
 VERSION = 1.13
 GARTYPE = v2
-CATEGORIES = lang
 ARCHALL_CSWtcllib = 1
 LICENSE = license.terms
 DEPENDS = CSWtcl

@@ -6,7 +6,6 @@ PACKAGES = CSWtclbwidget
 CATALOGNAME_CSWtclbwidget = tcl-bwidget
 VERSION = 1.9.5
 GARTYPE = v2
-CATEGORIES = lang
 ARCHALL_CSWtclbwidget = 1
 DESCRIPTION = The BWidget Toolkit is a high-level widget set for Tcl/Tk
 RUNTIME_DEP_PKGS_CSWiwidgets = CSWtcl CSWtclitcl CSWtclitk

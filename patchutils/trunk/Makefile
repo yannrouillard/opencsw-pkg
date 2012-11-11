@@ -1,6 +1,5 @@
 NAME = patchutils
 VERSION = 0.3.1
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = Tools for manipulating patch files

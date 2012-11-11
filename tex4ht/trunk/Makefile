@@ -4,7 +4,6 @@
 NAME = tex4ht
 VERSION = 1.0.2009_06_11_1038
 GARTYPE = v2
-CATEGORIES = apps
 
 DESCRIPTION = LaTeX and TeX for Hypertext (HTML)
 define BLURB

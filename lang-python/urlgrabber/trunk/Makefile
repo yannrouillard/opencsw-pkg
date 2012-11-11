@@ -4,7 +4,6 @@
 NAME = urlgrabber
 VERSION = 3.9.1
 GARTYPE = v2
-CATEGORIES = lib
 
 DESCRIPTION = Protocol-independant file-access
 define BLURB

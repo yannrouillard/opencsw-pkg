@@ -1,7 +1,6 @@
 # $Id$
 NAME = geos
 VERSION = 3.3.3
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = Geometry Engine, Open Source

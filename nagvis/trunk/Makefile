@@ -1,6 +1,5 @@
 NAME = nagvis
 VERSION = 1.4.5
-CATEGORIES = apps
 GARTYPE = v2
 
 SPKG_DESC_CSWnagvis = visualization addon for nagios

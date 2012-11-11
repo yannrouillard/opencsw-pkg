@@ -1,6 +1,5 @@
 NAME = mailx
 VERSION = 12.4
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = Simple mail user agent, formerly known as nail

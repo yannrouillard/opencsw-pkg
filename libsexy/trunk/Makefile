@@ -1,6 +1,5 @@
 NAME = libsexy
 VERSION = 0.1.11
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = Sexy URLs

@@ -1,7 +1,6 @@
 NAME = unzip
 VERSION = 6.0
 UNZIPVERSION = $(subst .,,$(VERSION))
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = Info-Zip UnZip extraction utility for archives compressed in .zip format

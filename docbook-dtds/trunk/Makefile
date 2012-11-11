@@ -7,7 +7,6 @@
 NAME = docbookdtds
 VERSION = 4.5
 
-CATEGORIES = xtra
 GARTYPE = v2
 
 PACKAGES = CSWdocbookdtds

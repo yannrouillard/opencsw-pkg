@@ -1,6 +1,5 @@
 NAME = xearth
 VERSION = 1.1
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = X11 earth backdrop

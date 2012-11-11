@@ -4,7 +4,6 @@
 NAME = fluxbox
 VERSION = 1.3.2
 GARTYPE = v2
-CATEGORIES = apps
 
 DESCRIPTION = Brief description
 define BLURB

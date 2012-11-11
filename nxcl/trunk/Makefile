@@ -4,7 +4,6 @@
 
 NAME = nxcl
 VERSION = 0.9
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = A library for the Free NX client

@@ -1,6 +1,5 @@
 NAME = jetty6
 VERSION = 6.1.14
-CATEGORIES = server
 GARTYPE = v2
 GARCH=all
 

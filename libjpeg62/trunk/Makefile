@@ -1,6 +1,5 @@
 NAME = jpeg
 VERSION = 6b
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = JPEG library and tools by the Independent JPEG Group

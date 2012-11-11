@@ -1,7 +1,6 @@
 # $Id$
 NAME = gcal
 VERSION = 3.6
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = Gcal is a program for calculating and printing calendars

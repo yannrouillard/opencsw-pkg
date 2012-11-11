@@ -1,6 +1,5 @@
 NAME = tomcat-connectors
 VERSION = 1.2.37
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = AJP connector module for Apache 2

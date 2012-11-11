@@ -1,6 +1,5 @@
 NAME = vorbistools
 VERSION = 1.4.0
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = Vorbis audio tools

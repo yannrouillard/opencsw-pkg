@@ -3,7 +3,6 @@
 
 NAME = samba
 VERSION = 3.6.9
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = Tools to access a servers filespace and printers via SMB (server)

@@ -5,7 +5,6 @@ NAME = splix
 SVN_REV = 300
 VERSION = rev$(SVN_REV)
 GARTYPE = v2
-CATEGORIES = lib
 
 DESCRIPTION = CUPS printer drivers for SPL
 define BLURB 

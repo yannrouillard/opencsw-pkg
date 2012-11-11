@@ -1,6 +1,5 @@
 NAME = exempi
 VERSION = 2.1.1
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = Exempi is an implementation of XMP

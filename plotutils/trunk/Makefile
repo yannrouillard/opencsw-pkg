@@ -3,7 +3,6 @@
 NAME = plotutils
 VERSION = 2.6
 GARTYPE = v2
-CATEGORIES = lib
 
 DESCRIPTION = The GNU plotutils (plotting utilities) package
 define BLURB

@@ -1,6 +1,5 @@
 NAME = openjade
 VERSION = 1.3.2
-CATEGORIES = apps
 GARTYPE = v2
 
 BUILD_DEP_PKGS = CSWopenspdevel

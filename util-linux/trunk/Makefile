@@ -5,7 +5,6 @@ NAME = util-linux
 VERSION = 2.21
 PATCHLEVEL = .2
 GARTYPE = v2
-CATEGORIES = utils
 DISTNAME = $(NAME)-$(VERSION)$(PATCHLEVEL)
 
 DESCRIPTION = A collection of basic utilities

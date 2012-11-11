@@ -17,7 +17,6 @@
 
 NAME = users_and_groups
 VERSION = 0.1
-CATEGORIES = lib
 GARTYPE = v2
 DESCRIPTION = An example build adding users, groups and files owned by them
 define BLURB

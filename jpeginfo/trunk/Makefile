@@ -1,6 +1,5 @@
 NAME = jpeginfo
 VERSION = 1.6.1
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = Info and error checking of jpeg files

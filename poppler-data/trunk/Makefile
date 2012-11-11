@@ -1,6 +1,5 @@
 NAME = poppler-data
 VERSION = 0.4.5
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = Poppler is a PDF rendering library based on the xpdf-3.0 code base

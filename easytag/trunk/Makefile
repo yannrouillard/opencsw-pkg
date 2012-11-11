@@ -1,6 +1,5 @@
 NAME = easytag
 VERSION = 2.1.6
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = Tag editor for MP3, Ogg Vorbis files and more

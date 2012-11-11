@@ -9,7 +9,6 @@
 
 NAME = ffmpeg
 VERSION = 1.0
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = Very fast video and audio converter (includes libavcodec)

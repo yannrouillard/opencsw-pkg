@@ -1,7 +1,6 @@
 NAME = docbookdsssl
 VERSION = 1.79
 PATCHLEVEL = 4.1
-CATEGORIES = xtra
 GARTYPE = v2
 
 PACKAGES = CSWdocbookdsssl

@@ -6,7 +6,6 @@ PACKAGES = CSWtclitcl
 CATALOGNAME_CSWtclitcl = tcl-itcl
 VERSION = 3.4
 GARTYPE = v2
-CATEGORIES = lang
 LICENSE = license.terms
 DEPENDS = CSWtcl
 DISTNAME = $(NAME)$(VERSION)

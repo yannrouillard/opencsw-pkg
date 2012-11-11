@@ -1,6 +1,5 @@
 NAME = libtheora
 VERSION = 1.1.1
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = Theora video codec support library

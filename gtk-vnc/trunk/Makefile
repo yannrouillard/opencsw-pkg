@@ -4,7 +4,6 @@
 NAME = gtk-vnc
 VERSION = 0.5.1
 GARTYPE = v2
-CATEGORIES = lib
 
 DESCRIPTION = Brief description
 define BLURB

@@ -4,7 +4,6 @@
 NAME = virtualbricks
 VERSION = 0.6.352
 GARTYPE = v2
-CATEGORIES = apps
 
 DESCRIPTION = GUI for qemu
 define BLURB

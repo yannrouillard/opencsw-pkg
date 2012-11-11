@@ -4,7 +4,6 @@
 
 NAME = openslp
 VERSION = 1.2.1
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = Service location protocol

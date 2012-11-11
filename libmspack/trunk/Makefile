@@ -4,7 +4,6 @@
 NAME = libmspack
 VERSION = 0.3alpha
 GARTYPE = v2
-CATEGORIES = lib
 
 DESCRIPTION = A library for Microsoft compression formats
 define BLURB

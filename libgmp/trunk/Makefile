@@ -2,7 +2,6 @@
 
 NAME = gmp
 VERSION = 5.0.4
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = GNU Multiple Precision Arithmetic Library

@@ -11,7 +11,6 @@
 
 NAME = libpng
 VERSION = 1.5.13
-CATEGORIES = lib
 GARTYPE = v2
 DESCRIPTION = The official library for Portable Network Graphics format (PNG)
 define BLURB

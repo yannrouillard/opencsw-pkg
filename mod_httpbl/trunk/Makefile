@@ -3,7 +3,6 @@
 
 NAME = mod_httpbl
 VERSION = 1.5
-CATEGORIES = server
 GARTYPE = v2
 
 DESCRIPTION = Apache blacklist module

@@ -12,7 +12,6 @@
 
 NAME = modulatedpkg
 VERSION = 2.0
-CATEGORIES = utils
 GARTYPE = v2
 DESCRIPTION = An example of a modulated package
 define BLURB

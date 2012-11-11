@@ -1,6 +1,5 @@
 NAME = libvanessa-logger
 VERSION = 0.0.8
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = Generic logging library

@@ -3,7 +3,6 @@
 NAME = namazu
 VERSION = 2.0.21
 GARTYPE = v2
-CATEGORIES = apps
 
 DESCRIPTION = A Full-Text Search Engine
 define BLURB

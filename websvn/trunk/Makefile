@@ -1,6 +1,5 @@
 NAME = websvn
 VERSION = 2.2.1
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = PHP based web interface of Subversion repositories

@@ -29,7 +29,6 @@ NAME = libgadu
 #
 VERSION = 1.11.1
 GARTYPE = v2
-CATEGORIES = lib
 
 DESCRIPTION = Gadu-Gadu protocol implementation library
 

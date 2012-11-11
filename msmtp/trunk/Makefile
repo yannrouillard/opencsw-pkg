@@ -1,6 +1,5 @@
 NAME = msmtp
 VERSION = 1.4.30
-CATEGORIES = net
 GARTYPE = v2
 
 DESCRIPTION = SMTP client

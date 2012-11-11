@@ -4,7 +4,6 @@
 NAME       = svn-client
 VERSION    = 1.6.16
 DISTNAME   = subversion-$(VERSION)
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = subversion version control, client

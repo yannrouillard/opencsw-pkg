@@ -1,6 +1,5 @@
 NAME = polkit
 VERSION = 0.96
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = PolicyKit

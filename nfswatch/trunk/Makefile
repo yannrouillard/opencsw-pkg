@@ -1,6 +1,5 @@
 NAME = nfswatch
 VERSION = 4.99.10
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = Monitors NFS client traffic and response time

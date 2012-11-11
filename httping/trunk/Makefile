@@ -4,7 +4,6 @@
 #
 NAME = httping
 VERSION = 1.5.3
-CATEGORIES = net
 GARTYPE = v2
 
 PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386

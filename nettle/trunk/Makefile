@@ -4,7 +4,6 @@
 NAME = nettle
 VERSION = 2.5
 GARTYPE = v2
-CATEGORIES = utils
 
 DESCRIPTION = A low-level cryptographic library
 define BLURB

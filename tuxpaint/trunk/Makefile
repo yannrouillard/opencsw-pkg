@@ -4,7 +4,6 @@
 NAME = tuxpaint
 VERSION = 0.9.21
 GARTYPE = v2
-CATEGORIES = apps
 
 DESCRIPTION = Simple drwaing program
 define BLURB

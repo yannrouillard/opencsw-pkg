@@ -1,6 +1,5 @@
 NAME = nrpe
 VERSION = 2.13
-CATEGORIES = apps
 GARTYPE = v2
 
 SPKG_DESC_CSWnrpe 	= Nagios remote plugin executor

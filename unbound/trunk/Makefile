@@ -1,6 +1,5 @@
 NAME = unbound
 VERSION = 1.4.18
-CATEGORIES = server
 GARTYPE = v2
 DESCRIPTION = A validating, recursive, and caching DNS resolver
 define BLUR

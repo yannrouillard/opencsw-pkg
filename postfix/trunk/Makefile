@@ -31,7 +31,6 @@
 # 
 NAME = postfix
 VERSION = 2.9.4
-CATEGORIES = server
 GARTYPE = v2
 
 DESCRIPTION = A high-performance mail transport agent

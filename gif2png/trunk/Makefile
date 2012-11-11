@@ -1,7 +1,6 @@
 # $Id$
 NAME = gif2png
 VERSION = 2.5.4
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = Converts files from GIF to PNG

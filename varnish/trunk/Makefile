@@ -1,7 +1,6 @@
 # $Id$
 NAME = varnish
 VERSION = 3.0.2
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = Varnish Web Cache

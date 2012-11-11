@@ -1,7 +1,6 @@
 NAME = hplip
 VERSION = 3.12.2
 GARTYPE = v2
-CATEGORIES = utils
 
 MASTER_SITES = http://prdownloads.sourceforge.net/hplip
 DISTFILES = $(NAME)-$(VERSION).tar.gz

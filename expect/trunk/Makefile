@@ -1,6 +1,5 @@
 NAME = expect
 VERSION = 5.43
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = Tool for automating interactive applications

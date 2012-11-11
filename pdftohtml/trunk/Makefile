@@ -3,7 +3,6 @@
 NAME = pdftohtml
 VERSION = 0.40a
 GARTYPE = v2
-CATEGORIES = apps
 
 DESCRIPTION = Converts files from PDF into HTML
 define BLURB

@@ -1,6 +1,5 @@
 NAME = libcdio
 VERSION = 0.82
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = Encapsulate CD-ROM reading and control

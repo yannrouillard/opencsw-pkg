@@ -1,6 +1,5 @@
 NAME = libproxy
 VERSION = 0.3.0
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = A library that provides automatic proxy configuration management

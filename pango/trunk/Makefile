@@ -1,6 +1,5 @@
 NAME = pango
 VERSION = 1.29.5
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = A framework for the layout and rendering of international text

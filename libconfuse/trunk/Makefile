@@ -1,6 +1,5 @@
 NAME = libconfuse
 VERSION = 2.7
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = A configuration file parser library

@@ -1,6 +1,5 @@
 NAME = libflac
 VERSION = 1.1.2
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = Free lossless audio codec

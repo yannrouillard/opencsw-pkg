@@ -1,6 +1,5 @@
 NAME = trafshow
 VERSION = 5.2.3
-CATEGORIES = net
 GARTYPE = v2
 
 DESCRIPTION = Network traffic monitoring utility

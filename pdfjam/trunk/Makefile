@@ -1,6 +1,5 @@
 NAME = pdfjam
 VERSION = 1.21
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = Small collection of shell scripts to enhance pdflatex

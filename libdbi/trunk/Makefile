@@ -1,7 +1,6 @@
 # $Id$
 NAME = libdbi
 VERSION = 0.8.4
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = A database-independent abstraction layer

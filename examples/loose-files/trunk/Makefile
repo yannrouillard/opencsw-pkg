@@ -4,7 +4,6 @@
 
 NAME = loose-files
 VERSION = 1.0
-CATEGORIES = utils
 GARTYPE = v2
 DESCRIPTION = An example of a package created from loose files.
 define BLURB

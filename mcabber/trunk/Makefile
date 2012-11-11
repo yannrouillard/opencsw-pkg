@@ -1,6 +1,5 @@
 NAME = mcabber
 VERSION = 0.9.9
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = A small terminal-based Jabber client

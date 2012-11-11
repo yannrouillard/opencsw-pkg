@@ -1,6 +1,5 @@
 NAME = libgnomecanvas
 VERSION = 2.30.3
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = GNOME Canvas Lib

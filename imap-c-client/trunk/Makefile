@@ -1,7 +1,6 @@
 NAME = imap
 VERSION = 2007f
 GARTYPE = v2
-CATEGORIES = lib
 
 PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386
 

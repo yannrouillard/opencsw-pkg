@@ -4,7 +4,6 @@
 NAME = libupnp
 VERSION = 1.6.15
 GARTYPE = v2
-CATEGORIES = lib
 
 DESCRIPTION = Portable UPnP SDK
 define BLURB

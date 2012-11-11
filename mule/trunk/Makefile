@@ -1,7 +1,6 @@
 NAME = mule
 VERSION = 3.2.1
 GARTYPE = v2
-CATEGORIES = server
 
 DESCRIPTION = Java based lightweight enterprise service bus
 define BLURB

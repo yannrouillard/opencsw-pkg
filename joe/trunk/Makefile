@@ -1,6 +1,5 @@
 NAME = joe
 VERSION = 3.7
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = Joe's Own Editor

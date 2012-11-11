@@ -1,6 +1,5 @@
 NAME = recode
 VERSION = 3.6
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = GNU recode character set conversion

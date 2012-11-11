@@ -1,6 +1,5 @@
 NAME = libfasttime
 VERSION = 1.0
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = a optimized, caching time() library function

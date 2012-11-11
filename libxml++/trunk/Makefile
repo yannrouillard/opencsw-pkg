@@ -1,7 +1,6 @@
 # $Id$
 NAME = libxml++
 VERSION = 2.30.1
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = C++ wrapper for the libxml XML parser library

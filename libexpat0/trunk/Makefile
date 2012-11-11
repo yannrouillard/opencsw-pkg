@@ -1,6 +1,5 @@
 NAME = expat
 VERSION = 1.95.8
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = XML parser toolkit

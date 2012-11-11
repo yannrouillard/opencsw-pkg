@@ -4,7 +4,6 @@
 
 NAME = logrotate
 VERSION = 3.8.1
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = Rotates, compresses, and mails system logs

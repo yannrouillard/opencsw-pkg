@@ -7,7 +7,6 @@
 NAME = libedit
 VERSION = 0.3
 GARTYPE = v2
-CATEGORIES = lib
 
 DESCRIPTION = Non-GPL replacement for readline library
 define BLURB

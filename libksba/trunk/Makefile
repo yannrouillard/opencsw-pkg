@@ -1,6 +1,5 @@
 NAME = libksba
 VERSION = 1.3.0
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = Libksba is a CMS and X.509 access library

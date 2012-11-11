@@ -1,7 +1,6 @@
 # $Id$
 NAME = parallel
 VERSION = 20111222
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = Shell tool for executing jobs in parallel

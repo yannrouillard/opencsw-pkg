@@ -4,7 +4,6 @@
 NAME = rtmpdump
 VERSION = 2.3
 GARTYPE = v2
-CATEGORIES = lib
 
 DESCRIPTION = A toolkit for RTMP streams
 define BLURB

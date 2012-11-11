@@ -1,7 +1,6 @@
 NAME = maven2
 VERSION = 2.2.1
 GARTYPE = v1
-CATEGORIES = devel
 GARCH = all
 
 DESCRIPTION = Java software project management and comprehension tool

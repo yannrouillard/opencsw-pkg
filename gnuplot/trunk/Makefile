@@ -1,6 +1,5 @@
 NAME = gnuplot
 VERSION = 4.6.0
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = The Gnuplot Plotting Utility

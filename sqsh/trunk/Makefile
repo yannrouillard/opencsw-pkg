@@ -1,6 +1,5 @@
 NAME = sqsh
 VERSION = 2.1.7
-CATEGORIES = utils
 GARTYPE = v2
 
 # Sybase is available on Solaris 9 sparc 32 and 64 bit and Solaris 10 amd64

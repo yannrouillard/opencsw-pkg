@@ -4,7 +4,6 @@
 NAME = gpsbabel
 VERSION = 1.4.3
 GARTYPE = v2
-CATEGORIES = utils
 
 DESCRIPTION = GPS data translator
 define BLURB

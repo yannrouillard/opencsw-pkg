@@ -1,6 +1,5 @@
 NAME = SDL
 VERSION = 1.2.14
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = Simple DirectMedia Layer library

@@ -4,7 +4,6 @@
 NAME = Cython
 VERSION = 0.16
 GARTYPE = v2
-CATEGORIES = lang
 
 DESCRIPTION = Cython Compiler
 define BLURB

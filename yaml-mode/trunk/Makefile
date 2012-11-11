@@ -1,6 +1,5 @@
 NAME = yaml-mode
 VERSION = 0.0.3
-CATEGORIES = xtra
 GARTYPE = v2
 
 PACKAGES = CSWyamlmode

@@ -1,6 +1,5 @@
 NAME = xapian-core
 VERSION = 1.2.7
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = An open source search engine library

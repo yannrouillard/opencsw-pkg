@@ -4,7 +4,6 @@
 NAME = pygraphviz
 VERSION = 1.1
 GARTYPE = v2
-CATEGORIES = lang
 
 DESCRIPTION =  Python interface to the Graphviz graph layout and visualization
 define BLURB

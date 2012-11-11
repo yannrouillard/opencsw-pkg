@@ -1,6 +1,5 @@
 NAME = sbt
 VERSION = 0.7.3
-CATEGORIES = devel
 GARTYPE = v2
 ARCHALL = 1
 

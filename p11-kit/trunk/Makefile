@@ -4,7 +4,6 @@
 NAME = p11-kit
 VERSION = 0.12
 GARTYPE = v2
-CATEGORIES = lib
 
 DESCRIPTION = Load and enumerate PKCS#11 modules
 

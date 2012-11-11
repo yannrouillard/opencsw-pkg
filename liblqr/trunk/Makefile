@@ -1,6 +1,5 @@
 NAME = liblqr
 VERSION = 0.4.1
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = A seam-carving C/C++ library called Liquid Rescale.

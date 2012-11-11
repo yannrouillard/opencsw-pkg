@@ -2,7 +2,6 @@
 
 NAME = pidgin
 VERSION = 2.6.6
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = Multi-protocol IM client

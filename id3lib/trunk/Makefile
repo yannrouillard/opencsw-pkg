@@ -1,7 +1,6 @@
 # $Id$
 NAME = id3lib
 VERSION = 3.8.3
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = Library for manipulating ID3v1/v1.1 and ID3v2 tags

@@ -4,7 +4,6 @@
 NAME = unzoo
 VERSION = 4.4
 GARTYPE = v2
-CATEGORIES = utils
 
 DESCRIPTION = ZOO archive extractor
 define BLURB

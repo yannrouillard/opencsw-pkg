@@ -1,7 +1,6 @@
 NAME = git-subtree
 VERSION = 0.2
 PATCHLEVEL = d20ac
-CATEGORIES = devel
 GARTYPE = v2
 
 VENDOR_URL = http://github.com/apenwarr/git-subtree

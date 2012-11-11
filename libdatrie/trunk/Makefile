@@ -1,6 +1,5 @@
 NAME = libdatrie
 VERSION = 0.2.5
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = Double array tree library

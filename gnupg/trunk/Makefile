@@ -1,6 +1,5 @@
 NAME = gnupg
 VERSION = 1.4.12
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = GnuPG is a complete and free replacement for PGP

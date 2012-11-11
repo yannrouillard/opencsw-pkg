@@ -4,7 +4,6 @@
 NAME = libwebp
 VERSION = 0.1.2
 GARTYPE = v2
-CATEGORIES = lib
 
 DESCRIPTION = An image format that does lossy compression of digital photographic images
 define BLURB

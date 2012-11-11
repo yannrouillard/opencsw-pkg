@@ -2,7 +2,6 @@
 NAME = x3270
 BASEREL = 3.3
 VERSION = $(BASEREL).12ga11
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = An IBM 3270 terminal emulator

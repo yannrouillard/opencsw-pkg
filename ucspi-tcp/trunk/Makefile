@@ -1,6 +1,5 @@
 NAME = ucspi-tcp
 VERSION = 0.88
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = Command-line tools for building TCP client-server applications

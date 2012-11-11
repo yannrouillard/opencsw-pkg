@@ -2,7 +2,6 @@
 
 NAME = Python
 VERSION = 2.6.8
-CATEGORIES = lang
 GARTYPE = v2
 VER = 2.6
 DVER = 2-6

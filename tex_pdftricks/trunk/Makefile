@@ -3,7 +3,6 @@
 NAME = tex_pdftricks
 VERSION = 1.16
 GARTYPE = v2
-CATEGORIES = xtra
 
 DESCRIPTION = A pstricks encapsulation for PDF
 define BLURB

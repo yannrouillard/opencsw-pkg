@@ -3,7 +3,6 @@
 NAME = svn2cl
 VERSION = 0.13
 GARTYPE = v2
-CATEGORIES = devel
 
 DESCRIPTION = An xsl stylesheet for generating a classic GNU-style ChangeLog from a subversion repository log
 define BLURB

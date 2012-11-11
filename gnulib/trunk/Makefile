@@ -4,7 +4,6 @@
 NAME = gnulib
 VERSION = X.Y
 GARTYPE = v2
-CATEGORIES = devel
 
 DESCRIPTION = ISO C / POSIX substitutes part of gnulib
 define BLURB

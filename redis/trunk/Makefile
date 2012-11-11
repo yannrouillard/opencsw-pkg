@@ -4,7 +4,6 @@
 NAME = redis
 VERSION = 2.4.8
 GARTYPE = v2
-CATEGORIES = server
 
 DESCRIPTION = An advanced key-value store
 define BLURB

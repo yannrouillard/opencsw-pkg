@@ -1,7 +1,6 @@
 NAME = mkpackage
 VERSION = 1.4
 GARTYPE = v1
-CATEGORIES = utils
 
 DESCRIPTION = Solaris package build tool.
 define BLURB

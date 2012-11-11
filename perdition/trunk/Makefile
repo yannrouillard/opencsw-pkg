@@ -4,7 +4,6 @@
 #
 NAME = perdition
 VERSION = 1.18
-CATEGORIES = server
 GARTYPE = v2
 
 DESCRIPTION = POP3 and IMAP4 proxy server with high capacity in mind.

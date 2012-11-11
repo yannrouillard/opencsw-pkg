@@ -1,6 +1,5 @@
 NAME = xpdf
 VERSION = 3.03
-CATEGORIES = utils
 GARTYPE = v2
 RELEASE = 
 

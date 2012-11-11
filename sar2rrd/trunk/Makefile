@@ -1,6 +1,5 @@
 NAME = sar2rrd
 VERSION = 2.5
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = Generate RRDTool graphs from sar output

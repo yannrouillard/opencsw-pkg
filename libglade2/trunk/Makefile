@@ -1,6 +1,5 @@
 NAME = libglade
 VERSION = 2.6.4
-CATEGORIES = lib
 GARTYPE = v2
 RELVER = $(shell echo $(VERSION) |gsed 's/\(^[0-9].*\.[0-9].*\)\.[0-9]*/\1/')
 

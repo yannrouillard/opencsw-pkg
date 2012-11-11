@@ -4,7 +4,6 @@
 NAME = libunistring
 VERSION = 0.9.3
 GARTYPE = v2
-CATEGORIES = lib
 
 DESCRIPTION = Provides functions for manipulating Unicode strings
 define BLURB

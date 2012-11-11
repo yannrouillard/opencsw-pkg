@@ -1,6 +1,5 @@
 NAME = SilverCity
 VERSION = 0.9.7
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = Lexical analysis package for Python

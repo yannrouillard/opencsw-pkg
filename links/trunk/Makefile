@@ -13,7 +13,6 @@
 
 NAME = links
 VERSION = 1.03
-CATEGORIES = net
 GARTYPE = v2
 
 DESCRIPTION = Text-based WWW browser

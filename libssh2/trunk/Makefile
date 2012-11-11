@@ -1,6 +1,5 @@
 NAME = libssh2
 VERSION = 1.4.2
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = A library for impementing the SSH2 protocol

@@ -4,7 +4,6 @@
 
 NAME = speex
 VERSION = 1.2rc1
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = Speex audio codec support library

@@ -3,7 +3,6 @@
 NAME = gnucash
 VERSION = 2.4.11
 GARTYPE = v2
-CATEGORIES = apps
 
 DESCRIPTION = A personal and small-business financial-accounting software
 define BLURB

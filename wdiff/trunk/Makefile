@@ -1,7 +1,6 @@
 # : Makefile 9089 2010-03-11 08:34:46Z wahwah $
 NAME = wdiff
 VERSION = 1.1.0
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = A front end to diff for comparing files on a word per word basis

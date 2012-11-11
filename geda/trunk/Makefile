@@ -10,7 +10,6 @@
 
 NAME = geda
 VERSION = 1.6.0
-CATEGORIES = devel
 GARTYPE = v2
 
 DESCRIPTION = The gEDA suite with gschem, gattrib, gnetlist, gsch2pcb, gsymcheck and libgeda

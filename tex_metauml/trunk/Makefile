@@ -3,7 +3,6 @@
 NAME = tex_metauml
 VERSION = 0.2.5
 GARTYPE = v2
-CATEGORIES = xtra
 
 DESCRIPTION = MetaPost library for typesetting UML diagrams using a human-friendly textual notation
 define BLURB

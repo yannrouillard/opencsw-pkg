@@ -1,6 +1,5 @@
 NAME = transmission
 VERSION = 2.20
-CATEGORIES = net
 GARTYPE = v2
 
 DESCRIPTION = Fast, easy, and free multi-platform BitTorrent client

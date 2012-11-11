@@ -1,6 +1,5 @@
 NAME = orainstclient
 VERSION = 10.2.0.4.0
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = Oracle Instant Client

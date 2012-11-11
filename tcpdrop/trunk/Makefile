@@ -2,7 +2,6 @@
 # Build from Solaris 8 works on Solaris 8 & 9, Solaris 10 needs separate build
 NAME = tcpdrop
 VERSION = 1.4
-CATEGORIES = net
 GARTYPE = v2
 
 DESCRIPTION = Tool to drop TCP sessions

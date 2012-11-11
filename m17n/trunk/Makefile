@@ -4,7 +4,6 @@
 NAME = m17n
 VERSION = 1.6.3
 GARTYPE = v2
-CATEGORIES = lib
 
 DESCRIPTION = A multilingual text processing library for the C language.
 define BLURB

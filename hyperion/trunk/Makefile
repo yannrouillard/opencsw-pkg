@@ -4,7 +4,6 @@
 NAME = hyperion
 VERSION = 1.0.2
 GARTYPE = v2
-CATEGORIES = apps
 
 SPKG_SOURCEURL = http://www.stack.nl/~jilles/irc/
 DESCRIPTION = Brief description

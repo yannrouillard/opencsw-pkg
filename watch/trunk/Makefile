@@ -10,7 +10,6 @@
 # version in watch.c which is emitted when calling watch -v
 NAME = watch
 VERSION = 0.2.0
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = Watch a program output change over time

@@ -1,6 +1,5 @@
 NAME = libstlport
 VERSION = 4.5.3
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = A multiplatform C++ standard library implementation

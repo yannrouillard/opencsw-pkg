@@ -1,6 +1,5 @@
 NAME = libart_lgpl
 VERSION = 2.3.20
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = libart - High performance 2D graphics library

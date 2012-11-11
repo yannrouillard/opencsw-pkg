@@ -21,7 +21,6 @@
 
 NAME = subversion
 VERSION = 1.7.7
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = Version control rethought

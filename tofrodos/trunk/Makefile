@@ -1,6 +1,5 @@
 NAME = tofrodos
 VERSION = 1.7.8
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = Text file utility that converts files between MSDOS and Unix format.

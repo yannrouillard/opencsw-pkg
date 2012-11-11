@@ -4,7 +4,6 @@
 NAME = pkg-get
 VERSION = 4.5.1
 GARTYPE = v2
-CATEGORIES = utils
 
 DESCRIPTION = Deprecated CSW version of automated package download tool
 define BLURB

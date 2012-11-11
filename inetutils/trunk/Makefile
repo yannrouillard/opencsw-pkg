@@ -4,7 +4,6 @@
 NAME = inetutils
 VERSION = 1.8.150-c548
 GARTYPE = v2
-CATEGORIES = net
 
 DESCRIPTION = Inetutils is a collection of common network programs
 define BLURB

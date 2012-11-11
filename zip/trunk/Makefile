@@ -5,7 +5,6 @@ NAME = zip
 VERSION = 3.0
 ZIPVERSION = $(subst .,,$(VERSION))
 GARTYPE = v2
-CATEGORIES = utils
 
 DESCRIPTION = Info-Zip Zip compression and file packaging/archive utility 
 define BLURB

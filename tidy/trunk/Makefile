@@ -4,7 +4,6 @@
 NAME = tidy
 VERSION = 20090325cvs
 GARTYPE = v2
-CATEGORIES = utils
 
 DESCRIPTION = An HTML Syntax Checker and Reformatter
 define BLURB

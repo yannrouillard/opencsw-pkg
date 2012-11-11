@@ -4,7 +4,6 @@
 NAME = rootsh
 VERSION = 1.5.3
 GARTYPE = v2
-CATEGORIES = apps
 
 DESCRIPTION = Rootsh is a wrapper for shells which logs all echoed keystrokes and terminal output to a file
 define BLURB

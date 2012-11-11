@@ -2,7 +2,6 @@
 
 NAME = file
 VERSION = 5.11
-CATEGORIES = utils
 GARTYPE = v2
 
 define BLURB

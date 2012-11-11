@@ -1,6 +1,5 @@
 NAME = docbookxsl
 VERSION = 1.74.3
-CATEGORIES = xtra
 GARTYPE = v2
 
 # for our (modified from rhel) copied in Makefile.

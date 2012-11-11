@@ -5,7 +5,6 @@
 NAME = pkg-gate
 VERSION = 2589
 GARTYPE = v2
-CATEGORIES = utils
 
 DESCRIPTION = IPS package server
 define BLURB

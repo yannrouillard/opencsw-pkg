@@ -1,7 +1,6 @@
 NAME = libytnef
 VERSION = 1.5
 GARTYPE = v1
-CATEGORIES = lib
 
 DESCRIPTION = Brief description
 define BLURB

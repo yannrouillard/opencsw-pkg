@@ -4,7 +4,6 @@
 NAME = monit
 VERSION = 5.3.1
 GARTYPE = v2
-CATEGORIES = utils
 
 DESCRIPTION = Utility for monitoring and managing daemons or similar programs
 define BLURB

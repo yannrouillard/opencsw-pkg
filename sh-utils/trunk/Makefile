@@ -1,7 +1,6 @@
 NAME = sh-utils
 VERSION = 2.0
 GARTYPE = v1
-CATEGORIES = utils
 
 DESCRIPTION = sh utilities
 define BLURB

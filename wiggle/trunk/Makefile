@@ -1,7 +1,6 @@
 NAME = wiggle
 VERSION = 0.8
 GARTYPE = v2
-CATEGORIES = utils
 
 DESCRIPTION = Apply conflicting patches
 define BLURB

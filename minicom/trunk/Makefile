@@ -1,7 +1,6 @@
 # : Makefile 9089 2010-03-11 08:34:46Z wahwah $
 NAME = minicom
 VERSION = 2.4
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = Serial communication program

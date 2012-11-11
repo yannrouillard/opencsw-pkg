@@ -1,7 +1,6 @@
 NAME = rapidsvn
 VERSION = 0.12.0-1
 SPKG_VERSION = $(subst -,.,$(VERSION))
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = GUI front-end for the Subversion revision system

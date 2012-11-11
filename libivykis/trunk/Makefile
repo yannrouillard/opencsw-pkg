@@ -4,7 +4,6 @@
 NAME = libivykis
 VERSION = 0.26
 GARTYPE = v2
-CATEGORIES = lib
 
 DESCRIPTION = Async I/O-assisting library
 define BLURB

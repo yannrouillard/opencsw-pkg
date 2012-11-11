@@ -4,7 +4,6 @@
 NAME = sfpC
 VERSION = 0.6
 GARTYPE = v2
-CATEGORIES = utils
 
 DESCRIPTION = Solaris fingerprint companion
 define BLURB

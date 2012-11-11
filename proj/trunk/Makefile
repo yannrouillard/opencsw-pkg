@@ -1,7 +1,6 @@
 # $Id$
 NAME = proj
 VERSION = 4.7.0
-CATEGORIES = lib
 
 GARTYPE = v2
 

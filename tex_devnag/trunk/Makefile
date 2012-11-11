@@ -3,7 +3,6 @@
 NAME = tex_devnag
 VERSION = 2.15.1
 GARTYPE = v2
-CATEGORIES = xtra
 
 DESCRIPTION = Support for typesetting texts in Devanagari script TeX and LaTeX
 define BLURB

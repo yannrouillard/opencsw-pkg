@@ -1,6 +1,5 @@
 NAME = tcpflow
 VERSION = 0.21
-CATEGORIES = net
 GARTYPE = v2
 
 DESCRIPTION = A TCP Flow Recorder

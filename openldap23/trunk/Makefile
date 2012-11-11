@@ -4,7 +4,6 @@
 NAME = openldap
 VERSION = 2.3.43
 GARTYPE = v2
-CATEGORIES = server
 
 DESCRIPTION = Open source implementation of the Lightweight Directory Access Protocol
 define BLURB

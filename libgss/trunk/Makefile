@@ -1,6 +1,5 @@
 NAME = gss
 VERSION = 1.0.2
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = GNU Generic Security Service

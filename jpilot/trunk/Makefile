@@ -3,7 +3,6 @@
 NAME = jpilot
 VERSION = 1.8.1
 GARTYPE = v2
-CATEGORIES = apps
 
 DESCRIPTION = GNOME Desktop Organizer Software for the Palm Pilot
 define BLURB

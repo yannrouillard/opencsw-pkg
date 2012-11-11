@@ -1,7 +1,6 @@
 # : Makefile 9089 2010-03-11 08:34:46Z wahwah $
 NAME = tinyca2
 VERSION = 0.7.5
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = Graphical userinterface to manage a small CA

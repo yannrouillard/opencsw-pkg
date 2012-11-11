@@ -1,6 +1,5 @@
 NAME = phpldapadmin
 VERSION = 1.2.2
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = Web-based LDAP browser to manage your LDAP server

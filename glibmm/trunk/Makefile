@@ -1,6 +1,5 @@
 NAME = glibmm
 VERSION = 2.22.2
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = C++ interface to glib2

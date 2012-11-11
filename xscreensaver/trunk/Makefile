@@ -2,7 +2,6 @@
 
 NAME = xscreensaver
 VERSION = 5.15
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = The ultimate screensaver collection

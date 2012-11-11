@@ -21,7 +21,6 @@
 NAME = zzuf
 VERSION = 0.13
 GARTYPE = v2
-CATEGORIES = utils
 
 DESCRIPTION = Transparent application input fuzzer
 define BLURB

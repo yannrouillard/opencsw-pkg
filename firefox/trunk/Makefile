@@ -1,6 +1,5 @@
 NAME = firefox
 VERSION = 3.0.18
-CATEGORIES = apps
 GARTYPE = v2
 DISTNAME = mozilla
 

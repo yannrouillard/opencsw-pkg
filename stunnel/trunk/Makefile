@@ -8,7 +8,6 @@
 #
 NAME = stunnel
 VERSION = 4.53
-CATEGORIES = net
 GARTYPE = v2
 
 DESCRIPTION = Universal SSL Wrapper

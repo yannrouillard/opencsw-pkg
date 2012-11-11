@@ -1,7 +1,6 @@
 NAME = swaks
 VERSION = 20120320.0
 GARTYPE = v2
-CATEGORIES = utils
 
 DESCRIPTION = Swiss Army Knife SMTP
 define BLURB

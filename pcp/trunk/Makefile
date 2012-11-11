@@ -1,6 +1,5 @@
 NAME = pcp
 VERSION = 1.10
-CATEGORIES = net
 GARTYPE = v2
 
 DESCRIPTION = Maps ports to PIDs and vice versa

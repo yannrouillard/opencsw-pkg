@@ -4,7 +4,6 @@
 NAME = libcanberra
 VERSION = 0.29
 GARTYPE = v2
-CATEGORIES = lib
 
 DESCRIPTION = XDG sound theme and name specifications
 

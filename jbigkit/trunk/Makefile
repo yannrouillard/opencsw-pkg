@@ -4,7 +4,6 @@
 NAME = jbigkit
 VERSION = 2.0
 GARTYPE = v2
-CATEGORIES = lib
 
 DESCRIPTION = JBIG kit, a data compression algorithm for bi-level high-resolution images
 define BLURB

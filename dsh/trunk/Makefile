@@ -4,7 +4,6 @@
 NAME = dsh
 VERSION = 0.25.9
 GARTYPE = v2
-CATEGORIES = devel
 
 DESCRIPTION = Distributed shell which command through rsh or ssh on a cluster of machines
 

@@ -2,7 +2,6 @@ NAME = git
 VERSION = 1.8.0
 #PATCHLEVEL = rc4
 DISTNAME = $(NAME)-$(VERSION)
-CATEGORIES = devel
 GARTYPE = v2
 
 PACKAGING_PLATFORMS = solaris10-i386 solaris10-sparc

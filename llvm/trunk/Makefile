@@ -4,7 +4,6 @@
 NAME = llvm
 VERSION = 2.9
 GARTYPE = v2
-CATEGORIES = lib
 
 DESCRIPTION = Collection of modular and reusable compiler and toolchain technologies
 define BLURB

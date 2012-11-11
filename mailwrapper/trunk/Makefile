@@ -4,7 +4,6 @@
 NAME = mailwrapper
 VERSION = 1.0
 GARTYPE = v2
-CATEGORIES = apps
 
 DESCRIPTION = Run substitute program
 define BLURB

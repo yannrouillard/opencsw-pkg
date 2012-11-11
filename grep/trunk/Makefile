@@ -1,6 +1,5 @@
 NAME = grep
 VERSION = 2.11
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = GNU grep

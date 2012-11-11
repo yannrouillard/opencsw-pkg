@@ -6,7 +6,6 @@ PACKAGES = CSWtclitk
 CATALOGNAME_CSWtclitk = tcl-itk
 VERSION = 3.4
 GARTYPE = v2
-CATEGORIES = lang
 LICENSE = license.terms
 DEPENDS = CSWtcl CSWtclitcl
 BUILD_DEP_PKGS = CSWtclitcl

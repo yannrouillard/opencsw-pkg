@@ -1,6 +1,5 @@
 NAME = libmcal
 VERSION = 0.7
-CATEGORIES = lib
 GARTYPE = v2
 DRIVERNAME = mcaldrivers
 DRIVERVERSION = 0.9

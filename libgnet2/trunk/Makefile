@@ -3,7 +3,6 @@
 NAME = libgnet2
 VERSION = 2.0.8
 GARTYPE = v2
-CATEGORIES = lib
 
 DESCRIPTION = Network library based on glib2
 define BLURB

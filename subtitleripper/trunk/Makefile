@@ -3,7 +3,6 @@
 NAME = subtitleripper
 VERSION = 0.3-4
 GARTYPE = v2
-CATEGORIES = apps
 
 DESCRIPTION = Extracts DVD subtitles from a subtitle stream and converts them.
 define BLURB

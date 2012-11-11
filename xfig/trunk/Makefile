@@ -1,7 +1,6 @@
 # : Makefile 9089 2010-03-11 08:34:46Z wahwah $
 NAME = xfig
 VERSION = 3.2.5b
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = An interactive drawing tool

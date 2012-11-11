@@ -1,6 +1,5 @@
 NAME = mono-basic
 VERSION = 2.6
-CATEGORIES = lang
 GARTYPE = v2
 
 DESCRIPTION = Mono Runtime

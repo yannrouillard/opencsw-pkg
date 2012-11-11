@@ -4,7 +4,6 @@
 NAME = netcat
 VERSION = 0.7.1
 GARTYPE = v2
-CATEGORIES = utils
 
 DESCRIPTION = GNU netcat, a network debugging utility
 define BLURB

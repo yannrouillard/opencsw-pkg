@@ -4,7 +4,6 @@
 NAME = trafficserver
 VERSION = 3.2.3
 GARTYPE = v2
-CATEGORIES = server
 
 DESCRIPTION = Apache Traffic Server is fast, scalable and extensible HTTP/1.1 compliant caching proxy server.
 define BLURB

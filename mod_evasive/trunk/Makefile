@@ -1,7 +1,6 @@
 NAME = mod_evasive
 VERSION = 1.10.1
 GARTYPE = v1
-CATEGORIES = server
 
 DESCRIPTION = DOS evasive maneuvers module for Apache 2.x
 define BLURB

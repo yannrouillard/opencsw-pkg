@@ -5,7 +5,6 @@ NAME = php5_intl
 DISTNAME = intl-$(VERSION)
 VERSION = 1.1.2
 GARTYPE = v2
-CATEGORIES = xtra
 
 DESCRIPTION = PHP5 Internationalization extension
 define BLURB

@@ -1,7 +1,6 @@
 NAME = tsclient
 VERSION = 0.140
 GARTYPE = v1
-CATEGORIES = apps
 
 DESCRIPTION = a frontend for rdesktop and other remote desktop tool
 define BLURB

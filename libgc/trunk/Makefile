@@ -1,6 +1,5 @@
 NAME = libgc
 VERSION = 7.1
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = A garbage collector for C and C++

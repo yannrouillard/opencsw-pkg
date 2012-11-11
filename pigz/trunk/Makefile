@@ -1,6 +1,5 @@
 NAME = pigz
 VERSION = 2.2.4
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = A parallel implementation of gzip

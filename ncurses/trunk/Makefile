@@ -7,7 +7,6 @@
 
 NAME = ncurses
 VERSION = 5.9
-CATEGORIES = lib
 GARTYPE = v2
 
 define BLURB

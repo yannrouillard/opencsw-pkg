@@ -1,6 +1,5 @@
 NAME = mtx
 VERSION = 1.3.12
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = Control tape autoloaders

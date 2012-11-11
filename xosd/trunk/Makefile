@@ -4,7 +4,6 @@
 NAME = xosd
 VERSION = 2.2.14
 GARTYPE = v2
-CATEGORIES = utils
 
 DESCRIPTION = X on-screen display
 define BLURB

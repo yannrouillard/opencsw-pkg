@@ -4,7 +4,6 @@
 
 NAME = keychain
 VERSION = 2.7.0
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = Convenient ssh-agent and gpg-agent manager

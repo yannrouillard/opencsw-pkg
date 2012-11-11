@@ -4,7 +4,6 @@
 NAME = libotf
 VERSION = 0.9.12
 GARTYPE = v2
-CATEGORIES = lib
 
 DESCRIPTION = A Library for handling OpenType Font (OTF)
 define BLURB

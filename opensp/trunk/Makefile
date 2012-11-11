@@ -3,7 +3,6 @@
 NAME = opensp
 VERSION = 1.5.2
 GARTYPE = v2
-CATEGORIES = lib
 
 DESCRIPTION = A SGML parser called OpenSP
 define BLURB

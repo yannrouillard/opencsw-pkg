@@ -4,7 +4,6 @@
 NAME = xpra
 VERSION = 0.3.4
 GARTYPE = v2
-CATEGORIES = utils
 
 DESCRIPTION = Screen for X
 define BLURB

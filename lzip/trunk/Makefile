@@ -1,6 +1,5 @@
 NAME = lzip
 VERSION = 1.13
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = A lossless data compressor based on the LZMA algorithm

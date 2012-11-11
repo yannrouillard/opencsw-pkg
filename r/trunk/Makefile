@@ -3,7 +3,6 @@
 
 NAME = R
 VERSION = 2.13.1
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = A language and environment for statistical computing and graphics

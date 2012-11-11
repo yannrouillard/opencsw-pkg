@@ -4,7 +4,6 @@
 #
 NAME = ghex
 VERSION = 2.24.0
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = The GNOME binary hex editor

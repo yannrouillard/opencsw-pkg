@@ -1,7 +1,6 @@
 # $Id$
 NAME = libdbi-drivers
 VERSION = 0.8.3
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = Drivers for the libdbi database abstraction layer

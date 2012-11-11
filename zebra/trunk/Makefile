@@ -1,6 +1,5 @@
 NAME = zebra
 VERSION = 0.95a
-CATEGORIES = server
 GARTYPE = v2
 
 DESCRIPTION = Manages TCP/IP Based Routing Protocols

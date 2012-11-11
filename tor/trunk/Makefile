@@ -1,7 +1,6 @@
 # $Id$
 NAME = tor
 VERSION = 0.2.2.37
-CATEGORIES = net
 GARTYPE = v2
 
 DESCRIPTION = Secure network traffic router

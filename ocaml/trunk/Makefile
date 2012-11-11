@@ -1,6 +1,5 @@
 NAME = ocaml
 VERSION = 3.11.2
-CATEGORIES = lang
 GARTYPE = v2
 
 DESCRIPTION = Brief description

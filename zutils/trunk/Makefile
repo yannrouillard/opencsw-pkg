@@ -1,6 +1,5 @@
 NAME = zutils
 VERSION = 1.0-rc3
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = Utilities to deal with compressed and non-compressed files

@@ -1,6 +1,5 @@
 NAME = sed
 VERSION = 4.2.1
-CATEGORIES = utils
 GARTYPE = v2
 
 PACKAGES = CSWgsed

@@ -4,7 +4,6 @@
 
 NAME = googlemock
 VERSION = 1.4.0
-CATEGORIES = lib
 GARTYPE = v2
 DESCRIPTION = a library for writing and using C++ mock classes
 define BLURB

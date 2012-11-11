@@ -1,6 +1,5 @@
 NAME = man2html
 VERSION = 3.0.1
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = A Unix manpage-to-HTML converter

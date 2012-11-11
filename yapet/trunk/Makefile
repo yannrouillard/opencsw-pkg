@@ -2,7 +2,6 @@
 #
 NAME = yapet
 VERSION = 0.8pre2
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = Text-based Password Manager

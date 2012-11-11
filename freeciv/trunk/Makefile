@@ -1,6 +1,5 @@
 NAME = freeciv
 VERSION = 2.3.1
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = Free turn-based multiplayer strategy game

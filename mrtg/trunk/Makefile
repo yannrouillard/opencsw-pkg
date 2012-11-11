@@ -1,6 +1,5 @@
 NAME = mrtg
 VERSION = 2.17.4
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = Multi Router Traffic Grapher (network monitor)

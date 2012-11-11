@@ -3,7 +3,6 @@
 NAME = kakasi
 VERSION = 2.3.4
 GARTYPE = v2
-CATEGORIES = apps
 
 DESCRIPTION = KAnji KAna Simple Inverter
 define BLURB

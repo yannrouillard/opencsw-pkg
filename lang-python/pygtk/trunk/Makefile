@@ -1,6 +1,5 @@
 NAME = pygtk
 VERSION = 2.17.0
-CATEGORIES = lang
 GARTYPE = v2
 RELVER = $(shell echo $(VERSION) |gsed 's/\(^[0-9].*\.[0-9].*\)\.[0-9]*/\1/')
 

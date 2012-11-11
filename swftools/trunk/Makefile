@@ -1,6 +1,5 @@
 NAME = swftools
 VERSION = 0.8.1
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = SWF manipulation and generation utilities

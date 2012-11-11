@@ -1,7 +1,6 @@
 NAME = kdesvn
 VERSION = 0.9.3
 GARTYPE = v1
-CATEGORIES = apps
 
 DESCRIPTION = A Subversion client for KDE
 define BLURB

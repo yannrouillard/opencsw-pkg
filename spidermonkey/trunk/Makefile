@@ -2,7 +2,6 @@
 
 NAME = spidermonkey
 VERSION = 1.0.0
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = The Mozilla SpiderMonkey JavaScript interpreter and library

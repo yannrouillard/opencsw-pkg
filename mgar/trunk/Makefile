@@ -3,7 +3,6 @@
 #
 NAME = mgar
 VERSION = 0.95
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = Command line interface to the OpenCSW build system

@@ -1,6 +1,5 @@
 NAME = imapsync
 VERSION = 1.267
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = IMAP synchronization, copy and migration tool

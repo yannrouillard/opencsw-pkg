@@ -1,6 +1,5 @@
 NAME = lynx
 VERSION = 2.8.7
-CATEGORIES = net
 GARTYPE = v2
 
 DESCRIPTION = lynx - text browser for the World Wide Web

@@ -1,6 +1,5 @@
 NAME = libstatgrab
 VERSION = 0.17
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = A library that provides cross platform access to statistics

@@ -1,6 +1,5 @@
 NAME = rb-mysql
 VERSION = 2.8.1
-CATEGORIES = lang
 GARTYPE = v2
 
 DESCRIPTION = Mysql Bindings for Fuby

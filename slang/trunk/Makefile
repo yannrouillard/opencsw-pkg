@@ -2,7 +2,6 @@
 
 NAME = slang
 VERSION = 2.2.4
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = Library primarily to provide an alternative to libcurses

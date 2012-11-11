@@ -1,6 +1,5 @@
 NAME = xpilot
 VERSION = 4.5.5
-CATEGORIES = net
 GARTYPE = v2
 
 DESCRIPTION = multi-player 2D space game

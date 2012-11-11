@@ -1,6 +1,5 @@
 NAME = dbus-python
 VERSION = 1.1.1
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = DBUS Bindings for Python

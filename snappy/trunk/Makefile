@@ -4,7 +4,6 @@
 NAME = snappy
 VERSION = 1.0.5
 GARTYPE = v2
-CATEGORIES = lib
 
 DESCRIPTION = Brief description
 define BLURB

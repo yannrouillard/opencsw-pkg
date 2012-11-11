@@ -1,6 +1,5 @@
 NAME = tunctl
 VERSION = 1.5
-CATEGORIES = net
 GARTYPE = v2
 
 DESCRIPTION = Used to set up and maintain persistent TUN/TAP network interface

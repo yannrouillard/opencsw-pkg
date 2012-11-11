@@ -6,7 +6,6 @@ MAJOR = 0.99
 MINOR = 19
 VERSION = 0.99.$(MINOR)
 GARTYPE = v2
-CATEGORIES = apps
 
 DESCRIPTION = Editor based on slang
 define BLURB

@@ -5,7 +5,6 @@
 NAME = mongodb
 VERSION = 2.0.4
 
-CATEGORIES = lib
 GARTYPE = v2
 DESCRIPTION = A scalable, high-performance, open source, document-oriented database
 define BLURB

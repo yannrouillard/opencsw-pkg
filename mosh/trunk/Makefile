@@ -4,7 +4,6 @@
 NAME = mosh
 VERSION = 1.1.3
 GARTYPE = v2
-CATEGORIES = utils
 
 DESCRIPTION = Mobile shell
 

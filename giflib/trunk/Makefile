@@ -1,6 +1,5 @@
 NAME = giflib
 VERSION = 4.2.0
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = A library for reading and writing gif images

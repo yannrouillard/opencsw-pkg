@@ -1,7 +1,6 @@
 # $Id$
 NAME = mawk
 VERSION = 1.3.4
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = Fast, bytecode-based AWK

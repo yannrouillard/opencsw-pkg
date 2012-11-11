@@ -1,6 +1,5 @@
 NAME = libsoup
 VERSION = 2.33.92
-CATEGORIES = lib
 GARTYPE = v2
   
 

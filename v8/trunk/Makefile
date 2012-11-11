@@ -5,7 +5,6 @@
 NAME = v8
 VERSION = 0.2012.03
 DESCRIPTION = Open source JavaScript engine from Google
-CATEGORIES = lib
 GARTYPE = v2
 define BLURB
 Google's open source JavaScript engine

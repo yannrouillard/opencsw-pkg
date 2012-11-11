@@ -3,7 +3,6 @@
 NAME = smartmontools
 VERSION = 5.42
 GARTYPE = v2
-CATEGORIES = utils
 
 DESCRIPTION = S.M.A.R.T. disk monitoring tools
 define BLURB

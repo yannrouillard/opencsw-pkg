@@ -3,7 +3,6 @@
 NAME = ps2eps
 VERSION = 1.68
 GARTYPE = v2
-CATEGORIES = apps
 
 DESCRIPTION = Tool for generating Encapsulated Postscript Format files from one-page Postscript documents
 define BLURB

@@ -1,6 +1,5 @@
 NAME = patch
 VERSION = 2.6.1
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = GNU patch utility

@@ -1,6 +1,5 @@
 NAME = a52dec
 VERSION = 0.7.4
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = A free ATSC A/52 stream decoder

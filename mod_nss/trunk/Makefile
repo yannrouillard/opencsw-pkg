@@ -3,7 +3,6 @@
 NAME = mod_nss
 VERSION = 1.0.8
 GARTYPE = v2
-CATEGORIES = lib
 
 DESCRIPTION = Apache2 Crypto Modul using Mozilla NSS
 define BLURB

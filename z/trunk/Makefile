@@ -1,6 +1,5 @@
 NAME = z
 VERSION = 2.6.1
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = A simple, safe and convenient front-end for various compression programs

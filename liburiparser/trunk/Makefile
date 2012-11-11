@@ -1,7 +1,6 @@
 # $Id$
 NAME = liburiparser
 VERSION = 0.7.7
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = RFC 3986 Compliant URI Parsing Library

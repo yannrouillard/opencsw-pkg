@@ -2,7 +2,6 @@
 
 NAME = zlib
 VERSION = 1.2.7
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = Zlib data compression library

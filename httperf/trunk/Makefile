@@ -14,7 +14,6 @@
 #
 NAME = httperf
 VERSION = 0.9.0
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = A tool for measuring web server performance.

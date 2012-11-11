@@ -4,7 +4,6 @@
 NAME = znc
 VERSION = 0.206
 GARTYPE = v2
-CATEGORIES = apps
 
 DESCRIPTION = ZNC, an advanced IRC bouncer
 define BLURB

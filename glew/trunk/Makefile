@@ -3,7 +3,6 @@
 
 NAME = glew
 VERSION = 1.7.0
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = OpenGL Extension Wrangler Library (GLEW)

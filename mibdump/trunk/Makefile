@@ -1,6 +1,5 @@
 NAME = mibdump
 VERSION = 0.1.2
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = Allows management applications to access SMI MIB module definitions

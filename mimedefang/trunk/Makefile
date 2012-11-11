@@ -1,6 +1,5 @@
 NAME = mimedefang
 VERSION = 2.71
-CATEGORIES = net
 GARTYPE = v2
 
 DESCRIPTION = Framework for filtering e-mail using Sendmail milter API, C and Perl

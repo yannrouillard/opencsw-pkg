@@ -1,7 +1,6 @@
 # $Id$
 NAME = gdal
 VERSION = 1.9.1
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = Geospatial Data Abstraction Library

@@ -1,6 +1,5 @@
 NAME = mpg123
 VERSION = 1.13.3
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = A command-line MP3 player

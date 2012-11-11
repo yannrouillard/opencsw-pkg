@@ -1,6 +1,5 @@
 NAME = pv
 VERSION = 1.2.0
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION =  Monitor the progress of data through a pipe

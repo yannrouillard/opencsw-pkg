@@ -1,6 +1,5 @@
 NAME = rl
 VERSION = 0.2.7
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = A command-line tool that randomizes lines of input.

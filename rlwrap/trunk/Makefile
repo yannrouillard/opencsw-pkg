@@ -14,7 +14,6 @@
 
 NAME = rlwrap
 VERSION = 0.37
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = A readline wrapper

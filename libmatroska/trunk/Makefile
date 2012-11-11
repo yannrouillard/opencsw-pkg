@@ -1,6 +1,5 @@
 NAME = libmatroska
 VERSION = 1.1.0
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = A C++ libary to parse Matroska files (.mkv and .mka)

@@ -1,7 +1,6 @@
 NAME = MHonArc
 VERSION = 2.6.14
 GARTYPE = v1
-CATEGORIES = utils
 GARCH = all
 
 DESCRIPTION = mail-to-HTML converter

@@ -4,7 +4,6 @@
 NAME = zabbix
 VERSION = 2.0.0
 GARTYPE = v2
-CATEGORIES = server
 
 DESCRIPTION = Zabbix monitoring system
 define BLURB

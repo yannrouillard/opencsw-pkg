@@ -1,6 +1,5 @@
 NAME = mod_pagespeed
 VERSION = 0.10.21.2
-CATEGORIES = server
 GARTYPE = v2
 
 DESCRIPTION = Apache Kerberos authentication module

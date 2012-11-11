@@ -1,7 +1,6 @@
 NAME = ppkg_get
 VERSION = 1.0
 GARTYPE = v1
-CATEGORIES = utils
 
 DESCRIPTION = Perl rewrite of origine pkg-get tools
 define BLURB

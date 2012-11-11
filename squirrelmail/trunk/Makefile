@@ -1,6 +1,5 @@
 NAME = squirrelmail
 VERSION = 1.4.19
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = A standards-based webmail package written in PHP.

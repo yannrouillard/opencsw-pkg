@@ -1,6 +1,5 @@
 NAME = ngspice
 VERSION = 20
-CATEGORIES = apps
 GARTYPE = v2
 
 

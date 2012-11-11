@@ -17,7 +17,6 @@
 NAME = tokyocabinet
 VERSION = 1.4.47
 GARTYPE = v2
-CATEGORIES = lib
 GARCOMPILER = SOS12U1
 
 PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386

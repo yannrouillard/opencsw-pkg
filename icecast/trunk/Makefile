@@ -4,7 +4,6 @@
 
 NAME = icecast
 VERSION = 2.3.3
-CATEGORIES = apps
 
 DESCRIPTION = A free server software for streaming multimedia
 define BLURB

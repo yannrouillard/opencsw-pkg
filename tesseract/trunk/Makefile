@@ -4,7 +4,6 @@
 NAME = tesseract
 VERSION = 3.02.02
 GARTYPE = v2
-CATEGORIES = apps
 
 DESCRIPTION = An OCR engine
 

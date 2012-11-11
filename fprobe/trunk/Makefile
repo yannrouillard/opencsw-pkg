@@ -1,6 +1,5 @@
 NAME = fprobe
 VERSION = 1.1
-CATEGORIES = net
 GARTYPE = v2
 
 DESCRIPTION = Tool that collect network traffic data

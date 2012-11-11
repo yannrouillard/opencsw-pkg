@@ -1,6 +1,5 @@
 NAME = SDL_image
 VERSION = 1.2.10
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = SDL image file loading library

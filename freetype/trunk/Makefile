@@ -1,6 +1,5 @@
 NAME = freetype
 VERSION = 2.4.8
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = A free and portable TrueType font rendering engine

@@ -4,7 +4,6 @@
 NAME = windowmaker
 VERSION = 0.95.2
 GARTYPE = v2
-CATEGORIES = apps
 
 DESCRIPTION = X11 window manager
 define BLURB

@@ -1,6 +1,5 @@
 NAME = xdebug
 VERSION = 2.0.4
-CATEGORIES = lang
 GARTYPE = v2
 
 DESCRIPTION = Xdebug Extention for PHP

@@ -1,6 +1,5 @@
 NAME = libsigsegv
 VERSION = 2.6
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = A library for catching and handling segmentation faults

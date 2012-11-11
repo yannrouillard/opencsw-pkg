@@ -6,7 +6,6 @@
 # - pgsql
 NAME = pureftpd
 VERSION = 1.0.36
-CATEGORIES = net
 GARTYPE = v2
 SRCNAME = pure-ftpd
 

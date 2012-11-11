@@ -1,6 +1,5 @@
 NAME = libntlm
 VERSION = 1.2
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = Microsoft WinNT domain authentication library

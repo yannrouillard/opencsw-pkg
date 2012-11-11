@@ -1,7 +1,6 @@
 NAME = zeromq
 VERSION = 2.2.0
 GARTYPE = v2
-CATEGORIES = lib
 
 DESCRIPTION = Software library for fast, message-based applications
 define BLURB

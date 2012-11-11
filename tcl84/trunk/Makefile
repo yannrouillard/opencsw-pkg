@@ -1,6 +1,5 @@
 NAME = tcl8.4
 VERSION = 8.4.19
-CATEGORIES = lang
 GARTYPE = v2
 
 DESCRIPTION = Tcl programming language v8.4

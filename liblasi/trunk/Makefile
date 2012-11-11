@@ -1,6 +1,5 @@
 NAME = liblasi
 VERSION = 1.1.0
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = C++ Unicode support for PostScript

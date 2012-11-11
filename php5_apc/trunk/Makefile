@@ -1,6 +1,5 @@
 NAME = APC
 VERSION = 3.1.9
-CATEGORIES = lang
 GARTYPE = v2
 
 # to match php5

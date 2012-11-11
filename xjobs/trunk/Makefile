@@ -1,6 +1,5 @@
 NAME = xjobs
 VERSION = 20120412
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = Executes jobs in parallel similar to xargs

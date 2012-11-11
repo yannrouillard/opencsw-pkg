@@ -1,7 +1,6 @@
 NAME = imapfilter
 VERSION = 2.5.2
 GARTYPE = v2
-CATEGORIES = net
 
 PACKAGING_PLATFORMS += solaris10-sparc solaris10-i386
 

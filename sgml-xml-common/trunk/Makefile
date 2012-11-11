@@ -2,7 +2,6 @@ NAME = sgml-common
 VERSION = 0.6.3
 #since categories are a bit of a relic and this doesn't fit better anywhere
 #else anyway...
-CATEGORIES = xtra
 GARTYPE = v2
 
 DESCRIPTION = A collection of entities and DTDs

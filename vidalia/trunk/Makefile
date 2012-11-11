@@ -1,7 +1,6 @@
 NAME = vidalia
 VERSION = 0.2.19
 GARTYPE = v2
-CATEGORIES = net
 
 DESCRIPTION = Controller GUI for Tor
 define BLURB

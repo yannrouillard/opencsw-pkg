@@ -1,6 +1,5 @@
 NAME = mbuffer
 VERSION = 20120505
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = A tool for buffering data streams

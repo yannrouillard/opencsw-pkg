@@ -4,7 +4,6 @@
 NAME = netatalk
 VERSION = 3.0.1
 GARTYPE = v2
-CATEGORIES = server
 
 DESCRIPTION = Brief description
 define BLURB

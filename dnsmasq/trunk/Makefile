@@ -1,7 +1,6 @@
 NAME = dnsmasq
 VERSION = 2.59
 GARTYPE = v2
-CATEGORIES = net
 
 DESCRIPTION = Lightweight DNS forwarder and DHCP server
 define BLURB

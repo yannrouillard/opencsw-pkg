@@ -1,6 +1,5 @@
 NAME = pyDes
 VERSION = 2.0.0
-CATEGORIES = lang
 GARTYPE = v2
 
 DESCRIPTION = implementation of the DES encryption algorithm

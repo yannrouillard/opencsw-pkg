@@ -4,7 +4,6 @@
 NAME = vbindiff
 VERSION = 3.0_beta4
 GARTYPE = v2
-CATEGORIES = utils
 
 DESCRIPTION = Visual Binary Diff
 define BLURB

@@ -2,7 +2,6 @@
 
 NAME = memcached
 VERSION = 1.4.15
-CATEGORIES = net
 GARTYPE = v2
 
 DESCRIPTION = Distributed memory object caching system

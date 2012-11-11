@@ -2,7 +2,6 @@
 
 NAME = ghostscript
 VERSION = 9.04
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = PostScript and PDF interpreter

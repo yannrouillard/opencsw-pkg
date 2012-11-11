@@ -2,7 +2,6 @@
 
 NAME = mpfr
 VERSION = 3.1.0
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = GNU Multiple Precision floating-point arithmetic library

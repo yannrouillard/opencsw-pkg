@@ -1,7 +1,6 @@
 NAME = magit
 VERSION = 0.7
 PATCHLEVEL = magit_0.7
-CATEGORIES = utils
 GARTYPE = v2
 
 ARCHALL = 1

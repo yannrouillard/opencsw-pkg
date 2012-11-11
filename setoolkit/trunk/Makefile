@@ -1,7 +1,6 @@
 NAME = setoolkit
 VERSION = 3.5.1
 DISTNAME = $(NAME)-$(VERSION)
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = A system performance monitoring tool

@@ -1,6 +1,5 @@
 NAME = libfaac
 VERSION = 1.28
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = AAC encoder library and tool

@@ -1,6 +1,5 @@
 NAME = tig
 VERSION = 0.18
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = A git repository browser

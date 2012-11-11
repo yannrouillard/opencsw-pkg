@@ -1,7 +1,6 @@
 NAME = spamassassin
 SPKG_NAME = Mail-SpamAssassin
 VERSION = 3.3.2
-CATEGORIES = net
 GARTYPE = v2
 
 DESCRIPTION = Mail filter with a wide range of tests

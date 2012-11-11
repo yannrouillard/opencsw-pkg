@@ -1,7 +1,6 @@
 # $Id$
 NAME = libdnet
 VERSION = 1.12
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = A simplified, portable interface to several low-level networking routines

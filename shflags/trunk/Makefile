@@ -4,7 +4,6 @@
 
 NAME = shflags
 VERSION = 1.0.3
-CATEGORIES = apps
 GARTYPE = v2
 DESCRIPTION = command-line flags module for Unix shell scripts
 define BLURB

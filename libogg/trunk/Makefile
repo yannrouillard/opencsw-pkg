@@ -1,6 +1,5 @@
 NAME = libogg
 VERSION = 1.3.0
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = Ogg bitstream format support library

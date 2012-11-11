@@ -2,7 +2,6 @@
 
 NAME = fio
 VERSION = 2.0.8
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = Flexible I/O Tester

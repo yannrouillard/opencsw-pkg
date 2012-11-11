@@ -1,6 +1,5 @@
 NAME = tcsh
 VERSION = 6.18.01
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = Enhanced version of the Berkeley C shell (csh)

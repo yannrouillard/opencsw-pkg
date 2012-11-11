@@ -3,7 +3,6 @@
 NAME = par2cmdline
 VERSION = 0.4
 GARTYPE = v2
-CATEGORIES = apps
 
 DESCRIPTION = Program for creating and using PAR2 files
 define BLURB

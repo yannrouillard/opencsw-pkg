@@ -1,7 +1,6 @@
 # $Id$
 NAME = mc
 VERSION = 4.8.0
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = A curses-based visual shell and file manager

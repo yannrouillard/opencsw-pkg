@@ -1,6 +1,5 @@
 NAME = squidclamav
 VERSION = 4.0
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = A Dedicated ClamAV AntiVirus Redirector for Squid

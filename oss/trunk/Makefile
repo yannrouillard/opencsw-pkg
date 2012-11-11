@@ -6,7 +6,6 @@
 NAME = oss
 VERSION = 4.2
 GARTYPE = v2
-CATEGORIES = utils
 
 DESCRIPTION = Brief description
 define BLURB

@@ -1,7 +1,6 @@
 NAME = silc-toolkit
 VERSION = 1.1.8
 GARTYPE = v1
-CATEGORIES = lib
 SPKG_SOURCEURL = http://silcnet.org/software/download/toolkit/
 
 DESCRIPTION = secure internet live conferencing toolkit

@@ -1,6 +1,5 @@
 NAME = libvorbis
 VERSION = 1.3.3
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = Vorbis codec library

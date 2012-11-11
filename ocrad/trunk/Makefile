@@ -1,7 +1,6 @@
 # : Makefile 9089 2010-03-11 08:34:46Z wahwah $
 NAME = ocrad
 VERSION = 0.19
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = GNU Optical Character Recognition

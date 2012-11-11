@@ -1,6 +1,5 @@
 NAME = sqlite3
 VERSION = 3070900
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION  = An embeddable SQL engine in a C library

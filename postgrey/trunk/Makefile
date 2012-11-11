@@ -1,6 +1,5 @@
 NAME       = postgrey
 VERSION    = 1.34
-CATEGORIES = net
 GARTYPE = v2
 
 DESCRIPTION = Postfix policy server implementing greylisting

@@ -8,7 +8,6 @@
 
 NAME = puppet
 VERSION = 2.7.19
-CATEGORIES = apps
 GARTYPE = v2
 
 define BLURB

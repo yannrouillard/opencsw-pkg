@@ -4,7 +4,6 @@
 NAME = virtinst
 VERSION = 0.600.3
 GARTYPE = v2
-CATEGORIES = lib
 
 DESCRIPTION = Interface for managing virtual machines
 define BLURB

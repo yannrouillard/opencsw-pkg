@@ -2,7 +2,6 @@
 
 NAME = ufraw
 VERSION = 0.17
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = A tool for reading and manipulating raw images from digital cameras

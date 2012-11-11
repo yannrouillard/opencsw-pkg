@@ -1,7 +1,6 @@
 # $Id: Makefile 16916 2012-01-26 13:25:13Z dmichelsen $
 NAME = libsunperf
 VERSION = 20121030
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = Sun Studio U1 Performance Libraries

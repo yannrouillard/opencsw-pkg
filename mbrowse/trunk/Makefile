@@ -1,6 +1,5 @@
 NAME = mbrowse
 VERSION = 0.4.3
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = SNMP MIB browser

@@ -4,7 +4,6 @@
 NAME = virt-manager
 VERSION = 0.9.3
 GARTYPE = v2
-CATEGORIES = apps
 
 DESCRIPTION =  Virtual Machine Manager
 define BLURB

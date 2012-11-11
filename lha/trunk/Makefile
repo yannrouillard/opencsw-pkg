@@ -2,7 +2,6 @@
 NAME = lha
 VERSION = 1.14i-ac20050924p1
 SPKG_VERSION = $(shell echo $(VERSION) | tr '-' '_')
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = File archiving/compression program

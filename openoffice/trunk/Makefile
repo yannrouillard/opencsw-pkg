@@ -3,7 +3,6 @@ VERSION = 2.2.1
 SRCNUM=680
 MILESTONE=m18
 GARTYPE = v1
-CATEGORIES = apps
 
 DESCRIPTION = An Open Source version of StarOffice.
 define BLURB

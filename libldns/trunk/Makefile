@@ -1,6 +1,5 @@
 NAME = ldns
 VERSION = 1.6.13
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = A library for programs conforming to DNS RFCs and drafts

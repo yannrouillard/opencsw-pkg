@@ -4,7 +4,6 @@
 
 NAME = libXpm
 VERSION = 3.5.10
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = X11 pixmap library

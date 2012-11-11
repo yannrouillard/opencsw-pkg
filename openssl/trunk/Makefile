@@ -17,7 +17,6 @@ PKCS11 = 1
 
 NAME = openssl
 VERSION = 0.9.8x
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = The Open Source toolkit for SSL and TLS

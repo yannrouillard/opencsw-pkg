@@ -1,6 +1,5 @@
 NAME = wavpack
 VERSION = 4.60.1
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = Open audio compression format

@@ -6,7 +6,6 @@ VERSION = 2.30.7
 # 2.24.2 = .so.22
 # 2.28.0 = .so.22
 # 2.30.7 = .so.22
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = Library used for writing pagers and tasks lists

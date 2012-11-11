@@ -1,6 +1,5 @@
 NAME = orca
 VERSION = ef85fa3541
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = A system performance monitoring tool

@@ -5,7 +5,6 @@ NAME = modules
 VERSION = 3.2.9
 MINOR = c
 GARTYPE = v2
-CATEGORIES = utils
 
 DESCRIPTION = Environment modules
 

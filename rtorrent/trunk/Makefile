@@ -1,6 +1,5 @@
 NAME = rtorrent
 VERSION = 0.8.6
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = Client for Unix, based on libtorrent 

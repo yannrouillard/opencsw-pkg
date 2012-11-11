@@ -1,6 +1,5 @@
 NAME = leptonica
 VERSION = 1.69
-CATEGORIES = devel
 GARTYPE = v2
 
 DESCRIPTION = An open source C library for efficient image processing and image analysis operations

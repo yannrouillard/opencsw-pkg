@@ -1,7 +1,6 @@
 # $Id$
 NAME = libkate
 VERSION = 0.3.8
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = A karaoke and text codec for embedding in ogg

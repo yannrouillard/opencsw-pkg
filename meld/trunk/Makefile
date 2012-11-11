@@ -4,7 +4,6 @@
 NAME = meld
 VERSION = 1.5.4
 GARTYPE = v2
-CATEGORIES = apps
 
 DESCRIPTION = Visual diff and merge tool
 define BLURB

@@ -4,7 +4,6 @@
 
 NAME = torque
 VERSION = 3.0.2
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = Batch job scheduling system

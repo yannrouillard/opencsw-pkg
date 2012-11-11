@@ -4,7 +4,6 @@
 NAME = openbox
 VERSION = 3.4.11.2
 GARTYPE = v2
-CATEGORIES = apps
 
 DESCRIPTION = Window manager with extensive standards support
 define BLURB

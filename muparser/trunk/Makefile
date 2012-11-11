@@ -4,7 +4,6 @@
 NAME = muparser
 VERSION = v2_2_2
 GARTYPE = v2
-CATEGORIES = lib
 
 DESCRIPTION = A fast math parser library
 define BLURB

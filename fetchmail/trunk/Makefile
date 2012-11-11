@@ -4,7 +4,6 @@
 NAME = fetchmail
 VERSION = 6.3.21
 GARTYPE = v2
-CATEGORIES = utils
 
 DESCRIPTION = Fetchmail mail retrieval and forwarding utility
 define BLURB

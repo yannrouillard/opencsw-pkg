@@ -5,7 +5,6 @@ NAME = webalizer
 VERSION = 2.23
 SUBREV = 05
 GARTYPE = v2
-CATEGORIES = utils
 
 DESCRIPTION = A flexible web server log file analysis program
 define BLURB

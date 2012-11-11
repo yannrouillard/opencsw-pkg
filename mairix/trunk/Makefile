@@ -1,6 +1,5 @@
 NAME = mairix
 VERSION = 0.22
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = An index and search tool for Maildir, MH, or mbox

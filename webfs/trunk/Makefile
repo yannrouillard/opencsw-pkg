@@ -4,7 +4,6 @@
 #
 NAME = webfs
 VERSION = 1.21
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = Lightweight HTTP server for static content

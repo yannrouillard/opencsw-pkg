@@ -1,6 +1,5 @@
 NAME = lastx
 VERSION = 1.1
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = An extension of the last utility shipped with Solaris

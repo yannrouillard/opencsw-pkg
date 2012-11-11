@@ -2,7 +2,6 @@
 
 NAME = flow-tools
 VERSION = 0.68.5.1
-CATEGORIES = net
 DESCRIPTION = Software for collection/processing NetFlow data from Cisco/Juniper
 
 # Issues:

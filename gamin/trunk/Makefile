@@ -2,7 +2,6 @@
 
 NAME = gamin
 VERSION = 0.1.10
-CATEGORIES = server
 GARTYPE = v2
 
 DESCRIPTION = GNOME replacement for FAM which watches for file alterations

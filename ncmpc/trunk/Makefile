@@ -1,6 +1,5 @@
 NAME = ncmpc
 VERSION = 0.15
-CATEGORIES = apps
 GARTYPE = v2
 
 GARCOMPILER = GNU

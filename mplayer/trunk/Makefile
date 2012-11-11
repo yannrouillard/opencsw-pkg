@@ -9,7 +9,6 @@
 NAME = MPlayer
 VERSION = 1.0rc2
 VERSION_Blue = 1.7
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = MPlayer is a movie player which runs on many systems

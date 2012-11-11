@@ -1,6 +1,5 @@
 NAME = readline
 VERSION = 4.3
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = GNU readline

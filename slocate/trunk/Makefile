@@ -4,7 +4,6 @@
 # * Use cswusergroups to add slocate group
 NAME = slocate
 VERSION = 3.1
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = Secure locate alternative

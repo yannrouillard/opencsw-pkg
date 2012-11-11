@@ -4,7 +4,6 @@ VERSION = 1.9.3
 API_VERSION = 1.9.1
 API_SHORT = $(subst .,,$(API_VERSION))
 PATCHLEVEL = p194
-CATEGORIES = lang
 GARTYPE = v2
 
 # patchfile 0002-vm.c... is a backport from upstream

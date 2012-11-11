@@ -1,7 +1,6 @@
 # $Id$
 NAME = libxspf
 VERSION = 1.2.0
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = XSPF Playlist Reading and Writing Support for C++ Applications

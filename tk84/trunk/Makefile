@@ -1,6 +1,5 @@
 NAME = tk
 VERSION = 8.4.15
-CATEGORIES = lang
 GARTYPE = v2
 
 DESCRIPTION = GUI toolkit for tcl

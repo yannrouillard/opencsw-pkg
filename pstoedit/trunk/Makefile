@@ -3,7 +3,6 @@
 NAME = pstoedit
 VERSION = 3.60
 GARTYPE = v2
-CATEGORIES = lib
 
 DESCRIPTION = Translates PostScript and PDF files to editable vector graphics converter
 define BLURB

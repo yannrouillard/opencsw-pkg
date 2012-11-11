@@ -1,6 +1,5 @@
 NAME = pcre
 VERSION = 8.31
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = Perl-compatible regular expression tools

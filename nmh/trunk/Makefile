@@ -1,7 +1,6 @@
 # $Id$
 NAME = nmh
 VERSION = 1.5
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = Powerful electronic mail handling system

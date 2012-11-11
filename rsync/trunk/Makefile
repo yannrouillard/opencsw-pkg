@@ -4,7 +4,6 @@
 
 NAME = rsync
 VERSION = 3.0.9
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = Utility which provides fast incremental file transfer

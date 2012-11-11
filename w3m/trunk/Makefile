@@ -1,6 +1,5 @@
 NAME = w3m
 VERSION = 0.5.2
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = Text-based web browser

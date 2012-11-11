@@ -4,7 +4,6 @@
 NAME = portaudio
 VERSION = 19_20111121
 GARTYPE = v2
-CATEGORIES = utils
 
 DESCRIPTION = Portable cross-platform audio I/O
 define BLURB

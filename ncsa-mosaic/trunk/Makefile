@@ -6,7 +6,6 @@ NAME = ncsa-mosaic
 VERSION = 2.7b6
 PACKAGES = CSWncsa-mosaic
 CATALOGNAME_CSWncsa-mosaic = ncsa_mosaic
-CATEGORIES = apps
 GARTYPE = v2
 GIT_REPOS = git://github.com/alandipert/ncsa-mosaic.git
 DESCRIPTION = The web browser credited with popularizing the World Wide Web

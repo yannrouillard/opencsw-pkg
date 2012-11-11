@@ -7,7 +7,6 @@ VERSION_U = $(subst .,-,$(VERSION))
 # automatically for us
 TEST_SCRIPTS =
 
-CATEGORIES = utils
 GARTYPE = v2
 
 #PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386

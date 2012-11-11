@@ -1,6 +1,5 @@
 NAME = texinfo
 VERSION = 4.13a
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = The GNU Documentation System

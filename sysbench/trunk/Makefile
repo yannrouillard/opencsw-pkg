@@ -8,7 +8,6 @@
 NAME = sysbench
 VERSION = 0.4.7
 GARTYPE = v1
-CATEGORIES = utils
 
 DESCRIPTION = System evaluation benchmark
 define BLURB

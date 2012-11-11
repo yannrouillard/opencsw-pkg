@@ -3,7 +3,6 @@
 NAME = pypy
 VERSION = 1.9
 GARTYPE = v2
-CATEGORIES = apps
 
 DESCRIPTION = Python in Python
 define BLURB

@@ -11,7 +11,6 @@
 
 NAME = ghc
 VERSION = 6.10.4
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = State-of-the-art, compiler and interactive environment for Haskell.

@@ -13,7 +13,6 @@
 NAME = ipv6calc
 VERSION = 0.90.0
 GARTYPE = v2
-CATEGORIES = utils
 
 DESCRIPTION = Utility for manipulating and querying IPv6 addresses
 define BLURB

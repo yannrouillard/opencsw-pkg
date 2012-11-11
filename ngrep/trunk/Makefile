@@ -1,7 +1,6 @@
 NAME = ngrep
 VERSION = 1.45
 GARTYPE = v1
-CATEGORIES = net
 
 DESCRIPTION = Network grep
 define BLURB

@@ -1,6 +1,5 @@
 NAME = pulseaudio
 VERSION = 0.9.21
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = PulseAudio is a sound server for POSIX systems

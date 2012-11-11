@@ -4,7 +4,6 @@ NAME = gnusnamazu
 # there is no realy a version version as we fetch from a git repository
 VERSION = 0.3
 GARTYPE = v2
-CATEGORIES = xtra
 
 DESCRIPTION = Gnus interface to Namazu
 define BLURB

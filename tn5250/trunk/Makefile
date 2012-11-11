@@ -4,7 +4,6 @@
 NAME = tn5250
 VERSION = 0.17.4
 GARTYPE = v2
-CATEGORIES = net
 
 PACKAGING_PLATFORMS = solaris10-i386 solaris10-sparc
 

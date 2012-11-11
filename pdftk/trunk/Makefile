@@ -5,7 +5,6 @@
 #
 NAME = pdftk
 VERSION = 1.44
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = Tool for manipulating PDF documents.

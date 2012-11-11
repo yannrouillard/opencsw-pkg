@@ -1,7 +1,6 @@
 NAME = libserf
 VERSION = 1.1.1
 DISTNAME = serf-$(VERSION)
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = HTTP client library built on APR, multiplexes connections

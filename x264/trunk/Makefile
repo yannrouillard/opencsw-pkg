@@ -4,7 +4,6 @@
 NAME = x264
 VERSION = 999b753
 GARTYPE = v2
-CATEGORIES = apps
 
 DESCRIPTION = x264 is encoding video streams into the H.264/MPEG-4 AVC format
 define BLURB

@@ -1,6 +1,5 @@
 NAME = xmlto
 VERSION = 0.0.23
-CATEGORIES = utils
 GARTYPE = v2
 
 BUILD_DEP_PKGS += CSWmktemp CSWfindutils CSWdocbookxsl CSWlibxslt

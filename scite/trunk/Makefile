@@ -4,7 +4,6 @@
 NAME = scite
 VERSION = 226
 GARTYPE = v2
-CATEGORIES = apps
 
 DESCRIPTION = Text editor
 define BLURB

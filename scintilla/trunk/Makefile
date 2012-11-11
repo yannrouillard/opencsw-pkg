@@ -4,7 +4,6 @@
 NAME = scintilla
 VERSION = 2.26
 GARTYPE = v2
-CATEGORIES = lib
 
 DESCRIPTION = A source code editing component
 define BLURB

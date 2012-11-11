@@ -1,7 +1,6 @@
 # $Id$
 NAME = lighttpd
 VERSION = 1.4.31
-CATEGORIES = server
 GARTYPE = v2
 
 DESCRIPTION = HTTP server built for security, speed, compliance, and flexibility

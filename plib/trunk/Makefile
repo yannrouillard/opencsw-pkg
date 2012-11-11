@@ -1,6 +1,5 @@
 NAME = plib
 VERSION = 1.8.5
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = A Suite of Portable Game Libraries

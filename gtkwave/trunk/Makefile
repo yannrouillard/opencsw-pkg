@@ -1,6 +1,5 @@
 NAME = gtkwave
 VERSION = 3.2.3
-CATEGORIES = devel
 GARTYPE = v2
 
 DESCRIPTION = Brief description

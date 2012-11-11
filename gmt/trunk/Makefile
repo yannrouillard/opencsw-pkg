@@ -4,7 +4,6 @@
 
 NAME = gmt
 VERSION = 4.5.7
-CATEGORIES = apps
 GARTYPE = v2
 DESCRIPTION = Generic Mapping Tools
 define BLURB

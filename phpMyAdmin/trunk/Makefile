@@ -1,6 +1,5 @@
 NAME = phpMyAdmin
 VERSION = 3.5.1
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = Effective MySQL Management

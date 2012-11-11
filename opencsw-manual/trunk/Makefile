@@ -12,7 +12,6 @@
 
 NAME = opencsw-manual
 VERSION = 0.1
-CATEGORIES = lib
 GARTYPE = v2
 DESCRIPTION = OpenCSW manual
 define BLURB

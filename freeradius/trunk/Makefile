@@ -1,6 +1,5 @@
 NAME = freeradius
 VERSION = 2.1.12
-CATEGORIES = server
 GARTYPE = v2
 
 DESCRIPTION = A free RADIUS server implementation

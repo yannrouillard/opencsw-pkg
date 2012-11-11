@@ -3,7 +3,6 @@
 NAME = tex_dirtree
 VERSION = 0.2
 GARTYPE = v2
-CATEGORIES = xtra
 
 DESCRIPTION = Draws Windows Explorer style trees for Plain TeX and LaTeX
 define BLURB

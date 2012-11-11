@@ -1,6 +1,5 @@
 NAME = netpbm
 VERSION = 10.35.80
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = Netpbm is a toolkit for manipulation of graphic images

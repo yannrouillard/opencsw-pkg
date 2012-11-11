@@ -1,6 +1,5 @@
 NAME = libevent
 VERSION = 1.4.14b
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = Event notification library

@@ -4,7 +4,6 @@
 NAME = grip
 VERSION = 3.3.1
 GARTYPE = v2
-CATEGORIES = apps
 
 DESCRIPTION = CD-player and CD-ripper for the Gnome desktop
 define BLURB

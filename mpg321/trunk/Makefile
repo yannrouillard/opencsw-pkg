@@ -4,7 +4,6 @@
 
 NAME = mpg321
 VERSION = 0.2.13_2
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = A Free, fast fixed-point math replacement for mpg123

@@ -1,6 +1,5 @@
 NAME = gource
 VERSION = 0.28
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = Software version control visualization

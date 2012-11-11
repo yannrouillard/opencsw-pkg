@@ -3,7 +3,6 @@
 #	headers and setting EXTRA_INC or EXTRA_CPPFLAGS doesn't help.
 NAME = wesnoth
 VERSION = 1.10.2
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = A free turn-based strategy game with a fanasy theme

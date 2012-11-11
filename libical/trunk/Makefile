@@ -1,7 +1,6 @@
 # : Makefile 9089 2010-03-11 08:34:46Z wahwah $
 NAME = libical
 VERSION = 0.44
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = Library that implements the iCal protocols in RFC2445, RFC2446, RFC2447

@@ -2,7 +2,6 @@ NAME = iozone
 VERSION = 3.398
 DISTVERSION = $(subst .,_,$(VERSION))
 GARTYPE = v2
-CATEGORIES = apps
 
 DESCRIPTION = I/O benchmarking tool
 define BLURB

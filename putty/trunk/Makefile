@@ -4,7 +4,6 @@
 NAME       = putty
 VERSION    = 0.61
 GARTYPE    = v2
-CATEGORIES = utils
 
 DESCRIPTION = Free implementation of Telnet and SSH
 define BLURB

@@ -1,7 +1,6 @@
 # $Id$
 NAME = erlang
 VERSION = R15B01
-CATEGORIES = lang
 GARTYPE = v2
 
 DESCRIPTION = A functional programming language from Ericsson

@@ -1,7 +1,6 @@
 NAME = prosody
 VERSION = 0.8.2
 GARTYPE = v2
-CATEGORIES = server
 
 DESCRIPTION = A simple extensible XMPP server written in Lua
 define BLURB

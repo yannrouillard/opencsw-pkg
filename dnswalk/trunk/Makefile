@@ -1,6 +1,5 @@
 NAME = dnswalk
 VERSION = 2.0.2
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = DNS debugger

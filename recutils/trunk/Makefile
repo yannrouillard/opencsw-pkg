@@ -4,7 +4,6 @@
 NAME = recutils
 VERSION = 1.5
 GARTYPE = v2
-CATEGORIES = utils
 
 DESCRIPTION = GNU Recutils
 define BLURB

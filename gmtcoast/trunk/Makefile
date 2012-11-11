@@ -4,7 +4,6 @@
 
 NAME = gmtcoast
 VERSION = 2.2.0
-CATEGORIES = apps
 GARTYPE = v2
 DESCRIPTION = Coastline Definition Files for the Generic Mapping Tools (GMT)
 define BLURB

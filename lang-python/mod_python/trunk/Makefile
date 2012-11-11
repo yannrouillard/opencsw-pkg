@@ -2,7 +2,6 @@
 
 NAME = mod_python
 VERSION = 3.3.1
-CATEGORIES = server
 GARTYPE = v2
 
 DESCRIPTION = Apache/Python integration module

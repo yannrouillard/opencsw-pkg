@@ -2,7 +2,6 @@
 # * Add init script
 NAME = snmptt
 VERSION = 1.3
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = SNMP trap handler for use with the snmptrad program

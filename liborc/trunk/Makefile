@@ -1,7 +1,6 @@
 # $Id$
 NAME = liborc
 VERSION = 0.4.6
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = The Oil Runtime Compiler

@@ -1,7 +1,6 @@
 # $Id$
 
 VERSION = 1.6
-CATEGORIES = lib
 GARTYPE = v2
 PROTONAME = xcb-proto
 NAME = $(PROTONAME)

@@ -14,7 +14,6 @@
 
 NAME = vsftpd
 VERSION = 3.0.2
-CATEGORIES = server
 GARTYPE = v2
 
 DESCRIPTION = A very secure and fast FTP server.

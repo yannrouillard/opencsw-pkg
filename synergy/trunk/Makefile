@@ -2,7 +2,6 @@
 #
 NAME = synergy
 VERSION = 1.4.10
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = Software-based TCP/IP "KVM" switch

@@ -2,7 +2,6 @@
 
 NAME = lsof
 VERSION = 4.86
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = List open files

@@ -6,7 +6,6 @@
 #
 NAME = password-gorilla
 VERSION = 1.4
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = A cross-platform, Tcl/Tk-based Password Manager

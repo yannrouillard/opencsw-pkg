@@ -1,6 +1,5 @@
 NAME = pca
 VERSION = 20120829-01
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = Patch Check Advanced

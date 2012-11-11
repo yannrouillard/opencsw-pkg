@@ -1,7 +1,6 @@
 NAME = mod_ruby
 VERSION = 1.2.4
 GARTYPE = v1
-CATEGORIES = server
 
 DESCRIPTION = an Apache/Ruby integration module
 define BLURB

@@ -1,6 +1,5 @@
 NAME = wireshark
 VERSION = 1.8.2
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = Wireshark (was Ethereal) is a free network protocol analyzer

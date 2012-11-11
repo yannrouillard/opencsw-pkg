@@ -1,7 +1,6 @@
 # $Id$
 NAME = xbattle
 VERSION = 5.4.1
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = A multi-player real time strategy game

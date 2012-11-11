@@ -3,7 +3,6 @@
 NAME = pilot-link
 VERSION = 0.12.5
 GARTYPE = v2
-CATEGORIES = lib
 
 DESCRIPTION = Free package to manage palmos based PDAs with Unix
 define BLURB

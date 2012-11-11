@@ -4,7 +4,6 @@
 NAME = gsl
 VERSION = 1.15
 GARTYPE = v2
-CATEGORIES = lib
 
 DESCRIPTION = GNU Scientific Library
 define BLURB

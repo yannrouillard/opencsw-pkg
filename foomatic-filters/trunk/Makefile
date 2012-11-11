@@ -4,7 +4,6 @@
 NAME = foomatic-filters
 VERSION = 4.0.12
 GARTYPE = v2
-CATEGORIES = utils
 
 DESCRIPTION = Cups printer driver for non postscript printers
 define BLURB

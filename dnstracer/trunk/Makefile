@@ -1,6 +1,5 @@
 NAME = dnstracer
 VERSION = 1.9
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = Trace a chain of DNS servers to the source

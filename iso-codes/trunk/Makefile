@@ -1,6 +1,5 @@
 NAME = iso-codes
 VERSION = 3.17
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = Translations for names of various ISO standards

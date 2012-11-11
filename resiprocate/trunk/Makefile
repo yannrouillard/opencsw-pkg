@@ -1,6 +1,5 @@
 NAME = resiprocate
 VERSION = 1.8.5
-CATEGORIES = utils
 
 MASTER_SITES = https://www.resiprocate.org/files/pub/reSIProcate/releases/
 DISTFILES  = $(NAME)-$(VERSION).tar.bz2

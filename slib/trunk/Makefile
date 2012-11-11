@@ -3,7 +3,6 @@
 NAME = slib
 VERSION = 3b3
 GARTYPE = v2
-CATEGORIES = lib
 
 DESCRIPTION = A portable Scheme library
 define BLURB

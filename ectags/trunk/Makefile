@@ -1,6 +1,5 @@
 NAME = ctags
 VERSION = 5.8
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = Exuberant Ctags: A multilanguage implementation of Ctags

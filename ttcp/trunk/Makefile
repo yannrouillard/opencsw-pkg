@@ -4,7 +4,6 @@
 NAME = ttcp
 VERSION = 1.0
 GARTYPE = v2
-CATEGORIES = utils
 
 DESCRIPTION = Test TCP (TTCP) Benchmarking Tool
 define BLURB

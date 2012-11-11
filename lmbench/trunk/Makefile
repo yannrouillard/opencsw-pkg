@@ -8,7 +8,6 @@
 NAME = lmbench
 VERSION = 3
 GARTYPE = v2
-CATEGORIES = utils
 
 DESCRIPTION = Utilities to benchmark UNIX systems
 define BLURB

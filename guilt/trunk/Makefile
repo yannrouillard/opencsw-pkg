@@ -1,6 +1,5 @@
 NAME = guilt
 VERSION = 0.35
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = Manipulate quilt like patches on top of git

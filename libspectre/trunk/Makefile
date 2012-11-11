@@ -1,6 +1,5 @@
 NAME = libspectre
 VERSION = 0.2.6
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = A small library for rendering Postscript documents

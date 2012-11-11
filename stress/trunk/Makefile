@@ -2,7 +2,6 @@
 #
 NAME = stress
 VERSION = 1.0.4
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = A deliberately simple workload generator for POSIX systems

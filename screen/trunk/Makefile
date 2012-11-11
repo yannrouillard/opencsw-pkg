@@ -1,6 +1,5 @@
 NAME = screen
 VERSION = 4.0.3
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = A window manager that multiplexes a physical terminal.

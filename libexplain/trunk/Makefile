@@ -6,7 +6,6 @@
 NAME = libexplain
 VERSION = 1.0.D001
 GARTYPE = v2
-CATEGORIES = lib
 
 DESCRIPTION = Explains unix system call errors
 define BLURB

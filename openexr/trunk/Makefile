@@ -1,6 +1,5 @@
 NAME = openexr
 VERSION = 1.7.0
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = High dynamic-range (HDR) image file format developed by Industrial Light & Magic

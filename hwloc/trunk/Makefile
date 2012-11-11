@@ -3,7 +3,6 @@
 NAME = hwloc
 VERSION = 1.5.1
 GARTYPE = v2
-CATEGORIES = devel
 
 DESCRIPTION = Hwloc provides abstraction of the hierarchical topology of modern architectures
 define BLURB

@@ -4,7 +4,6 @@
 
 NAME = rxvt-unicode
 VERSION = 9.07
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = A VT102 emulator for the X window system (pron. ouR XVT, unicode)

@@ -1,6 +1,5 @@
 NAME = tcl8.5
 VERSION = 8.5.12
-CATEGORIES = lang
 GARTYPE = v2
 
 DESCRIPTION = Tcl programming language v8.5

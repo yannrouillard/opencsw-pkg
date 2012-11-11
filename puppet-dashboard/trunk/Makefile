@@ -4,7 +4,6 @@
 #
 NAME = puppet-dashboard
 VERSION = 1.0.0
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = Web interface and reporting tool for Puppet 

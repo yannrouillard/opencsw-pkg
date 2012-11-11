@@ -4,7 +4,6 @@
 NAME = libpqxx
 VERSION = 5.0
 GARTYPE = v2
-CATEGORIES = lib
 
 DESCRIPTION = C++ client API for PostgreSQL
 define BLURB

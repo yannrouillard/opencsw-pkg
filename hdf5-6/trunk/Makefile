@@ -1,6 +1,5 @@
 NAME = hdf5
 VERSION = 1.8.6
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = Event notification library

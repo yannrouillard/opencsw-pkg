@@ -1,6 +1,5 @@
 NAME = xbill
 VERSION = 2.1
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = Seek out and destroy all forms of Bill

@@ -8,7 +8,6 @@
 #
 NAME = spine
 VERSION = 0.8.7e
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = Very fast poller for cacti

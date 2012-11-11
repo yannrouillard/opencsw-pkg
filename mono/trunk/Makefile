@@ -3,7 +3,6 @@
 NAME = mono
 VERSION = 2.10.6
 GARTYPE = v2
-CATEGORIES = lang
 
 DESCRIPTION = Mono Runtime
 define BLURB

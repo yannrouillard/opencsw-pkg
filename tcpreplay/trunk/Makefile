@@ -4,7 +4,6 @@
 #
 NAME = tcpreplay
 VERSION = 3.4.4
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = Tool to replay saved tcpdump files at arbitrary speeds

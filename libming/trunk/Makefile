@@ -3,7 +3,6 @@
 NAME = libming
 VERSION = 0.4.4
 GARTYPE = v2
-CATEGORIES = lib
 
 DESCRIPTION = A library for generating Macromedia Flash files
 define BLURB

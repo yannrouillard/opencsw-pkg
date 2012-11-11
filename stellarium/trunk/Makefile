@@ -1,7 +1,6 @@
 # : Makefile 9089 2010-03-11 08:34:46Z wahwah $
 NAME = stellarium
 VERSION = 0.10.4
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = Planetarium with a realistic 3D sky just like seeing with naked eye

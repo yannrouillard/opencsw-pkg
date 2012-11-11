@@ -3,7 +3,6 @@
 NAME = gdb
 VERSION = 7.5
 GARTYPE = v2
-CATEGORIES = devel
 
 DESCRIPTION = The GNU Debugger
 define BLURB

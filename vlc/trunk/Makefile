@@ -4,7 +4,6 @@
 NAME = vlc
 VERSION = 2.1-git
 GARTYPE = v2
-CATEGORIES = apps
 
 DESCRIPTION = VideoLAN Client, the cross-platform media player and streaming server
 define BLURB

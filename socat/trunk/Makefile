@@ -21,7 +21,6 @@
 #
 NAME = socat
 VERSION = 1.7.1.3
-CATEGORIES = net
 GARTYPE = v2
 
 DESCRIPTION = Multipurpose relay for bidirectional data transfer

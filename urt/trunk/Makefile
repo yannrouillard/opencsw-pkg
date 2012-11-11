@@ -1,7 +1,6 @@
 NAME = urt
 VERSION = 3.1b1
 DISTVERSION = 3.1.b.1
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = Utah Raster Toolkit containing RLE encoding

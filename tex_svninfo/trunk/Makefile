@@ -3,7 +3,6 @@
 NAME = tex_svninfo
 VERSION = 0.7.4
 GARTYPE = v2
-CATEGORIES = xtra
 
 DESCRIPTION = Extract the information provided by the SVN revision control system from TeX documents
 define BLURB

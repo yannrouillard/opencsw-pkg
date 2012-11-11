@@ -3,7 +3,6 @@
 NAME = latex2html
 VERSION = 2008
 GARTYPE = v2
-CATEGORIES = apps
 
 DESCRIPTION = A converter written in Perl that converts LATEX documents to HTML
 define BLURB

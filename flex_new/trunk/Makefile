@@ -2,7 +2,6 @@
 
 NAME = flex
 VERSION = 2.5.35
-CATEGORIES = devel
 GARTYPE = v2
 
 DESCRIPTION = A tool for generating text-scanning programs.

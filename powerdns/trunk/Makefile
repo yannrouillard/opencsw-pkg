@@ -3,7 +3,6 @@
 #
 NAME = pdns
 VERSION = 3.1
-CATEGORIES = server
 GARTYPE = v2
 
 DESCRIPTION = An advanced DNS server with multiple backends

@@ -7,7 +7,6 @@
 
 NAME = rox-filer
 VERSION = 2.10
-CATEGORIES = apps
 GARTYPE = v2
 DESCRIPTION = A lightweight X file manager
 define BLURB

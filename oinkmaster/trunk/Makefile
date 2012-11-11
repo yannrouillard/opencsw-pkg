@@ -1,6 +1,5 @@
 NAME = oinkmaster
 VERSION = 2.0
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = Update and manage Snort rules

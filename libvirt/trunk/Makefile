@@ -4,7 +4,6 @@
 NAME = libvirt
 VERSION = 0.9.12
 GARTYPE = v2
-CATEGORIES = lib
 
 PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386
 

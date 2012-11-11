@@ -4,7 +4,6 @@
 NAME = glpi
 VERSION = 0.83.4
 GARTYPE = v2
-CATEGORIES = apps
 
 DESCRIPTION = Inventory-Resource system for computer equipment
 define BLURB

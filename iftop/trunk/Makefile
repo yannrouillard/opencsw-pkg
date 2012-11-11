@@ -1,7 +1,6 @@
 NAME = iftop
 #VERSION = 0.17
 VERSION = 1.0pre2
-CATEGORIES = net
 GARTYPE = v2
 
 DESCRIPTION = Display bandwidth usage on an interface by host

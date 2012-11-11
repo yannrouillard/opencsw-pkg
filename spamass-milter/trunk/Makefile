@@ -1,6 +1,5 @@
 NAME = spamass-milter
 VERSION = 0.3.2
-CATEGORIES = net
 GARTYPE = v2
 
 PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386

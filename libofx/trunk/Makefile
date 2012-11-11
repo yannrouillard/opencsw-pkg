@@ -3,7 +3,6 @@
 NAME = libofx
 VERSION = 0.9.5
 GARTYPE = v2
-CATEGORIES = lib
 
 DESCRIPTION = Library designed to allow applications to very easily support OFX command responses
 define BLURB

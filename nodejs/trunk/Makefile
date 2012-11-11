@@ -4,7 +4,6 @@
 NAME = nodejs
 VERSION = 0.6.18
 GARTYPE = v2
-CATEGORIES = lib
 
 DESCRIPTION = Node.js JavaScript interpreter
 define BLURB

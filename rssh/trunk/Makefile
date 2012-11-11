@@ -1,7 +1,6 @@
 # $Id$
 NAME = rssh
 VERSION = 2.3.3
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = A restricted shell for use with OpenSSH

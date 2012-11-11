@@ -3,7 +3,6 @@
 NAME = libxvidcore
 VERSION = 1.3.2
 GARTYPE = v2
-CATEGORIES = lib
 
 DESCRIPTION = A high performance and high quality MPEG-4 video de-/encoding solution
 define BLURB

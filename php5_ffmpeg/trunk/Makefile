@@ -2,7 +2,6 @@
 
 NAME = ffmpeg
 VERSION = current
-CATEGORIES = lang
 GARTYPE = v2
 
 # to match php5

@@ -3,7 +3,6 @@
 # - /var/run/dovecot instead of /var/opt/csw/run?
 NAME = dovecot
 VERSION = 2.0.21
-CATEGORIES = server
 GARTYPE = v2
 
 DESCRIPTION = Secure IMAP server

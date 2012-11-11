@@ -1,7 +1,6 @@
 # $Id: Makefile 16916 2012-01-26 13:25:13Z dmichelsen $
 NAME = gedit
 VERSION = 2.30.4
-CATEGORIES = apps
 GARTYPE = v2
 
 DESCRIPTION = The official GNOME text editor

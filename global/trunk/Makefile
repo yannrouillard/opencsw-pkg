@@ -4,7 +4,6 @@
 NAME = global
 VERSION = 6.1
 GARTYPE = v2
-CATEGORIES = devel
 
 DESCRIPTION = GNU GLOBAL source code tag system
 define BLURB

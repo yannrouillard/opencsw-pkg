@@ -1,7 +1,6 @@
 NAME = libid3tag
 VERSION = 0.15.1
 REV = b
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = A library for reading and (eventually) writing ID3 tags

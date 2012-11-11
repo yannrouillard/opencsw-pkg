@@ -1,6 +1,5 @@
 NAME = libtasn1
 VERSION = 3.0
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = GNU ASN1 Library

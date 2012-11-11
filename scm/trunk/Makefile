@@ -3,7 +3,6 @@
 NAME = scm
 VERSION = 5e7
 GARTYPE = v2
-CATEGORIES = devel
 
 DESCRIPTION = The Algorithmic Language Scheme
 define BLURB

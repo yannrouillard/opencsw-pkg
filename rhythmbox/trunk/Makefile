@@ -4,7 +4,6 @@
 
 NAME = rhythmbox
 VERSION = 0.12.6
-CATEGORIES = apps
 GARTYPE = v2
 DESCRIPTION = an integrated music management application
 define BLURB

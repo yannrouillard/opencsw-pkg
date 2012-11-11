@@ -2,7 +2,6 @@
 
 NAME = syslog-ng
 VERSION = 3.2.5
-CATEGORIES = server
 GARTYPE = v2
 
 DESCRIPTION = A powerful syslogd replacement

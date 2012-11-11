@@ -4,7 +4,6 @@
 NAME = pdsh
 VERSION = 2.26
 GARTYPE = v2
-CATEGORIES = utils
 
 DESCRIPTION = Parallel Distributed Shell
 define BLURB

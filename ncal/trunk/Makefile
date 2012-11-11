@@ -1,6 +1,5 @@
 NAME = ncal
 VERSION = 1.0
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = Displays a calendar and the date of easter

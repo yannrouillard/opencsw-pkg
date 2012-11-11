@@ -4,7 +4,6 @@
 NAME = xcdroast
 VERSION = 0.98alpha16
 GARTYPE = v2
-CATEGORIES = apps
 
 DESCRIPTION = A GUI wrapper for cdrtools
 define BLURB

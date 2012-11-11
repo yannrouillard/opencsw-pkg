@@ -1,6 +1,5 @@
 NAME = yaz
 VERSION = 4.2.35
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = Toolkit for Z39.50/SRW/SRU clients and servers

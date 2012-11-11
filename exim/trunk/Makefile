@@ -2,7 +2,6 @@
 
 NAME = exim
 VERSION = 4.80
-CATEGORIES = server
 GARTYPE = v2
 
 PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386

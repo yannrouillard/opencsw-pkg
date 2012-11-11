@@ -4,7 +4,6 @@
 NAME = gperftools
 VERSION = 2.0
 GARTYPE = v2
-CATEGORIES = utils
 
 DESCRIPTION = Fast, multi-threaded malloc() and nifty performance analysis tools
 

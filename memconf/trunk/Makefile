@@ -1,6 +1,5 @@
 NAME = memconf
 VERSION = 3.02
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = Perl script that displays memory modules installed

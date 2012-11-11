@@ -1,7 +1,6 @@
 # $Id$
 NAME = tardy
 VERSION = 1.25
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = A tar(1) Postprocessor

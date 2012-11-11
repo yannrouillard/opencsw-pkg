@@ -2,7 +2,6 @@
 
 NAME = gar
 VERSION = 2.0
-CATEGORIES = utils
 GARTYPE = v2
 
 DESCRIPTION = The GAR package build system

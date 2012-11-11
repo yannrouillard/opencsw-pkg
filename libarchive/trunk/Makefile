@@ -1,7 +1,6 @@
 # : Makefile 9089 2010-03-11 08:34:46Z wahwah $
 NAME = libarchive
 VERSION = 2.8.4
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = C library for reading and writing various archive formats

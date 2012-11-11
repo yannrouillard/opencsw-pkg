@@ -4,7 +4,6 @@
 
 NAME = unixodbc
 VERSION = 2.3.1
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = ODBC drivers for Unix systems

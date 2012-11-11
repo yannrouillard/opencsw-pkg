@@ -1,6 +1,5 @@
 NAME = pygobject
 VERSION = 2.21.1
-CATEGORIES = lang
 RELVER = $(shell echo $(VERSION) | gsed -e 's/\.[0-9]\+$$//')
 
 DESCRIPTION = Python bindings for the GObject library

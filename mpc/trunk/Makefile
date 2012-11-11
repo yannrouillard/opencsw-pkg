@@ -3,7 +3,6 @@
 NAME = mpc
 VERSION = 0.9
 GARTYPE = v2
-CATEGORIES = lib
 
 DESCRIPTION = C library for the arithmetic of complex numbers with arbitrarily high precision
 define BLURB

@@ -1,7 +1,6 @@
 # $Id$
 NAME = libicu
 VERSION = 49.1.2
-CATEGORIES = lib
 GARTYPE = v2
 
 DESCRIPTION = International Components for Unicode

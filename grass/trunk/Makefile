@@ -3,7 +3,6 @@
 NAME = grass
 VERSION = 6.4.2
 GARTYPE = v2
-CATEGORIES = apps
 
 DESCRIPTION = Geographic Resources Analysis Support System
 define BLURB

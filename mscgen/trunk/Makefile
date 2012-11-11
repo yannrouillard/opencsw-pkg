@@ -13,7 +13,6 @@
 NAME = mscgen
 VERSION = 0.20
 GARTYPE = v2
-CATEGORIES = utils
 
 DESCRIPTION = Message Sequence Chart (MSC) generator
 define BLURB
