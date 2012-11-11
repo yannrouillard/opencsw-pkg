@@ -18,7 +18,10 @@ VENDOR_URL = http://www.brendangregg.com/dtrace.html
 
 LICENSE = License
 
-PACKAGES = CSWdtracetoolkit
+PACKAGES += CSWdtracetoolkit
+SPKG_DESC_CSWdtracetoolkit = A collection of dtrace scripts developed by the DTrace community
+# PKGFILES is catchall
+ARCHALL_CSWdtracetoolkit = 1
 
 # There are lots of references to system components in there
 CHECKPKG_OVERRIDES_CSWdtracetoolkit += file-with-bad-content
