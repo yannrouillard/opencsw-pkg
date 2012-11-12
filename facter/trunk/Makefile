@@ -3,7 +3,7 @@
 # $Id$
 
 NAME = facter
-VERSION = 1.6.12
+VERSION = 1.6.14
 GARTYPE = v2
 
 DESCRIPTION = A system fact gatherer
