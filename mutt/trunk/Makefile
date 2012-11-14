@@ -39,8 +39,6 @@ PACKAGES += CSWmutt-base
 SPKG_DESC_CSWmutt-base = $(DESCRIPTION)
 # PKGFILES is catchall
 RUNTIME_DEP_PKGS_CSWmutt-base += CSWlibintl8
-RUNTIME_DEP_PKGS_CSWmutt-base += CSWlibidn11
-RUNTIME_DEP_PKGS_CSWmutt-base += CSWlibiconv2
 
 # This warning from checkpkg is obviously wrong...
 CHECKPKG_OVERRIDES_CSWmutt-base = missing-dependency|CSWperl
@@ -51,7 +49,6 @@ PKGFILES_CSWmutt-ncurses = $(bindir)/mutt-ncurses
 RUNTIME_DEP_PKGS_CSWmutt-ncurses += CSWlibiconv2
 RUNTIME_DEP_PKGS_CSWmutt-ncurses += CSWlibncursesw5
 RUNTIME_DEP_PKGS_CSWmutt-ncurses += CSWlibssl1-0-0
-RUNTIME_DEP_PKGS_CSWmutt-ncurses += CSWlibz1
 RUNTIME_DEP_PKGS_CSWmutt-ncurses += CSWlibintl8
 RUNTIME_DEP_PKGS_CSWmutt-ncurses += CSWlibgpg-error0
 RUNTIME_DEP_PKGS_CSWmutt-ncurses += CSWlibsasl2-2
@@ -66,7 +63,6 @@ SPKG_DESC_CSWmutt-slang = Mutt mail client with slang interface
 PKGFILES_CSWmutt-slang = $(bindir)/mutt-slang
 RUNTIME_DEP_PKGS_CSWmutt-slang += CSWlibslang2
 RUNTIME_DEP_PKGS_CSWmutt-slang += CSWlibssl1-0-0
-RUNTIME_DEP_PKGS_CSWmutt-slang += CSWlibz1
 RUNTIME_DEP_PKGS_CSWmutt-slang += CSWlibintl8
 RUNTIME_DEP_PKGS_CSWmutt-slang += CSWlibgpg-error0
 RUNTIME_DEP_PKGS_CSWmutt-slang += CSWlibsasl2-2
