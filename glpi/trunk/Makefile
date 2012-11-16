@@ -17,7 +17,7 @@ endef
 
 VENDOR_URL = http://www.glpi-project.org/
 
-MASTER_SITES = https://forge.indepnet.net/attachments/download/1253/
+MASTER_SITES = https://forge.indepnet.net/attachments/download/1314/
 DISTFILES  = $(DISTNAME)-$(VERSION).tar.gz
 DISTFILES += README.CSW
 DISTNAME=glpi
@@ -47,6 +47,9 @@ CHECKPKG_OVERRIDES_CSWglpi += surplus-dependency|CSWphp5-json
 
 
 ARCHALL = 1
+PACKAGING_PLATFORMS += solaris9-sparc solaris9-i386
+PACKAGING_PLATFORMS += solaris10-sparc solaris10-i386
+PACKAGING_PLATFORMS += solaris11-sparc solaris11-i386
 
 include gar/category.mk
 
