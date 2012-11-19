@@ -12,8 +12,8 @@ endef
 MASTER_SITES =  http://www.open-mpi.org/software/hwloc/v1.5/downloads/
 DISTFILES  = $(DISTNAME).tar.gz
 
-PACKAGING_PLATFORMS = solaris10-i386 solaris10-sparc
-BUILD64_LIBS_ONLY = 1
+BUILD64 = 1
+ISAEXEC = 1
 
 PACKAGES  = CSWhwloc
 PACKAGES += CSWhwloc-dev
@@ -37,7 +37,9 @@ RUNTIME_DEP_PKGS_CSWlibhwloc5 += CSWlibxml2-2
 RUNTIME_DEP_PKGS_CSWhwloc-dev  = CSWhwloc
 RUNTIME_DEP_PKGS_CSWhwloc-dev += CSWlibhwloc5
 
-#BUILDDEPS = CSWautoconf
+GARCOMPILER = GNU
+COMMON_PKG_DEPENDS =
+INCLUDE_COMMONDIRS = 1
 
 CONFIGURE_ARGS  = $(DIRPATHS)
 CONFIGURE_ARGS += --disable-cairo
