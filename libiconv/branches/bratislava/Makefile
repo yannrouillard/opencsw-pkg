@@ -26,6 +26,7 @@ PACKAGES += CSWlibiconv2
 CATALOGNAME_CSWlibiconv2 = libiconv2
 SPKG_DESC_CSWlibiconv2 = GNU iconv library, libiconv.so.2
 PKGFILES_CSWlibiconv2 += $(call pkgfiles_lib,libiconv.so.2)
+RUNTIME_DEP_PKGS_CSWlibiconv2 += CSWlibgcc-s1
 
 PACKAGES += CSWlibcharset1
 CATALOGNAME_CSWlibcharset1 = libcharset1
@@ -34,6 +35,7 @@ PKGFILES_CSWlibcharset1 += $(call pkgfiles_lib,libcharset.so.1)
 # Now *this* time it is ok, iconv is the only package that is allowed to ship this!
 CHECKPKG_OVERRIDES_CSWlibcharset1 += disallowed-path|opt/csw/lib/charset.alias
 PKGFILES_CSWlibcharset1 += $(call baseisadirs,$(libdir),charset\.alias)
+RUNTIME_DEP_PKGS_CSWlibcharset1 += CSWlibgcc-s1
 
 PACKAGES += CSWlibiconv-dev
 CATALOGNAME_CSWlibiconv-dev = libiconv_dev
@@ -51,6 +53,7 @@ PKGFILES_CSWlibiconv-utils += $(bindir)/.*
 PKGFILES_CSWlibiconv-utils += .*iconv\.1.*
 PKGFILES_CSWlibiconv-utils += .*/libiconv\.mo
 PKGFILES_CSWlibiconv-utils += $(call baseisadirs,$(libdir),preloadable_libiconv\.so)
+RUNTIME_DEP_PKGS_CSWlibiconv-utils += CSWlibgcc-s1
 
 # The SONAME of preloadable_libiconv.so is set to libiconv.so.0, although it
 # doesn't matter in any way as this library is only used for LD_PRELOAD and is
