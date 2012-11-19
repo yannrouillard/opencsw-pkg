@@ -81,6 +81,7 @@ CONFIGURE_ARGS = $(DIRPATHS)
 CONFIGURE_ARGS += --disable-rpath
 
 # bratislava settings
+GARCOMPILER = GNU
 COMMON_PKG_DEPENDS =
 INCLUDE_COMMONDIRS = 1
 CHECKPKG_OVERRIDES_CSWlibcharset1 += bad-location-of-file
