@@ -96,8 +96,8 @@ pre-install-modulated:
 	perl -pi -e '\
 		s| /var/run| /var/opt/csw/run|; \
 		s| /etc/ssl| /etc/opt/csw/ssl|; \
-		s| /usr/libexec| /opt/csw/libexec/dovecot2|; \
-		s| /usr/lib/dovecot| /opt/csw/lib/dovecot2|; \
+		s| /usr/libexec| /opt/csw/libexec/dovecot|; \
+		s| /usr/lib/dovecot| /opt/csw/lib/dovecot|; \
 		s| /usr/local| /opt/csw|;' \
 		$(WORKSRC)/doc/example-config/dovecot.conf
 	perl -pi -e '\
