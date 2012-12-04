@@ -1,7 +1,7 @@
 # $Id$
 
 NAME = gdb
-VERSION = 7.5
+VERSION = 7.5.1
 GARTYPE = v2
 
 DESCRIPTION = The GNU Debugger
