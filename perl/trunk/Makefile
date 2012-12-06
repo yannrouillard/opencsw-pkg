@@ -1,5 +1,6 @@
 NAME = perl
-VERSION = 5.12.4
+VERSION = 5.16.1
+CATEGORIES = lang
 GARTYPE = v2
 
 DESCRIPTION = A high-level, general-purpose programming language
@@ -12,18 +13,20 @@ define BLURB
   libraries.
 endef
 
-MASTER_SITES   = http://www.cpan.org/src/
-SPKG_SOURCEURL = http://www.cpan.org/src
-
-DISTFILES  = $(NAME)-$(VERSION).tar.gz
+#MASTER_SITES   = http://www.cpan.org/src/
+#SPKG_SOURCEURL = http://www.cpan.org/src
+MASTER_SITES = manual://
+DISTFILES  = $(NAME)-$(VERSION)-patched.tar.gz
 
 # Make extra Solaris 10 package with DTrace support
-PACKAGING_PLATFORMS  = solaris9-sparc solaris9-i386
-PACKAGING_PLATFORMS += solaris10-sparc solaris10-i386
+#PACKAGING_PLATFORMS  = solaris9-sparc solaris9-i386
+#PACKAGING_PLATFORMS += solaris10-sparc solaris10-i386
+PACKAGING_PLATFORMS += solaris10-sparc
 
 PACKAGES                 += CSWperl
 SPKG_DESC_CSWperl         = $(DESCRIPTION)
-RUNTIME_DEP_PKGS_CSWperl  = CSWbdb48 CSWlibgdbm4
+#RUNTIME_DEP_PKGS_CSWperl  = CSWbdb48 CSWlibgdbm4
+RUNTIME_DEP_PKGS_CSWperl  = 
 INCOMPATIBLE_PKGS_CSWperl = CSWperlmods CSWpmdigest CSWpmi18nlangtags
 
 PACKAGES                   += CSWperldoc
@@ -45,15 +48,21 @@ CHECKPKG_OVERRIDES_CSWperldoc += surplus-dependency|CSWperl
 
 DISTFILES += $(foreach N,$(CORE_UPDATES),$(N).tar.gz)
 
+# GCC build (Sunstudio is problematic) # claudio
+GARCOMPILER = GCC4
+
+
 # Custom configure
 CONFIGURE_SCRIPTS = perl
 
 # Compatable with all prior patch revs
-INC_COMPAT = 5.8.0 5.8.2 5.8.4 5.8.6 5.8.7 5.8.8 5.10.0 5.10.1 5.12.0 5.12.1 5.12.2 5.12.3
+INC_COMPAT = 5.8.0 5.8.2 5.8.4 5.8.6 5.8.7 5.8.8 5.10.0 5.10.1 5.12.0 5.12.1 5.12.2 5.12.3 5.12.4 5.14.0 5.14.1 5.14.2
 
 # Force use of db-4.8
 # TBD: Reinsert libperl.so, see below.
-PERL_LIBS-32 += -lsocket -lnsl -lgdbm -ldb-4.8 -ldl -lm -lpthread -lc
+#PERL_LIBS-32 += -lsocket -lnsl -lgdbm -ldb-4.8 -ldl -lm -lpthread -lc
+#PERL_LIBS-32 += -lsocket -lnsl -ldl -lm -lpthread -lc -lpthread -lgdbm -ldb-4.8 -lcrypt
+PERL_LIBS-32 += -lsocket -lnsl -ldl -lm -lpthread -lc -lpthread -lgdbm -lcrypt
 PERL_LIBS = $(PERL_LIBS-$(MEMORYMODEL)) 
 
 #BUILD64 = 1
@@ -97,7 +106,7 @@ CONFIGURE_ARGS += $(CONFIGURE_ARGS-$(GAROSREL))
 CONFIGURE_ARGS-32 += -Duselargefiles 
 CONFIGURE_ARGS += $(CONFIGURE_ARGS-$(MEMORYMODEL)) 
 
-CONFIGURE_ARGS += -Dvendorarch=$(libdir)/perl/csw
+#CONFIGURE_ARGS += -Dvendorarch=$(libdir)/perl/csw
 CONFIGURE_ARGS += -Dvendorlib=$(datadir)/perl/csw
 CONFIGURE_ARGS += -Dvendorprefix=$(prefix)
 CONFIGURE_ARGS += -Dlibs="$(PERL_LIBS)"
@@ -119,8 +128,9 @@ EXTRA_CFLAGS = $(CPPFLAGS)
 # embedding perl will have problems with duplicated static variables. 
 # XXX Investigate further after 64 bit has built 
 #EXTRA_LDFLAGS-32 = -L$(libdir) -lperl 
-EXTRA_LDFLAGS-32 = -L$(libdir)
-EXTRA_LDFLAGS += $(EXTRA_LDFLAGS-$(MEMORYMODEL)) 
+EXTRA_LDFLAGS-32 = -L$(libdir) -L/usr/lib
+#EXTRA_LDFLAGS += $(EXTRA_LDFLAGS-$(MEMORYMODEL)) -R /usr/lib -R/opt/csw/bdb48/lib -R/opt/csw/lib
+EXTRA_LDFLAGS += $(EXTRA_LDFLAGS-$(MEMORYMODEL)) -R /usr/lib
 
 # We want 64 bit binaries
 #MERGE_DIRS_isa-extra = $(bindir) $(sbindir) $(libdir) $(libexecdir)
@@ -153,8 +163,8 @@ PROTOTYPE_FILTER_CSWperl = ( cat; echo "i cswperlincpath=CSWperl.cswperlincpath"
 
 # Splitting of a separate libperl.so requires more work and careful planning.
 # Override for now.
-CHECKPKG_OVERRIDES_CSWperl += shared-lib-package-contains-so-symlink|file=/opt/csw/lib/libperl.so
-CHECKPKG_OVERRIDES_CSWperl += shared-lib-pkgname-mismatch|file=opt/csw/lib/libperl.so.5.12.4|soname=libperl.so.5.12.4|pkgname=CSWperl|expected=CSWlibperl5-12-4
+#CHECKPKG_OVERRIDES_CSWperl += shared-lib-package-contains-so-symlink|file=/opt/csw/lib/libperl.so
+#CHECKPKG_OVERRIDES_CSWperl += shared-lib-pkgname-mismatch|file=opt/csw/lib/libperl.so.5.16.1|soname=libperl.so.5.16.1|pkgname=CSWperl|expected=CSWlibperl5-16-1
 
 include gar/category.mk
 
@@ -163,7 +173,7 @@ include gar/category.mk
 # TBD: Investigate
 post-extract-modulated:
 	mkdir -p $(WORKSRC)
-	gln -s libperl.so.$(VERSION) $(WORKSRC)/libperl.so
+	#gln -s libperl.so.$(VERSION) $(WORKSRC)/libperl.so
 	@$(MAKECOOKIE)
 
 ifneq ($(CORE_UPDATES),)
@@ -175,7 +185,7 @@ endif
 #configure-perl: CONFIGURE_EXPORTS = PATH LD_OPTIONS
 configure-perl: ARGS-64 = -dusedtrace
 configure-perl:
-	(cd $(WORKSRC) ; $(CONFIGURE_ENV) ./Configure $(CONFIGURE_ARGS) -des)
+	(cd $(WORKSRC) ; $(CONFIGURE_ENV) ./Configure $(CONFIGURE_ARGS) -ders)
 	#cd $(WORKSRC) && ./Configure -ders -Dusethreads -Duselongdouble -Dinc_version_list=none $(ARGS-$(GAROSREL)) -Dprefix=$(prefix) -Dsed=/usr/bin/sed -Duseshrplib -Dcf_by='Claudio_Ramirez' -Dcf_email=claudio.ramirez@smals.be
 	@# 64 bit: -Duse64bitall 
 	@$(MAKECOOKIE)
@@ -194,45 +204,46 @@ test-perl:
 	@$(MAKECOOKIE)
 
 # Make links to libperl
-POST_TARGETS += libperl
-LIB_MINOR = $(shell echo $(VERSION) | cut -f1-2 -d.)
-LIB_PATH  = $(libdir)/perl/$(VERSION)/CORE
-libperl:
-	@( cd $(DESTDIR)$(libdir) ; \
-		mv $(DESTDIR)$(LIB_PATH)/libperl.so.$(VERSION) \
-		$(DESTDIR)$(libdir) ; \
-		chmod 755 $(DESTDIR)$(libdir)/libperl.so.$(VERSION) ; \
-		ln -s libperl.so.$(VERSION) libperl.so.$(LIB_MINOR) ; \
-		ln -s libperl.so.$(VERSION) libperl.so )
-	@$(MAKECOOKIE)
+#POST_TARGETS += libperl
+#LIB_MINOR = $(shell echo $(VERSION) | cut -f1-2 -d.)
+#LIB_PATH  = $(libdir)/perl/$(VERSION)/CORE
+#libperl:
+#	@( cd $(DESTDIR)$(libdir) ; \
+#		mv $(DESTDIR)$(LIB_PATH)/libperl.so.$(VERSION) \
+#		$(DESTDIR)$(libdir) ; \
+#		chmod 755 $(DESTDIR)$(libdir)/libperl.so.$(VERSION) ; \
+#		ln -s libperl.so.$(VERSION) libperl.so.$(LIB_MINOR) 
+#		#; \
+#		#ln -s libperl.so.$(VERSION) libperl.so )
+#	@$(MAKECOOKIE)
 
 # Remove build paths from Config
-POST_TARGETS += perlconf
-perlconf:
-	@( cd $(DESTDIR)$(libdir)/perl/$(VERSION) ; \
-        /bin/perl -i -lne "\
-            next if /config_arg[1-9]/; \
-            s/^config_args=.+$$/config_args=''/; \
-            s/^config_argc=.+$$/config_argc='0'/; \
-            s,-I$(DESTDIR)$(includedir),,g; \
-            s,-[LR]$(DESTDIR)$(libdir),,g; \
-            s,( -I$(includedir))+,\$$1,g; \
-            s,( -[LR]$(libdir))+,\$$1,g; \
-            s,-R $(libdir)/perl/$(VERSION)/CORE,-R $(libdir),; \
-            s, (-L)?$(CC_HOME)\S+,,g; \
-            if (/^\w+=/) { \
-                s/\s{2,}(\-)/ \-/g; \
-                s/(^\w+=.) /\$$1/; \
-                s/ (.)$$/\$$1/g; \
-            } \
-            print \
-        " Config.pm Config_heavy.pl )
-	@$(MAKECOOKIE)
+#POST_TARGETS += perlconf
+#perlconf:
+#	@( cd $(DESTDIR)$(libdir)/perl/$(VERSION) ; \
+#        /bin/perl -i -lne "\
+#            next if /config_arg[1-9]/; \
+#            s/^config_args=.+$$/config_args=''/; \
+#            s/^config_argc=.+$$/config_argc='0'/; \
+#            s,-I$(DESTDIR)$(includedir),,g; \
+#            s,-[LR]$(DESTDIR)$(libdir),,g; \
+#            s,( -I$(includedir))+,\$$1,g; \
+#            s,( -[LR]$(libdir))+,\$$1,g; \
+#            s,-R $(libdir)/perl/$(VERSION)/CORE,-R $(libdir),; \
+#            s, (-L)?$(CC_HOME)\S+,,g; \
+#            if (/^\w+=/) { \
+#                s/\s{2,}(\-)/ \-/g; \
+#                s/(^\w+=.) /\$$1/; \
+#                s/ (.)$$/\$$1/g; \
+#            } \
+#            print \
+#        " Config.pm Config_heavy.pl )
+#	@$(MAKECOOKIE)
 
-POST_TARGETS += CSWperl.cswperlincpath
-CSWperl.cswperlincpath:
-	LD_LIBRARY_PATH=$(WORKSRC) $(WORKSRC)/perl -I./lib -e 'print "$$_\n" foreach(@INC)' >$(WORKDIR_GLOBAL)/CSWperl.cswperlincpath
+#POST_TARGETS += CSWperl.cswperlincpath
+#CSWperl.cswperlincpath:
+#	LD_LIBRARY_PATH=$(WORKSRC) $(WORKSRC)/perl -I./lib -e 'print "$$_\n" foreach(@INC)' >$(WORKDIR_GLOBAL)/CSWperl.cswperlincpath
 
 # Invoke post-install targets
-post-install-modulated: $(POST_TARGETS)
-	@$(MAKECOOKIE)
+#post-install-modulated: $(POST_TARGETS)
+#	@$(MAKECOOKIE)
