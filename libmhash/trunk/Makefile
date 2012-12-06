@@ -14,7 +14,7 @@ DISTFILES  = $(NAME)-$(VERSION).tar.bz2
 
 UFILES_REGEX = $(NAME)-(\d+(?:\.\d+)*).tar.bz2
 
-SPKG_SOURCEURL = http://mhash.sourceforge.net/
+VENDOR_URL = http://mhash.sourceforge.net/
 
 EXTRA_CPPFLAGS = -D__const=const
 
@@ -31,7 +31,16 @@ endif
 CONFIGURE_ARGS = $(DIRPATHS)
 
 # Always run testsuite as the code is prone to optimization errors
-PACKAGES = CSWlibmhash
+
+PACKAGES += CSWlibmhash2
+SPKG_DESC_CSWlibmhash2 = A uniform interface to a large number of hash algorithms, libmhash.so.2
+PKGFILES_CSWlibmhash2 += $(call pkgfiles_lib,libmhash.so.2)
+OBSOLETED_BY_CSWlibmhash2 += CSWlibmhash
+
+PACKAGES += CSWlibmhash-dev
+SPKG_DESC_CSWlibmhash-dev = Development files for libmash.so.2
+# PKGFILES is catchall
+RUNTIME_DEP_PKGS_CSWlibmhash-dev += CSWlibmhash2
 
 include gar/category.mk
 
