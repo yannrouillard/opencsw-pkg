@@ -1,6 +1,6 @@
 NAME = perl
-VERSION = 5.16.1
-CATEGORIES = lang
+VERSION = 5.16.2
+#CATEGORIES = lang
 GARTYPE = v2
 
 DESCRIPTION = A high-level, general-purpose programming language
