@@ -8,7 +8,7 @@
 # Another thing is to see if it can be build with suncc see http://ftp.jaist.ac.jp/pub/pkgsrc/current/pkgsrc/multimedia/ffmpeg/Makefile.common
 
 NAME = ffmpeg
-VERSION = 1.0
+VERSION = 1.0.1
 GARTYPE = v2
 
 DESCRIPTION = Very fast video and audio converter (includes libavcodec)
@@ -46,7 +46,7 @@ RUNTIME_DEP_PKGS_CSWlibavcodec54 += CSWlibmp3lame0
 RUNTIME_DEP_PKGS_CSWlibavcodec54 += CSWlibtheoradec1
 RUNTIME_DEP_PKGS_CSWlibavcodec54 += CSWlibtheoraenc1
 RUNTIME_DEP_PKGS_CSWlibavcodec54 += CSWlibspeex1
-RUNTIME_DEP_PKGS_CSWlibavcodec54 += CSWlibx264-128
+RUNTIME_DEP_PKGS_CSWlibavcodec54 += CSWlibx264-129
 RUNTIME_DEP_PKGS_CSWlibavcodec54 += CSWlibgcc-s1
 
 PACKAGES += CSWlibavdevice54
@@ -66,7 +66,7 @@ RUNTIME_DEP_PKGS_CSWlibavdevice54 += CSWlibtheoradec1
 RUNTIME_DEP_PKGS_CSWlibavdevice54 += CSWlibtheoraenc1
 RUNTIME_DEP_PKGS_CSWlibavdevice54 += CSWlibfreetype6
 RUNTIME_DEP_PKGS_CSWlibavdevice54 += CSWlibspeex1
-RUNTIME_DEP_PKGS_CSWlibavdevice54 += CSWlibx264-128
+RUNTIME_DEP_PKGS_CSWlibavdevice54 += CSWlibx264-129
 RUNTIME_DEP_PKGS_CSWlibavdevice54 += CSWlibgcc-s1
 
 PACKAGES += CSWlibavfilter3
