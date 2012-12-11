@@ -19,11 +19,17 @@ DISTFILES = $(DISTNAME).tar.gz
 
 LICENSE = README
 
+NOGITPATCH = 1
 PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386
 
+REINPLACE_USRLOCAL += src/gui/kernel/qguiplatformplugin.cpp 
+REINPLACE_USRLOCAL += src/network/ssl/qsslsocket_openssl_symbols.cpp
+REINPLACE_USRLOCAL += src/network/ssl/qsslsocket_openssl.cpp
+REINPLACE_USRLOCAL += src/network/ssl/qsslsocket.cpp
+REINPLACE_USRLOCAL += src/3rdparty/webkit/Source/WebCore/plugins/PluginDatabase.cpp
 PATCHFILES += mkspec-csw.patch
-# Solaris10 XShape is too old, has no ShapeInput and QTBUG-25281
-PATCHFILES += no-xshape.patch
+# bug in 4.8.1, see: https//bugreports.qt-project.org/browse/QTBUG-25281
+PATCHFILES += 0001-shapeinput.patch
 
 REINPLACE_USRLOCAL += src/gui/kernel/qguiplatformplugin.cpp
 REINPLACE_USRLOCAL += src/network/ssl/qsslsocket_openssl_symbols.cpp
@@ -38,6 +44,7 @@ CONFIGURE_ARGS += -platform solaris-g++
 CONFIGURE_ARGS += -opensource
 CONFIGURE_ARGS += -prefix $(prefix)
 CONFIGURE_ARGS += -no-qt3support
+CONFIGURE_ARGS += -no-xshape
 CONFIGURE_ARGS += -webkit
 CONFIGURE_ARGS += -v -shared -stl -largefile -sm 
 CONFIGURE_ARGS += -qt-libjpeg -qt-libpng -qt-libmng -qt-zlib 
@@ -76,10 +83,10 @@ RUNTIME_DEP_PKGS_CSWlibqtgui4-gxx += CSWlibstdc++6
 RUNTIME_DEP_PKGS_CSWlibqtgui4-gxx += CSWlibglib2-0-0
 RUNTIME_DEP_PKGS_CSWlibqtgui4-gxx += CSWlibgcc-s1
 RUNTIME_DEP_PKGS_CSWlibqtgui4-gxx += CSWlibqtcore4-gxx
-RUNTIME_DEP_PKGS_CSWlibqtgui4-gxx += CSWlibgobject2-0-0
-RUNTIME_DEP_PKGS_CSWlibqtgui4-gxx += CSWlibfontconfig1
+RUNTIME_DEP_PKGS_CSWlibqtgui4-gxx_sparc += CSWlibgobject2-0-0
+RUNTIME_DEP_PKGS_CSWlibqtgui4-gxx_sparc += CSWlibfontconfig1
 RUNTIME_DEP_PKGS_CSWlibqtgui4-gxx += CSWlibfreetype6
-# RUNTIME_DEP_PKGS_CSWlibqtgui4-gxx += $(RUNTIME_DEP_PKGS_CSWlibqtgui4-gxx_$(GARCH))
+RUNTIME_DEP_PKGS_CSWlibqtgui4-gxx += $(RUNTIME_DEP_PKGS_CSWlibqtgui4-gxx_$(GARCH))
 CHECKPKG_OVERRIDES_CSWlibqtgui4-gxx += file-with-bad-content|/usr/share|root/opt/csw/gxx/lib/libQtGui.so.4.8.1
 
 PACKAGES += CSWqt4-gxx-dev
@@ -127,6 +134,7 @@ RUNTIME_DEP_PKGS_CSWqt4-gxx-dev += CSWsqlite
 # RUNTIME_DEP_PKGS_CSWqt4-gxx-dev += CSWlibpq5
 # RUNTIME_DEP_PKGS_CSWqt4-gxx-dev += CSWlibodbc2
 RUNTIME_DEP_PKGS_CSWqt4-gxx-dev += CSWlibtiff3
+RUNTIME_DEP_PKGS_CSWqt4-gxx-dev += CSWlibmysqlclient18
 RUNTIME_DEP_PKGS_CSWqt4-gxx-dev_sparc += CSWlibfontconfig1
 RUNTIME_DEP_PKGS_CSWqt4-gxx-dev_sparc += CSWlibfreetype6
 RUNTIME_DEP_PKGS_CSWqt4-gxx-dev += $(RUNTIME_DEP_PKGS_CSWqt4-gxx-dev_$(GARCH))
@@ -164,7 +172,6 @@ SPKG_DESC_CSWlibqtnetwork4-gxx += $(DESCRIPTION), libQtNetwork.so.4
 RUNTIME_DEP_PKGS_CSWlibqtnetwork4-gxx += CSWlibgcc-s1
 RUNTIME_DEP_PKGS_CSWlibqtnetwork4-gxx += CSWlibstdc++6
 RUNTIME_DEP_PKGS_CSWlibqtnetwork4-gxx += CSWlibqtcore4-gxx
-# /usr/share is useless but ok
 CHECKPKG_OVERRIDES_CSWlibqtnetwork4-gxx += file-with-bad-content|/usr/share|root/opt/csw/gxx/lib/libQtNetwork.so.4.8.1
 
 PACKAGES += CSWlibqtopengl4-gxx
