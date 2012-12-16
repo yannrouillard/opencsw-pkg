@@ -21,14 +21,13 @@ CATALOGNAME = lzop
 SPKG_DESC = $(DESCRIPTION)
 SPKG_SOURCEURL = http://www.lzop.org
 
-RUNTIME_DEP_PKGS = CSWlzo
-
-# We define upstream file regex so we can be notifed of new upstream software release
-UFILES_REGEX = $(NAME)-(\d+(?:\.\d+)*).tar.gz
+RUNTIME_DEP_PKGS = CSWliblzo2-2
 
 CONFIGURE_ARGS = $(DIRPATHS)
 
 NOISALIST = 1
+
+CHECKPKG_OVERRIDES_CSWlzop += file-with-bad-content|/usr/share|root/opt/csw/share/doc/lzop/magic
 
 include gar/category.mk
 
