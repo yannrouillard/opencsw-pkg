@@ -1,6 +1,6 @@
 # $Id$
 NAME = parallel
-VERSION = 20111222
+VERSION = 20121122
 GARTYPE = v2
 
 DESCRIPTION = Shell tool for executing jobs in parallel
@@ -39,5 +39,6 @@ CHECKPKG_OVERRIDES_CSWparallel += surplus-dependency|CSWperl
 # This references a special ssh like /usr/local/bin/myssh
 CHECKPKG_OVERRIDES_CSWparallel += file-with-bad-content|/usr/local|root/opt/csw/share/man/man1/parallel.1
 CHECKPKG_OVERRIDES_CSWparallel += file-with-bad-content|/usr/local|root/opt/csw/share/doc/parallel/parallel.html
+CHECKPKG_OVERRIDES_CSWparallel += file-with-bad-content|/usr/local|root/opt/csw/share/doc/parallel/parallel.texi
 
 include gar/category.mk
