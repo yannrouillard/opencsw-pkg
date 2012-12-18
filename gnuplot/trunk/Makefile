@@ -26,6 +26,11 @@ RUNTIME_DEP_PKGS_CSWgnuplot += CSWliblua5-2
 RUNTIME_DEP_PKGS_CSWgnuplot += CSWlibfreetype6
 RUNTIME_DEP_PKGS_CSWgnuplot += CSWlibz1
 RUNTIME_DEP_PKGS_CSWgnuplot += CSWlibjpeg7
+RUNTIME_DEP_PKGS_CSWgnuplot += CSWlibpdf6
+RUNTIME_DEP_PKGS_CSWgnuplot += CSWlibpng15-15
+
+# There is just an emacs style in it, do not depend on it
+CHECKPKG_OVERRIDES_CSWgnuplot += missing-dependency|CSWemacscommon
 
 PACKAGES += CSWgnuplot-wx
 CATALOGNAME_CSWgnuplot-wx = gnuplot_wx
@@ -50,7 +55,6 @@ RUNTIME_DEP_PKGS_CSWgnuplot-wx += CSWsunmath
 RUNTIME_DEP_PKGS_CSWgnuplot-wx += CSWlibfreetype6
 RUNTIME_DEP_PKGS_CSWgnuplot-wx += CSWlibz1
 RUNTIME_DEP_PKGS_CSWgnuplot-wx += CSWlibjpeg7
-RUNTIME_DEP_PKGS_CSWgnuplot-wx += CSWlibgthread2-0-0
 RUNTIME_DEP_PKGS_CSWgnuplot-wx += CSWlibgdk-x11-2-0-0
 RUNTIME_DEP_PKGS_CSWgnuplot-wx += CSWlibgmodule2-0-0
 RUNTIME_DEP_PKGS_CSWgnuplot-wx += CSWlibgtk-x11-2-0-0
@@ -58,7 +62,13 @@ RUNTIME_DEP_PKGS_CSWgnuplot-wx += CSWlibgobject2-0-0
 RUNTIME_DEP_PKGS_CSWgnuplot-wx += CSWlibglib2-0-0
 RUNTIME_DEP_PKGS_CSWgnuplot-wx += CSWlibgdk-pixbuf2-0-0
 RUNTIME_DEP_PKGS_CSWgnuplot-wx += CSWlibgio2-0-0
+RUNTIME_DEP_PKGS_CSWgnuplot-wx += CSWlibpdf6
+RUNTIME_DEP_PKGS_CSWgnuplot-wx += CSWlibpng15-15
 
+# This is pulled in from Wx, take out if that has been redone
+CHECKPKG_OVERRIDES_CSWgnuplot-wx += bad-rpath-entry|/opt/csw/lib/|opt/csw/libexec/gnuplot/4.6/gnuplot_x11-wx
+
+# TBD: Add all build deps
 BUILD_DEP_PKGS = $(RUNTIME_DEP_PKGS_CSWgnuplot-wx)
 
 REINPLACE_USRLOCAL += share/gnuplotrc
