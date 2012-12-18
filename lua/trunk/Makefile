@@ -7,7 +7,7 @@
 
 NAME = lua
 VERSION = 5.2.1
-GARTYPE = v2
+MAJOR = $(shell echo $(VERSION) | awk -F. '{print $$1"."$$2}')
 
 DESCRIPTION = Light-weight language designed for extending applications
 define BLURB
@@ -18,6 +18,8 @@ endef
 
 MASTER_SITES = http://www.lua.org/ftp/
 DISTFILES += $(DISTNAME).tar.gz
+DISTFILES += lua.pc
+EXPANDVARS += lua.pc
 
 PATCHFILES += 0001-Make-shared-lib.patch
 
@@ -68,3 +70,10 @@ INSTALL_ARGS += INSTALL_BIN=$(DESTDIR)$(bindir)
 INSTALL_ARGS += INSTALL_LIB=$(DESTDIR)$(libdir)
 
 include gar/category.mk
+
+post-install-modulated:
+	ginstall -d $(DESTDIR)$(libdir)/pkgconfig
+	ginstall $(WORKDIR)/lua.pc $(DESTDIR)$(libdir)/pkgconfig/lua-$(MAJOR).pc
+	gln -s lua-$(MAJOR).pc $(DESTDIR)$(libdir)/pkgconfig/lua$(MAJOR).pc
+	gln -s lua-$(MAJOR).pc $(DESTDIR)$(libdir)/pkgconfig/lua.pc
+	@$(MAKECOOKIE)
