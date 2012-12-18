@@ -1,18 +1,12 @@
 NAME = gnuplot
-VERSION = 4.6.0
-GARTYPE = v2
+VERSION = 4.6.1
 
 DESCRIPTION = The Gnuplot Plotting Utility
-define BLURB
-  The Gnuplot Plotting Utility.
-endef
 
 MASTER_SITES = $(SF_MIRRORS)
 DISTFILES  = $(NAME)-$(VERSION).tar.gz
 
 PATCHFILES = 0001-Remove-definition-unclear-why-leaving-it-in-causes-e.patch
-
-PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386
 
 VENDOR_URL = http://www.gnuplot.info/
 
@@ -22,7 +16,6 @@ PACKAGES += CSWgnuplot
 CATALOGNAME_CSWgnuplot = gnuplot
 SPKG_DESC_CSWgnuplot = $(DESCRIPTION)
 RUNTIME_DEP_PKGS_CSWgnuplot += CSWlibpng12-0
-RUNTIME_DEP_PKGS_CSWgnuplot += CSWemacscommon
 RUNTIME_DEP_PKGS_CSWgnuplot += CSWlibfontconfig1
 RUNTIME_DEP_PKGS_CSWgnuplot += CSWlibiconv2
 RUNTIME_DEP_PKGS_CSWgnuplot += CSWlibreadline6
@@ -70,7 +63,14 @@ BUILD_DEP_PKGS = $(RUNTIME_DEP_PKGS_CSWgnuplot-wx)
 
 REINPLACE_USRLOCAL += share/gnuplotrc
 
-EXTRA_LINKER_FLAGS = -norunpath
+EXTRA_LINKER_FLAGS += -norunpath
+
+# Gnuplot automatically pulls in libCstd which is needed by libwx_gtk2u_core-2.8.so.0.6.0 because
+# the library is wrong self-contained (ldd -r on that throws unresolved symbol errors).
+# Gnuplot itself does not need libCstd leading to stripped NEEDED and then linking in libwx
+# fails. Long-term should be a fix to libwx to be self-contained, but add libs unconditionally
+# for now.
+LINKER_IGNORE =
 
 EXTRA_MODULATORS = WXWIDGETS
 MODULATIONS_WXWIDGETS = yes no
@@ -90,6 +90,10 @@ CONFIGURE_ARGS += ac_cv_type__Bool=no
 # Make sure we don't run the interactive displays from demo/
 EXTRA_TEST_EXPORTS = DISPLAY
 DISPLAY =
+
+# The testsuite does not work without DISPLAY any more, I tested it manually for 4.6.1 with DISPLAY
+# without errors. Please retest on major new versions.
+SKIPTEST ?= 1
 
 MERGE_SCRIPTS_isa-default-wxwidgets-yes = copy-all
 MERGE_SCRIPTS_isa-default-wxwidgets-no = copy-all
