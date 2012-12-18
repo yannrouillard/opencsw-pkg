@@ -21,8 +21,6 @@ DISTFILES += $(DISTNAME).tar.gz
 
 PATCHFILES += 0001-Make-shared-lib.patch
 
-PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386
-
 VENDOR_URL = http://www.lua.org
 
 LICENSE = doc/readme.html
@@ -42,7 +40,7 @@ RUNTIME_DEP_PKGS_CSWlua-dev += CSWliblua5-2
 
 REINPLACEMENTS += luaroot
 REINPLACE_MATCH_luaroot = (\#define\s+LUA_ROOT\s+).*
-REINPLACE_WITH_luaroot = $$1"$(prefix)"
+REINPLACE_WITH_luaroot = $$1"$(prefix)/"
 REINPLACE_FILES_luaroot += src/luaconf.h
 
 BUILD64 = 1
@@ -52,6 +50,8 @@ ISAEXEC = 1
 CONFIGURE_SCRIPTS =
 
 EXTRA_CFLAGS += -KPIC
+# This is in the original Makefile, add here as we overwrite CFLAGS
+EXTRA_CFLAGS += -DLUA_COMPAT_ALL
 
 BUILD_ARGS += solaris
 BUILD_ARGS += CC=$(CC)
