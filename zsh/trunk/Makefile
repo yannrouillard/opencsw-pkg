@@ -1,5 +1,5 @@
 NAME = zsh
-VERSION = 5.0.0
+VERSION = 5.0.1
 GARTYPE = v2
 
 DESCRIPTION = Powerful UNIX shell
