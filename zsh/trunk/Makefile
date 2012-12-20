@@ -28,6 +28,7 @@ CONFIGURE_ARGS  = $(DIRPATHS)
 CONFIGURE_ARGS += --enable-maildir-support
 CONFIGURE_ARGS += --enable-fndir=$(sharedstatedir)/$(NAME)/functions
 CONFIGURE_ARGS += --enable-pcre
+CONFIGURE_ARGS += --enable-etcdir=$(sysconfdir)
 
 CHECKPKG_OVERRIDES_CSWzsh += file-with-bad-content|/usr/local|root/opt/csw/share/zsh/functions/_urxvt
 CHECKPKG_OVERRIDES_CSWzsh += file-with-bad-content|/usr/share|root/opt/csw/share/zsh/functions/_units
