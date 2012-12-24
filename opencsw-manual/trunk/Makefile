@@ -32,6 +32,9 @@ BUILD_DEP_PKGS += CSWpy-sphinx
 BUILD_DEP_PKGS += CSWrsync
 BUILD_DEP_PKGS += CSWpysetuptools
 
+# This is a documentation package, so references to /usr are fine.
+CHECKPKG_OVERRIDES_CSWopencsw-manual += file-with-bad-content
+
 include gar/category.mk
 
 post-extract-modulated:
@@ -43,17 +46,19 @@ build-manual:
 	@$(MAKECOOKIE)
 
 install-manual:
-	ginstall -m 755 -d $(PKGROOT)$(docdir)/$(CATALOGNAME_CSWopencsw-manual)
-	rsync -rv $(WORKSRC)/_build/html/ $(PKGROOT)$(docdir)/$(CATALOGNAME_CSWopencsw-manual)
+	ginstall -m 755 -d $(DESTDIR)$(docdir)/$(CATALOGNAME_CSWopencsw-manual)
+	rsync -rv $(WORKSRC)/_build/html/ $(DESTDIR)$(docdir)/$(CATALOGNAME_CSWopencsw-manual)
 	@$(MAKECOOKIE)
 
 post-install-modulated: copy-to-web
 	@$(MAKECOOKIE)
 
 copy-to-web:
-	if [ -d $(HOME)/public_html/opencsw-manual ]; then \
-		rsync -r $(PKGROOT)$(docdir)/$(CATALOGNAME_CSWopencsw-manual)/ \
-		$(HOME)/public_html/opencsw-manual; \
+	if echo $(DESTDIR) | grep global; then :; else \
+	  if [ -d $(HOME)/public_html/opencsw-manual ]; then \
+  		rsync -r $(DESTDIR)$(docdir)/$(CATALOGNAME_CSWopencsw-manual)/ \
+  		$(HOME)/public_html/opencsw-manual; \
+	  fi \
 	fi
 
 .PHONY: copy-to-web
