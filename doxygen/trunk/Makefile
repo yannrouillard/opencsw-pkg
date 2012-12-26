@@ -1,5 +1,5 @@
 NAME = doxygen
-VERSION = 1.8.2
+VERSION = 1.8.3
 GARTYPE = v2
 
 DESCRIPTION = A documentation system for programming languages
@@ -10,10 +10,6 @@ endef
 
 MASTER_SITES = http://ftp.stack.nl/pub/users/dimitri/
 DISTFILES  = $(DISTNAME).src.tar.gz
-
-# Use patch until this is fixed:
-#   https://bugzilla.gnome.org/show_bug.cgi?id=670853
-PATCHFILES += 0001-Cannot-cast-0-to-QCString.patch
 
 VENDOR_URL = http://www.stack.nl/~dimitri/doxygen/
 
