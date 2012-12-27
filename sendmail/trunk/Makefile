@@ -1,9 +1,9 @@
 # $Id$
 
 # TODO
-# - Build separate 9/10 packages?
 # - One big "mta" switch in alternatives between sendmail/postfix
 
+# + Build separate 9/10 packages? -> build only 5.10
 # + add symlink from /etc/opt/csw/mail/cf to /opt/csw/share/sendmail/cf/cf
 # + add ostype solaris9csw.m4
 # + add sendmail.mc in cf dir
@@ -31,7 +31,7 @@
 # + #4150 Sendmail 8.14.4 released -> this is 8.14.5
 
 NAME = sendmail
-VERSION = 8.14.5
+VERSION = 8.14.6
 GARTYPE = v2
 
 DESCRIPTION = Sendmail MTA
@@ -51,6 +51,8 @@ DISTFILES += cswsendmail cswusergroup
 DISTFILES += sendmail.mc solaris9csw.m4
 
 LICENSE = LICENSE
+
+PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386
 
 PACKAGES                      = CSWsendmail 
 CATALOGNAME_CSWsendmail       = sendmail
