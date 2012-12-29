@@ -22,7 +22,6 @@
 NAME = subversion
 VERSION = 1.7.8
 GARTYPE = v2
-CATEGORIES = apps
 
 DESCRIPTION = Version control rethought
 define BLURB
