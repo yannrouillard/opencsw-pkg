@@ -147,7 +147,8 @@ LICENSE = LICENSE
 
 ##### Build and installation information #####
 
-BUILD64 =1
+BUILD64 = 1
+ISAEXEC = 1
 
 # The list of instructions set for which we will 
 # provide optimized libraries and binaries
