@@ -147,6 +147,8 @@ LICENSE = LICENSE
 
 ##### Build and installation information #####
 
+BUILD64 =1
+
 # The list of instructions set for which we will 
 # provide optimized libraries and binaries
 EXTRA_BUILD_ISAS_i386 = pentium_pro amd64
