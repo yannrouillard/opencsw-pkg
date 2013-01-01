@@ -1,5 +1,5 @@
 NAME = libthai
-VERSION = 0.1.17
+VERSION = 0.1.18
 GARTYPE = v2
 
 DESCRIPTION = Thai language support routines
