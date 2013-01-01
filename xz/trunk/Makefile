@@ -1,5 +1,5 @@
 NAME = xz
-VERSION = 5.0.3
+VERSION = 5.0.4
 GARTYPE = v2
 
 DESCRIPTION = XZ Utils is free data compression software with high compression ratio
@@ -30,7 +30,8 @@ PKGFILES_CSWliblzma-dev += $(docdir)/xz/examples/.*
 PKGFILES_CSWliblzma-dev += $(docdir)/xz/.*-file-format.txt
 RUNTIME_DEP_PKGS_CSWliblzma-dev += CSWliblzma5
 
-BUILD64_LIBS_ONLY = 1
+BUILD64 = 1
+ISAEXEC = 1
 
 CONFIGURE_ARGS = $(DIRPATHS)
 # This test fails as SOS12 cc is not real c99 (stdbool.h is missing)
