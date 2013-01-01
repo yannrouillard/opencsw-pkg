@@ -1,5 +1,5 @@
 NAME = freeradius
-VERSION = 2.1.12
+VERSION = 2.2.0
 GARTYPE = v2
 
 DESCRIPTION = A free RADIUS server implementation
@@ -12,6 +12,8 @@ EXPANDVARS += cswfreeradius
 DISTFILES += server.pem
 DISTFILES += ca.pem
 DISTNAME = $(NAME)-server-$(VERSION)
+
+PATCHFILES += 0001-Include-ltdl.h-for-various-defintions.patch
 
 VENDOR_URL = http://freeradius.org/
 
@@ -52,7 +54,7 @@ SPKG_DESC_CSWfreeradius-krb5 = Kerberos 5 Module rlm_krb5 for FreeRADIUS
 PKGFILES_CSWfreeradius-krb5 += $(raddbdir)/modules/krb5.CSW
 PKGFILES_CSWfreeradius-krb5 += $(docdir)/rlm_krb5
 PKGFILES_CSWfreeradius-krb5 += /opt/csw/lib/freeradius/rlm_krb5\.so
-PKGFILES_CSWfreeradius-krb5 += /opt/csw/lib/freeradius/rlm_krb5-2\.1\.[0-9]+\.so
+PKGFILES_CSWfreeradius-krb5 += /opt/csw/lib/freeradius/rlm_krb5-2\.2\.[0-9]+\.so
 RUNTIME_DEP_PKGS_CSWfreeradius-krb5 += CSWlibkrb5-3
 RUNTIME_DEP_PKGS_CSWfreeradius-krb5 += CSWlibk5crypto3
 RUNTIME_DEP_PKGS_CSWfreeradius-krb5 += CSWlibcom-err3
@@ -67,7 +69,7 @@ PKGFILES_CSWfreeradius-ldap += $(docdir)/RADIUS-LDAP-eDirectory
 PKGFILES_CSWfreeradius-ldap += $(docdir)/rlm_ldap
 PKGFILES_CSWfreeradius-ldap += $(docdir)/examples/openldap.schema
 PKGFILES_CSWfreeradius-ldap += /opt/csw/lib/freeradius/rlm_ldap\.so
-PKGFILES_CSWfreeradius-ldap += /opt/csw/lib/freeradius/rlm_ldap-2\.1\.[0-9]+\.so
+PKGFILES_CSWfreeradius-ldap += /opt/csw/lib/freeradius/rlm_ldap-2\.2\.[0-9]+\.so
 RUNTIME_DEP_PKGS_CSWfreeradius-ldap += CSWlibldap-r2-4-2
 RUNTIME_DEP_PKGS_CSWfreeradius-ldap += CSWfreeradius
 
@@ -93,7 +95,7 @@ CONFIGURE_ARGS += --with-rlm_sql_postgresql_include_dir=$(rlm_pgsql_inc)
 PACKAGES += CSWfreeradius-postgresql
 SPKG_DESC_CSWfreeradius-postgresql = PostgreSQL Module rlm_sql_postgresql for FreeRADIUS
 PKGFILES_CSWfreeradius-postgresql += /opt/csw/lib/freeradius/rlm_sql_postgresql\.so
-PKGFILES_CSWfreeradius-postgresql += /opt/csw/lib/freeradius/rlm_sql_postgresql-2\.1\.[0-9]+\.so
+PKGFILES_CSWfreeradius-postgresql += /opt/csw/lib/freeradius/rlm_sql_postgresql-2\.2\.[0-9]+\.so
 PKGFILES_CSWfreeradius-postgresql += $(raddbdir)/sql/postgresql
 PKGFILES_CSWfreeradius-postgresql += $(raddbdir)/sql/postgresql/.*
 RUNTIME_DEP_PKGS_CSWfreeradius-postgresql += CSWlibpq5
@@ -106,7 +108,7 @@ CONFIGURE_ARGS += --with-mysql-include-dir=$(includedir)
 PACKAGES += CSWfreeradius-mysql
 SPKG_DESC_CSWfreeradius-mysql = MySQL Module rlm_sql_mysql for FreeRADIUS
 PKGFILES_CSWfreeradius-mysql += /opt/csw/lib/freeradius/rlm_sql_mysql\.so
-PKGFILES_CSWfreeradius-mysql += /opt/csw/lib/freeradius/rlm_sql_mysql-2\.1\.[0-9]+\.so
+PKGFILES_CSWfreeradius-mysql += /opt/csw/lib/freeradius/rlm_sql_mysql-2\.2\.[0-9]+\.so
 PKGFILES_CSWfreeradius-mysql += $(raddbdir)/sql/mysql
 PKGFILES_CSWfreeradius-mysql += $(raddbdir)/sql/mysql/.*
 RUNTIME_DEP_PKGS_CSWfreeradius-mysql += CSWlibssl1-0-0
