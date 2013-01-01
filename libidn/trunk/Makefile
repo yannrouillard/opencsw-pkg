@@ -1,5 +1,5 @@
 NAME = libidn
-VERSION = 1.24
+VERSION = 1.26
 GARTYPE = v2
 
 DESCRIPTION = GNU IDN Library
