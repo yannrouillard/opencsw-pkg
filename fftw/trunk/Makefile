@@ -41,10 +41,12 @@ PKGFILES_CSWlibfftw3l3 = $(call pkgfiles_lib,libfftw3l.so.3)
 PACKAGES += CSWlibfftw3threads3
 SPKG_DESC_CSWlibfftw3threads3 = Library for computing the discrete Fourier transform (DFT), libfftw3_threads.so.3
 PKGFILES_CSWlibfftw3threads3 = $(call pkgfiles_lib,libfftw3_threads.so.3)
+RUNTIME_DEP_PKGS_CSWlibfftw3threads3 += CSWlibfftw3-3
 
 PACKAGES-5.10 += CSWlibfftw3l-threads3
 SPKG_DESC_CSWlibfftw3l-threads3 = Library for computing the discrete Fourier transform (DFT) in long double, libfftw3_threads.so.3
 PKGFILES_CSWlibfftw3l-threads3 = $(call pkgfiles_lib,libfftw3l_threads.so.3)
+RUNTIME_DEP_PKGS_CSWlibfftw3l-threads3 += CSWlibfftw3l3
 
 PACKAGES += CSWlibfftw-dev
 SPKG_DESC_CSWlibfftw-dev = Development files for libfftw3.so.3
