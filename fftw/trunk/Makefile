@@ -27,8 +27,8 @@ SKIP_MODULATIONS-5.9 += isa-sparcv8-longdouble-yes isa-sparcv9-longdouble-yes
 SKIP_MODULATIONS-5.9 += isa-i386-longdouble-yes isa-amd64-longdouble-no isa-amd64-longdouble-yes
 SKIP_MODULATIONS = $(SKIP_MODULATIONS-$(GAROSREL))
 
-PACKAGING_PLATFORMS += solaris9-sparc solaris9-i386
-PACKAGING_PLATFORMS += solaris10-sparc solaris10-i386
+#PACKAGING_PLATFORMS += solaris9-sparc solaris9-i386
+#PACKAGING_PLATFORMS += solaris10-sparc solaris10-i386
 
 PACKAGES += CSWlibfftw3-3
 SPKG_DESC_CSWlibfftw3-3 = Library for computing the discrete Fourier transform (DFT), libfftw3.so.3
