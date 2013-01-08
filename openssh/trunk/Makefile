@@ -200,6 +200,7 @@ post-configure-modulated:
 
 # adding documentation files
 pre-package: merge-config-files merge-doc-files merge-init-files merge-contrib-files merge-special-directories
+	@$(MAKECOOKIE)
 
 merge-contrib-files:
 	ginstall -D "$(WORKSRC_FIRSTMOD)/contrib/ssh-copy-id" "$(PKGROOT)/$(bindir)/ssh-copy-id"
@@ -218,7 +219,6 @@ merge-doc-files:
 		(cd $(PKGROOT)/$(docdir)/$$DOCDIR && chmod -x $(DOCFILES)); \
 		ginstall $(WORKDIR_FIRSTMOD)/changelog.CSW $(PKGROOT)/$(docdir)/$$DOCDIR/; \
 	done
-	@$(MAKECOOKIE)
 
 merge-config-files:
 	# we change some default value in the server config file
@@ -226,7 +226,6 @@ merge-config-files:
 	perl -pi -e 's,^ *# *UsePAM *.*,UsePAM yes,g, s,^ *# *PrintMotd *.*,PrintMotd no,g; s,^ *# *X11Forwarding *.*,X11Forwarding yes,g' "$(PKGROOT)/$(sysconfdir)/ssh/sshd_config.CSW" 
 	ginstall -D "$(WORKDIR_FIRSTMOD)/cswusergroup" "$(PKGROOT)$(prefix)/etc/pkg/CSWossh/cswusergroup"
 	ginstall -D "$(WORKDIR_FIRSTMOD)/THIS_LOCATION_IS_DEPRECATED" "$(PKGROOT)/$(prefix)/etc/ssh/THIS_LOCATION_IS_DEPRECATED"
-	@$(MAKECOOKIE)
 
 merge-special-directories:
 	ginstall -d $(PKGROOT)$(localstatedir)/empty
