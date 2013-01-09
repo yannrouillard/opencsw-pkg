@@ -92,8 +92,6 @@ CHECKPKG_OVERRIDES_CSWopenssh-client += file-with-bad-content|/usr/local|root/op
 CHECKPKG_OVERRIDES_CSWopenssh += file-with-bad-content|/usr/local|root/opt/csw/share/doc/openssh/INSTALL
 CHECKPKG_OVERRIDES_CSWopenssh += file-with-bad-content|/usr/share|root/var/opt/csw/svc/manifest/network/cswopenssh.xml
 
-CHECKPKG_OVERRIDES_CSWopenssh += surplus-dependency|CSWopenssh-client
-
 
 
 ###### Upstream and OpenCSW files information #######
