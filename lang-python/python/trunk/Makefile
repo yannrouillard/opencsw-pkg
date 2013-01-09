@@ -32,6 +32,7 @@ endef
 
 MASTER_SITES = http://python.org/ftp/python/$(VERSION)/
 UPSTREAM_MASTER_SITES = http://python.org/ftp/python/
+UFILES_REGEX = $(VER)\.\d+
 
 DISTFILES  = $(DISTNAME).tar.bz2
 
