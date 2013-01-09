@@ -30,19 +30,19 @@ define BLURB
 endef
 
 
-PACKAGES = CSWopenssh CSWopensshclient
+PACKAGES = CSWopenssh CSWopenssh-client
 
 CATALOGNAME_CSWopenssh = openssh
 SPKG_DESC_CSWopenssh = OpenSSH Secure Shell server 
-RUNTIME_DEP_PKGS_CSWopenssh = CSWlibssl1-0-0 CSWlibwrap1 CSWlibz1 CSWlibkrb5-3 CSWlibgssapi-krb5-2 CSWlibcom-err3 CSWopensshclient
+RUNTIME_DEP_PKGS_CSWopenssh = CSWlibssl1-0-0 CSWlibwrap1 CSWlibz1 CSWlibkrb5-3 CSWlibgssapi-krb5-2 CSWlibcom-err3 CSWopenssh-client
 
 OBSOLETED_BY_CSWopenssh = CSWossh
 
-CATALOGNAME_CSWopensshclient = openssh_client
-SPKG_DESC_CSWopensshclient = OpenSSH Secure Shell client 
-RUNTIME_DEP_PKGS_CSWopensshclient = CSWlibssl1-0-0 CSWlibz1 CSWlibgssapi-krb5-2 
+CATALOGNAME_CSWopenssh-client = openssh_client
+SPKG_DESC_CSWopenssh-client = OpenSSH Secure Shell client 
+RUNTIME_DEP_PKGS_CSWopenssh-client = CSWlibssl1-0-0 CSWlibz1 CSWlibgssapi-krb5-2 
 
-OBSOLETED_BY_CSWopensshclient = CSWosshclient
+OBSOLETED_BY_CSWopenssh-client = CSWosshclient
 
 PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386
 
@@ -59,14 +59,14 @@ PKGFILES_CSWopenssh += $(sysconfdir)/init.d/cswopenssh
 PKGFILES_CSWopenssh += $(localstatedir)/svc/manifest/network/cswopenssh.xml
 PKGFILES_CSWopenssh += $(prefix)/etc/pkg/CSWopenssh/cswusergroup
 
-PKGFILES_CSWopensshclient = $(bindir)/.*
-PKGFILES_CSWopensshclient += $(docdir)/openssh_client/.*
-PKGFILES_CSWopensshclient += $(mandir)/man1/.*
-PKGFILES_CSWopensshclient += $(mandir)/man5/ssh_config.5
-PKGFILES_CSWopensshclient += $(mandir)/man8/ssh-keysign.8
-PKGFILES_CSWopensshclient += $(libexecdir)/ssh-keysign
-PKGFILES_CSWopensshclient += $(sysconfdir)/ssh/ssh_config.CSW
-PKGFILES_CSWopensshclient += $(prefix)/etc/ssh/THIS_LOCATION_IS_DEPRECATED
+PKGFILES_CSWopenssh-client = $(bindir)/.*
+PKGFILES_CSWopenssh-client += $(docdir)/openssh_client/.*
+PKGFILES_CSWopenssh-client += $(mandir)/man1/.*
+PKGFILES_CSWopenssh-client += $(mandir)/man5/ssh_config.5
+PKGFILES_CSWopenssh-client += $(mandir)/man8/ssh-keysign.8
+PKGFILES_CSWopenssh-client += $(libexecdir)/ssh-keysign
+PKGFILES_CSWopenssh-client += $(sysconfdir)/ssh/ssh_config.CSW
+PKGFILES_CSWopenssh-client += $(prefix)/etc/ssh/THIS_LOCATION_IS_DEPRECATED
 
 PROTOTYPE_MODIFIERS = setuid
 PROTOTYPE_FILES_setuid = $(libexecdir)/ssh-keysign
@@ -82,17 +82,17 @@ MIGRATE_FILES_CSWopenssh = moduli sshd_config
 MIGRATE_FILES_CSWopenssh += ssh_host_dsa_key ssh_host_dsa_key.pub ssh_host_rsa_key ssh_host_rsa_key.pub ssh_host_key ssh_host_key.pub
 MIGRATE_FILES_CSWopenssh += shosts.equiv
 MIGRATE_FILES_CSWopenssh += sshrc
-MIGRATE_FILES_CSWopensshclient = ssh_config
-MIGRATE_FILES_CSWopensshclient += ssh_known_hosts ssh_known_hosts2
-MIGRATE_FILES_CSWopensshclient += ssh_prng_cmds
+MIGRATE_FILES_CSWopenssh-client = ssh_config
+MIGRATE_FILES_CSWopenssh-client += ssh_known_hosts ssh_known_hosts2
+MIGRATE_FILES_CSWopenssh-client += ssh_prng_cmds
 MIGRATE_SOURCE_DIR = $(prefix)/etc/ssh
 MIGRATE_DEST_DIR = $(sysconfdir)/ssh
 
-CHECKPKG_OVERRIDES_CSWopensshclient += file-with-bad-content|/usr/local|root/opt/csw/share/doc/openssh_client/INSTALL
+CHECKPKG_OVERRIDES_CSWopenssh-client += file-with-bad-content|/usr/local|root/opt/csw/share/doc/openssh_client/INSTALL
 CHECKPKG_OVERRIDES_CSWopenssh += file-with-bad-content|/usr/local|root/opt/csw/share/doc/openssh/INSTALL
 CHECKPKG_OVERRIDES_CSWopenssh += file-with-bad-content|/usr/share|root/var/opt/csw/svc/manifest/network/cswopenssh.xml
 
-CHECKPKG_OVERRIDES_CSWopenssh += surplus-dependency|CSWopensshclient
+CHECKPKG_OVERRIDES_CSWopenssh += surplus-dependency|CSWopenssh-client
 
 
 
@@ -179,8 +179,8 @@ ifdef LPK
 	CONFIGURE_ARGS += --with-ldap
 	DOCFILES += openssh-lpk_openldap.schema openssh-lpk_sun.schema lpk-user-example.txt README.lpk
 	
-	# we must reset the CSWopensshclient description to avoid a bug in the automatic dependancy generation
-	SPKG_DESC_CSWopensshclient = 
+	# we must reset the CSWopenssh-client description to avoid a bug in the automatic dependancy generation
+	SPKG_DESC_CSWopenssh-client = 
 endif
 
 
