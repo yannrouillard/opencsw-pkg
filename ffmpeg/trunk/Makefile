@@ -8,7 +8,7 @@
 # Another thing is to see if it can be build with suncc see http://ftp.jaist.ac.jp/pub/pkgsrc/current/pkgsrc/multimedia/ffmpeg/Makefile.common
 
 NAME = ffmpeg
-VERSION = 1.0.1
+VERSION = 1.1
 GARTYPE = v2
 
 DESCRIPTION = Very fast video and audio converter (includes libavcodec)
@@ -38,7 +38,7 @@ PACKAGES += CSWlibavcodec54
 SPKG_DESC_CSWlibavcodec54 = FFMPEG library libavcodec.so.54
 PKGFILES_CSWlibavcodec54 += $(call pkgfiles_lib,libavcodec.so.54)
 RUNTIME_DEP_PKGS_CSWlibavcodec54 += CSWlibvorbisenc2
-RUNTIME_DEP_PKGS_CSWlibavcodec54 += CSWlibavutil51
+RUNTIME_DEP_PKGS_CSWlibavcodec54 += CSWlibavutil52
 RUNTIME_DEP_PKGS_CSWlibavdevice54 += CSWlibavfilter3
 RUNTIME_DEP_PKGS_CSWlibavcodec54 += CSWlibz1
 RUNTIME_DEP_PKGS_CSWlibavcodec54 += CSWlibvorbis0
@@ -55,7 +55,7 @@ PKGFILES_CSWlibavdevice54 += $(call pkgfiles_lib,libavdevice.so.54)
 RUNTIME_DEP_PKGS_CSWlibavdevice54 += CSWlibavformat54
 RUNTIME_DEP_PKGS_CSWlibavdevice54 += CSWlibbz2-1-0
 RUNTIME_DEP_PKGS_CSWlibavdevice54 += CSWlibvorbisenc2
-RUNTIME_DEP_PKGS_CSWlibavdevice54 += CSWlibavutil51
+RUNTIME_DEP_PKGS_CSWlibavdevice54 += CSWlibavutil52
 RUNTIME_DEP_PKGS_CSWlibavdevice54 += CSWlibsdl1-2-0
 RUNTIME_DEP_PKGS_CSWlibavdevice54 += CSWlibz1
 RUNTIME_DEP_PKGS_CSWlibavdevice54 += CSWlibogg0
@@ -74,7 +74,7 @@ SPKG_DESC_CSWlibavfilter3 = FFMPEG library libavfilter.so.3
 PKGFILES_CSWlibavfilter3 += $(call pkgfiles_lib,libavfilter.so.3)
 RUNTIME_DEP_PKGS_CSWlibavfilter3 += CSWlibavformat54
 RUNTIME_DEP_PKGS_CSWlibavfilter3 += CSWlibswscale2
-RUNTIME_DEP_PKGS_CSWlibavfilter3 += CSWlibavutil51
+RUNTIME_DEP_PKGS_CSWlibavfilter3 += CSWlibavutil52
 RUNTIME_DEP_PKGS_CSWlibavfilter3 += CSWlibavcodec54
 RUNTIME_DEP_PKGS_CSWlibavfilter3 += CSWlibswresample0
 RUNTIME_DEP_PKGS_CSWlibavfilter3 += CSWlibfreetype6
@@ -85,32 +85,32 @@ PACKAGES += CSWlibavformat54
 SPKG_DESC_CSWlibavformat54 = FFMPEG library libavformat.so.54
 PKGFILES_CSWlibavformat54 += $(call pkgfiles_lib,libavformat.so.54)
 RUNTIME_DEP_PKGS_CSWlibavformat54 += CSWlibbz2-1-0
-RUNTIME_DEP_PKGS_CSWlibavformat54 += CSWlibavutil51
+RUNTIME_DEP_PKGS_CSWlibavformat54 += CSWlibavutil52
 RUNTIME_DEP_PKGS_CSWlibavformat54 += CSWlibz1
 RUNTIME_DEP_PKGS_CSWlibavformat54 += CSWlibavcodec54
 RUNTIME_DEP_PKGS_CSWlibavformat54 += CSWlibgcc-s1
 
-PACKAGES += CSWlibavutil51
-SPKG_DESC_CSWlibavutil51 = FFMPEG library libavutil.so.51
-PKGFILES_CSWlibavutil51 += $(call pkgfiles_lib,libavutil.so.51)
-RUNTIME_DEP_PKGS_CSWlibavutil51 += CSWlibgcc-s1
+PACKAGES += CSWlibavutil52
+SPKG_DESC_CSWlibavutil52 = FFMPEG library libavutil.so.52
+PKGFILES_CSWlibavutil52 += $(call pkgfiles_lib,libavutil.so.52)
+RUNTIME_DEP_PKGS_CSWlibavutil52 += CSWlibgcc-s1
 
 PACKAGES += CSWlibpostproc52
 SPKG_DESC_CSWlibpostproc52 = FFMPEG library libpostproc.so.52
 PKGFILES_CSWlibpostproc52 += $(call pkgfiles_lib,libpostproc.so.52)
-RUNTIME_DEP_PKGS_CSWlibpostproc52 += CSWlibavutil51
+RUNTIME_DEP_PKGS_CSWlibpostproc52 += CSWlibavutil52
 RUNTIME_DEP_PKGS_CSWlibpostproc52 += CSWlibgcc-s1
 
 PACKAGES += CSWlibswscale2
 SPKG_DESC_CSWlibswscale2 = FFMPEG library libswscale.so.2
 PKGFILES_CSWlibswscale2 += $(call pkgfiles_lib,libswscale.so.2)
-RUNTIME_DEP_PKGS_CSWlibswscale2 += CSWlibavutil51
+RUNTIME_DEP_PKGS_CSWlibswscale2 += CSWlibavutil52
 RUNTIME_DEP_PKGS_CSWlibswscale2 += CSWlibgcc-s1
 
 PACKAGES += CSWlibswresample0
 SPKG_DESC_CSWlibswresample0 = FFMPEG library libswresample.so.0
 PKGFILES_CSWlibswresample0 += $(call pkgfiles_lib,libswresample.so.0)
-RUNTIME_DEP_PKGS_CSWlibswresample0 += CSWlibavutil51
+RUNTIME_DEP_PKGS_CSWlibswresample0 += CSWlibavutil52
 RUNTIME_DEP_PKGS_CSWlibswresample0 += CSWlibgcc-s1
 
 PACKAGES += CSWffmpeg-dev
@@ -120,7 +120,7 @@ RUNTIME_DEP_PKGS_CSWffmpeg-dev += CSWlibavcodec54
 RUNTIME_DEP_PKGS_CSWffmpeg-dev += CSWlibavdevice54
 RUNTIME_DEP_PKGS_CSWffmpeg-dev += CSWlibavfilter3
 RUNTIME_DEP_PKGS_CSWffmpeg-dev += CSWlibavformat54
-RUNTIME_DEP_PKGS_CSWffmpeg-dev += CSWlibavutil51
+RUNTIME_DEP_PKGS_CSWffmpeg-dev += CSWlibavutil52
 RUNTIME_DEP_PKGS_CSWffmpeg-dev += CSWlibpostproc52
 RUNTIME_DEP_PKGS_CSWffmpeg-dev += CSWlibswscale2
 RUNTIME_DEP_PKGS_CSWffmpeg-dev += CSWlibswresample0
@@ -131,7 +131,7 @@ SPKG_DESC_CSWffmpeg = Very fast video and audio converter
 # PKGFILES is catchall
 RUNTIME_DEP_PKGS_CSWffmpeg += CSWlibavformat54
 RUNTIME_DEP_PKGS_CSWffmpeg += CSWlibswscale2
-RUNTIME_DEP_PKGS_CSWffmpeg += CSWlibavutil51
+RUNTIME_DEP_PKGS_CSWffmpeg += CSWlibavutil52
 RUNTIME_DEP_PKGS_CSWffmpeg += CSWlibsdl1-2-0
 RUNTIME_DEP_PKGS_CSWffmpeg += CSWlibavcodec54
 RUNTIME_DEP_PKGS_CSWffmpeg += CSWlibavdevice54
@@ -144,6 +144,8 @@ CHECKPKG_OVERRIDES_CSWffmpeg += file-with-bad-content|/usr/local|root/opt/csw/sh
 CHECKPKG_OVERRIDES_CSWffmpeg += file-with-bad-content|/usr/local|root/opt/csw/share/man/man1/ffplay.1
 CHECKPKG_OVERRIDES_CSWffmpeg += file-with-bad-content|/usr/share|root/opt/csw/share/man/man1/ffmpeg.1
 CHECKPKG_OVERRIDES_CSWffmpeg += file-with-bad-content|/usr/share|root/opt/csw/share/man/man1/ffplay.1
+CHECKPKG_OVERRIDES_CSWffmpeg += file-with-bad-content|/usr/local|root/opt/csw/share/man/man1/ffmpeg-filters.1
+CHECKPKG_OVERRIDES_CSWffmpeg += file-with-bad-content|/usr/share|root/opt/csw/share/man/man1/ffmpeg-filters.1
 
 #EXTRA_MODULATORS = SHARED
 #MODULATIONS_SHARED = yes no
