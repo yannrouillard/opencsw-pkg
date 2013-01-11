@@ -188,7 +188,7 @@ OBSOLETED_BY_CSWnss3-tools = CSWlibnss3-tools
 BUILD_DEP_PKGS += CSWnspr-dev
 BUILD_DEP_PKGS += CSWlibsqlite3-dev
 
-# BUILD64 = 1
+BUILD64 = 1
 
 CONFIGURE_SCRIPTS =
 BUILD_SCRIPTS = nss
