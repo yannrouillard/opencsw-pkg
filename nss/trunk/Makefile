@@ -175,7 +175,6 @@ RUNTIME_DEP_PKGS_CSWnss3-tools += CSWlibplc4
 RUNTIME_DEP_PKGS_CSWnss3-tools += CSWlibnspr4
 RUNTIME_DEP_PKGS_CSWnss3-tools += CSWlibplds4
 RUNTIME_DEP_PKGS_CSWnss3-tools += CSWlibsmime3
-RUNTIME_DEP_PKGS_CSWnss3-tools += CSWlibssl3
 RUNTIME_DEP_PKGS_CSWnss3-tools += CSWlibnssutil3
 # plugins accessed via dlopen
 RUNTIME_DEP_PKGS_CSWnss3-tools += CSWlibsoftokn3
@@ -186,13 +185,15 @@ CHECKPKG_OVERRIDES_CSWnss3-tools += surplus-dependency|CSWlibnssdbm3
 CHECKPKG_OVERRIDES_CSWnss3-tools += surplus-dependency|CSWlibsoftokn3
 OBSOLETED_BY_CSWnss3-tools = CSWlibnss3-tools
 
-BUILD_DEP_PKGS = $(RUNTIME_DEP_PKGS) CSWnspr-dev CSWlibsqlite3-dev
+BUILD_DEP_PKGS += CSWnspr-dev
+BUILD_DEP_PKGS += CSWlibsqlite3-dev
+
+# BUILD64 = 1
 
 CONFIGURE_SCRIPTS =
 BUILD_SCRIPTS = nss
 INSTALL_SCRIPTS = nss
 TEST_SCRIPTS =
-BUILD64 = 1
 MERGE_DIRS_isa-sparcv9 = $(libdir)
 MERGE_DIRS_isa-amd64   = $(libdir)
 
@@ -204,7 +205,8 @@ includedir = $(prefix)/include/nss
 ifneq (DBG,$(GARFLAVOR))
 	BUILD_OPT = 1
 	export BUILD_OPT
-	CONFIGURE_ARGS += --disable-debug --enable-optimize
+# no configure target
+#	CONFIGURE_ARGS += --disable-debug --enable-optimize
 endif
 
 # NSPR is installed in /opt/csw/lib/nspr, nspr.pc is in /opt/csw/lib/pkgconfig
@@ -234,12 +236,16 @@ endif
 endif
 export NSPR_LIB_DIR
 
+LD_OPTIONS = -z ignore -Bdirect
 ifeq ($(USE_64),1) 
-SQLITE_LIB_DIR = /opt/csw/lib/64
+  SQLITE_LIB_DIR = /opt/csw/lib/64
+  LD_OPTIONS += -R/opt/csw/lib/64/$$$$ISALIST
 else
-SQLITE_LIB_DIR = /opt/csw/lib
+  SQLITE_LIB_DIR = /opt/csw/lib
+  LD_OPTIONS += -R/opt/csw/lib/$$$$ISALIST
 endif
 export SQLITE_LIB_DIR
+
 SQLITE_INCLUDE_DIR = /opt/csw/include
 export SQLITE_INCLUDE_DIR
 
@@ -262,20 +268,15 @@ LICENSE = mpl-tri-license-txt
 
 # Required patches.
 PATCHFILES += include.patch
-PATCHFILES += ld-options.patch
+# PATCHFILES += ld-options.patch
 PATCHFILES += 0004-fix-xarch-and-add-SQLITE_LIB_DIR-var.patch
 PATCHFILES += 0006-platlibs.mk-linking-bltest.patch
 PATCHFILES += 0006-config.mk-linking.patch
+PATCHFILES += 0005-SunOS5.mk.patch
 PATCHFILES += 0005-change-rpath-for-bins-in-platlibs.mk.patch
 
 # http://lists.opencsw.org/pipermail/pkgsubmissions/2010-February/000167.html
 # NOISAEXEC = 1
-
-CPPFLAGS =
-LD_OPTIONS = 
-# NSS_LD_OPTIONS = -R'$$ORIGIN'
-
-
 
 include gar/category.mk
 
@@ -301,7 +302,7 @@ build-dbm:
 build-nss-compile:
 	(cd $(WORKSRC)/mozilla/security/nss \
 		&& \
-	gmake -j1 RPATH=-R\'/opt/csw/lib/\$$\$$ISALIST\' BUILD_SUN_PKG=1)
+	gmake -j1 LD_OPTIONS='$(LD_OPTIONS)' BUILD_SUN_PKG=1)
 	@$(MAKECOOKIE)
 
 install-nss:
