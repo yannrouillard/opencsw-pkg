@@ -4,12 +4,11 @@
 # ! Doesn't build, issue filed:
 #   http://code.google.com/p/leveldb/issues/detail?id=88
 NAME = leveldb
-VERSION = 1.4.0
+VERSION = 1.9.0
 GARTYPE = v2
 
-DESCRIPTION = Brief description
+DESCRIPTION = A fast and lightweight key/value database library by Google
 define BLURB
-  Long description
 endef
 
 MASTER_SITES = $(GOOGLE_MIRROR)
@@ -17,9 +16,7 @@ DISTFILES  = $(DISTNAME).tar.gz
 
 UPSTREAM_MASTER_SITES = http://code.google.com/p/leveldb/downloads/list
 
-PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386
-
-PATCHFILES += 0001-Set-Solaris-linker-flags.patch
+PATCHFILES += 0001-Set-Solaris-linker-flags-for-v1.9.patch
 
 CONFIGURE_ARGS = $(DIRPATHS)
 
