@@ -21,6 +21,19 @@ PATCHFILES += 0001-Fix-SunStudio-version-string.patch
 
 VENDOR_URL = http://sox.sourceforge.net/
 
+BUILD_DEP_PKGS += CSWlibvorbis-dev
+BUILD_DEP_PKGS += CSWlibogg-dev
+BUILD_DEP_PKGS += CSWlibmad-dev
+BUILD_DEP_PKGS += CSWlibflac-dev
+BUILD_DEP_PKGS += CSWlibao-dev
+BUILD_DEP_PKGS += CSWlibpng-dev
+BUILD_DEP_PKGS += CSWlibwavpack-dev
+BUILD_DEP_PKGS += CSWlibz-dev
+BUILD_DEP_PKGS += CSWlibmagic-dev
+BUILD_DEP_PKGS += CSWlibmp3lame-dev
+BUILD_DEP_PKGS += CSWlibsndfile
+BUILD_DEP_PKGS += CSWlibid3tag
+
 PACKAGES += CSWsox
 CATALOGNAME_CSWsox = sox
 SPKG_DESC_CSWsox = $(DESCRIPTION)
@@ -54,10 +67,6 @@ RUNTIME_DEP_PKGS_CSWlibsox-dev = CSWlibsox2
 
 OBSOLETED_BY_CSWlibsox-dev = CSWlibsoxdevel
 CATALOGNAME_CSWlibsoxdevel = libsox_devel_stub
-
-BUILD_DEP_PKGS += $(RUNTIME_DEP_PKGS_CSWsox)
-BUILD_DEP_PKGS += CSWlibmagic-dev
-BUILD_DEP_PKGS += CSWlibmp3lame-dev
 
 CONFIGURE_ARGS  = $(DIRPATHS)
 CONFIGURE_ARGS +=  --without-libltdl
