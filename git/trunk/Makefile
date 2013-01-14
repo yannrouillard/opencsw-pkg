@@ -117,6 +117,8 @@ PATCHFILES += 0004-Add-OpenCSW-apache2-path-to-instaweb-search-path.patch
 # to the selection of available utf8 locales.
 PATCHFILES_isa-sparcv8 += 0005-Force-en_US.UTF-8-for-a-git-svn-test.patch
 PATCHFILES += 0006-Patch-out-a-few-usr-share-references.patch
+PATCHFILES += 0007-Avoid-using-non-POSIX-cp-options.patch
+PATCHFILES += 0008-work-around-gnu-strftime-option-use.patch
 
 fdirs = $(bindir_install) $(mandir) $(libexecdir_install)
 define _git_files
