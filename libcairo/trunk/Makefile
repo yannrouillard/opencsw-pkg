@@ -1,6 +1,7 @@
 NAME = cairo
 VERSION = 1.10.2
 GARTYPE = v2
+GARCOMPILER = SOS12U3
 
 DESCRIPTION = The Cairo 2D Graphics Library
 define BLURB
@@ -17,41 +18,34 @@ DISTFILES = $(DISTNAME).tar.gz
 #   https://bugs.freedesktop.org/show_bug.cgi?id=37916
 PATCHFILES += 0001-Use-detected-EGREP-instead-of-generic-grep.patch
 
+PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386
+
 PACKAGES += CSWlibcairo2
 SPKG_DESC_CSWlibcairo2 = The Cairo 2D Graphics Library, libcairo.so.2
 PKGFILES_CSWlibcairo2 = $(call pkgfiles_lib,libcairo.so.2)
-RUNTIME_DEP_PKGS_CSWlibcairo2 += CSWpng
 RUNTIME_DEP_PKGS_CSWlibcairo2 += CSWlibxrender
-RUNTIME_DEP_PKGS_CSWlibcairo2 += CSWzlib
-RUNTIME_DEP_PKGS_CSWlibcairo2 += CSWftype2
-RUNTIME_DEP_PKGS_CSWlibcairo2 += CSWfconfig
 RUNTIME_DEP_PKGS_CSWlibcairo2 += CSWlibpixman1-0
+RUNTIME_DEP_PKGS_CSWlibcairo2 += CSWlibpng15-15
+RUNTIME_DEP_PKGS_CSWlibcairo2 += CSWlibz1
+RUNTIME_DEP_PKGS_CSWlibcairo2 += CSWlibfreetype6
+RUNTIME_DEP_PKGS_CSWlibcairo2 += CSWlibfontconfig1
 OBSOLETED_BY_CSWlibcairo2 = CSWlibcairo
 
 PACKAGES += CSWlibcairo-script-interpreter2
 SPKG_DESC_CSWlibcairo-script-interpreter2 = The Cairo 2D Graphics Library, libcairo-script-interpreter.so.2
 PKGFILES_CSWlibcairo-script-interpreter2 = $(call pkgfiles_lib,libcairo-script-interpreter.so.2)
-RUNTIME_DEP_PKGS_CSWlibcairo-script-interpreter2 += CSWpng
-RUNTIME_DEP_PKGS_CSWlibcairo-script-interpreter2 += CSWlibxrender
 RUNTIME_DEP_PKGS_CSWlibcairo-script-interpreter2 += CSWlibcairo2
-RUNTIME_DEP_PKGS_CSWlibcairo-script-interpreter2 += CSWzlib
-RUNTIME_DEP_PKGS_CSWlibcairo-script-interpreter2 += CSWftype2
-RUNTIME_DEP_PKGS_CSWlibcairo-script-interpreter2 += CSWfconfig
-RUNTIME_DEP_PKGS_CSWlibcairo-script-interpreter2 += CSWlibpixman1-0
+RUNTIME_DEP_PKGS_CSWlibcairo-script-interpreter2 += CSWlibfreetype6
+RUNTIME_DEP_PKGS_CSWlibcairo-script-interpreter2 += CSWlibfontconfig1
+RUNTIME_DEP_PKGS_CSWlibcairo-script-interpreter2 += CSWlibz1
 OBSOLETED_BY_CSWlibcairo-script-interpreter2 = CSWlibcairo
 
 PACKAGES += CSWlibcairo-gobject2
 SPKG_DESC_CSWlibcairo-gobject2 = The Cairo 2D Graphics Library, libcairo-gobject.so.2
 PKGFILES_CSWlibcairo-gobject2 = $(call pkgfiles_lib,libcairo-gobject.so.2)
-RUNTIME_DEP_PKGS_CSWlibcairo-gobject2 += CSWlibintl8
-RUNTIME_DEP_PKGS_CSWlibcairo-gobject2 += CSWpng
-RUNTIME_DEP_PKGS_CSWlibcairo-gobject2 += CSWlibxrender
 RUNTIME_DEP_PKGS_CSWlibcairo-gobject2 += CSWlibcairo2
-RUNTIME_DEP_PKGS_CSWlibcairo-gobject2 += CSWzlib
-RUNTIME_DEP_PKGS_CSWlibcairo-gobject2 += CSWftype2
-RUNTIME_DEP_PKGS_CSWlibcairo-gobject2 += CSWfconfig
-RUNTIME_DEP_PKGS_CSWlibcairo-gobject2 += CSWlibpixman1-0
-RUNTIME_DEP_PKGS_CSWlibcairo-gobject2 += CSWglib2
+RUNTIME_DEP_PKGS_CSWlibcairo-gobject2 += CSWlibglib2-0-0
+RUNTIME_DEP_PKGS_CSWlibcairo-gobject2 += CSWlibgobject2-0-0
 OBSOLETED_BY_CSWlibcairo-gobject2 = CSWlibcairo
 
 PACKAGES += CSWlibcairo-dev
