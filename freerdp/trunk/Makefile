@@ -4,6 +4,8 @@
 # ! Error: recv: Resource temporarily unavailable
 #     as reported in https://github.com/FreeRDP/FreeRDP/issues/571
 #
+# $Id$
+#
 NAME = FreeRDP
 VERSION = 1.0.1
 GARTYPE = v2
