@@ -40,7 +40,7 @@ RUNTIME_DEP_PKGS_CSWfreerdp += CSWlibavcodec54
 
 # Add flag as recommended in https://github.com/FreeRDP/FreeRDP/issues/571
 #EXTRA_CFLAGS += -mt
-#EXTRA_CFLAGS += -threads
+EXTRA_CFLAGS += -pthread
 
 #EXTRA_CPPFLAGS = -features=extensions -D__FUNCTION__=__func__
 
