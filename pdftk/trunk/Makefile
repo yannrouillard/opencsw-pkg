@@ -4,7 +4,7 @@
 #   with its platform dependent Makefiles
 #
 NAME = pdftk
-VERSION = 1.44
+VERSION = 1.45
 GARTYPE = v2
 
 DESCRIPTION = Tool for manipulating PDF documents.
