@@ -236,13 +236,13 @@ endif
 endif
 export NSPR_LIB_DIR
 
-LD_OPTIONS = -z ignore -Bdirect
+# LD_OPTIONS = -z ignore -Bdirect
 ifeq ($(USE_64),1) 
   SQLITE_LIB_DIR = /opt/csw/lib/64
-  LD_OPTIONS += -R/opt/csw/lib/64/$$$$ISALIST
+#   LD_OPTIONS += -R/opt/csw/lib/64/\$$ISALIST
 else
   SQLITE_LIB_DIR = /opt/csw/lib
-  LD_OPTIONS += -R/opt/csw/lib/$$$$ISALIST
+#   LD_OPTIONS += -R/opt/csw/lib/\$$ISALIST
 endif
 export SQLITE_LIB_DIR
 
@@ -300,9 +300,10 @@ build-dbm:
 # There's an extra interpolation somehwere inside nss' build system, so $$$$
 # needs to be used instead of $$.
 build-nss-compile:
+	@echo $(LD_OPTIONS)
 	(cd $(WORKSRC)/mozilla/security/nss \
-		&& \
-	gmake -j1 LD_OPTIONS='$(LD_OPTIONS)' BUILD_SUN_PKG=1)
+		&& env \
+	gmake -j1 BUILD_SUN_PKG=1)
 	@$(MAKECOOKIE)
 
 install-nss:
