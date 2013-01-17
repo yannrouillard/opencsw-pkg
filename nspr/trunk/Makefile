@@ -57,7 +57,7 @@ EXTRA_MERGE_EXCLUDE_FILES += .*/libnspr_flt4\.so
 # PKGFILES_CSWlibnspr-flt4 += $(libdir).*/libnspr_flt4\.so
 # CHECKPKG_OVERRIDES_CSWlibnspr-flt4 += soname-equals-filename
 
-PACKAGES = CSWnspr-dev
+PACKAGES += CSWnspr-dev
 CATALOGNAME_CSWnspr-dev = nspr_dev
 SPKG_DESC_CSWnspr-dev = Netscape Portable Runtime, header files
 RUNTIME_DEP_PKGS_CSWnspr-dev  = CSWlibnspr4
