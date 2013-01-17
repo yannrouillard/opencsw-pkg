@@ -15,6 +15,8 @@ DESCRIPTION = RDP client, a fork of the rdesktop project
 MASTER_SITES = http://github.com/downloads/FreeRDP/FreeRDP/
 DISTFILES += $(NAME)-$(VERSION).tar.gz
 
+PATCHFILES += 0001-Use-pthreads-to-avoid-connect-errors.patch
+
 BUILD_DEP_PKGS += CSWffmpeg-dev
 BUILD_DEP_PKGS += CSWxmlto
 
