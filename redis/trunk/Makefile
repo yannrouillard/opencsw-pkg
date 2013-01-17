@@ -3,7 +3,6 @@
 #
 NAME = redis
 VERSION = 2.6.9
-GARTYPE = v2
 
 DESCRIPTION = An advanced key-value store
 
@@ -14,12 +13,11 @@ PATCHFILES += 0001-backtrace-is-only-available-on-Solaris-11.patch
 
 PACKAGES += CSWredis
 SPKG_DESC_CSWredis = An advanced key-value store
-# PKGFILES is catchall
 
 BUILD64 = 1
 ISAEXEC = 1
 
-GARCOMPILER = GCC4
+GARCOMPILER = GNU
 
 # These are set in the Makefile and are not inherited when we force our CFLAGS in
 EXTRA_CFLAGS += -std=c99 -pedantic -Wall -W -D__EXTENSIONS__ -D_XPG6
