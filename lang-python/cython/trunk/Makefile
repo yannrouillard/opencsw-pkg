@@ -6,17 +6,25 @@ VERSION = 0.17.4
 
 DESCRIPTION = Cython Compiler
 define BLURB
-  The Cython language makes writing C extensions for the Python language as easy as Python itself. Cython is a source code translator based on the well-known Pyrex, but supports more cutting edge functionality and optimizations.
 
-The Cython language is very close to the Python language (and most Python code is also valid Cython code), but Cython additionally supports calling C functions and declaring C types on variables and class attributes. This allows the compiler to generate very efficient C code from Cython code.
+The Cython language makes writing C extensions for the Python language as easy
+as Python itself. Cython is a source code translator based on the well-known
+Pyrex, but supports more cutting edge functionality and optimizations.
 
-This makes Cython the ideal language for writing glue code for external C libraries, and for fast C modules that speed up the execution of Python code.
+The Cython language is very close to the Python language (and most Python code
+is also valid Cython code), but Cython additionally supports calling
+C functions and declaring C types on variables and class attributes. This
+allows the compiler to generate very efficient C code from Cython code.
+
+This makes Cython the ideal language for writing glue code for external
+C libraries, and for fast C modules that speed up the execution of Python
+code.
+
 endef
 
-MASTER_SITES = http://pypi.python.org/packages/source/C/Cython/
+MASTER_SITES = $(PYPI_MIRROR)
 DISTFILES  = $(DISTNAME).tar.gz
 
-PACKAGING_PLATFORMS += solaris10-sparc solaris10-i386
 GARCOMPILER = SOS12U3
 
 LICENSE = LICENSE.txt
@@ -24,7 +32,7 @@ LICENSE = LICENSE.txt
 REINPLACE_USRLOCAL = $(libdir)/python/site-packages/pyximport/pyximport.py
 REINPLACE_WHEN_USRLOCAL = postinstall
 
-PACKAGES += CSWcython
+PACKAGES = CSWcython
 RUNTIME_DEP_PKGS_CSWcython += CSWpython
 RUNTIME_DEP_PKGS_CSWcython += CSWlibpython2-6-1-0
 
@@ -34,7 +42,7 @@ EXTRA_MERGE_EXCLUDE_FILES = .*\.pyo .*\.pyc
 
 CONFIGURE_ARGS = $(DIRPATHS)
 
-CONFIGURE_SCRIPTS = 
+CONFIGURE_SCRIPTS =
 TEST_SCRIPTS =
 INSTALL_SCRIPTS = $(WORKSRC)/setup.py
 INSTALL_ARGS += --root=$(DESTDIR)
