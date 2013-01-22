@@ -13,7 +13,8 @@ define BLURB
   packages, and in the Deliantra MORPG Server and Client.
 endef
 SPKG_SOURCEURL = http://software.schmorp.de/pkg/libev.html
-MASTER_SITES = http://dist.schmorp.de/libev/
+MASTER_SITES += http://dist.schmorp.de/libev/
+MASTER_SITES += http://dist.schmorp.de/libev/Attic/
 DISTFILES  = $(NAME)-$(VERSION).tar.gz
 UFILES_REGEX = $(NAME)-(\d+(?:\.\d+)*).tar.gz
 CONFIGURE_ARGS  = $(DIRPATHS)
