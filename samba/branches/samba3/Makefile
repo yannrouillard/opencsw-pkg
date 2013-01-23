@@ -2,7 +2,7 @@
 # - Check http://src.opensolaris.org/source/xref/userland/src/components/samba/samba/ from time to time
 
 NAME = samba
-VERSION = 4.0.0
+VERSION = 3.6.11
 GARTYPE = v2
 
 DESCRIPTION = Tools to access a servers filespace and printers via SMB (server)
@@ -288,7 +288,7 @@ SMBLOGDIR = $(localstatedir)/samba/log
 SMBPRIVATEDIR = $(sysconfdir)/samba/private
 SMBCONFIGDIR = $(sysconfdir)/samba
 
-#CONFIGURE_SCRIPTS = $(WORKSRC)/source4/configure
+CONFIGURE_SCRIPTS = $(WORKSRC)/source3/configure
 CONFIGURE_ARGS += $(DIRPATHS)
 CONFIGURE_ARGS += --enable-shared=yes
 CONFIGURE_ARGS += --enable-static=no
@@ -326,16 +326,16 @@ CONFIGURE_ARGS += ac_cv_lib_ext_rt_fdatasync=no
 
 
 
-#BUILD_SCRIPTS = $(WORKSRC)/source4/Makefile
+BUILD_SCRIPTS = $(WORKSRC)/source3/Makefile
 
-#TEST_SCRIPTS = $(WORKSRC)/source4/Makefile
+TEST_SCRIPTS = $(WORKSRC)/source3/Makefile
 TEST_TARGET = test
 
 # Tests need root
 SKIPTEST ?= 1
 
 
-#INSTALL_SCRIPTS = $(WORKSRC)/source4/Makefile
+INSTALL_SCRIPTS = $(WORKSRC)/source3/Makefile
 
 INITSMF += /etc/opt/csw/init.d/cswsamba
 INITSMF += /etc/opt/csw/init.d/cswwinbind
