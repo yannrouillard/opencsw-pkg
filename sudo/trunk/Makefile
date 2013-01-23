@@ -78,6 +78,8 @@ CHECKPKG_OVERRIDES_CSWsudo-ldap += surplus-dependency|CSWsudo
 OBSOLETED_BY_CSWsudo-ldap += CSWsudoldap
 CATALOGNAME_CSWsudoldap = sudo_ldap_stub
 CHECKPKG_OVERRIDES_CSWsudo-ldap += file-with-bad-content|/usr/local|root/opt/csw/share/doc/sudo/README.LDAP
+#on solaris9 this is still a dep. Should be checked
+CHECKPKG_OVERRIDES_CSWsudo-ldap += surplus-dependency|CSWliblber2-4-2
 
 # This is a private library
 CHECKPKG_OVERRIDES_CSWsudo-ldap += soname-not-part-of-filename|soname=sudoers.so|filename=sudoers-ldap.so
