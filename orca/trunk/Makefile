@@ -25,7 +25,7 @@ define BLURB
 
 endef
 
-MASTER_SITES = https://github.com/blair/orca/tarball/master
+# MASTER_SITES = https://github.com/blair/orca/tarball/master
 # DISTFILES  = $(NAME)-$(VERSION).tar.gz
 DISTFILES += csworcallator csworcallator.xml svc-csworcallator
 DISTFILES += csworca_services
@@ -40,8 +40,8 @@ GIT_TREEISH_orca.git = $(VERSION)
 VENDOR_URL = https://github.com/blair/orca
 
 BUILD_DEP_PKGS += CSWperl
-BUILD_DEP_PKGS += CSWpmtimedate
-BUILD_DEP_PKGS += CSWpmmathinterpolate
+BUILD_DEP_PKGS += CSWpm-timedate
+BUILD_DEP_PKGS += CSWpm-math-interpolate
 BUILD_DEP_PKGS += CSWpm-rrdtool
 BUILD_DEP_PKGS += CSWgawk
 BUILD_DEP_PKGS += CSWbzip2
@@ -67,6 +67,7 @@ SPKG_DESC_CSWorca-services-collector = Orca services data collector
 PKGFILES_CSWorca-services-collector += /etc/opt/csw/init.d/csworca_services
 PKGFILES_CSWorca-services-collector += $(bindir)/.*orca_services.*
 PKGFILES_CSWorca-services-collector += $(libexecdir)/orca_services
+PKGFILES_CSWorca-services-collector += /var/opt/csw/orca/orca_services
 ARCHALL_CSWorca-services-collector = 1
 OBSOLETED_BY_CSWorca-services-collector += CSWorca
 
@@ -75,14 +76,14 @@ SPKG_DESC_CSWorca-web = Performance Data Viewer
 ARCHALL_CSWorca-web = 1
 # PKGFILES is catchall
 RUNTIME_DEP_PKGS_CSWorca-web += CSWperl
-RUNTIME_DEP_PKGS_CSWorca-web += CSWpmtimedate
-RUNTIME_DEP_PKGS_CSWorca-web += CSWpmmathinterpolate
+RUNTIME_DEP_PKGS_CSWorca-web += CSWpm-timedate
+RUNTIME_DEP_PKGS_CSWorca-web += CSWpm-math-interpolate
 RUNTIME_DEP_PKGS_CSWorca-web += CSWpm-rrdtool
 RUNTIME_DEP_PKGS_CSWorca-web += CSWapache2
 # Checkpkg can't track Perl dependencies
 CHECKPKG_OVERRIDES_CSWorca-web += surplus-dependency|CSWperl
-CHECKPKG_OVERRIDES_CSWorca-web += surplus-dependency|CSWpmtimedate
-CHECKPKG_OVERRIDES_CSWorca-web += surplus-dependency|CSWpmmathinterpolate
+CHECKPKG_OVERRIDES_CSWorca-web += surplus-dependency|CSWpm-timedate
+CHECKPKG_OVERRIDES_CSWorca-web += surplus-dependency|CSWpm-math-interpolate
 CHECKPKG_OVERRIDES_CSWorca-web += surplus-dependency|CSWpm-rrdtool
 CHECKPKG_OVERRIDES_CSWorca-web += surplus-dependency|CSWapache2
 OBSOLETED_BY_CSWorca-web += CSWorcaweb
@@ -110,8 +111,6 @@ REINPLACEMENTS += dns
 REINPLACE_MATCH_dns = /var/log/named
 REINPLACE_WITH_dns = /var/opt/csw/named/named.log
 REINPLACE_FILES_dns = data_gatherers/orca_services/orca_services.pl.in
-
-
 
 EXTRA_COMMON_EXPORTS += perlcswlib
 
@@ -148,12 +147,14 @@ post-extract-modulated:
 	@$(MAKECOOKIE)
 
 post-install-modulated:
-	@ginstall -d $(DESTDIR)$(sysconfdir)/init.d
+	ginstall -d $(DESTDIR)$(sysconfdir)/init.d
 	@# TBD: Use custom manifest for Solaris 10 SMF support
-	@ginstall $(WORKDIR)/csworca $(DESTDIR)$(sysconfdir)/init.d/csworca
-	@ginstall $(WORKDIR)/csworcallator $(DESTDIR)$(sysconfdir)/init.d/csworcallator
-	@ginstall $(WORKDIR)/csworca_services $(DESTDIR)$(sysconfdir)/init.d/csworca_services
+	ginstall $(WORKDIR)/csworca $(DESTDIR)$(sysconfdir)/init.d/csworca
+	ginstall $(WORKDIR)/csworcallator $(DESTDIR)$(sysconfdir)/init.d/csworcallator
+	ginstall $(WORKDIR)/csworca_services $(DESTDIR)$(sysconfdir)/init.d/csworca_services
 	@$(MAKE_COOKIE)
 
 post-merge:
-	@ginstall -d $(PKGROOT)/var/opt/csw/orca/rrd/orcallator
+	ginstall -d $(PKGROOT)/var/opt/csw/orca/rrd/orcallator
+	ginstall -d $(PKGROOT)/var/opt/csw/orca/orca_services
+	ginstall -d $(PKGROOT)$(sharedstatedir)/www/orca
