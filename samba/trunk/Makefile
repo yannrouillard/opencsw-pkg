@@ -26,6 +26,10 @@ DISTFILES += cswkrb5.conf
 #   https://bugzilla.samba.org/show_bug.cgi?id=9604
 PATCHFILES += 0001-Use-correct-struct-fields-in-vfs_commit.c.patch
 
+# Use patch until this is fixed:
+#   https://bugzilla.samba.org/show_bug.cgi?id=9606
+PATCHFILES += 0002-Use-OpenCSW-xml-catalog-and-work-around-bashism.patch
+
 BUILD_DEP_PKGS += CSWlibtalloc-dev
 PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386
 
@@ -273,8 +277,9 @@ CHECKPKG_OVERRIDES_CSWsamba-winbind += surplus-dependency|CSWlibnss-winbind1
 EXTRA_CFLAGS = -lrt -lintl
 EXTRA_LDFLAGS = -lrt -lintl
 
-BUILD64 = 1
-ISAEXEC = 1
+# At the moment there are errors about python headers missing on 64 bit
+#BUILD64 = 1
+#ISAEXEC = 1
 
 GARCOMPILER = GNU
 
@@ -328,7 +333,13 @@ TEST_TARGET = test
 # Tests need root
 SKIPTEST ?= 1
 
+# Some filenames contain a "=" which totally confuses the svr4 packaging system
+# These are:
+#   /opt/csw/share/setup/cn=replicator.ldif
+#   /opt/csw/share/setup/cn=samba-admin.ldif
+#   /opt/csw/share/setup/cn=samba.ldif
 
+EXTRA_PAX_ARGS += -s "/=/-/g"
 
 INITSMF += /etc/opt/csw/init.d/cswsamba
 INITSMF += /etc/opt/csw/init.d/cswwinbind
@@ -343,4 +354,7 @@ post-install-modulated:
 	ginstall $(WORKDIR)/cswwinbind $(DESTDIR)/etc/opt/csw/init.d/cswwinbind
 	ginstall -d $(DESTDIR)/etc/opt/csw/samba
 	ginstall $(WORKDIR)/smb.conf $(DESTDIR)/etc/opt/csw/samba/smb.conf
-	ginstall $(WORKSRC)/nsswitch/libnss_winbind.so $(DESTDIR)/$(libdir)/libnss_winbind.so.1
+	#ginstall $(WORKSRC)/nsswitch/libnss_winbind.so $(DESTDIR)/$(libdir)/libnss_winbind.so.1
+	@$(MAKECOOKIE)
+
+# python buildtools/bin/waf -v build 
