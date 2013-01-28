@@ -300,9 +300,9 @@ CONFIGURE_ARGS += --with-acl-support
 CONFIGURE_ARGS += --with-aio-support
 CONFIGURE_ARGS += --with-pam
 CONFIGURE_ARGS += --with-winbind
-#CONFIGURE_ARGS += --with-static-modules=vfs_solarisacl
-#CONFIGURE_ARGS += --with-shared-modules=vfs_zfsacl,vfs_prealloc,vfs_cacheprime,vfs_commit,idmap_ldap,idmap_tdb2,idmap_rid,idmap_ad,idmap_hash,idmap_adex
-CONFIGURE_ARGS += --with-shared-modules=vfs_prealloc,vfs_cacheprime,vfs_commit,idmap_ldap,idmap_tdb2,idmap_rid,idmap_ad,idmap_hash,idmap_adex
+CONFIGURE_ARGS += --with-static-modules=vfs_solarisacl
+CONFIGURE_ARGS += --with-shared-modules=vfs_zfsacl,vfs_prealloc,vfs_cacheprime,vfs_commit,idmap_ldap,idmap_tdb2,idmap_rid,idmap_ad,idmap_hash,idmap_adex
+#CONFIGURE_ARGS += --with-shared-modules=vfs_prealloc,vfs_cacheprime,vfs_commit,idmap_ldap,idmap_tdb2,idmap_rid,idmap_ad,idmap_hash,idmap_adex
 #CONFIGURE_ARGS += --with-readline
 CONFIGURE_ARGS += --with-ads
 CONFIGURE_ARGS += --with-ldap
