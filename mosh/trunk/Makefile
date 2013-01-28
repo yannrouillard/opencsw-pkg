@@ -10,14 +10,6 @@ DESCRIPTION = Mobile shell
 MASTER_SITES = https://github.com/downloads/keithw/mosh/
 DISTFILES  = $(DISTNAME).tar.gz
 
-#PATCHFILES += 0001-Test-on-inttypes.h-in-addition-to-stdint.h-and-don-t.patch
-#PATCHFILES += 0002-Various-Solaris-fixes.patch
-
-#PATCHFILES += 0001-Hack-around-so-it-compiles-on-Solaris.patch
-#PATCHFILES += 0001-Do-not-use-libutil.patch
-
-# Functions betoh64 from http://licq.sourcearchive.com/documentation/1.3.8/licq__byteorder_8h-source.html
-
 PATCHFILES += 0001-Add-missing-include.patch
 
 BUILD_DEP_PKGS += CSWboost-gcc-dev
@@ -47,21 +39,11 @@ PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386
 
 GARCOMPILER = GCC4
 
-# See https://forums.oracle.com/forums/thread.jspa?threadID=2019232
-#EXTRA_CPPFLAGS += -D__aligned__=aligned
-
 EXTRA_CONFIGURE_EXPORTS += PROTOC
 CONFIGURE_ENV_PROTOC = $(prefix)/gxx/bin/protoc
 
 EXTRA_INC += $(prefix)/gxx/include
 EXTRA_LIB += $(prefix)/gxx/lib
 
-#EXTRA_LINKER_FLAGS += -lsocket -lnsl
-
 include gar/category.mk
 
-xxxpost-patch-modulated:
-	-cd $(WORKSRC) && /opt/csw/bin/autoreconf -fi
-	@# These are generated protobuf files, regenerate later
-	-cd $(WORKSRC)/src/protobufs && rm -f *.cc *.h
-	@$(MAKECOOKIE)
