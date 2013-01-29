@@ -63,6 +63,9 @@ CHECKPKG_OVERRIDES_CSWocaml += discouraged-path-in-pkgmap|/opt/csw/lib/ocaml/lib
 CHECKPKG_OVERRIDES_CSWocaml += discouraged-path-in-pkgmap|/opt/csw/lib/ocaml/libthreadsnat.a
 CHECKPKG_OVERRIDES_CSWocaml += discouraged-path-in-pkgmap|/opt/csw/lib/ocaml/libunix.a
 CHECKPKG_OVERRIDES_CSWocaml += discouraged-path-in-pkgmap|/opt/csw/lib/ocaml/vmthreads/libvmthreads.a
+CHECKPKG_OVERRIDES_CSWocaml += discouraged-path-in-pkgmap|/opt/csw/lib/ocaml/labltk/liblabltk.a
+CHECKPKG_OVERRIDES_CSWocaml += discouraged-path-in-pkgmap|/opt/csw/lib/ocaml/labltk/libtkanim.a
+
 
 EXTRA_INC = $(prefix)/X11/include
 EXTRA_LIB = $(prefix)/X11/lib
