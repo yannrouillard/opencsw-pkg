@@ -13,6 +13,8 @@ GARCOMPILER = GCC4
 
 LICENSE = LICENSE
 
+REINPLACE_USRLOCAL += configure
+
 PATCHFILES += 0-patch
 PATCHFILES += 10-patch
 PATCHFILES += 12-patch
@@ -33,6 +35,7 @@ PATCHFILES += 6-patch
 PATCHFILES += 7-patch
 PATCHFILES += 8-patch
 PATCHFILES += 9-patch
+PATCHFILES += 0023-fix-build-for-tk-X11.patch
 #
 # this is only a error ignor patch taken from here:
 # http://caml.inria.fr/mantis/view.php?id=4663
@@ -73,8 +76,9 @@ CONFIGURE_ARGS += -mandir $(mandir)
 CONFIGURE_ARGS += -prefix $(prefix)
 CONFIGURE_ARGS += -verbose
 CONFIGURE_ARGS += -cc "$(notdir $(CC)) $(CFLAGS)"
-# CONFIGURE_ARGS += -x11include $(prefix)/X11/include
-# CONFIGURE_ARGS += -x11lib $(prefix)/X11/lib
+CONFIGURE_ARGS += -x11include /usr/include
+CONFIGURE_ARGS += -x11lib /usr/X11/lib
+# CONFIGURE_ARGS += -tklibs -lXext
 INSTALL_ARGS += PWD=${PWD}/$(WORKSRC)
 
 TEST_TARGET =
