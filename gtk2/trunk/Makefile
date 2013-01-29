@@ -59,8 +59,12 @@ RUNTIME_DEP_PKGS_CSWgtk2 += CSWlibgobject2-0-0
 RUNTIME_DEP_PKGS_CSWgtk2 += CSWlibgtk-x11-2-0-0
 RUNTIME_DEP_PKGS_CSWgtk2 += CSWlibintl8
 RUNTIME_DEP_PKGS_CSWgtk2 += CSWpango
+# This is required for gtk-update-icon-cache, so that it doesn't fail in the
+# postinstall script.
+RUNTIME_DEP_PKGS_CSWgtk2 += CSWhicoloricontheme
 CHECKPKG_OVERRIDES_CSWgtk2 += surplus-dependency|CSWgtk2-printbackends-file
 CHECKPKG_OVERRIDES_CSWgtk2 += surplus-dependency|CSWgdkpixbuf
+CHECKPKG_OVERRIDES_CSWgtk2 += surplus-dependency|CSWhicoloricontheme
 
 PACKAGES += CSWgtk2-printbackends-papi
 SPKG_DESC_CSWgtk2-printbackends-papi = $(DESCRIPTION), Print Backend
