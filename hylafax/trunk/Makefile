@@ -1,6 +1,6 @@
 NAME = hylafax
-VERSION = 5.2.5
-GARTYPE = v1
+VERSION = 5.5.2
+GARTYPE = v2
 
 DESCRIPTION = An enterprise-class system for sending and receiving facsimiles and alpha-numeric pages
 define BLURB
@@ -9,7 +9,7 @@ endef
 SF_PROJECT = hylafax
 MASTER_SITES = $(SF_MIRRORS)
 DISTFILES  = $(NAME)-$(VERSION).tar.gz
-DISTFILES += $(call admfiles,CSWhylafax,prototype depend postinstall preremove postremove)
+# DISTFILES += $(call admfiles,CSWhylafax,prototype depend postinstall preremove postremove)
 DISTFILES += config.site.CSW
 #DISTFILES += cswhylafax.init cswhylafax.xml svc-cswhylafax
 
@@ -20,7 +20,9 @@ UFILES_REGEX = (\d+(?:\.\d+)*)
 
 PATCHFILES = patch-hylafax.diff
 
-BUILD_DEP_PKGS = CSWoldapdevel
+# PATCHFILES += 0001-Use-relative-path.patch
+
+BUILD_DEP_PKGS += CSWopenldap-dev
 
 #export CC=/opt/SUNWspro/bin/cc
 #export CXX=/opt/SUNWspro/bin/CC
@@ -34,30 +36,46 @@ BUILD_DEP_PKGS = CSWoldapdevel
 #export LD_LIBRARY_PATH=/opt/csw/lib:/opt/hylafax/lib
 #export MANPATH=/usr/share/man:/opt/hylafax/man
 
-CONFIGURE_ENV = PATH_GSRIP=$(bindir)/gs PS=gs DIR_MAN=$(mandir)
-BUILD_ENV = PATH_GSRIP=$(bindir)/gs PS=gs DIR_MAN=$(mandir)
+#CONFIGURE_ENV = PATH_GSRIP=$(bindir)/gs PS=gs DIR_MAN=$(mandir)
+#BUILD_ENV = PATH_GSRIP=$(bindir)/gs PS=gs DIR_MAN=$(mandir)
 
-CONFIGURE_ARGS = --nointeractive --with-INSTALLROOT=$(DESTDIR)
+#EXTRA_CONFIGURE_EXPORTS += PATH_GSRIP
+CONFIGURE_ENV_PATH_GSRIP = $(bindir)/gs
+#EXTRA_CONFIGURE_EXPORTS += PS
+CONFIGURE_ENV_PS = gs
+#EXTRA_CONFIGURE_EXPORTS += DIR_MAN
+CONFIGURE_ENV_DIR_MAN = $(mandir)
 
-# Hylafax doesn't has a testsuite
+#EXTRA_BUILD_EXPORTS += PATH_GSRIP
+BUILD_ENV_PATH_GSRIP = $(bindir)/gs
+#EXTRA_BUILD_EXPORTS += PS
+BUILD_ENV_PS = gs
+#EXTRA_BUILD_EXPORTS += DIR_MAN
+BUILD_ENV_DIR_MAN = $(mandir)
+
+#EXTRA_LINKER_FLAGS += -lsocket -lnsl
+
+CONFIGURE_ARGS += --nointeractive
+#CONFIGURE_ARGS += --with-INSTALLROOT=$(DESTDIR)
+
+# Hylafax doesn't have a testsuite
 TEST_SCRIPTS =
-
-SPKG_CLASSES = none cswinitsmf
 
 include gar/category.mk
 
-CFLAGS := $(CFLAGS) -L$(libdir) -R$(libdir) -lsocket -lnsl
-CXXFLAGS := $(CXXFLAGS) -L$(libdir) -R$(libdir) -lsocket -lnsl
+#CFLAGS := $(CFLAGS) -L$(libdir) -R$(libdir) -lsocket -lnsl
+#CXXFLAGS := $(CXXFLAGS) -L$(libdir) -R$(libdir) -lsocket -lnsl
 
 post-extract:
-	@echo " ==> Putting config.site in place"
-	@cp $(WORKDIR)/config.site.CSW $(WORKSRC)/config.site
+	#cp $(WORKDIR)/config.site.CSW $(WORKSRC)/config.site
+	cd $(WORKSRC) && perl -npi -e 's{\$$\{DEPTH\}/\$$\{TOPSRCDIR\}}{\$${TOPSRCDIR}}' `find . -type f`
+	banner ex
 	@$(MAKECOOKIE)
 
 post-install:
 	@echo " ==> Fixing permissions"
-	chown -R uucp:uucp $(addprefix $(DESTDIR)$(localstatedir)/spool/hylafax/,info log recvq status sendq doneq docq tmp pollq archive FIFO)
-	@echo " ==> Adding RC-Scripts"
+	#chown -R uucp:uucp $(addprefix $(DESTDIR)$(localstatedir)/spool/hylafax/,info log recvq status sendq doneq docq tmp pollq archive FIFO)
+	#@echo " ==> Adding RC-Scripts"
 	#-ginstall $(WORKSRC)/etc/hylafax $(DESTDIR)/etc/init.d/cswhylafax
 	#-gln -s ../init.d/cswhylafax $(DESTDIR)/etc/rc2.d/S80cswhylafax
 	#-$(foreach D,rc0.d rc1.d rcS.d,gln -s ../init.d/hylafax $(DESTDIR)/etc/$D/K20cswhylafax;)
