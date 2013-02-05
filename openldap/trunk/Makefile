@@ -1,7 +1,7 @@
 # $Id$
 
 NAME = openldap
-VERSION = 2.4.32
+VERSION = 2.4.33
 GARTYPE = v2
 
 DESCRIPTION = Open source implementation of the Lightweight Directory Access Protocol
