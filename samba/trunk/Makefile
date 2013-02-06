@@ -1,6 +1,6 @@
 
 NAME = samba
-VERSION = 4.0.1
+VERSION = 4.0.3
 GARTYPE = v2
 
 DESCRIPTION = Tools to access a servers filespace and printers via SMB (server)
@@ -24,7 +24,7 @@ DISTFILES += cswkrb5.conf
 
 # Use patch until this is fixed:
 #   https://bugzilla.samba.org/show_bug.cgi?id=9604
-PATCHFILES += 0001-Use-correct-struct-fields-in-vfs_commit.c.patch
+#PATCHFILES += 0001-Use-correct-struct-fields-in-vfs_commit.c.patch
 
 # Use patch until this is fixed:
 #   https://bugzilla.samba.org/show_bug.cgi?id=9606
@@ -274,8 +274,8 @@ CATALOGNAME_CSWsambawb = samba_wb_stub
 CHECKPKG_OVERRIDES_CSWsamba-winbind += file-with-bad-content|/usr/local|root/opt/csw/share/man/man8/winbindd.8
 CHECKPKG_OVERRIDES_CSWsamba-winbind += surplus-dependency|CSWlibnss-winbind1
 
-EXTRA_CFLAGS = -lrt -lintl
-EXTRA_LDFLAGS = -lrt -lintl
+EXTRA_CFLAGS = -lrt -lintl -lsec
+EXTRA_LDFLAGS = -lrt -lintl -lsec
 
 # At the moment there are errors about python headers missing on 64 bit
 #BUILD64 = 1
