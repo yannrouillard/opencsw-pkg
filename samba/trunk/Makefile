@@ -22,13 +22,7 @@ DISTFILES += smb.conf
 # This is taken from the old Samba package
 DISTFILES += cswkrb5.conf
 
-# Use patch until this is fixed:
-#   https://bugzilla.samba.org/show_bug.cgi?id=9604
-#PATCHFILES += 0001-Use-correct-struct-fields-in-vfs_commit.c.patch
-
-# Use patch until this is fixed:
-#   https://bugzilla.samba.org/show_bug.cgi?id=9606
-PATCHFILES += 0002-Use-OpenCSW-xml-catalog-and-work-around-bashism.patch
+PATCHFILES += 0001-fix-xml.patch
 
 BUILD_DEP_PKGS += CSWlibtalloc-dev
 PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386
