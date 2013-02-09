@@ -1,5 +1,5 @@
 NAME = mbuffer
-VERSION = 20121111
+VERSION = 20130209
 GARTYPE = v2
 
 DESCRIPTION = A tool for buffering data streams
@@ -14,6 +14,8 @@ endef
 
 MASTER_SITES = http://www.maier-komor.de/software/mbuffer/
 DISTFILES = $(DISTNAME).tgz
+
+PATCHFILES += 0001-Do-not-test-hashes-as-they-were-dropped-in-this-rele.patch
 
 VENDOR_URL = http://www.maier-komor.de/mbuffer.html
 
