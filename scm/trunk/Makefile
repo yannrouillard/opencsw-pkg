@@ -22,11 +22,13 @@ PATCHFILES		=	0001-Fix-configure-shebang.patch
 PATCHFILES		+=	0002-Fix-build-shebang.patch
 PATCHFILES		+=	0003-Fix-configure-prefix.patch
 PATCHFILES		+=	0004-Use-gcc-in-Makefile.patch
+PATCHFILES		+=	0005-Fix-prefix.patch
 
 PACKAGING_PLATFORMS	=	solaris10-sparc
 PACKAGING_PLATFORMS	+=	solaris10-i386
 
 BUILD_DEP_PKGS	+=	CSWguile-dev
+BUILD_DEP_PKGS	+=	CSWtetex
 
 GARCOMPILER			=	GNU
 EXTRA_CONFIGURE_ENV	=	PATH=$(prefix)/gnu:$(PATH)
@@ -54,6 +56,8 @@ SPKG_DESC_CSWscm-common				=	$(DESCRIPTION), architecture neutral files
 RUNTIME_DEP_PKGS_CSWscm-common		=	CSWguile
 CHECKPKG_OVERRIDES_CSWscm-common	+=	surplus-dependency|CSWguile
 ARCHALL_CSWscm-common				=	1
+CHECKPKG_OVERRIDES_CSWscm-common	+=	file-with-bad-content|/usr/local|root/opt/csw/share/doc/scm/ChangeLog
+CHECKPKG_OVERRIDES_CSWscm-common	+=	file-with-bad-content|/usr/local|root/opt/csw/share/info/scm.info
 
 PACKAGES							+=	CSWscm
 CATALOGNAME_CSWscm					=	scm
