@@ -1,5 +1,5 @@
 NAME = mbuffer
-VERSION = 20130210
+VERSION = 20130220
 GARTYPE = v2
 
 DESCRIPTION = A tool for buffering data streams
