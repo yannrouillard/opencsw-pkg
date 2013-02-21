@@ -9,7 +9,7 @@ DESCRIPTION = A recursive directory listing program
 define BLURB
   Tree is a recursive directory listing program that produces a depth indented
   listing of files, which is colorized ala dircolors if the LS_COLORS
-  environment variable is set and output is to tty. 
+  environment variable is set and output is to tty.
 endef
 SPKG_SOURCEURL = http://mama.indstate.edu/users/ice/tree/
 MASTER_SITES  = ftp://mama.indstate.edu/linux/tree/
@@ -21,8 +21,8 @@ PATCHFILES += 0004-Using-GNU-install.patch
 PATCHFILES += 0005-Allowing-CFLAGS-from-GAR.patch
 PATCHFILES += 0006-Undefine-S_ISDOOR-on-Solaris.patch
 PATCHFILES += 0007-dash-e-is-not-available-in-bin-sh.patch
+PATCHFILES += 0008-Check-for-both-S_ISPORT-and-S_ISDOOR.patch
 DISTFILES  = $(NAME)-$(VERSION).tgz
-UFILES_REGEX = $(NAME)-(\d+(?:\.\d+)*).tgz
 CONFIGURE_SCRIPTS =
 SKIPTEST = 1
 LICENSE = LICENSE
