@@ -1,5 +1,5 @@
 NAME = libassuan
-VERSION = 2.0.2
+VERSION = 2.1.0
 GARTYPE = v2
 
 DESCRIPTION = IPC library used by some GnuPG related software
@@ -11,7 +11,7 @@ DISTFILES  = $(DISTNAME).tar.bz2
 
 VENDOR_URL = http://www.gnupg.org/download/#libassuan
 
-BUILD_DEP_PKGS += CSWlibgpgerr-dev
+BUILD_DEP_PKGS += CSWlibgpg-error-dev
 
 PACKAGES += CSWlibassuan0
 SPKG_DESC_CSWlibassuan0 = IPC library used by some GnuPG related software, libassuan.so.0
