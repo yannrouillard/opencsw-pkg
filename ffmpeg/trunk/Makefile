@@ -8,7 +8,7 @@
 # Another thing is to see if it can be build with suncc see http://ftp.jaist.ac.jp/pub/pkgsrc/current/pkgsrc/multimedia/ffmpeg/Makefile.common
 
 NAME = ffmpeg
-VERSION = 1.1
+VERSION = 1.1.3
 GARTYPE = v2
 
 DESCRIPTION = Very fast video and audio converter (includes libavcodec)
