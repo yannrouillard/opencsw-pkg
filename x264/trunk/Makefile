@@ -2,7 +2,7 @@
 # TODO (release-critical prefixed with !, non release-critical with *)
 #
 NAME = x264
-VERSION = 1cffe9f
+VERSION = b3065e6
 GARTYPE = v2
 
 DESCRIPTION = x264 is encoding video streams into the H.264/MPEG-4 AVC format
@@ -14,7 +14,7 @@ VENDOR_URL = http://www.videolan.org/developers/x264.html
 #MASTER_SITES = http://repo.or.cz/w/x264.git/snapshot/  
 #DISTFILES  = c522ad1fed167d0e985e4f9dcdee042473cf74db.tar.gz
 GIT_REPOS = http://git.videolan.org/git/x264.git
-GIT_TREEISH_tig.git = 1cffe9f406cc54f4759fc9eeb85598fb8cae66c7
+GIT_TREEISH_tig.git = b3065e660df391168067f13216d99825260939d4
 
 # This Patch file needs to be updated on every new version! 
 PATCHFILES += 0001-replace-version.sh.patch
