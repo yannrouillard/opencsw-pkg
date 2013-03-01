@@ -83,6 +83,12 @@ CHECKPKG_OVERRIDES_CSWsudo-ldap += surplus-dependency|CSWliblber2-4-2
 # This is a private library
 CHECKPKG_OVERRIDES_CSWsudo-ldap += soname-not-part-of-filename|soname=sudoers.so|filename=sudoers-ldap.so
 
+# Looks like these are still needed
+CHECKPKG_OVERRIDES_CSWsudo += soname-unused|s9_preload.so.1|is|needed|by|/opt/csw/sbin/visudo|but|never|used
+CHECKPKG_OVERRIDES_CSWsudo += soname-unused|s9_preload.so.1|is|needed|by|/opt/csw/libexec/sudoers.so|but|never|used
+CHECKPKG_OVERRIDES_CSWsudo += soname-unused|s9_preload.so.1|is|needed|by|/opt/csw/libexec/sudo_noexec.so|but|never|used
+CHECKPKG_OVERRIDES_CSWsudo += soname-unused|s9_preload.so.1|is|needed|by|/opt/csw/bin/sudoreplay|but|never|used
+CHECKPKG_OVERRIDES_CSWsudo-ldap += soname-unused|s9_preload.so.1|is|needed|by|/opt/csw/libexec/sudoers-ldap.so|but|never|used
 
 LOGPATH    = $(localstatedir)/log/sudo
 TIMEPATH   = $(localstatedir)/sudo
