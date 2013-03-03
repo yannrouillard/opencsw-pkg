@@ -1,6 +1,12 @@
 # $Id$
 # TODO (release-critical prefixed with !, non release-critical with *)
 #
+# Compilations fails:
+#
+# ! In file included from libvlc.c:39:0:
+# ../include/vlc_common.h: In function 'vlc_memalign':
+# ../include/vlc_common.h:940:5: error: implicit declaration of function 'posix_memalign' [-Werror=implicit-function-declaration]
+
 NAME = vlc
 VERSION = 2.0.5
 GARTYPE = v2
@@ -24,6 +30,9 @@ BUILD_DEP_PKGS += CSWlibx11devel
 BUILD_DEP_PKGS += CSWautoconf
 BUILD_DEP_PKGS += CSWautomake
 BUILD_DEP_PKGS += CSWlibtool
+BUILD_DEP_PKGS += CSWggettext
+BUILD_DEP_PKGS += CSWpkgconfig
+BUILD_DEP_PKGS += CSWffmpeg-dev
 
 # Sun Studio implements packed attributes differently and compilations bails out:
 #   "include/vlc_codecs.h", line 36: #error: FIXME
@@ -56,20 +65,31 @@ EXTRA_CFLAGS += $(EXTRA_CFLAGS_$(GARCH))
 
 CONFIGURE_ARGS += --disable-mmx
 CONFIGURE_ARGS += --disable-sse
+CONFIGURE_ARGS += --disable-mad
+
+# There's a problem with the library not being found even though it's
+# installed.
+# BUILD_DEP_PKGS += CSWlibtheora-dev
+# CONFIGURE_ARGS += --enable-theora
+CONFIGURE_ARGS += --disable-theora
 
 # Taken from http://wiki.videolan.org/Solaris
 # CONFIGURE_ARGS += --disable-libgcrypt
 # CONFIGURE_ARGS += --disable-remoteosd
 # CONFIGURE_ARGS += --disable-glx
-# CONFIGURE_ARGS += --disable-lua
-# CONFIGURE_ARGS += --disable-mad
+
+# Trouble building with lua.
+# /opt/csw/bin/luac: lua/playlist/appletrailers.lua:70: invalid escape sequence near '\.'
+CONFIGURE_ARGS += --disable-lua
+# BUILD_DEP_PKGS += CSWlua-dev
+# RUNTIME_DEP_PKGS_CSWvlc += CSWlua
+
 # CONFIGURE_ARGS += --disable-swscale
 # CONFIGURE_ARGS += --disable-postproc
 # CONFIGURE_ARGS += --disable-a52
 # CONFIGURE_ARGS += --disable-fribidi
 # CONFIGURE_ARGS += --with-gnu-ld=no
 CONFIGURE_ARGS += --disable-xcb
-CONFIGURE_ARGS += --enable-theora
 CONFIGURE_ARGS += --enable-sqlite
 
 SKIPTEST = 1
@@ -122,7 +142,6 @@ RUNTIME_DEP_PKGS_CSWvlc += CSWlibvorbisenc2
 RUNTIME_DEP_PKGS_CSWvlc += CSWlibx264-120
 RUNTIME_DEP_PKGS_CSWvlc += CSWlibxml2-2
 RUNTIME_DEP_PKGS_CSWvlc += CSWlibz1
-RUNTIME_DEP_PKGS_CSWvlc += CSWlua
 RUNTIME_DEP_PKGS_CSWvlc += CSWsdlimage
 
 # Only needed on Sparc. Not sure why, to be investigated.
