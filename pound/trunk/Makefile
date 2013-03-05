@@ -36,7 +36,8 @@ RUNTIME_DEP_PKGS_CSWpound += CSWlibssl1-0-0
 OBSOLETED_BY_CSWpound = CSWpound2
 
 # This is just for example scripts
-CHECKPKG_OVERRIDES_CSWpound2 += missing-dependency|CSWpython
+CHECKPKG_OVERRIDES_CSWpound += missing-dependency|CSWpython
+CHECKPKG_OVERRIDES_CSWpound += file-with-bad-content|/usr/local|root/opt/csw/share/doc/pound/README
 
 EXTRA_DOCS += README
 EXTRA_DOCS += FAQ
