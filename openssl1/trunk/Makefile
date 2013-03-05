@@ -17,7 +17,7 @@ T4 = 1
 ###### Package information #######
 
 NAME = openssl
-VERSION = 1.0.1d
+VERSION = 1.0.1e
 GARTYPE = v2
 SONAME=$(shell echo $(VERSION) | tr -d '[a-z]')
 
