@@ -1,9 +1,6 @@
 #####################################################################
 # OpenCSW build recipe for OpenSSL
 #
-# Copyright 2009 Yann Rouillard <yann@pleiades.fr.eu.org>
-# All rights reserved.  Use is subject to license terms.
-#
 # Redistribution and/or use, with or without modification, is
 # permitted.  This software is without warranty of any kind.  The
 # author(s) shall not be liable in the event that use of the
@@ -16,7 +13,7 @@ PKCS11 = 1
 ###### Package information #######
 
 NAME = openssl
-VERSION = 0.9.8x
+VERSION = 0.9.8y
 GARTYPE = v2
 
 DESCRIPTION = The Open Source toolkit for SSL and TLS
@@ -82,6 +79,8 @@ CHECKPKG_OVERRIDES_CSWlibssl0-9-8 += shared-lib-pkgname-mismatch|file=opt/csw/li
 endif
 
 # we will not recompile old 0.9.7 version for now
+CHECKPKG_OVERRIDES_CSWlibssl0-9-8 += no-direct-binding|/opt/csw/lib/libssl.so.0.9.7|is|not|directly|bound|to|soname|libcrypto.so.0.9.7
+CHECKPKG_OVERRIDES_CSWlibssl0-9-8 += no-direct-binding|/opt/csw/lib/pentium_pro/libssl.so.0.9.7|is|not|directly|bound|to|soname|libcrypto.so.0.9.7
 ifeq ($(shell /usr/bin/uname -p),sparc) 
 #CHECKPKG_OVERRIDES_CSWlibssl0-9-8 += bad-rpath-entry|/opt/csw/lib/sparcv8plus+vis
 #CHECKPKG_OVERRIDES_CSWlibssl0-9-8 += bad-rpath-entry|/opt/csw/lib/sparcv8plus+vis
@@ -139,6 +138,7 @@ DISTFILES += CSWlibssl0-9-8.checkinstall CSWlibssl0-9-8.preinstall CSWlibssl0-9-
 DISTFILES += CSWlibssl-dev.prototype-i386 CSWlibssl-dev.prototype-sparc
 DISTFILES += CSWopenssl-utils.prototype 
 DISTFILES += changelog.CSW README.CSW
+DISTFILES += map.openssl.libcrypto map.openssl.libssl map.openssl.engines
 
 DOCFILES = CHANGES CHANGES.SSLeay PROBLEMS README FAQ README.ASN1 INSTALL NEWS README.ENGINE
 
@@ -152,6 +152,9 @@ PATCHFILES += opencsw_paths.patch
 # Let's always block some compromised CA, whatever the CA configured
 # (patchs taken from Debian Package)
 PATCHFILES += block_bad_certificates.patch
+
+PATCHFILES += 0007-enables-symbols-versioning.patch
+
 
 LICENSE=LICENSE
 
@@ -231,6 +234,11 @@ include gar/category.mk
 pre-configure-modulated: 
 	echo " ==> Creating configure script"
 	cd $(WORKSRC) && ln -nf Configure configure
+	ln -nf $(WORKDIR)/map.openssl.libcrypto $(WORKSRC)/map.openssl.libcrypto 
+	ln -nf $(WORKDIR)/map.openssl.libssl $(WORKSRC)/map.openssl.libssl 
+	for ENGINE in 4758cca aep atalla cswift gmp chil nuron sureware ubsec padlock capi; do \
+		ln -nf $(WORKDIR)/map.openssl.engines $(WORKSRC)/engines/map.openssl.lib$$ENGINE; \
+	done 
 	@$(MAKECOOKIE)
 
 # we remove every debug information except symbol table
