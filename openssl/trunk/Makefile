@@ -153,8 +153,6 @@ PATCHFILES += opencsw_paths.patch
 # (patchs taken from Debian Package)
 PATCHFILES += block_bad_certificates.patch
 
-PATCHFILES += 0007-enables-symbols-versioning.patch
-
 
 LICENSE=LICENSE
 
