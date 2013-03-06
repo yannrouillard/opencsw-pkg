@@ -17,9 +17,10 @@ DISTFILES		=	$(DISTNAME).zip
 DISTFILES		+=	README.CSW
 DISTFILES		+=	COPYING
 
-BUILD_DEP_PKGS		+=	CSWtetex
+BUILD_DEP_PKGS		+=	CSWtexlive
+BUILD_DEP_PKGS		+=	CSWtexlive-pstricks
 
-RUNTIME_DEP_PKGS	+=	CSWtetex
+RUNTIME_DEP_PKGS	+=	CSWtexlive
 
 PACKAGES					=	CSWtex-dirtree
 SPKG_DESC_CSWtex-dirtree	=	$(DESCRIPTION)
@@ -27,7 +28,7 @@ CATALOGNAME_CSWtex-dirtree	=	tex_dirtree
 OBSOLETED_BY_CSWtex-dirtree	=	CSWtexdirtree
 CATALOGNAME_CSWtexdirtree	=	tex_dirtree_stub
 ARCHALL_CSWtex-dirtree		=	1
-CHECKPKG_OVERRIDES_CSWtex-dirtree += surplus-dependency|CSWtetex
+CHECKPKG_OVERRIDES_CSWtex-dirtree += surplus-dependency|CSWtexlive
 
 CONFIGURE_SCRIPTS	=
 BUILD_SCRIPTS		=	custom
