@@ -26,7 +26,8 @@ DISTFILES			+=	tex4ht.1
 PACKAGING_PLATFORMS	=	solaris10-sparc
 PACKAGING_PLATFORMS	+=	solaris10-i386
 
-BUILD_DEP_PKGS		+=	CSWtetex
+BUILD_DEP_PKGS		+=	CSWtexlive
+BUILD_DEP_PKGS		+=	CSWtexlive-dev
 
 GARCOMPILER			=	GNU
 
@@ -49,8 +50,8 @@ RUNTIME_DEP_PKGS_CSWtex4ht-common		+=	CSWperl
 CHECKPKG_OVERRIDES_CSWtex4ht-common		+=	surplus-dependency|CSWperl
 RUNTIME_DEP_PKGS_CSWtex4ht-common		+=	CSWpstoedit
 CHECKPKG_OVERRIDES_CSWtex4ht-common		+=	surplus-dependency|CSWpstoedit
-RUNTIME_DEP_PKGS_CSWtex4ht-common		+=	CSWtetex
-CHECKPKG_OVERRIDES_CSWtex4ht-common		+=	surplus-dependency|CSWtetex
+RUNTIME_DEP_PKGS_CSWtex4ht-common		+=	CSWtexlive
+CHECKPKG_OVERRIDES_CSWtex4ht-common		+=	surplus-dependency|CSWtexlive
 
 PACKAGES								+=	CSWtex4ht
 CATALOGNAME_CSWtex4ht					=	tex4ht
