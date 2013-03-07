@@ -7,7 +7,7 @@
 # * #ifndef INT*_{MIN,MAX} in include/iperf-int.h to avoid redefined warnings
 #
 NAME = iperf
-VERSION = 2.0.4
+VERSION = 2.0.5
 GARTYPE = v2
 
 DESCRIPTION = Internet Protocol bandwidth measuring tool 
@@ -44,7 +44,7 @@ TEST_SCRIPTS =
 
 CONFIGURE_ARGS = $(DIRPATHS)
 
-EXTRA_PAX_ARGS = '-s,ChangeLog,changelog,p'
+# EXTRA_PAX_ARGS = '-s,ChangeLog,changelog,p'
 
 include gar/category.mk
 
