@@ -79,17 +79,19 @@ CHECKPKG_OVERRIDES_CSWlibssl0-9-8 += shared-lib-pkgname-mismatch|file=opt/csw/li
 endif
 
 # we will not recompile old 0.9.7 version for now
-CHECKPKG_OVERRIDES_CSWlibssl0-9-8 += no-direct-binding|/opt/csw/lib/libssl.so.0.9.7|is|not|directly|bound|to|soname|libcrypto.so.0.9.7
-CHECKPKG_OVERRIDES_CSWlibssl0-9-8 += no-direct-binding|/opt/csw/lib/pentium_pro/libssl.so.0.9.7|is|not|directly|bound|to|soname|libcrypto.so.0.9.7
 ifeq ($(shell /usr/bin/uname -p),sparc) 
 #CHECKPKG_OVERRIDES_CSWlibssl0-9-8 += bad-rpath-entry|/opt/csw/lib/sparcv8plus+vis
 #CHECKPKG_OVERRIDES_CSWlibssl0-9-8 += bad-rpath-entry|/opt/csw/lib/sparcv8plus+vis
 CHECKPKG_OVERRIDES_CSWlibssl0-9-8 += bad-rpath-entry
+CHECKPKG_OVERRIDES_CSWlibssl0-9-8 += no-direct-binding|/opt/csw/lib/sparcv9/libssl.so.0.9.7|is|not|directly|bound|to|soname|libcrypto.so.0.9.7
+CHECKPKG_OVERRIDES_CSWlibssl0-9-8 += no-direct-binding|/opt/csw/lib/sparcv8plus+vis/libssl.so.0.9.7|is|not|directly|bound|to|soname|libcrypto.so.0.9.7
 else
 CHECKPKG_OVERRIDES_CSWlibssl0-9-8 += file-with-bad-content|/export/home|root/opt/csw/lib/pentium_pro/libcrypto.so.0.9.7
 CHECKPKG_OVERRIDES_CSWlibssl0-9-8 += file-with-bad-content|/export/home|root/opt/csw/lib/pentium_pro/libssl.so.0.9.7
 CHECKPKG_OVERRIDES_CSWlibssl0-9-8 += file-with-bad-content|/export/home|root/opt/csw/lib/libcrypto.so.0.9.7
 CHECKPKG_OVERRIDES_CSWlibssl0-9-8 += file-with-bad-content|/export/home|root/opt/csw/lib/libssl.so.0.9.7
+CHECKPKG_OVERRIDES_CSWlibssl0-9-8 += no-direct-binding|/opt/csw/lib/libssl.so.0.9.7|is|not|directly|bound|to|soname|libcrypto.so.0.9.7
+CHECKPKG_OVERRIDES_CSWlibssl0-9-8 += no-direct-binding|/opt/csw/lib/pentium_pro/libssl.so.0.9.7|is|not|directly|bound|to|soname|libcrypto.so.0.9.7
 endif
 
 
