@@ -42,6 +42,8 @@ PATCHFILES = gar-base.diff
 
 TEST_SCRIPTS = 
 
+EXTRA_LINKER_FLAGS += -norunpath
+
 CONFIGURE_ARGS = $(DIRPATHS)
 
 # EXTRA_PAX_ARGS = '-s,ChangeLog,changelog,p'
