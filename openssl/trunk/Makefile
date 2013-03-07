@@ -231,11 +231,6 @@ include gar/category.mk
 pre-configure-modulated: 
 	echo " ==> Creating configure script"
 	cd $(WORKSRC) && ln -nf Configure configure
-	ln -nf $(WORKDIR)/map.openssl.libcrypto $(WORKSRC)/map.openssl.libcrypto 
-	ln -nf $(WORKDIR)/map.openssl.libssl $(WORKSRC)/map.openssl.libssl 
-	for ENGINE in 4758cca aep atalla cswift gmp chil nuron sureware ubsec padlock capi; do \
-		ln -nf $(WORKDIR)/map.openssl.engines $(WORKSRC)/engines/map.openssl.lib$$ENGINE; \
-	done 
 	@$(MAKECOOKIE)
 
 # we remove every debug information except symbol table
