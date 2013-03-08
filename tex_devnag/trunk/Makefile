@@ -30,9 +30,9 @@ CATALOGNAME_CSWtex-devnag-common		=	tex_devnag_common
 OBSOLETED_BY_CSWtex-devnag-common		=	CSWtexvdevnagcommon
 CATALOGNAME_CSWtexvdevnagcommon			=	tex_vdevnag_common_stub
 ARCHALL_CSWtex-devnag-common			=	1
-RUNTIME_DEP_PKGS_CSWtex-devnag-common	+=	CSWtetex
+RUNTIME_DEP_PKGS_CSWtex-devnag-common	+=	CSWtexlive
 
-CHECKPKG_OVERRIDES_CSWtex-devnag_common	+=	surplus-dependency|CSWtetex
+CHECKPKG_OVERRIDES_CSWtex-devnag_common	+=	surplus-dependency|CSWtexlive
 
 PACKAGES							+=	CSWtex-devnag
 SPKG_DESC_CSWtex-devnag				=	$(DESCRIPTION)
