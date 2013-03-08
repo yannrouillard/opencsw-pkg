@@ -56,7 +56,7 @@ CONFIGURE_ARGS	+=	--with-texpath=$(texmflocaldir)/tex/latex/html
 BUILD_DEP_PKGS		+=	CSWgs
 BUILD_DEP_PKGS		+=	CSWnetpbm
 BUILD_DEP_PKGS		+=	CSWperl
-BUILD_DEP_PKGS		+=	CSWtetex
+BUILD_DEP_PKGS		+=	CSWtexlive
 
 BUILD_SCRIPTS	=	nominal
 # as strange as it seems the check and test are build actions...
@@ -73,8 +73,8 @@ CHECKPKG_OVERRIDES_CSWlatex2html += surplus-dependency|CSWgs
 RUNTIME_DEP_PKGS	+=	CSWperl
 RUNTIME_DEP_PKGS	+=	CSWnetpbm
 CHECKPKG_OVERRIDES_CSWlatex2html += surplus-dependency|CSWnetpbm
-RUNTIME_DEP_PKGS	+=	CSWtetex
-CHECKPKG_OVERRIDES_CSWlatex2html += surplus-dependency|CSWtetex
+RUNTIME_DEP_PKGS	+=	CSWtexlive
+CHECKPKG_OVERRIDES_CSWlatex2html += surplus-dependency|CSWtexlive
 
 # only in comments:
 CHECKPKG_OVERRIDES_CSWlatex2html += file-with-bad-content|/usr/local|root/opt/csw/lib/l2hconf.pm
