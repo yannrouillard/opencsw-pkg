@@ -19,18 +19,17 @@ DISTFILES		+=	README.CSW
 DISTFILES		+=	COPYING
 PATCHFILES		+=	0001-Adapt-build.patch
 
-BUILD_DEP_PKGS		+=	CSWtetex
+BUILD_DEP_PKGS		+=	CSWtexlive
 BUILD_DEP_PKGS		+=	CSWlatex2html
-
-RUNTIME_DEP_PKGS	+=	CSWtetex
 
 PACKAGES					=	CSWtex-rcsinfo
 SPKG_DESC_CSWtex-rcsinfo	=	$(DESCRIPTION)
 CATALOGNAME_CSWtex-rcsinfo	=	tex_rcsinfo
 OBSOLETED_BY_CSWtex-rcsinfo	=	CSWtexrcsinfo
 CATALOGNAME_CSWtexrcsinfo	=	tex_rcsinfo_stub
+RUNTIME_DEP_PKGS	+=	CSWtexlive
+CHECKPKG_OVERRIDES_CSWtex-rcsinfo += surplus-dependency|CSWtexlive
 ARCHALL_CSWtex-rcsinfo		=	1
-CHECKPKG_OVERRIDES_CSWtex-rcsinfo += surplus-dependency|CSWtetex
 
 CONFIGURE_SCRIPTS	=
 TEST_SCRIPTS		=
