@@ -18,9 +18,9 @@ DISTFILES		+=	README.CSW
 DISTFILES		+=	COPYING
 PATCHFILES		+=	0001-Adapt-build.patch
 
-BUILD_DEP_PKGS		+=	CSWtetex
+BUILD_DEP_PKGS		+=	CSWtexlive
 
-RUNTIME_DEP_PKGS	+=	CSWtetex
+RUNTIME_DEP_PKGS	+=	CSWtexlive
 
 PACKAGES					=	CSWtex-svninfo
 SPKG_DESC_CSWtex-svninfo	=	$(DESCRIPTION)
@@ -28,7 +28,7 @@ CATALOGNAME_CSWtex-svninfo	=	tex_svninfo
 OBSOLETED_BY_CSWtex-svninfo	=	CSWtexsvninfo
 CATALOGNAME_CSWtexsvninfo	=	tex_svninfo_stub
 ARCHALL_CSWtex-svninfo		=	1
-CHECKPKG_OVERRIDES_CSWtex-svninfo += surplus-dependency|CSWtetex
+CHECKPKG_OVERRIDES_CSWtex-svninfo += surplus-dependency|CSWtexlive
 
 CONFIGURE_SCRIPTS	=
 TEST_SCRIPTS		=
