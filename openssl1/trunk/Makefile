@@ -10,9 +10,6 @@
 # software causes damage.
 #####################################################################
 
-PKCS11 = 1
-T4 = 1
-
 ###### Package information #######
 
 NAME = openssl
@@ -29,6 +26,8 @@ define BLURB
 endef
 
 PACKAGES = CSWlibssl1-0-0 CSWlibssl-dev CSWopenssl-utils
+
+PACKAGING_PLATFORMS = solaris9-sparc solaris9-i386 solaris10-sparc solaris10-i386 solaris11-soarc solaris11-i386
 
 SPKG_DESC_CSWlibssl1-0-0 = Openssl 1.0 runtime libraries
 PKGFILES_CSWlibssl1-0-0 = $(PKGFILES_RT)
@@ -122,23 +121,17 @@ PATCHFILES += c_rehash-compat.patch
 PATCHFILES += 0007-enables-symbols-versioning.patch
 
 # support for pkcs11 engine http://blogs.sun.com/chichang1/entry/how_to_integrate_pkcs11_engine
-ifdef PKCS11
 ifneq ($(shell /usr/bin/uname -r),5.9)
        PATCHFILES += pkcs11_engine-1.0.1b.patch.2012-04-30
-endif
 endif
 
 # support for sparc t4 crypto engine 
 # see http://bubbva.blogspot.fr/2011/11/exciting-crypto-advances-with-t4.html
 #     https://blogs.oracle.com/DanX/entry/sparc_t4_openssl_engine
 # patch taken from https://hg.openindiana.org/upstream/oracle/userland-gate/
-ifdef T4
 ifeq ($(shell /usr/bin/uname -p),sparc) 
-ifneq ($(shell /usr/bin/uname -r),5.9)
-ifneq ($(shell /usr/bin/uname -r),5.10)
+ifeq ($(shell /usr/bin/uname -r),5.11)
 	PATCHFILES += openssl-1.0.1e-t4-engine.sparc-patch
-endif
-endif
 endif
 endif
 
@@ -174,17 +167,9 @@ sparcv9_OS_COMPILER		= solaris64-sparcv9-cc-sunw
 CONFIGURE_ARGS = --prefix=$(prefix) shared $($(ISA)_OS_COMPILER) --install_prefix=$(DESTDIR)
 
 # PKCS11 is only for Solaris 10 so we must create solaris 10 specific packages
-ifdef PKCS11
-PACKAGING_PLATFORMS = solaris9-sparc solaris9-i386 solaris10-sparc solaris10-i386
 ifneq ($(shell /usr/bin/uname -r),5.9)
         CONFIGURE_ARGS += --pk11-libname=$(abspath /usr/lib/$(MM_LIBDIR)/libpkcs11.so) 
-endif
 endif 
-
-ifdef T4
-PACKAGING_PLATFORMS += solaris11-sparc solaris11-i386
-endif
-
 
 # For now we want the sun perl to be used
 CONFIGURE_ENV += PERL="/usr/bin/perl"
