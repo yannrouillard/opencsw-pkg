@@ -201,10 +201,6 @@ CONFIGURE_ENV += PERL="/usr/bin/perl"
 # with the shell command added by the t4 patch
 CONFIGURE_ENV += MAKE="/opt/csw/bin/gmake"
 
-# Some optimization
-EXT_CFLAGS   += -mt -xstrconst
-EXT_CXXFLAGS += -noex -mt
-
 # The new compiler options taken from https://hg.openindiana.org/upstream/oracle/userland-gate/ 
 # added "-z defs" to the linker options. That causes object compilation to fail because
 # they are not linked against libc. This is workaround until I find a better fix.
