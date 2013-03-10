@@ -124,7 +124,7 @@ PATCHFILES += 0007-enables-symbols-versioning.patch
 # support for pkcs11 engine http://blogs.sun.com/chichang1/entry/how_to_integrate_pkcs11_engine
 ifdef PKCS11
 ifneq ($(shell /usr/bin/uname -r),5.9)
-        PATCHFILES += pkcs11_engine-1.0.1b.patch.2012-04-30
+       PATCHFILES += pkcs11_engine-1.0.1b.patch.2012-04-30
 endif
 endif
 
@@ -136,7 +136,7 @@ ifdef T4
 ifeq ($(shell /usr/bin/uname -p),sparc) 
 ifneq ($(shell /usr/bin/uname -r),5.9)
 ifneq ($(shell /usr/bin/uname -r),5.10)
-	#PATCHFILES += openssl-1.0.1c-t4-engine.sparc-patch.2012-05-11
+	PATCHFILES += openssl-1.0.1e-t4-engine.sparc-patch
 endif
 endif
 endif
@@ -184,14 +184,6 @@ endif
 ifdef T4
 PACKAGING_PLATFORMS += solaris11-sparc solaris11-i386
 endif
-
-
-ifeq ($(shell /usr/bin/uname -r),5.11)
-GARCOMPILER = SOS12U3
-else
-GARCOMPILER = SOS12
-endif
-
 
 
 # For now we want the sun perl to be used
@@ -246,3 +238,5 @@ merge-doc:
 	@$(MAKECOOKIE)
 
 post-merge: merge-doc install-conf-misc 
+
+
