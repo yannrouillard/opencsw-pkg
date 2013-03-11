@@ -73,9 +73,6 @@ CHECKPKG_OVERRIDES_CSWopenssl-utils += file-with-bad-content|/usr/local|root/opt
 CHECKPKG_OVERRIDES_CSWopenssl-utils += file-with-bad-content|/usr/local|root/opt/csw/share/doc/openssl_utils/FAQ
 CHECKPKG_OVERRIDES_CSWopenssl-utils += file-with-bad-content|/usr/local|root/opt/csw/share/doc/openssl_utils/INSTALL
 
-# We have a lot of collision until libssl1.0.0 will replace libssl0.9.8
-#include checkpkg.overrides
-
 ###### Upstream and opencsw files information #######
 
 MASTER_SITES = http://www.openssl.org/source/
@@ -138,10 +135,8 @@ endif
 # To update the patch, do:
 #   cd files && ./update-t4-patch.sh OPENSSL_VERSION
 #
-ifeq ($(shell /usr/bin/uname -p),sparc) 
-ifeq ($(shell /usr/bin/uname -r),5.11)
+ifeq ($(shell /usr/bin/uname -rp),5.11 sparc) 
 	PATCHFILES += openssl-1.0.1e-t4-engine.sparc-patch
-endif
 endif
 
 LICENSE = LICENSE
