@@ -162,6 +162,12 @@ EXTRA_BUILD_ISAS_sparc = sparcv8plus+vis sparcv9
 # No .so files in libraries
 #EXTRA_MERGE_EXCLUDE_FILES = .*/libcrypto.so .*/libssl.so
 
+# We use Studio 12.3 to have the "-Qoption cg" option
+# but this version is not available under Solaris 9
+ifneq ($(shell /usr/bin/uname -r),5.9)
+	GARCOMPILER=SOS12U3
+endif
+
 # The corresponding os/compiler to pass to the
 # openssl Configure script
 i386_OS_COMPILER 	= solaris-x86-cc-sunw
