@@ -103,8 +103,6 @@ UPSTREAM_MASTER_SITES = ftp://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/
 UFILES_REGEX = $(NAME)-(\d+(?:\.\d+)*p\d+).tar.gz
 
 DISTFILES  = $(NAME)-$(VERSION).tar.gz
-DISTFILES += CSWopenssh.checkinstall
-DISTFILES += CSWopensshlpk.checkinstall
 DISTFILES += changelog.CSW
 DISTFILES += cswusergroup
 
