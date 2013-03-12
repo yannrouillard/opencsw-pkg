@@ -17,9 +17,15 @@ endef
 MASTER_SITES = $(GNU_MIRROR)
 DISTFILES = $(DISTNAME).tar.xz
 
+PACKAGES += CSWgawk
+SPKG_DESC_CSWgawk = GNU awk
+# PKGFILES is catchall
 RUNTIME_DEP_PKGS_CSWgawk += CSWlibintl8
 RUNTIME_DEP_PKGS_CSWgawk += CSWlibsigsegv2
 RUNTIME_DEP_PKGS_CSWgawk += CSWlibreadline6
+
+# This is just an example
+CHECKPKG_OVERRIDES_CSWgawk += file-with-bad-content|/usr/local|root/opt/csw/share/man/man1/gawk.1
 
 BUILD64 = 1
 ISAEXEC = 1
