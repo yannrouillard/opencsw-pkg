@@ -1,5 +1,5 @@
 NAME = gawk
-VERSION = 4.0.0
+VERSION = 4.0.2
 GARTYPE = v2
 
 DESCRIPTION = GNU awk
@@ -21,6 +21,9 @@ RUNTIME_DEP_PKGS_CSWgawk += CSWlibintl8
 RUNTIME_DEP_PKGS_CSWgawk += CSWlibsigsegv2
 RUNTIME_DEP_PKGS_CSWgawk += CSWlibreadline6
 
+BUILD64 = 1
+ISAEXEC = 1
+
 # Otherwise libsigsegv is not detected properly on Solaris 9 i386 as reported in
 #   http://lists.gnu.org/archive/html/bug-gnulib/2011-07/msg00008.html
 # Additionally, there is probably a bug in /usr/include/ia32/sys/reg.h which requires
@@ -38,7 +41,7 @@ CHECKPKG_OVERRIDES_CSWgawk += file-with-bad-content|/usr/local|root/opt/csw/shar
 
 include gar/category.mk
 
-post-install-modulated:
+post-install:
 	ginstall -d $(DESTDIR)$(prefix)/gnu
 	$(foreach G,$(notdir $(wildcard $(DESTDIR)$(bindir)/g*)),ln -s ../bin/$G $(DESTDIR)$(prefix)/gnu/$(patsubst g%,%,$G);)
 	@$(MAKECOOKIE)
