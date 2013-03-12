@@ -137,6 +137,7 @@ endif
 #
 ifeq ($(shell /usr/bin/uname -rp),5.11 sparc) 
 	PATCHFILES += openssl-1.0.1e-t4-engine.sparc-patch
+	PATCHFILES += openssl-1.0.1e-t4-engine.sparc-patch.sparcv9+vis
 endif
 
 LICENSE = LICENSE
