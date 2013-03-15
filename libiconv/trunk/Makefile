@@ -99,7 +99,7 @@ post-install-modulated:
 		$(DESTDIR)$(datadir)/aclocal/iconv.m4
 	@$(MAKECOOKIE)
 
-post-merge:
+post-merge-all:
 	@# Make the 64 bit charset-alias the same as the one for 32 bit
 	rm -f $(PKGROOT)$(libdir)/$(ISA_DEFAULT64)/charset.alias
 	gln -s ../charset.alias $(PKGROOT)$(libdir)/$(ISA_DEFAULT64)/charset.alias
