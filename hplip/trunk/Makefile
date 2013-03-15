@@ -17,7 +17,7 @@ GARCOMPILER = SOS12U3
 PACKAGING_PLATFORMS = solaris10-i386 solaris10-sparc
 
 PACKAGES = CSWhplip
-OBSOLETED_BY_CSWhplip = CSWhpijs
+# OBSOLETED_BY_CSWhplip = CSWhpijs
 SPKG_DESC_CSWhplip = $(DESCRIPTION) Inkjet driver
 RUNTIME_DEP_PKGS_CSWhplip += CSWlibjpeg7
 
