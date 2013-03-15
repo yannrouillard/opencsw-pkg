@@ -1,8 +1,8 @@
 NAME = hplip
-VERSION = 3.12.2
+VERSION = 3.13.3
 GARTYPE = v2
 
-MASTER_SITES = http://prdownloads.sourceforge.net/hplip
+MASTER_SITES = http://prdownloads.sourceforge.net/hplip/
 DISTFILES = $(NAME)-$(VERSION).tar.gz
 
 
@@ -33,8 +33,13 @@ CONFIGURE_ARGS += --enable-hpijs-install
 CONFIGURE_ARGS += --with-hpppddir=/opt/csw/share/cups/model/HP
 # CONFIGURE_ARGS += --enable-hpcups-only-build
 
-CHECKPKG_OVERRIDES_CSWhplip += file-with-bad-content|/usr/share|root/opt/csw/share/doc/hplip-3.12.2/upgrading.html
-CHECKPKG_OVERRIDES_CSWhplip += file-with-bad-content|/usr/share|root/opt/csw/share/doc/hplip-3.12.2/uninstalling.html
+CHECKPKG_OVERRIDES_CSWhplip += file-with-bad-content|/usr/share|root/opt/csw/share/doc/$(NAME)-$(VERSION)/upgrading.html
+CHECKPKG_OVERRIDES_CSWhplip += file-with-bad-content|/usr/share|root/opt/csw/share/doc/$(NAME)-$(VERSION)/uninstalling.html
 
 include gar/category.mk
 
+post-install:
+	ginstall -m 755 -d $(DESTDIR)$(libdir)/cups/filter
+	ginstall -m 755 $(WORKSRC)/prnt/filters/hpps $(DESTDIR)$(libdir)/cups/filter
+	ginstall -m 755 $(WORKSRC)/prnt/filters/hpcac $(DESTDIR)$(libdir)/cups/filter
+	$(MAKECOOKIES)
