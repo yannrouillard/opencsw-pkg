@@ -7,7 +7,7 @@
 # [1] http://garylaw.net/packages/puppet-build.sh
 
 NAME = puppet
-VERSION = 2.7.20
+VERSION = 2.7.21
 GARTYPE = v2
 
 define BLURB
@@ -44,6 +44,9 @@ USERGROUP = $(sysconfdir)/pkg/puppet/cswusergroup
 # service isn't started upon the installation of CSWpuppet.
 PACKAGES += CSWpuppetmaster
 PACKAGES += CSWpuppet
+
+INCOMPATIBLE_PKGS += CSWpuppet3
+INCOMPATIBLE_PKGS += CSWpuppetmaster3
 
 SPKG_DESC_CSWpuppet       = System configuration management tool, client daemon
 SPKG_DESC_CSWpuppetmaster = System configuration management tool, server
@@ -83,6 +86,8 @@ CHECKPKG_OVERRIDES_CSWpuppet 	   += file-with-bad-content
 CHECKPKG_OVERRIDES_CSWpuppet 	   += bad-location-of-file|file=/etc/puppet
 CHECKPKG_OVERRIDES_CSWpuppet 	   += bad-location-of-file|file=/etc/puppet/README.CSW
 CHECKPKG_OVERRIDES_CSWpuppet 	   += bad-location-of-file|file=/etc/puppet/puppet.conf.example-CSW
+CHECKPKG_OVERRIDES_CSWpuppet  		+= file-collision
+CHECKPKG_OVERRIDES_CSWpuppetmaster 	+= file-collision
 
 include gar/category.mk
 
