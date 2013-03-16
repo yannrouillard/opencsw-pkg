@@ -1,8 +1,7 @@
 # $Id$
-# TODO (release-critical prefixed with !, non release-critical with *)
-#
+
 NAME = hevea
-VERSION = 2.03
+VERSION = 2.04
 GARTYPE = v2
 
 DESCRIPTION = A fast LaTeX to HTML translator
@@ -40,8 +39,6 @@ RUNTIME_DEP_PKGS	+=	CSWnetpbm
 PATCHFILES			=	0001-Fix-installation-paths.patch
 
 CONFIGURE_SCRIPTS	=
-
-SKIPTEST			=	1
 
 # these are overrides for binaries called internally:
 CHECKPKG_OVERRIDES_CSWhevea	+=	surplus-dependency|CSWtexlive
