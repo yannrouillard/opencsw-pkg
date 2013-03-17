@@ -1,7 +1,7 @@
 # TODO (release-critical prefixed with !, non release-critical with *)
 
 NAME = fio
-VERSION = 2.0.8
+VERSION = 2.0.14
 GARTYPE = v2
 
 DESCRIPTION = Flexible I/O Tester
@@ -24,6 +24,7 @@ UFILES_REGEX = $(NAME)-(\d+(?:\.\d+)*).tar.gz
 
 PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386
 
+PATCHFILES	+= 0000-shell-commmands-in-configure-script.patch
 PATCHFILES	+= 0001-shell-commands.patch
 
 # fio compiler/compiler.h #errors out non gcc compilers
