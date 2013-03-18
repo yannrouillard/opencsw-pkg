@@ -2,7 +2,7 @@
 # - Check http://src.opensolaris.org/source/xref/userland/src/components/samba/samba/ from time to time
 
 NAME = samba
-VERSION = 3.6.12
+VERSION = 3.6.13
 GARTYPE = v2
 
 DESCRIPTION = Tools to access a servers filespace and printers via SMB (server)
