@@ -2,7 +2,7 @@
 # - SSL certs to /etc/opt/csw/ssl?
 # - /var/run/dovecot instead of /var/opt/csw/run?
 NAME = dovecot
-VERSION = 2.1.12
+VERSION = 2.1.15
 GARTYPE = v2
 
 DESCRIPTION = Secure IMAP server
@@ -38,7 +38,6 @@ RUNTIME_DEP_PKGS_CSWdovecot += CSWlibbz2-1-0
 RUNTIME_DEP_PKGS_CSWdovecot += CSWlibgssapi-krb5-2
 RUNTIME_DEP_PKGS_CSWdovecot += CSWlibpq5
 RUNTIME_DEP_PKGS_CSWdovecot += CSWlibsqlite3-0
-RUNTIME_DEP_PKGS_CSWdovecot += CSWlibssl0-9-8
 RUNTIME_DEP_PKGS_CSWdovecot += CSWlibssl1-0-0
 RUNTIME_DEP_PKGS_CSWdovecot += CSWliblber2-4-2
 RUNTIME_DEP_PKGS_CSWdovecot += CSWlibldap2-4-2
