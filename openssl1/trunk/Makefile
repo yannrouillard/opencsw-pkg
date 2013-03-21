@@ -175,7 +175,12 @@ sparcv8plus_OS_COMPILER		= solaris-sparcv9-cc-sunw
 sparcv8plus+vis_OS_COMPILER	= solaris-sparcv9+vis-cc-sunw
 sparcv9_OS_COMPILER		= solaris64-sparcv9-cc-sunw
 
-CONFIGURE_ARGS = --prefix=$(prefix) shared $($(ISA)_OS_COMPILER) --install_prefix=$(DESTDIR)
+# --libdir must only be given if the directory is actually different from lib or the creation will fail
+# as the directory is already there
+LIBDIR_64 = --libdir=lib/64
+LIBDIR = $(LIBDIR_$(MEMORYMODEL))
+
+CONFIGURE_ARGS = --prefix=$(prefix) shared $($(ISA)_OS_COMPILER) --install_prefix=$(DESTDIR) $(LIBDIR)
 
 # PKCS11 is only for Solaris 10 so we must create solaris 10 specific packages
 ifneq ($(shell /usr/bin/uname -r),5.9)
@@ -183,11 +188,11 @@ ifneq ($(shell /usr/bin/uname -r),5.9)
 endif 
 
 # For now we want the sun perl to be used
-CONFIGURE_ENV += PERL="/usr/bin/perl"
+EXTRA_CONFIGURE_ENV += PERL="/usr/bin/perl"
 
 # Configure uses make and sun make is not happy
 # with the shell command added by the t4 patch
-CONFIGURE_ENV += MAKE="/opt/csw/bin/gmake"
+EXTRA_CONFIGURE_ENV += MAKE="/opt/csw/bin/gmake"
 
 # The new compiler options taken from https://hg.openindiana.org/upstream/oracle/userland-gate/ 
 # added "-z defs" to the linker options. That causes object compilation to fail because
@@ -196,7 +201,7 @@ EXTRA_LD_OPTIONS = -lc -ldl
 
 # By default, the install target put man pages under
 # /opt/csw/ssl/man, but we want them under /opt/csw/share/man
-INSTALL_ARGS += MANDIR=$(mandir)
+EXTRA_INSTALL_ARGS += MANDIR=$(mandir)
 
 # library files are not automatically stripped
 STRIP_DIRS = $(DESTDIR)/$(libdir) $(DESTDIR)/$(libdir)/openssl-$(SONAME)/engines/
@@ -233,5 +238,5 @@ merge-doc:
 	done
 	@$(MAKECOOKIE)
 
-post-merge: merge-doc install-conf-misc 
+post-merge-all: merge-doc install-conf-misc 
 
