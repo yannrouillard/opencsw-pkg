@@ -41,7 +41,8 @@ PKGFILES_CSWlibssl-dev += $(docdir)/libssl_dev/.*
 
 RUNTIME_DEP_PKGS_CSWopenssl-utils = CSWlibssl1-0-0
 SPKG_DESC_CSWopenssl-utils = Openssl 1.0 binaries and related tools
-PKGFILES_CSWopenssl-utils = $(bindir)/[^/]* $(mandir)/man1/.* $(mandir)/man5/.* $(mandir)/man7/.* 
+PKGFILES_CSWopenssl-utils = $(bindir)/[^/]* $(bindir)/.*/openssl 
+PKGFILES_CSWopenssl-utils += $(mandir)/man1/.* $(mandir)/man5/.* $(mandir)/man7/.* 
 PKGFILES_CSWopenssl-utils += $(prefix)/ssl/misc/.* 
 PKGFILES_CSWopenssl-utils += $(prefix)/ssl/openssl\.cnf.*
 PKGFILES_CSWopenssl-utils += $(sysconfdir)/ssl/openssl\.cnf.*
@@ -152,11 +153,13 @@ ISAEXEC = 1
 EXTRA_BUILD_ISAS_i386 = pentium_pro amd64
 EXTRA_BUILD_ISAS_sparc = sparcv8plus+vis sparcv9
 
-# we include *.a files in the devel package so we don't want them excluded
-#MERGE_EXCLUDE_STATICLIBS = 
+# the openssl build system doesn't honor bindir
+# aso it doesn't install 64 bits binaries in bin/amd64
+# we fix at the merge step 
+EXTRA_MERGE_DIRS_isa-extra = $(bindir_install)
 
-# No .so files in libraries
-#EXTRA_MERGE_EXCLUDE_FILES = .*/libcrypto.so .*/libssl.so
+# c_rehash is shell script: no isaexec please
+EXTRA_ISAEXEC_EXCLUDE_FILES = /opt/csw/bin/c_rehash
 
 # We use Studio 12.3 to have the "-Qoption cg" option
 # but this version is not available under Solaris 9
