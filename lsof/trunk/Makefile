@@ -31,6 +31,11 @@ PACKAGING_PLATFORMS += solaris11-sparc solaris11-i386
 VENDOR_URL = http://people.freebsd.org/~abe/
 LICENSE = lsof-license
 
+# This is because we build Solaris 9 Sparc on a branded zone
+CHECKPKG_OVERRIDES_CSWlsof += soname-unused|s9_preload.so.1|is|needed|by|/opt/csw/bin/sparcv9/lsof|but|never|used
+CHECKPKG_OVERRIDES_CSWlsof += soname-unused|s9_preload.so.1|is|needed|by|/opt/csw/bin/sparcv8plus/lsof|but|never|used
+CHECKPKG_OVERRIDES_CSWlsof += soname-unused|s9_preload.so.1|is|needed|by|/opt/csw/bin/sparcv8/lsof|but|never|used
+
 # Do not build a unified 32/64 bit package for Solaris 9 i386
 BUILD64-sparc-5.9 = 1
 BUILD64-sparc-5.10 = 1
