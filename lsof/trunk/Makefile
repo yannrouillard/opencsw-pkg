@@ -1,7 +1,7 @@
 # TBD:
 
 NAME = lsof
-VERSION = 4.86
+VERSION = 4.87
 GARTYPE = v2
 
 DESCRIPTION = List open files
