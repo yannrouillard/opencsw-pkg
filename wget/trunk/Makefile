@@ -4,8 +4,7 @@
 #     https://lists.gnu.org/archive/html/bug-wget/2011-09/msg00001.html
 
 NAME = wget
-VERSION = 1.13.4
-GARTYPE = v2
+VERSION = 1.14
 
 DESCRIPTION = A network utility to retrieve files from the Web
 define BLURB
@@ -19,6 +18,7 @@ define BLURB
 endef
 
 MASTER_SITES = $(GNU_MIRROR)
+MASTER_SITES += ftp://alpha.gnu.org/gnu/wget/
 DISTFILES = $(NAME)-$(VERSION).tar.xz
 
 VENDOR_URL = http://www.gnu.org/software/wget/
@@ -27,11 +27,10 @@ PACKAGES += CSWwget
 SPKG_DESC_CSWwget = A network utility to retrieve files from the web
 RUNTIME_DEP_PKGS_CSWwget += CSWlibintl8
 RUNTIME_DEP_PKGS_CSWwget += CSWlibiconv2
-RUNTIME_DEP_PKGS_CSWwget += CSWlibgcrypt11
 RUNTIME_DEP_PKGS_CSWwget += CSWlibz1
-RUNTIME_DEP_PKGS_CSWwget += CSWlibgpg-error0
-RUNTIME_DEP_PKGS_CSWwget += CSWlibgnutls26
+RUNTIME_DEP_PKGS_CSWwget += CSWlibssl1-0-0
 RUNTIME_DEP_PKGS_CSWwget += CSWlibidn11
+RUNTIME_DEP_PKGS_CSWwget += CSWlibpcre1
 
 EXTRA_MODULATORS = STATIC
 MODULATIONS_STATIC = disable enable
@@ -59,6 +58,10 @@ EXTRA_CONFIGURE_STATIC-enable += --disable-iri
 
 CONFIGURE_ARGS  = $(DIRPATHS)
 CONFIGURE_ARGS += $(EXTRA_CONFIGURE_STATIC-$(STATIC))
+
+# Switch back to OpenSSL as reported in
+#   https://www.opencsw.org/mantis/view.php?id=4969
+CONFIGURE_ARGS += --with-ssl=openssl
 
 PRESERVECONF = $(sysconfdir)/wgetrc
 MIGRATE_FILES = wgetrc
