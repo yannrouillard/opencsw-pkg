@@ -17,12 +17,13 @@ MASTER_SITES = $(SF_MIRRORS)
 SF_PROJECT = heirloom
 DISTFILES  = $(NAME)-$(VERSION).tar.bz2
 
-SPKG_CLASSES = none cswcpsampleconf
-
-RUNTIME_DEP_PKGS = CSWcswclassutils CSWosslrt CSWiconv
+RUNTIME_DEP_PKGS = CSWlibssl1-0-0 CSWlibiconv2
 
 # nail _is_ mailx now
 INCOMPATIBLE_PKGS = CSWnail
+
+# Taken from upstream CVS to be able to build with libssl1.0.0
+PATCHFILES = build_with_openssl1.0.0.patch
 
 # We define upstream file regex so we can be notifed of new upstream software release
 UPSTREAM_MASTER_SITES = $(SF_PROJECT_SHOWFILE)=106236
@@ -32,9 +33,7 @@ UFILES_REGEX = $(NAME)-(\d+(?:\.\d+)*).tar.gz
 CONFIGURE_SCRIPTS =
 TEST_SCRIPTS =
 
-PROTOTYPE_FILTER  = awk '\
-	$$$$3 ~ /nail.rc.CSW$$$$/ { $$$$2 = "cswcpsampleconf" } \
-	 { print }'
+SAMPLECONF = /etc/opt/csw/mailx/nail.rc
 
 include gar/category.mk
 
@@ -56,7 +55,5 @@ post-install-modulated:
 	@ginstall -d $(DOCDEST)
 	@$(foreach DOC,$(DOCS),cp $(WORKSRC)/$(DOC) $(DOCDEST);)
 	@cp $(FILEDIR)/changelog.CSW $(DOCDEST)
-	@mv $(DESTDIR)$(sysconfdir)/$(NAME)/nail.rc \
-		$(DESTDIR)$(sysconfdir)/$(NAME)/nail.rc.CSW
 	@cd $(DESTDIR)$(bindir) && ln -s mailx nail
 	@$(MAKECOOKIE)
