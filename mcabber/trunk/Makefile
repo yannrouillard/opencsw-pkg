@@ -16,18 +16,19 @@ SPKG_SOURCEURL = http://www.lilotux.net/~mikael/mcabber/
 
 UFILES_REGEX = $(NAME)-(\d+(?:\.\d+)*).tar.gz
 
-BUILD_DEP_PKGS = CSWncurses CSWossldevel CSWotrdevel
-BUILD_DEP_PKGS += CSWaspell CSWggettext CSWglib2devel CSWpkgconfig
-BUILD_DEP_PKGS += CSWgpgerr CSWgpgme CSWiconv
+BUILD_DEP_PKGS = CSWlibncurses-dev CSWlibssl-dev CSWotrdevel
+BUILD_DEP_PKGS += CSWaspell CSWggettext CSWlibglib2-dev CSWpkgconfig
+BUILD_DEP_PKGS += CSWlibgpg-error-dev CSWgpgme CSWlibiconv-dev
 
-RUNTIME_DEP_PKGS = CSWncurses CSWosslrt CSWotr
-RUNTIME_DEP_PKGS += CSWaspell CSWggettextrt CSWglib2 
-RUNTIME_DEP_PKGS += CSWgpgerr CSWgpgme CSWiconv
+RUNTIME_DEP_PKGS = CSWlibncursesw5 CSWlibssl1-0-0 CSWotr
+RUNTIME_DEP_PKGS += CSWlibaspell15 CSWlibglib2-0-0 
+RUNTIME_DEP_PKGS += CSWlibintl8 CSWlibpanelw5 CSWgpgme
+
 
 TEST_SCRIPTS = 
 
 CONFIGURE_ARGS = $(DIRPATHS)
-CONFIGURE_ARGS += --with-openssl=/opt/csw/lib
+CONFIGURE_ARGS += --with-openssl=/opt/csw/include
 CONFIGURE_ARGS += --enable-otr
 CONFIGURE_ARGS += --enable-aspell
 CONFIGURE_ARGS += --enable-sigwinch
