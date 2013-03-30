@@ -154,9 +154,10 @@ EXTRA_BUILD_ISAS_i386 = pentium_pro amd64
 EXTRA_BUILD_ISAS_sparc = sparcv8plus+vis sparcv9
 
 # the openssl build system doesn't honor bindir
-# aso it doesn't install 64 bits binaries in bin/amd64
-# we fix at the merge step 
-EXTRA_MERGE_DIRS_isa-extra = $(bindir_install)
+# as it doesn't install 64 bits binaries in bin/{amd64,sparcv9}
+# we fix this at the merge step 
+EXTRA_MERGE_DIRS_isa-amd64 = $(bindir_install)
+EXTRA_MERGE_DIRS_isa-sparcv9 = $(bindir_install)
 
 # c_rehash is shell script: no isaexec please
 EXTRA_ISAEXEC_EXCLUDE_FILES = /opt/csw/bin/c_rehash
