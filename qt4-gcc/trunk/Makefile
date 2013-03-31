@@ -42,6 +42,7 @@ EXTRA_CXXFLAGS = -DSUN_OGL_NO_VERTEX_MACROS
 
 CONFIGURE_ARGS += -platform solaris-g++
 CONFIGURE_ARGS += -opensource
+CONFIGURE_ARGS += -confirm-license
 CONFIGURE_ARGS += -prefix $(prefix)
 CONFIGURE_ARGS += -no-qt3support
 CONFIGURE_ARGS += -no-xshape
