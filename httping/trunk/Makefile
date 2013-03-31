@@ -3,7 +3,7 @@
 #   feedback pending.
 #
 NAME = httping
-VERSION = 1.5.3
+VERSION = 1.4.1
 GARTYPE = v2
 
 PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386
@@ -28,9 +28,9 @@ RUNTIME_DEP_PKGS += CSWlibssl1-0-0
 PATCHFILES = 0001-Makefile-make-options-and-tools-configurable.patch
 
 # strndup is not defined anymore in httping source (file str.c)
-# but it still doesn't exist under Solaris 9 so we have to define
-# the function
-PATCHFILES += 0002-Define-strndup-function.patch
+# starting from at least 1.5.3 but it still doesn't exist under
+# Solaris 9 so we have to define the function
+#PATCHFILES += 0002-Define-strndup-function.patch
 
 CONFIGURE_SCRIPTS =
 TEST_SCRIPTS =
