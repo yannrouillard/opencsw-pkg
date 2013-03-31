@@ -23,7 +23,6 @@ endef
 PACKAGES = CSWlinks
 
 RUNTIME_DEP_PKGS_CSWlinks += CSWlibssl1-0-0
-RUNTIME_DEP_PKGS_CSWlinks += CSWlibz1
 
 ###### Upstream and opencsw files information #######
 
