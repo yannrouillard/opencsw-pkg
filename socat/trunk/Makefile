@@ -40,7 +40,7 @@ DISTFILES    = $(NAME)-$(VERSION).tar.gz
 UFILES_REGEX = $(NAME)-(\d+(?:\.\d+)*).tar.gz
 
 
-RUNTIME_DEP_PKGS = CSWosslrt CSWreadline CSWtcpwrap
+RUNTIME_DEP_PKGS = CSWlibssl1-0-0 CSWlibreadline6 CSWlibwrap1
 
 # test.sh uses unescaped nested double quotes (doesn't work with /bin/bash)
 PATCHFILES += 0001-Escape-nested-double-quotes.patch
@@ -120,6 +120,8 @@ CONFIGURE_ARGS = $(DIRPATHS)
 #
 # where TESTNAME is one of the uppercase testnames from above 
 # (for example PTMXWAITSLAVE).
+
+TEST_SCRIPTS =
 
 include gar/category.mk
 
