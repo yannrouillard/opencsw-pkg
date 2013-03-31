@@ -13,7 +13,7 @@ endef
 prefix = $(BUILD_PREFIX)/gxx
 GARCOMPILER = GNU
 
-MASTER_SITES = http://get.qt.nokia.com/qt/source/
+MASTER_SITES = ftp://ftp.qt-project.org/qt/source/
 DISTNAME = qt-everywhere-opensource-src-$(VERSION)
 DISTFILES = $(DISTNAME).tar.gz
 
