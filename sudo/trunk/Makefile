@@ -109,6 +109,7 @@ CONFIGURE_ARGS += --with-logpath=$(LOGPATH)/sudolog
 CONFIGURE_ARGS += --with-iologdir=$(IOLOGPATH)
 CONFIGURE_ARGS += --with-timedir=$(TIMEPATH)
 CONFIGURE_ARGS += --with-project
+CONFIGURE_ARGS += --with-fqdn
 
 CONFIGURE_ARGS_LDAP-enabled += --with-ldap=$(prefix)
 CONFIGURE_ARGS_LDAP-enabled += --with-ldap-conf-file=$(sysconfdir)/ldap.conf
