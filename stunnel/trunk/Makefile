@@ -34,7 +34,6 @@ PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386
 
 RUNTIME_DEP_PKGS += CSWlibssl1-0-0
 RUNTIME_DEP_PKGS += CSWlibwrap1
-RUNTIME_DEP_PKGS += CSWlibz1
 
 # Make stunnel.conf-sample.in honor our $localstatedir. Issue description:
 # cf. http://marc.info/?l=stunnel-users&m=128035848632004&w=2
