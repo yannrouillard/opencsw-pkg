@@ -7,7 +7,7 @@
 #       Test on Solaris 8 / 9 for comparison
 #
 NAME = stunnel
-VERSION = 4.53
+VERSION = 4.56
 GARTYPE = v2
 
 DESCRIPTION = Universal SSL Wrapper
