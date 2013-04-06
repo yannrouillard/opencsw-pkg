@@ -12,6 +12,7 @@ MASTER_SITES = http://openvpn.net/release/
 DISTFILES = $(NAME)-$(VERSION).tar.gz
 
 # we require
+BUILD_DEP_PKGS = CSWtun
 RUNTIME_DEP_PKGS = CSWlibssl1-0-0 CSWliblzo2-2
 
 # The references are located in document or sample files and are harmless
