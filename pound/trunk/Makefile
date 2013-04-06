@@ -1,5 +1,5 @@
-NAME = pound
-VERSION = 2.6
+NAME = pound2
+VERSION = 2.4.5
 GARTYPE = v2
 
 DESCRIPTION = Reverse proxy load balancer
@@ -28,16 +28,17 @@ LICENSE = GPL.txt
 RUNTIME_DEP_PKGS += CSWlibssl-dev
 RUNTIME_DEP_PKGS += CSWlibcurl-dev
 
-PACKAGES += CSWpound
-SPKG_DESC_CSWpound = Reverse proxy load balancer
+SPKG_DESC_CSWpound2 = Reverse proxy load balancer
 # PKGFILES is catchall
-RUNTIME_DEP_PKGS_CSWpound += CSWlibpcreposix0
-RUNTIME_DEP_PKGS_CSWpound += CSWlibssl1-0-0
-OBSOLETED_BY_CSWpound = CSWpound2
+RUNTIME_DEP_PKGS_CSWpound2 += CSWlibpcreposix0
+RUNTIME_DEP_PKGS_CSWpound2 += CSWlibssl1-0-0
 
 # This is just for example scripts
 CHECKPKG_OVERRIDES_CSWpound += missing-dependency|CSWpython
 CHECKPKG_OVERRIDES_CSWpound += file-with-bad-content|/usr/local|root/opt/csw/share/doc/pound/README
+
+# Patch taken from upstream to compile against libssl 1.0.0
+PATCHFILES = openssl1.0.0.patch
 
 EXTRA_DOCS += README
 EXTRA_DOCS += FAQ
