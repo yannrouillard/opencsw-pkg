@@ -31,7 +31,7 @@ CONFIGURE_ARGS  = --prefix=$(prefix) --mandir=/opt/csw/share/man
 PATCHFILES = patch.openvpn-2.0.9.tun.c
 
 # use classes for install/removal
-PRESERVECONF = $(sysconfdir)/$(NAME)/$(NAME).conf
+#PRESERVECONF = $(sysconfdir)/$(NAME)/$(NAME).conf
 INITSMF = /etc/opt/csw/init.d/cswopenvpn
 
 # no build tests
@@ -48,7 +48,7 @@ post-install-modulated:
 	@echo "Installing $(NAME).conf.CSW"
 	@ginstall -d -m 755 $(DESTDIR)$(sysconfdir)/$(NAME)
 	@cp -pr $(WORKSRC)/sample-config-files/server.conf \
-		$(DESTDIR)$(sysconfdir)/$(NAME)/$(NAME).conf
+		$(DESTDIR)$(sysconfdir)/$(NAME)/$(NAME).conf.CSW
 	@echo "Installing start/stop script"
 	@ginstall -d -m 755 $(DESTDIR)/etc/opt/csw/init.d
 	@ginstall -m 755 $(FILEDIR)/cswopenvpn  \
