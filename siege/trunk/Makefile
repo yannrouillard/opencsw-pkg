@@ -18,7 +18,16 @@ DISTFILES  = $(NAME)-$(VERSION).tar.gz
 UFILES_REGEX = $(NAME)-(\d+(?:\.\d+)*).tar.gz
 
 # we require
-RUNTIME_DEP_PKGS = CSWosslrt
+RUNTIME_DEP_PKGS = CSWlibssl1-0-0
+
+# the references are located in comments and are harmless, so the errors can be ignored
+CHECKPKG_OVERRIDES_CSWsiege += file-with-bad-content|/usr/local|root/opt/csw/bin/siege.config
+CHECKPKG_OVERRIDES_CSWsiege += file-with-bad-content|/usr/local|root/opt/csw/share/man/man5/urls_txt.5
+CHECKPKG_OVERRIDES_CSWsiege += file-with-bad-content|/usr/local|root/opt/csw/share/man/man1/siege.1
+CHECKPKG_OVERRIDES_CSWsiege += file-with-bad-content|/export/home|root/opt/csw/bin/siege.config
+
+# We use SUNW perl and not CSW perl
+CHECKPKG_OVERRIDES_CSWsiege += missing-dependency|CSWperl
 
 # handle config file
 PRESERVECONF = $(sysconfdir)/urls.txt
@@ -30,6 +39,11 @@ PATCHFILES += patch-auth.c
 
 CONFIGURE_ARGS  = $(DIRPATHS)
 CONFIGURE_ARGS += --with-ssl=$(prefix)
+
+# No need to depend on opencsw perl for the simple
+# perl script sieve2csv.pl
+EXTRA_CONFIGURE_ENV += PERL="/usr/bin/perl"
+
 
 # no build tests
 SKIPTEST = 1
