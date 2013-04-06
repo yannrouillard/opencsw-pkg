@@ -1,5 +1,5 @@
 NAME = easytag
-VERSION = 2.1.7
+VERSION = 2.1.8
 GARTYPE = v2
 
 DESCRIPTION = Tag editor for MP3, Ogg Vorbis files and more
@@ -9,8 +9,10 @@ define BLURB
   interface makes tagging easier under GNU/Linux or Windows.
 endef
 
-MASTER_SITES = $(SF_MIRRORS)
-DISTFILES += $(NAME)-$(VERSION).tar.bz2
+MASTER_SITES = $(GNOME_MIRRORS)
+DISTFILES += $(NAME)-$(VERSION).tar.xz
+
+VENDOR_URL = http://projects.gnome.org/easytag/
 
 BUILD_DEP_PKGS += CSWlibogg-dev
 BUILD_DEP_PKGS += CSWlibvorbis-dev
@@ -33,11 +35,15 @@ RUNTIME_DEP_PKGS_CSWeasytag += CSWlibflac8
 RUNTIME_DEP_PKGS_CSWeasytag += CSWpango
 RUNTIME_DEP_PKGS_CSWeasytag += CSWlibspeex1
 RUNTIME_DEP_PKGS_CSWeasytag += CSWlibvorbisfile3
+RUNTIME_DEP_PKGS_CSWeasytag += CSWlibgio2-0-0
 
-# Needed for gethostbyname
-EXTRA_LINKER_FLAGS = -lnsl
+# This macro is being phased out of Pango, so this seems like an acceptable fix for now:
+#   https://bugzilla.gnome.org/show_bug.cgi?id=652202
+EXTRA_CFLAGS += -DG_CONST_RETURN=const
 
-EXTRA_CONFIGURE_EXPORTS += LIBS
-CONFIGURE_ENV_LIBS = -lCrun
+EXTRA_LINKER_FLAGS = -norunpath
+
+# For msgfmt, msgmerge, xgettext and gettext to be used from GNU
+CONFIGURE_ENV_PATH = $(prefix)/gnu:$(PATH)
 
 include gar/category.mk
