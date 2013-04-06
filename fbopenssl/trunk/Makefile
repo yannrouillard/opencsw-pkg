@@ -17,8 +17,8 @@ DISTFILES += COPYING
 
 VENDOR_URL = http://sourceforge.net/projects/modgssapache
 
-BUILD_DEP_PKGS = CSWossldevel
-RUNTIME_DEP_PKGS = CSWosslrt
+BUILD_DEP_PKGS = CSWlibssl-dev
+RUNTIME_DEP_PKGS = CSWlibssl1-0-0
 
 PACKAGES += CSWlibfbopenssl0
 SPKG_DESC_CSWlibfbopenssl0 = Extensions to OpenSSL including support for GSS-API and SPNEGO, libfbopenssl.so.0
