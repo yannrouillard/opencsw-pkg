@@ -1,8 +1,8 @@
 NAME = openvpn
 VERSION = 2.0.9
-GARTYPE = v1
+GARTYPE = v2
 
-DESCRIPTION = secure IP tunnel daemon
+DESCRIPTION = Secure IP tunnel daemon
 define BLURB
 OpenVPN is a full-featured SSL VPN solution which can accomodate a wide range of configurations, including remote access, site-to-site VPNs, WiFi security, and enterprise-scale remote access solutions with load balancing, failover, and fine-grained access-controls
 endef
@@ -12,7 +12,17 @@ MASTER_SITES = http://openvpn.net/release/
 DISTFILES = $(NAME)-$(VERSION).tar.gz
 
 # we require
-RUNTIME_DEP_PKGS = CSWosslrt CSWlzo
+RUNTIME_DEP_PKGS = CSWlibssl1-0-0 CSWliblzo2-2
+
+# The references are located in document or sample files and are harmless
+CHECKPKG_OVERRIDES_CSWopenvpn += file-with-bad-content|/usr/share|root/opt/csw/share/doc/openvpn/easy-rsa/vars
+CHECKPKG_OVERRIDES_CSWopenvpn += file-with-bad-content|/usr/share|root/opt/csw/share/doc/openvpn/easy-rsa/2.0/vars
+CHECKPKG_OVERRIDES_CSWopenvpn += file-with-bad-content|/usr/share|root/opt/csw/share/doc/openvpn/easy-rsa/2.0/Makefile
+CHECKPKG_OVERRIDES_CSWopenvpn += file-with-bad-content|/usr/share|root/opt/csw/share/man/man8/openvpn.8
+CHECKPKG_OVERRIDES_CSWopenvpn += file-with-bad-content|/usr/local|root/opt/csw/share/doc/openvpn/sample-scripts/openvpn.init
+
+# The perl script use SUNW perl and not CSW perl
+CHECKPKG_OVERRIDES_CSWopenvpn += missing-dependency|CSWperl
 
 # We define upstream file regex so we can be notifed of new upstream software release
 UFILES_REGEX = $(NAME)-(\d+(?:\.\d+)*).tar.gz
