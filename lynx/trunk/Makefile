@@ -14,21 +14,26 @@ endef
 MASTER_SITES = http://lynx.isc.org/release/
 DISTFILES  = $(NAME)$(VERSION).tar.bz2
 DISTFILES += COPYING
+DISTNAME = $(NAME)$(subst .,-,$(VERSION))
 
 DEP_PKGS = CSWlibbz2-1-0 CSWlibncurses5 CSWlibssl1-0-0 CSWlibz1
 
-# We define upstream file regex so we can be notifed of new upstream software release
-UFILES_REGEX = $(NAME)-(\d+(?:\.\d+)*).tar.bz2
-
-WORKSRC = $(WORKDIR)/$(subst .,-,$(NAME)$(VERSION))
-
-sysconfdir = /etc/opt/csw
+# This ensures that Lynx picks up its own entities.h, not the one installed
+# in one of the system directories, i. e. /opt/csw (that one's part of GD).
+EXTRA_CPP_FLAGS = -I./chrtrans
 
 CONFIGURE_ARGS  = $(DIRPATHS)
-CONFIGURE_ARGS += --with-screen=ncurses --enable-default-colors
-CONFIGURE_ARGS += --with-ssl --with-bzlib --with-zlib
-CONFIGURE_ARGS += --disable-finger --disable-gopher --disable-news
-CONFIGURE_ARGS += --enable-cgi-links --enable-exec-links --enable-exec-scripts
+CONFIGURE_ARGS += --with-screen=ncurses
+CONFIGURE_ARGS += --enable-default-colors
+CONFIGURE_ARGS += --with-ssl
+CONFIGURE_ARGS += --with-bzlib
+CONFIGURE_ARGS += --with-zlib
+CONFIGURE_ARGS += --disable-finger
+CONFIGURE_ARGS += --disable-gopher
+CONFIGURE_ARGS += --disable-news
+CONFIGURE_ARGS += --enable-cgi-links
+CONFIGURE_ARGS += --enable-exec-links
+CONFIGURE_ARGS += --enable-exec-scripts
 
 MIGRATE_FILES = lynx.lss lynx.cfg
 PRESERVECONF  = /etc/opt/csw/lynx.lss
@@ -42,7 +47,6 @@ CHECKPKG_OVERRIDES_CSWlynx += file-with-bad-content|/usr/local|root/etc/opt/csw/
 SUN_CPP_FLAGS = -I./chrtrans
 
 #    --enable-prettysrc \
-#    --with-zlib \
 #    --enable-gzip-help \
 #    --enable-nls
 
