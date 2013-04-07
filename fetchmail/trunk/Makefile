@@ -18,9 +18,8 @@ SPKG_DESC_CSWfetchmail = Fetchmail mail retrieval and forwarding utility
 # PKGFILES is catchall
 RUNTIME_DEP_PKGS_CSWfetchmail += CSWlibintl8
 RUNTIME_DEP_PKGS_CSWfetchmail += CSWlibkrb5-3
-RUNTIME_DEP_PKGS_CSWfetchmail += CSWlibk5crypto3
 RUNTIME_DEP_PKGS_CSWfetchmail += CSWlibcom-err3
-RUNTIME_DEP_PKGS_CSWfetchmail += CSWosslrt
+RUNTIME_DEP_PKGS_CSWfetchmail += CSWlibssl1-0-0
 
 PACKAGES += CSWfetchmailconf
 SPKG_DESC_CSWfetchmailconf = A GUI to configure and run fetchmail
