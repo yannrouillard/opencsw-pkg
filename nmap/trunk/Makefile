@@ -24,13 +24,16 @@ BUILD_DEP_PKGS += CSWlibssl-dev
 
 PACKAGES += CSWnmap
 SPKG_DESC_CSWnmap = A network exploration tool and security/port scanner
-RUNTIME_DEP_PKGS_CSWnmap += CSWlibpcre0
+RUNTIME_DEP_PKGS_CSWnmap += CSWlibpcre1
 RUNTIME_DEP_PKGS_CSWnmap += CSWlibssl1-0-0
 RUNTIME_DEP_PKGS_CSWnmap += CSWlibpcap1
-RUNTIME_DEP_PKGS_CSWnmap += CSWlua
+RUNTIME_DEP_PKGS_CSWnmap += CSWlibstdc++6
+RUNTIME_DEP_PKGS_CSWnmap += CSWlibgcc-s1
+#RUNTIME_DEP_PKGS_CSWnmap += CSWlua
 RUNTIME_DEP_PKGS_CSWnmap += CSWpython
+
 # For Zenmap
-RUNTIME_DEP_PKGS_CSWnmap += CSWpygtk
+#RUNTIME_DEP_PKGS_CSWnmap += CSWpygtk
 
 # Tons of docs and identification of programs installed there
 CHECKPKG_OVERRIDES_CSWnmap += file-with-bad-content
@@ -46,6 +49,8 @@ PKGFILES_CSWzenmap += $(libdir)/python/.*
 PKGFILES_CSWzenmap += $(mandir)/.*/zenmap\.1
 PKGFILES_CSWzenmap += $(sharedstatedir)/zenmap/.*
 
+
+PATCHFILES = 0001-Fix-IFF_IPMP-compilation-bug.patch
 
 # See standards(5) for details
 # we disable this (for) now, because we're switching the compiler to GCC4
@@ -64,7 +69,8 @@ CONFIGURE_ARGS += $(CONFIGURE_ARGS_$(GAROSREL))
 #   http://nmap.org/svn/libdnet-stripped/NMAP_MODIFICATIONS
 CONFIGURE_ARGS += --with-libdnet=included
 
-CONFIGURE_ARGS += --with-liblua=$(prefix)
+#CONFIGURE_ARGS += --with-liblua=$(prefix)
+CONFIGURE_ARGS += --without-liblua
 
 # Not necessary
 # CONFIGURE_ARGS += --with-libnbase=
