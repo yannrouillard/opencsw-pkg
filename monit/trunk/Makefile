@@ -21,11 +21,12 @@ DISTFILES  = $(DISTNAME).tar.gz
 CHECKPKG_OVERRIDES_CSWmonit = file-with-bad-content|/usr/local|root/opt/csw/share/man/man1/monit.1
 CHECKPKG_OVERRIDES_CSWmonit += $(CHECKPKG_OVERRIDES_CSWmonit_$(GARCH))
 CHECKPKG_OVERRIDES_CSWmonit_sparc = file-with-bad-content|/usr/local|root/opt/csw/bin/sparcv8/monit
+CHECKPKG_OVERRIDES_CSWmonit_sparc += file-with-bad-content|/usr/local|root/opt/csw/bin/sparcv9/monit
 CHECKPKG_OVERRIDES_CSWmonit_i386 = file-with-bad-content|/usr/local|root/opt/csw/bin/amd64/monit
 
 
 
-GARCOMPILER = GNU
+#GARCOMPILER = GNU
 BUILD64_ONLY = 1
 
 BUILD_DEP_PKGS += CSWlibssl-dev
