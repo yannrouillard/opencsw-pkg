@@ -1,5 +1,5 @@
 NAME = rdesktop
-VERSION = 1.7.0
+VERSION = 1.7.1
 GARTYPE = v2
 
 DESCRIPTION = RDP client for Windows NT/2000/2003/XP Terminal Server
@@ -13,24 +13,24 @@ endef
 MASTER_SITES = $(SF_MIRROR)
 DISTFILES  = $(NAME)-$(VERSION).tar.gz
 
-PACKAGES = CSWrdesktop
-CATALOGNAME_CSWrdesktop = rdesktop
-
-VENDOR_URL = http://www.rdesktop.org/
+VENDOR_URL = http://www.rdesktop.org
 
 BUILD_DEP_PKGS += CSWlibao-dev
 BUILD_DEP_PKGS += CSWlibsamplerate-dev
-BUILD_DEP_PKGS += CSWossldevel
+BUILD_DEP_PKGS += CSWlibssl-dev
 
-CONFIGURE_ARGS  = $(DIRPATHS)
-CONFIGURE_ARGS += --with-openssl=/opt/csw
-
-UFILES_REGEX = $(NAME)-(\d+(?:\.\d+)*).tar.gz
-
-RUNTIME_DEP_PKGS_CSWrdesktop += CSWiconv
+PACKAGES += CSWrdesktop
+SPKG_DESC_CSWrdesktop = RDP client for Windows NT/2000/2003/XP Terminal Server
+RUNTIME_DEP_PKGS_CSWrdesktop += CSWlibiconv2
 RUNTIME_DEP_PKGS_CSWrdesktop += CSWlibao4
 RUNTIME_DEP_PKGS_CSWrdesktop += CSWlibsamplerate0
-RUNTIME_DEP_PKGS_CSWrdesktop += CSWosslrt
+RUNTIME_DEP_PKGS_CSWrdesktop += CSWlibssl1-0-0
+
+BUILD64 = 1
+ISAEXEC = 1
+
+CONFIGURE_ARGS  = $(DIRPATHS)
+CONFIGURE_ARGS += --with-openssl=$(prefix)
 
 # No test/check target provided by rdesktop
 TEST_SCRIPTS =
