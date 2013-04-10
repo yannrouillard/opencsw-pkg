@@ -37,6 +37,9 @@ RUNTIME_DEP_PKGS_CSWnginx += CSWlibgd2
 RUNTIME_DEP_PKGS_CSWnginx += CSWlibxml2-2
 RUNTIME_DEP_PKGS_CSWnginx += CSWlibz1
 
+# There is just one script on contrib/, do not pull in Perl for that
+CHECKPKG_OVERRIDES_CSWnginx += missing-dependency|CSWperl
+
 # default sparc arch is set to sparcv8plus because nginx contains
 # assembler parts specific to v8plus and v9 arches:
 #	.inline ngx_casa,0
