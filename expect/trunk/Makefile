@@ -1,5 +1,7 @@
+# $Id$
+
 NAME = expect
-VERSION = 5.43
+VERSION = 5.45
 GARTYPE = v2
 
 DESCRIPTION = Tool for automating interactive applications
@@ -17,10 +19,9 @@ endef
 
 # For some reason upstream have recalled 5.44.1 and has 5.43 as primary on 
 # homepage as expect.tar.gz
-MASTER_SITES = http://expect.nist.gov/
-MASTER_SITES += http://downloads.sourceforge.net/tcl/
-DISTNAME  = $(NAME)-$(VERSION)
-DISTFILES  = $(NAME).tar.gz
+MASTER_SITES = $(SF_MIRROR)
+DISTNAME  = $(NAME)$(VERSION)
+DISTFILES  = $(DISTNAME).tar.gz
 DISTFILES += expect.m4
 DISTFILES += license
 
@@ -40,37 +41,19 @@ PATCHFILES += warnings.patch
 
 LICENSE = license
 
-RUNTIME_DEP_PKGS_CSWexpect += CSWtcl
-RUNTIME_DEP_PKGS_CSWexpect += CSWtk
-RUNTIME_DEP_PKGS_CSWexpect += CSWfconfig
-RUNTIME_DEP_PKGS_CSWexpect += CSWftype2
-RUNTIME_DEP_PKGS_CSWexpect += CSWlibx11
-RUNTIME_DEP_PKGS_CSWexpect += CSWlibxft2
-RUNTIME_DEP_PKGS_CSWexpect += CSWlibxrender
-RUNTIME_DEP_PKGS_CSWexpect += CSWlibxext
-RUNTIME_DEP_PKGS_CSWexpect += CSWlibxscrnsaver
-RUNTIME_DEP_PKGS_CSWexpect += CSWsunmath
-
-UFILES_REGEX = $(NAME)-(\d+(?:\.\d+)*).tar.gz
-
-EXTRA_INC = $(prefix)/X11/include
-EXTRA_LIB = $(prefix)/X11/lib
-EXTRA_PKG_CONFIG_DIRS = $(prefix)/X11/lib
-#EXTRA_SOS_LD_FLAGS = -L$(abspath $(prefix)/X11/lib/$(MM_LIBDIR))
+RUNTIME_DEP_PKGS_CSWexpect += CSWlibtcl8-5
 
 INSTALL_ROOT=$(DESTDIR)
 INSTALL_EXPORTS += INSTALL_ROOT
 INSTALL_EXPORTS += LD_OPTIONS
 
 CONFIGURE_ARGS = $(DIRPATHS)
-CONFIGURE_ARGS += --x-includes=$(prefix)/X11/include
-CONFIGURE_ARGS += --x-libraries=$(abspath $(prefix)/X11/lib/$(MM_LIBDIR))
 CONFIGURE_ARGS += --enable-shared
 CONFIGURE_ARGS += --with-tcl=$(libdir) --with-tk=$(libdir)
 CONFIGURE_ARGS += --with-tclinclude=$(includedir)
 CONFIGURE_ARGS += --with-tkinclude=$(includedir)
 
-TEST_TARGET = 
+TEST_TARGET =
 
 BUILD64_LIBS_ONLY = 1
 
@@ -80,7 +63,6 @@ pre-configure-modulated:
 	( cd $(WORKSRC);	mv ../expect.m4 .; )
 	( cd $(WORKSRC);	\
 	gsed -i.orig 's#/usr/local/bin#/opt/csw/bin#' expect.man	; \
-	gsed -i.orig 's#/usr/local/bin#/opt/csw/bin#' expectk.man	; \
 	)
 	#stops any example scripts being installed by default
 	( cd $(WORKSRC);	\
