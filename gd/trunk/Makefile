@@ -19,38 +19,28 @@ DISTFILES  = $(NAME)-$(VERSION).tar.gz
 
 PATCHFILES += gdkanji.c.patch
 
-#GARCOMPILER = GCC4
-
 PACKAGES = CSWgd
 CATALOGNAME_CSWgd = gd
 SPKG_DESC_CSWgd = Utilities facilitating libgd for dynamic image creation
 # PKGFILES is catchall
-RUNTIME_DEP_pkgs_CSWgd = CSWlibgd2
-RUNTIME_DEP_PKGS_CSWgd += CSWiconv
-RUNTIME_DEP_PKGS_CSWgd += CSWpng
-RUNTIME_DEP_PKGS_CSWgd += CSWjpeg
-RUNTIME_DEP_PKGS_CSWgd += CSWzlib
-RUNTIME_DEP_PKGS_CSWgd += CSWftype2
 RUNTIME_DEP_PKGS_CSWgd += CSWlibgd2
-RUNTIME_DEP_PKGS_CSWgd += CSWxpm
-RUNTIME_DEP_PKGS_CSWgd += CSWfconfig
 
 PACKAGES += CSWlibgd2
 CATALOGNAME_CSWlibgd2 = libgd2
 SPKG_DESC_CSWlibgd2 = A library used for dynamic image creation providing libgd.so.2
-PKGFILES_CSWlibgd2 = $(call baseisadirs,$(libdir),libgd\.so\.2(\.\d+)*)
-RUNTIME_DEP_PKGS_CSWlibgd2 += CSWfconfig
-RUNTIME_DEP_PKGS_CSWlibgd2 += CSWftype2
-RUNTIME_DEP_PKGS_CSWlibgd2 += CSWiconv 
-RUNTIME_DEP_PKGS_CSWlibgd2 += CSWjpeg
-RUNTIME_DEP_PKGS_CSWlibgd2 += CSWpng
-RUNTIME_DEP_PKGS_CSWlibgd2 += CSWxpm
-RUNTIME_DEP_PKGS_CSWlibgd2 += CSWzlib
+PKGFILES_CSWlibgd2 += $(call pkgfiles_lib,libgd.so.2)
+RUNTIME_DEP_PKGS_CSWlibgd2 += CSWlibfontconfig1
+RUNTIME_DEP_PKGS_CSWlibgd2 += CSWlibfreetype6
+RUNTIME_DEP_PKGS_CSWlibgd2 += CSWlibiconv2
+RUNTIME_DEP_PKGS_CSWlibgd2 += CSWlibjpeg7
+RUNTIME_DEP_PKGS_CSWlibgd2 += CSWlibpng15-15
+RUNTIME_DEP_PKGS_CSWlibgd2 += CSWlibxpm4
+RUNTIME_DEP_PKGS_CSWlibgd2 += CSWlibz1
 
 PACKAGES += CSWlibgd-dev
 CATALOGNAME_CSWlibgd-dev = libgd_dev
-SPKG_DESC_CSWlibgd-dev = Development files for libgd.so
-PKGFILES_CSWlibgd-dev = $(PKGFILES_DEVEL)
+SPKG_DESC_CSWlibgd-dev = Development files for libgd.so.2
+PKGFILES_CSWlibgd-dev += $(PKGFILES_DEVEL)
 RUNTIME_DEP_PKGS_CSWlibgd-dev = CSWlibgd2
 
 UFILES_REGEX = $(NAME)-(\d+(?:\.\d+)*).tar.gz
