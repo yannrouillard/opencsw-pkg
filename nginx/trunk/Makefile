@@ -1,8 +1,6 @@
-NAME       = nginx
-VERSION    = 1.2.5
+NAME = nginx
+VERSION = 1.3.15
 GARTYPE = v2
-
-GARCOMPILER = SOS11
 
 DESCRIPTION = HTTP server and mail proxy server
 define BLURB
@@ -11,15 +9,22 @@ define BLURB
 endef
 
 MASTER_SITES = http://nginx.org/download/
-DISTFILES    = $(NAME)-$(VERSION).tar.gz
+DISTFILES    = $(DISTNAME).tar.gz
 DISTFILES   += cswnginx
 
-LICENSE      = LICENSE
+LICENSE = LICENSE
 
 # We define upstream file regex so we can be notifed of new upstream software release
 UFILES_REGEX = -(\d+(?:\.\d+)*).tar.gz
 
+BUILD_DEP_PKGS += CSWlibxslt-dev
+BUILD_DEP_PKGS += CSWgeoip-dev
+BUILD_DEP_PKGS += CSWlibssl-dev
+BUILD_DEP_PKGS += CSWlibpcre-dev
+BUILD_DEP_PKGS += CSWlibgd-dev
+BUILD_DEP_PKGS += CSWlibxml2-dev
 BUILD_DEP_PKGS += CSWlibz-dev
+BUILD_DEP_PKGS += CSWperl
 
 PACKAGES += CSWnginx
 SPKG_DESC_CSWnginx = HTTP server and mail proxy server
@@ -31,7 +36,6 @@ RUNTIME_DEP_PKGS_CSWnginx += CSWlibxslt1
 RUNTIME_DEP_PKGS_CSWnginx += CSWlibgd2
 RUNTIME_DEP_PKGS_CSWnginx += CSWlibxml2-2
 RUNTIME_DEP_PKGS_CSWnginx += CSWlibz1
-RUNTIME_DEP_PKGS_CSWnginx += CSWperl
 
 # default sparc arch is set to sparcv8plus because nginx contains
 # assembler parts specific to v8plus and v9 arches:
@@ -49,6 +53,7 @@ RUNTIME_DEP_PKGS_CSWnginx += CSWperl
 #EXTRA_BUILD_ISAS_i386  = pentium_pro amd64
 #EXTRA_BUILD_ISAS_sparc = sparcv9
 
+BUILD64 = 1
 ISAEXEC = 1
 
 NGINXCPU_i386          = pentium
