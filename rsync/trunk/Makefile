@@ -15,8 +15,9 @@ define BLURB
 endef
 
 MASTER_SITES = http://samba.anu.edu.au/ftp/rsync/
-DISTFILES = $(DISTNAME).tar.gz
+DISTFILES += $(DISTNAME).tar.gz
 DISTFILES += cswrsyncd
+DISTFILES += rsyncd.conf.CSW
 
 VENDOR_URL = http://rsync.samba.org/
 
@@ -30,7 +31,7 @@ INITSMF += /etc/opt/csw/init.d/cswrsyncd
 
 PACKAGES += CSWrsyncd
 SPKG_DESC_CSWrsyncd = Daemon for rsyncd server
-PKGFILES_CSWrsyncd += $(sysconfdir)/rsyncd.conf
+PKGFILES_CSWrsyncd += $(sysconfdir)/rsyncd.conf.CSW
 PKGFILES_CSWrsyncd += $(mandir)/man5/rsyncd.conf.5
 PKGFILES_CSWrsyncd += $(INITSMF)
 
@@ -41,6 +42,8 @@ CHECKPKG_OVERRIDES_CSWrsyncd += surplus-dependency|CSWrsync
 # The location of rsyncd.conf to OpenCSW standard has been done in 3.0.8
 MIGRATE_FILES_CSWrsyncd = rsyncd.conf
 MIGRATE_SOURCE_DIR = /etc
+
+PRESERVECONF += $(sysconfdir)/rsyncd.conf
 
 CONFIGURE_ARGS += $(DIRPATHS)
 CONFIGURE_ARGS += --with-rsyncd-conf=$(sysconfdir)/rsyncd.conf
@@ -57,6 +60,8 @@ REINPLACE_WHEN_conf = postinstall
 
 include gar/category.mk
 
-post-install-modulated:
+post-install:
 	ginstall -d $(DESTDIR)/etc/opt/csw/init.d
 	ginstall -m 0755 $(WORKDIR)/cswrsyncd $(DESTDIR)/etc/opt/csw/init.d/cswrsyncd
+	ginstall -d $(DESTDIR)$(sysconfdir)
+	ginstall -m 0644 $(WORKDIR)/rsyncd.conf.CSW $(DESTDIR)$(sysconfdir)
