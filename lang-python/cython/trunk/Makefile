@@ -2,7 +2,7 @@
 # TODO (release-critical prefixed with !, non release-critical with *)
 #
 NAME = Cython
-VERSION = 0.17.4
+VERSION = 0.18
 
 DESCRIPTION = Cython Compiler
 define BLURB
@@ -40,13 +40,14 @@ PYCOMPILE = 1
 STRIP_LIBTOOL = 1
 EXTRA_MERGE_EXCLUDE_FILES = .*\.pyo .*\.pyc
 
-CONFIGURE_ARGS = $(DIRPATHS)
-
 CONFIGURE_SCRIPTS =
 TEST_SCRIPTS =
 INSTALL_SCRIPTS = $(WORKSRC)/setup.py
 INSTALL_ARGS += --root=$(DESTDIR)
 INSTALL_ARGS += --prefix=$(prefix)
+
+CHECKPKG_OVERRIDES_CSWcython += pkgname-does-not-start-with-CSWpy-
+CHECKPKG_OVERRIDES_CSWcython += catalogname-does-not-start-with-py_
 
 include gar/category.mk
 
