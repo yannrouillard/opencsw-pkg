@@ -3,7 +3,7 @@
 # $Id$
 
 NAME = mongodb
-VERSION = 2.0.4
+VERSION = 2.4.1
 
 GARTYPE = v2
 DESCRIPTION = A scalable, high-performance, open source, document-oriented database
@@ -23,9 +23,7 @@ TEST_SCRIPTS =
 
 GARCOMPILER = GNU
 
-PATCHFILES += 0002-library-checking-by-locating-.so-files.patch
-PATCHFILES += 0003-Hardcode-OpenCSW-specifics-in-the-Solaris-section.patch
-PATCHFILES += 0004-Try-Boost-libs-without-the-mt-suffix-first.patch
+PATCHFILES = 0001-OpenCSW-adaptation.patch
 
 # Depends on V8 which is available on Solaris 10 x86 only.
 # Can only run on little-endian machines.
