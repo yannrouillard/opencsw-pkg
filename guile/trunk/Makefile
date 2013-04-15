@@ -1,5 +1,5 @@
 NAME = guile
-VERSION = 2.0.7
+VERSION = 2.0.9
 GARTYPE = v2
 
 DESCRIPTION = GNU extensibility library
