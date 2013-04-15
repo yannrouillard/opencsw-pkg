@@ -16,13 +16,14 @@ DISTFILES  = $(SPKG_NAME)-$(VERSION).tar.gz
 #DISTFILES  = $(SPKG_NAME)-$(VERSION)-rc3.tar.gz
 DISTFILES += COPYING
 
+WORKSRC = $(WORKDIR)/$(SPKG_NAME)-$(VERSION)
+SPKG_SOURCEURL = http://spamassassin.apache.org/
+
 RUNTIME_DEP_PKGS  = CSWgnupg
-RUNTIME_DEP_PKGS += CSWosslrt
 RUNTIME_DEP_PKGS += CSWperl
 RUNTIME_DEP_PKGS += CSWpm-dbi
 RUNTIME_DEP_PKGS += CSWpm-html-parser
 RUNTIME_DEP_PKGS += CSWpm-io-socket-inet6
-RUNTIME_DEP_PKGS += CSWpm-io-socket-ssl
 RUNTIME_DEP_PKGS += CSWpmiozlib
 RUNTIME_DEP_PKGS += CSWpmipcountry
 RUNTIME_DEP_PKGS += CSWpm-ldap
@@ -32,10 +33,10 @@ RUNTIME_DEP_PKGS += CSWpmmailspf
 RUNTIME_DEP_PKGS += CSWpmmailtools
 RUNTIME_DEP_PKGS += CSWpm-mime-base64
 RUNTIME_DEP_PKGS += CSWpm-netaddr-ip
-RUNTIME_DEP_PKGS += CSWpmnetdns
-RUNTIME_DEP_PKGS += CSWpmuri
+RUNTIME_DEP_PKGS += CSWpm-net-dns
+RUNTIME_DEP_PKGS += CSWpm-uri
 RUNTIME_DEP_PKGS += CSWrazor
-RUNTIME_DEP_PKGS += CSWzlib
+RUNTIME_DEP_PKGS += CSWlibz1
 
 SAMPLECONF  = /etc/opt/csw/spamassassin/.+\.pre\.CSW
 SAMPLECONF += /etc/opt/csw/spamassassin/local\.cf\.CSW
@@ -51,62 +52,31 @@ MIGRATE_DEST_DIR   = /etc/opt/csw/spamassassin
 CONFIGURE_SCRIPTS = custom
 BUILD_SCRIPTS     = custom
 TEST_SCRIPTS      = custom
-#TEST_SCRIPTS      = 
 INSTALL_SCRIPTS   = custom
 
-CHECKPKG_OVERRIDES_CSWspamassassin += surplus-dependency|CSWpmnetdns
+# Doc samples
+CHECKPKG_OVERRIDES_CSWspamassassin += file-with-bad-content
+# Checkpkg can't determine perl deps
+CHECKPKG_OVERRIDES_CSWspamassassin += surplus-dependency|CSWpmmaildkim
+CHECKPKG_OVERRIDES_CSWspamassassin += surplus-dependency|CSWpm-html-parser
 CHECKPKG_OVERRIDES_CSWspamassassin += surplus-dependency|CSWpm-mime-base64
 CHECKPKG_OVERRIDES_CSWspamassassin += surplus-dependency|CSWgnupg
 CHECKPKG_OVERRIDES_CSWspamassassin += surplus-dependency|CSWpm-netaddr-ip
 CHECKPKG_OVERRIDES_CSWspamassassin += surplus-dependency|CSWpm-ldap
 CHECKPKG_OVERRIDES_CSWspamassassin += surplus-dependency|CSWpm-dbi
-CHECKPKG_OVERRIDES_CSWspamassassin += surplus-dependency|CSWpm-io-socket-ssl
 CHECKPKG_OVERRIDES_CSWspamassassin += surplus-dependency|CSWpmmailspf
 CHECKPKG_OVERRIDES_CSWspamassassin += surplus-dependency|CSWrazor
-CHECKPKG_OVERRIDES_CSWspamassassin += surplus-dependency|CSWpmuri
 CHECKPKG_OVERRIDES_CSWspamassassin += surplus-dependency|CSWpm-io-socket-inet6
 CHECKPKG_OVERRIDES_CSWspamassassin += surplus-dependency|CSWpmmailtools
-CHECKPKG_OVERRIDES_CSWspamassassin += surplus-dependency|CSWzlib
 CHECKPKG_OVERRIDES_CSWspamassassin += surplus-dependency|CSWpm-libwww-perl
 CHECKPKG_OVERRIDES_CSWspamassassin += surplus-dependency|CSWpmiozlib
-CHECKPKG_OVERRIDES_CSWspamassassin += surplus-dependency|CSWosslrt
 CHECKPKG_OVERRIDES_CSWspamassassin += surplus-dependency|CSWpmipcountry
-CHECKPKG_OVERRIDES_CSWspamassassin += surplus-dependency|CSWpmmaildkim
-CHECKPKG_OVERRIDES_CSWspamassassin += surplus-dependency|CSWpm-html-parser
-CHECKPKG_OVERRIDES_CSWspamassassin += file-with-bad-content|/usr/local|root/opt/csw/bin/spamassassin
-CHECKPKG_OVERRIDES_CSWspamassassin += file-with-bad-content|/usr/local|root/opt/csw/share/perl/csw/Mail/SpamAssassin.pm
-CHECKPKG_OVERRIDES_CSWspamassassin += file-with-bad-content|/usr/local|root/opt/csw/share/man/man1/spamassassin.1
-CHECKPKG_OVERRIDES_CSWspamassassin += file-with-bad-content|/usr/local|root/opt/csw/share/doc/spamassassin/sql/README
-CHECKPKG_OVERRIDES_CSWspamassassin += file-with-bad-content|/usr/share|root/opt/csw/bin/spamd
-CHECKPKG_OVERRIDES_CSWspamassassin += file-with-bad-content|/usr/share|root/opt/csw/bin/spamassassin
-CHECKPKG_OVERRIDES_CSWspamassassin += file-with-bad-content|/usr/local|root/opt/csw/share/doc/spamassassin/README
-CHECKPKG_OVERRIDES_CSWspamassassin += file-with-bad-content|/usr/share|root/opt/csw/bin/sa-compile
-CHECKPKG_OVERRIDES_CSWspamassassin += file-with-bad-content|/usr/share|root/opt/csw/bin/sa-learn
-CHECKPKG_OVERRIDES_CSWspamassassin += file-with-bad-content|/usr/share|root/opt/csw/share/perl/csw/Mail/SpamAssassin/Util/DependencyInfo.pm
-CHECKPKG_OVERRIDES_CSWspamassassin += file-with-bad-content|/usr/share|root/opt/csw/share/perl/csw/Mail/SpamAssassin/Conf.pm
-CHECKPKG_OVERRIDES_CSWspamassassin += file-with-bad-content|/usr/share|root/opt/csw/share/perl/csw/spamassassin-run.pod
-CHECKPKG_OVERRIDES_CSWspamassassin += file-with-bad-content|/usr/share|root/opt/csw/share/perl/csw/Mail/SpamAssassin.pm
-CHECKPKG_OVERRIDES_CSWspamassassin += file-with-bad-content|/usr/share|root/opt/csw/share/perl/csw/Mail/SpamAssassin/Locales.pm
-CHECKPKG_OVERRIDES_CSWspamassassin += file-with-bad-content|/usr/share|root/opt/csw/share/man/man1/sa-learn.1
-CHECKPKG_OVERRIDES_CSWspamassassin += file-with-bad-content|/usr/share|root/opt/csw/share/man/man1/spamd.1
-CHECKPKG_OVERRIDES_CSWspamassassin += file-with-bad-content|/usr/share|root/opt/csw/share/man/man1/sa-compile.1
-CHECKPKG_OVERRIDES_CSWspamassassin += file-with-bad-content|/usr/share|root/opt/csw/share/man/man1/spamassassin.1
-CHECKPKG_OVERRIDES_CSWspamassassin += file-with-bad-content|/usr/share|root/opt/csw/share/man/man3/spamassassin-run.3perl
-CHECKPKG_OVERRIDES_CSWspamassassin += file-with-bad-content|/usr/share|root/opt/csw/share/man/man1/spamassassin-run.1
-CHECKPKG_OVERRIDES_CSWspamassassin += file-with-bad-content|/usr/share|root/opt/csw/share/man/man3/Mail::SpamAssassin::Conf.3perl
-CHECKPKG_OVERRIDES_CSWspamassassin += file-with-bad-content|/usr/share|root/opt/csw/share/doc/spamassassin/README
-CHECKPKG_OVERRIDES_CSWspamassassin += file-with-bad-content|/usr/share|root/opt/csw/share/doc/spamassassin/USAGE
+CHECKPKG_OVERRIDES_CSWspamassassin += surplus-dependency|CSWpm-uri
+CHECKPKG_OVERRIDES_CSWspamassassin += surplus-dependency|CSWpm-net-dns
+# Couldn't make this work...
+CHECKPKG_OVERRIDES_CSWspamassassin += no-direct-binding|/opt/csw/bin/spamc|is|not|directly|bound|to|soname|libz.so.1
 
 include gar/category.mk
-
-WORKSRC = $(WORKDIR)/$(SPKG_NAME)-$(VERSION)
-SPKG_SOURCEURL = http://spamassassin.apache.org/
-
-ifeq ($(shell uname -p), sparc)
-  SEDCFLAGS = -xarch=v8
-else
-  SEDCFLAGS = 
-endif
 
 configure-custom:
 	@echo " ==> Configuring $(NAME) (custom)"
@@ -114,12 +84,12 @@ configure-custom:
 	   perl Makefile.PL INSTALLDIRS=vendor DESTDIR=$(DESTDIR) CONFDIR=/etc/opt/csw/spamassassin LOCALSTATEDIR=/var/opt/csw/spamassassin CONTACT_ADDRESS=postmaster )
 	@$(MAKECOOKIE)
 
-pre-build-modulated:
-	@echo " ==> Pre-build $(NAME) (custom)"
-	@( cd $(WORKSRC)/spamc ; \
-	   sed 's/CFLAGS = /CFLAGS = $(SEDCFLAGS) /' Makefile.in > Makefile.tmp ; \
-	   cp Makefile.tmp Makefile.in )
-	@$(MAKECOOKIE)
+#pre-build-modulated:
+#	@echo " ==> Pre-build $(NAME) (custom)"
+#	@( cd $(WORKSRC)/spamc ; \
+#	   sed 's/LDFLAGS = /LDFLAGS = -Bdirect -z ignore /' Makefile.in > Makefile.tmp ; \
+#	   cp Makefile.tmp Makefile.in )
+#	@$(MAKECOOKIE)
 
 build-custom:
 	@echo " ==> Building $(NAME) (custom)"
