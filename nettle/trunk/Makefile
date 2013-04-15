@@ -2,7 +2,7 @@
 # TODO (release-critical prefixed with !, non release-critical with *)
 #
 NAME = nettle
-VERSION = 2.5
+VERSION = 2.6
 GARTYPE = v2
 
 DESCRIPTION = A low-level cryptographic library
@@ -41,7 +41,9 @@ SPKG_DESC_CSWlibnettle-utils = Utility programs for libnettle
 # PKGFILES is catchall
 RUNTIME_DEP_PKGS_CSWlibnettle-utils += CSWlibhogweed2
 RUNTIME_DEP_PKGS_CSWlibnettle-utils += CSWlibnettle4
-RUNTIME_DEP_PKGS_CSWlibnettle-utils += CSWlibgmp10
+
+# This is just the default location
+CHECKPKG_OVERRIDES_CSWlibnettle-utils += file-with-bad-content|/usr/local|root/opt/csw/share/info/nettle.info
 
 BUILD64_LIBS_ONLY = 1
 
@@ -52,7 +54,7 @@ CONFIGURE_ARGS += --enable-shared
 CONFIGURE_ARGS += --disable-assembler
 
 # This is the default install location after configure
-CHECKPKG_OVERRIDES_CSWlibnettle-utils += file-with-bad-content|/usr/local|root/opt/csw/share/info/nettle.info
+6HECKPKG_OVERRIDES_CSWlibnettle-utils += file-with-bad-content|/usr/local|root/opt/csw/share/info/nettle.info
 
 include gar/category.mk
 
