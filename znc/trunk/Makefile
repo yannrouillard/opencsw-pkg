@@ -2,7 +2,7 @@
 # TODO (release-critical prefixed with !, non release-critical with *)
 #
 NAME = znc
-VERSION = 0.206
+VERSION = 1.0
 GARTYPE = v2
 
 DESCRIPTION = ZNC, an advanced IRC bouncer
@@ -44,7 +44,7 @@ RUNTIME_DEP_PKGS_CSWznc-dev += CSWlibcares-dev
 # UPSTREAM_MASTER_SITES = 
 
 PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386
-GARCOMPILER = GCC4
+GARCOMPILER = GNU
 CONFIGURE_ARGS = $(DIRPATHS) 
 
 # --enable-perl and --enable-python do not work. perl autotools check is broke; python module does not compile
