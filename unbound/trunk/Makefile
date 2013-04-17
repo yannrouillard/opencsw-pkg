@@ -20,11 +20,13 @@ PACKAGES = CSWunbound CSWlibunbound2 CSWunbound-devel CSWunbound-host
 # We define upstream file regex so we can be notifed of new upstream software release
 UFILES_REGEX = $(NAME)-(\d+(?:\.\d+)*).tar.gz
 
+PATCHFILES += 0001-fix-preprocessing-bug.patch
+
 # If the url used to check for software update is different of MASTER_SITES, then 
 # uncomment the next line. Otherwise it is set by default to the value of MASTER_SITES
 # UPSTREAM_MASTER_SITES = 
 
-#CONFIGURE_ARGS  = $(DIRPATHS)
+CONFIGURE_ARGS  = $(DIRPATHS)
 CONFIGURE_ARGS += --with-libevent=/opt/csw
 CONFIGURE_ARGS += --with-libexpat=/opt/csw
 CONFIGUTE_ARGS += --with-solaris-threads
