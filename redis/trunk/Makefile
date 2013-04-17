@@ -2,14 +2,12 @@
 # TODO (release-critical prefixed with !, non release-critical with *)
 #
 NAME = redis
-VERSION = 2.6.9
+VERSION = 2.6.12
 
 DESCRIPTION = An advanced key-value store
 
 MASTER_SITES = $(GOOGLE_MIRROR)
 DISTFILES  = $(DISTNAME).tar.gz
-
-PATCHFILES += 0001-backtrace-is-only-available-on-Solaris-11.patch
 
 PACKAGES += CSWredis
 SPKG_DESC_CSWredis = An advanced key-value store
@@ -18,6 +16,8 @@ BUILD64 = 1
 ISAEXEC = 1
 
 GARCOMPILER = GNU
+
+PATCHFILES += 0001-Fix-tclsh-finding.patch
 
 # These are set in the Makefile and are not inherited when we force our CFLAGS in
 EXTRA_CFLAGS += -std=c99 -pedantic -Wall -W -D__EXTENSIONS__ -D_XPG6
