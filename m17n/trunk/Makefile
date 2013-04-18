@@ -2,7 +2,7 @@
 # TODO (release-critical prefixed with !, non release-critical with *)
 #
 NAME = m17n
-VERSION = 1.6.3
+VERSION = 1.6.4
 GARTYPE = v2
 
 DESCRIPTION = A multilingual text processing library for the C language.
@@ -17,7 +17,7 @@ define BLURB
 	and edit the text.
 endef
 
-MASTER_SITES = http://www.m17n.org/m17n-lib-download/
+MASTER_SITES = http://download.savannah.gnu.org/releases/m17n/
 
 DISTNAME	=	$(NAME)-lib-$(VERSION)
 DISTFILES	=	$(DISTNAME).tar.gz
