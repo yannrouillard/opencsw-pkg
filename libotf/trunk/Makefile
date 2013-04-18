@@ -1,6 +1,5 @@
 # $Id$
-# TODO (release-critical prefixed with !, non release-critical with *)
-#
+
 NAME = libotf
 VERSION = 0.9.12
 GARTYPE = v2
@@ -53,11 +52,10 @@ SPKG_DESC_CSWlibotf-utils			=	$(DESCRIPTION) - utilities
 CATALOGNAME_CSWlibotf-utils			=	libotf_utils
 OBSOLETED_BY_CSWlibotf-utils		+=	CSWlibotf
 RUNTIME_DEP_PKGS_CSWlibotf-utils	+=	\
-										CSWlibotf0
-# checkpkg cincorrectly complains about this:
-CHECKPKG_OVERRIDES_CSWlibotf-utils += missing-dependency|CSWlibbz2-1-0
-CHECKPKG_OVERRIDES_CSWlibotf-utils += missing-dependency|CSWlibz1
-CHECKPKG_OVERRIDES_CSWlibotf-utils += missing-dependency|CSWlibfreetype6
+										CSWlibotf0 \
+										CSWlibbz2-1-0 \
+										CSWlibfreetype6 \
+										CSWlibz1
 
 include gar/category.mk
 
