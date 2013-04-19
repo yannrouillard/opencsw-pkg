@@ -41,9 +41,6 @@ RUNTIME_DEP_PKGS_CSWznc-dev += CSWznc
 RUNTIME_DEP_PKGS_CSWznc-dev += CSWlibcares-dev
 
 
-# there is /usr/share/lib/zoneinfo
-CHECKPKG_OVERRIDES_CSWznc += file-with-bad-content|/usr/share|root/opt/csw/bin/znc
-
 # File name regex to get notifications about upstream software releases
 # NOTE: Use this only if the automatic regex creation
 #       does not work for your package
