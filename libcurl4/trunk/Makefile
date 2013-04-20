@@ -19,13 +19,6 @@ DISTFILES += $(NAME)-$(VERSION).tar.lzma
 # Because of OpenSSL 1.0 update
 PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386
 
-FOREIGN_PACKAGES += CSWlibcurl2
-OBSOLETED_BY_CSWlibcurl2 += CSWcurlrt
-CATALOGNAME_CSWcurlrt = curl_rt_stub
-
-FOREIGN_PACKAGES += CSWlibcurl3
-OBSOLETED_BY_CSWlibcurl3 += CSWcurlrt
-
 PACKAGES += CSWlibcurl4
 CATALOGNAME_CSWlibcurl4 = libcurl4
 SPKG_DESC_CSWlibcurl4 = Library for client-side URL transfers, libcurl.so.4
@@ -76,12 +69,6 @@ RUNTIME_DEP_PKGS_CSWcurl += CSWlibz1
 #RUNTIME_DEP_PKGS_CSWcurl += CSWlibidn11
 RUNTIME_DEP_PKGS_CSWcurl += CSWlibcurl4
 #RUNTIME_DEP_PKGS_CSWcurl += CSWlibssl1-0-0
-# Double-legacy packages may not even depend on CSWcurlrt, so we must
-# also directly depend on CSWlibcurl2 and CSWlibcurl3
-RUNTIME_DEP_PKGS_CSWcurl += CSWlibcurl2
-RUNTIME_DEP_PKGS_CSWcurl += CSWlibcurl3
-CHECKPKG_OVERRIDES_CSWcurl += surplus-dependency|CSWlibcurl2
-CHECKPKG_OVERRIDES_CSWcurl += surplus-dependency|CSWlibcurl3
 
 BUILD_DEP_PKGS += CSWopenldap-dev
 BUILD_DEP_PKGS += CSWlibssl-dev
