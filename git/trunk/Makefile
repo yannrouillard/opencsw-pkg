@@ -243,8 +243,12 @@ post-install-modulated:
 	@echo Installing Bash Completion files
 	@( cd $(WORKSRC); \
 		ginstall -c -m 0755 -d $(BD); \
-		cp contrib/completion/* \
-			$(BD)/ )
+		cp contrib/completion/git-completion.bash $(BD)/; \
+		cp contrib/completion/git-prompt.sh $(BD)/; \
+		ginstall -c -m 0755 -d $(GD); \
+		cp contrib/completion/git-completion.tcsh $(GD)/; \
+		cp contrib/completion/git-completion.zsh $(GD)/; \
+		)
 	@( cd $(WORKSRC)/contrib/hooks; \
 		perl -pi -e 's!/usr/share/doc/git-core!/opt/csw/share/doc/git!' post-receive-email; \
 		ginstall -c -d -m 0755 $(CONTHOOKS); \
