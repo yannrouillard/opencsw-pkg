@@ -1,21 +1,23 @@
 NAME = tmux
-VERSION = 1.7
+VERSION = 1.8
 GARTYPE = v2
 
 DESCRIPTION = Terminal Multiplexer
 
 MASTER_SITES = $(SF_MIRRORS)
+MASTER_SITES += http://sourceforge.net/code-snapshots/git/u/u/u/dmichelsen/tmux.git/
+DISTNAME = u-dmichelsen-tmux-2c4543b9e9bd38bcc45393dad94930bcde872e6c
 DISTFILES  = $(DISTNAME).tar.gz
 
-# From http://pkgbuild.svn.sourceforge.net/viewvc/pkgbuild/spec-files-extra/trunk/patches/
-PATCHFILES += tmux-01-include-netdb.h.diff
-#PATCHFILES += tmux-02-u-for-process-group.patch
-
-RUNTIME_DEP_PKGS = CSWlibevent2-0-5
-BUILD_DEP_PKGS = CSWlibevent-dev
+#PATCHFILES += 0001-Modifications-for-Solaris-to-use-fcntl-instead-of-fl.patch
 
 LICENSE = NOTES
+
 VENDOR_URL = http://tmux.sourceforge.net
+
+BUILD_DEP_PKGS = CSWlibevent-dev
+
+RUNTIME_DEP_PKGS = CSWlibevent2-0-5
 
 # EXTRA_CPPFLAGS += -I/opt/csw/include/ncursesw
 #EXTRA_CPPFLAGS += -D__inline=inline
@@ -29,11 +31,12 @@ REINPLACE_WITH_tmuxconf = $(sysconfdir)/tmux.conf
 REINPLACE_FILES_tmuxconf += tmux.h
 REINPLACE_FILES_tmuxconf += tmux.1
 
-# For LOCK_EX
-EXTRA_CPPFLAGS += -I/usr/ucbinclude
-
-CONFIGURE_ENV_PATH = /opt/csw/gnu:$(PATH)
+# CONFIGURE_ENV_PATH = /opt/csw/gnu:$(PATH)
 
 PRESERVECONF += $(sysconfdir)/tmux.conf
 
 include gar/category.mk
+
+post-extract:
+	cd $(WORKSRC) && ./autogen.sh
+	@$(MAKECOOKIE)
