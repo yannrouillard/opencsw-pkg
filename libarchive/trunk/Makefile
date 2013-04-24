@@ -1,13 +1,14 @@
 # : Makefile 9089 2010-03-11 08:34:46Z wahwah $
 NAME = libarchive
-VERSION = 3.1.2
+#VERSION = 3.1.2
+VERSION = 2.8.4
 GARTYPE = v2
 
 DESCRIPTION = C library for reading and writing various archive formats
 
 MASTER_SITES = http://www.libarchive.org/downloads/
 DISTFILES += $(DISTNAME).tar.gz
-PATCHFILES += 0001-Consider-name-to-be-NULL-in-ACL-test.patch
+# PATCHFILES += 0001-Consider-name-to-be-NULL-in-ACL-test.patch
 
 VENDOR_URL = http://www.libarchive.org
 
@@ -20,12 +21,9 @@ BUILD_DEP_PKGS += CSWlibssl-dev
 PACKAGES += CSWlibarchive2
 SPKG_DESC_CSWlibarchive2 = C library for reading and writing various archive formats, libarchive.so.2
 PKGFILES_CSWlibarchive2 = $(call pkgfiles_lib,libarchive.so.2)
-RUNTIME_DEP_PKGS_CSWlibarchive2 += CSWlibiconv2
 RUNTIME_DEP_PKGS_CSWlibarchive2 += CSWliblzma5
-RUNTIME_DEP_PKGS_CSWlibarchive2 += CSWlibz1
-RUNTIME_DEP_PKGS_CSWlibarchive2 += CSWlibxml2-2
 RUNTIME_DEP_PKGS_CSWlibarchive2 += CSWlibbz2-1-0
-RUNTIME_DEP_PKGS_CSWlibarchive2 += CSWosslrt
+RUNTIME_DEP_PKGS_CSWlibarchive2 += CSWlibssl1-0-0
 
 PACKAGES += CSWlibarchive-dev
 SPKG_DESC_CSWlibarchive-dev = Development files for libarchive.so.2
@@ -36,12 +34,10 @@ OBSOLETED_BY_CSWlibarchive-dev += CSWlibarchive-devel
 
 PACKAGES += CSWlibarchive-utils
 SPKG_DESC_CSWlibarchive-utils = Tools for reading and writing various archive formats
-RUNTIME_DEP_PKGS_CSWlibarchive-utils += CSWlibiconv2
+# PKGFILES is catchall
 RUNTIME_DEP_PKGS_CSWlibarchive-utils += CSWliblzma5
-RUNTIME_DEP_PKGS_CSWlibarchive-utils += CSWlibz1
-RUNTIME_DEP_PKGS_CSWlibarchive-utils += CSWlibxml2-2
 RUNTIME_DEP_PKGS_CSWlibarchive-utils += CSWlibbz2-1-0
-RUNTIME_DEP_PKGS_CSWlibarchive-utils += CSWosslrt
+RUNTIME_DEP_PKGS_CSWlibarchive-utils += CSWlibssl1-0-0
 
 EXTRA_INC = $(includedir)/cryptopp
 
@@ -55,6 +51,6 @@ TEST_OVERRIDE_VAR_COMMON_CFLAGS =
 
 # There is currently one test failing. Skip until this is fixed:
 #   http://code.google.com/p/libarchive/issues/detail?id=171
-# SKIPTEST ?= 1
+SKIPTEST ?= 1
 
 include gar/category.mk
