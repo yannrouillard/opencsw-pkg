@@ -32,6 +32,12 @@ PATCHFILES += 0005-Change-default-PID-file-location-to-var-opt-csw-ntop.patch
 PATCHFILES += 0006-Temporary-Fix-for-Broken-sourceforge-CVS-access.patch
 PATCHFILES += 0007-Update-defaults-from-usr-local-to-opt-csw-etc-opt-cs.patch
 
+# Added by bwalton to make auto* happy again; These should likely be
+# upstreamed.
+PATCHFILES += 0001-Update-macros-used-in-Makefile.am-for-modern-convent.patch
+PATCHFILES += 0002-Modernize-a-few-macros-in-configure.in.patch
+PATCHFILES += 0003-Add-an-extra-automake-option-for-per-target-compiler.patch
+
 # We define upstream file regex so we can be notifed of new upstream software release
 UPSTREAM_MASTER_SITES = $(SF_PROJECT_SHOWFILE)=17233
 UPSTREAM_USE_SF = 1
