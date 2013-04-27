@@ -13,6 +13,9 @@ define BLURB
   Unix, MS Windows, OS/2, Macintosh, VMS, and Amiga.
 endef
 
+# Let's build a CLI vim for those stuck with S9
+PACKAGING_PLATFORMS += solaris9-sparc solaris9-i386
+
 PACKAGES           = CSWvim
 CATALOGNAME_CSWvim = vim
 SPKG_DESC_CSWvim   = Vi IMproved without GUI
@@ -55,6 +58,7 @@ DISTFILES += COPYING
 PATCHFILES  = $(foreach T,$(shell gseq -f "%03g" 001 $(PATCHREV)),$(DISTVERSION).$(T))
 
 PATCHFILES += 0003-solaris-sleep-does-not-do-decimals.patch
+PATCHFILES += 0004-solaris9-msgfmt-hates-empty-files.patch
 
 PATCHDIRLEVEL = 0
 
@@ -81,7 +85,6 @@ BUILD_ARGS += "VIMRUNTIMEDIR=/opt/csw/share/vim/vim$(subst .,,$(DISTVERSION))"
 
 # Note: Tests require controlling terminal
 TEST_TARGET = test
-
 
 include gar/category.mk
 
