@@ -1,5 +1,5 @@
 NAME = sqlite3
-VERSION = 3070900
+VERSION = 3071602
 GARTYPE = v2
 
 DESCRIPTION  = An embeddable SQL engine in a C library
@@ -9,10 +9,12 @@ define BLURB
 endef
 
 # Download informations
-MASTER_SITES = http://sqlite.org/
+MASTER_SITES = http://sqlite.org/2013/
 DISTNAME = sqlite-autoconf-$(VERSION)
 DISTFILES += $(DISTNAME).tar.gz
 DISTFILES += copyright-release.html
+
+VENDOR_URL = http://sqlite.org
 
 LICENSE = copyright-release.html
 
