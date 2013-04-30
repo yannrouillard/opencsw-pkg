@@ -39,7 +39,7 @@ PROTOTYPE_GROUP_example = cswgroup
 PROTOTYPE_PERMS_example = 0700
 PROTOTYPE_CLASS_example = ugfiles
 
-SPKG_CLASSES = none ugfiles
+# SPKG_CLASSES = none ugfiles
 
 include gar/category.mk
 
