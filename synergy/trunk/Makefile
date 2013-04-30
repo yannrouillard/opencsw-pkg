@@ -1,7 +1,7 @@
 # TODO (release-critical prefixed with !, non release-critical with *)
 #
 NAME = synergy
-VERSION = 1.4.10
+VERSION = 1.4.11
 GARTYPE = v2
 
 DESCRIPTION = Software-based TCP/IP "KVM" switch
@@ -20,9 +20,10 @@ VENDOR_URL = http://synergy-foss.org/
 
 GARCOMPILER = GNU
 
-PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386
-
 PATCHFILES += 0001-change-endiness-detection.patch
+PATCHFILES_sparc += 0001-remove-march.patch
+PATCHFILES_sparc += 0003-mess-with-cpp.patch
+PATCHFILES += $(PATCHFILES_$(GARCH))
 
 RUNTIME_DEP_PKGS_CSWsynergy += CSWlibgcc-s1
 RUNTIME_DEP_PKGS_CSWsynergy += CSWlibstdc++6
@@ -33,8 +34,8 @@ RUNTIME_DEP_PKGS_CSWsynergy += CSWlibstdc++6
 # http://forge.mysql.com/wiki/Autotools_to_CMake_Transition_Guide
 
 CMAKE_ARGS += -DCMAKE_INSTALL_PREFIX=$(prefix)
-CMAKE_ARGS += -DCMAKE_C_FLAGS="$(CFLAGS)"
-CMAKE_ARGS += -DCMAKE_CXX_FLAGS="$(CXXFLAGS)"
+CMAKE_ARGS += -DCMAKE_C_FLAGS="$(CFLAGS) -lresolv -lsocket -lnsl -lrt"
+CMAKE_ARGS += -DCMAKE_CXX_FLAGS="$(CXXFLAGS) -lresolv -lsocket -lnsl -lrt"
 CMAKE_ARGS += -DCMAKE_INCLUDE_PATH="$(includedir)"
 CMAKE_ARGS += "-DCMAKE_C_FLAGS=$(CFLAGS)"
 CMAKE_ARGS += "-DCMAKE_CXX_FLAGS=$(CXXFLAGS)"
@@ -48,6 +49,10 @@ SKIPTEST ?= 1
 
 include gar/category.mk
 
+pre-configure-modulated:
+	(cd $(WORKSRC) && mkdir tools/cryptopp562 && cd tools/cryptopp562 && unzip -q ../cryptopp562.zip)
+	@$(MAKECOOKIE)
+
 
 configure-custom:
 	#		--debug-output \
@@ -55,7 +60,7 @@ configure-custom:
 	(cd $(WORKSRC) && \
 	 	/usr/bin/env -i \
 		  $(CONFIGURE_ENV) \
-			cmake \
+			cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release \
 			. \
 			$(CMAKE_ARGS))
 	@$(MAKECOOKIE)
@@ -74,6 +79,9 @@ install-custom:
 		$(DESTDIR)$(bindir)
 	ginstall \
 		$(WORKSRC)/bin/synergys \
+		$(DESTDIR)$(bindir)
+	ginstall \
+		$(WORKSRC)/bin/synergyd \
 		$(DESTDIR)$(bindir)
 	ginstall -m 644 \
 		$(WORKSRC)/doc/synergyc.man \
