@@ -43,32 +43,33 @@ SKIPTEST = 1
 
 LICENSE = LICENSE
 
-EXTRA_BUILD_ISAS_i386   = amd64
-EXTRA_BUILD_ISAS_sparc  = sparcv9
+# 64-Bit build disabled
+#EXTRA_BUILD_ISAS_i386   = amd64
+#EXTRA_BUILD_ISAS_sparc  = sparcv9
 
-MERGE_DIRS_isa-sparcv9  = $(libdir)
-MERGE_DIRS_isa-sparcv9 += $(sbindir)
-MERGE_DIRS_isa-amd64  = $(libdir)
-MERGE_DIRS_isa-amd64 += $(sbindir)
+#MERGE_DIRS_isa-sparcv9  = $(libdir)
+#MERGE_DIRS_isa-sparcv9 += $(sbindir)
+#MERGE_DIRS_isa-amd64  = $(libdir)
+#MERGE_DIRS_isa-amd64 += $(sbindir)
 
-ISAXEC_DIRS                  = $(sbindir)
-EXTRA_ISAEXEC_EXCLUDE_FILES  = $(sbindir)/unbound-anchor
-EXTRA_ISAEXEC_EXCLUDE_FILES += $(sbindir)/unbound-checkconf
-EXTRA_ISAEXEC_EXCLUDE_FILES += $(sbindir)/unbound-control
-EXTRA_ISAEXEC_EXCLUDE_FILES += $(sbindir)/unbound-control-setup
-EXTRA_ISAEXEC_EXCLUDE_FILES += $(sbindir)/unbound-host
+#ISAXEC_DIRS                  = $(sbindir)
+#EXTRA_ISAEXEC_EXCLUDE_FILES  = $(sbindir)/unbound-anchor
+#EXTRA_ISAEXEC_EXCLUDE_FILES += $(sbindir)/unbound-checkconf
+#EXTRA_ISAEXEC_EXCLUDE_FILES += $(sbindir)/unbound-control
+#EXTRA_ISAEXEC_EXCLUDE_FILES += $(sbindir)/unbound-control-setup
+#EXTRA_ISAEXEC_EXCLUDE_FILES += $(sbindir)/unbound-host
 
-EXTRA_MERGE_EXCLUDE_FILES_isa-amd64  = $(prefix)/sbin/unbound-anchor
-EXTRA_MERGE_EXCLUDE_FILES_isa-amd64 += $(prefix)/sbin/unbound-checkconf
-EXTRA_MERGE_EXCLUDE_FILES_isa-amd64 += $(prefix)/sbin/unbound-control
-EXTRA_MERGE_EXCLUDE_FILES_isa-amd64 += $(prefix)/sbin/unbound-control-setup
-EXTRA_MERGE_EXCLUDE_FILES_isa-amd64 += $(prefix)/sbin/unbound-host
+#EXTRA_MERGE_EXCLUDE_FILES_isa-amd64  = $(prefix)/sbin/unbound-anchor
+#EXTRA_MERGE_EXCLUDE_FILES_isa-amd64 += $(prefix)/sbin/unbound-checkconf
+#EXTRA_MERGE_EXCLUDE_FILES_isa-amd64 += $(prefix)/sbin/unbound-control
+#EXTRA_MERGE_EXCLUDE_FILES_isa-amd64 += $(prefix)/sbin/unbound-control-setup
+#EXTRA_MERGE_EXCLUDE_FILES_isa-amd64 += $(prefix)/sbin/unbound-host
 
-EXTRA_MERGE_EXCLUDE_FILES_isa-sparcv9  = $(prefix)/sbin/unbound-anchor
-EXTRA_MERGE_EXCLUDE_FILES_isa-sparcv9 += $(prefix)/sbin/unbound-checkconf
-EXTRA_MERGE_EXCLUDE_FILES_isa-sparcv9 += $(prefix)/sbin/unbound-control
-EXTRA_MERGE_EXCLUDE_FILES_isa-sparcv9 += $(prefix)/sbin/unbound-control-setup
-EXTRA_MERGE_EXCLUDE_FILES_isa-sparcv9 += $(prefix)/sbin/unbound-host
+#EXTRA_MERGE_EXCLUDE_FILES_isa-sparcv9  = $(prefix)/sbin/unbound-anchor
+#EXTRA_MERGE_EXCLUDE_FILES_isa-sparcv9 += $(prefix)/sbin/unbound-checkconf
+#EXTRA_MERGE_EXCLUDE_FILES_isa-sparcv9 += $(prefix)/sbin/unbound-control
+#EXTRA_MERGE_EXCLUDE_FILES_isa-sparcv9 += $(prefix)/sbin/unbound-control-setup
+#EXTRA_MERGE_EXCLUDE_FILES_isa-sparcv9 += $(prefix)/sbin/unbound-host
 
 SPKG_CLASSES_CSWunbound = none cswusergroup cswcpsampleconf cswinitsmf
 INITSMF                 = /etc/opt/csw/init.d/cswunbound
