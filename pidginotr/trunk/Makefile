@@ -8,11 +8,8 @@ define BLURB
 endef
 
 MASTER_SITES = http://www.cypherpunks.ca/otr/
-DISTFILES  = $(NAME)-$(VERSION).tar.gz
+DISTFILES  = $(DISTNAME).tar.gz
 #PATCHFILES = otr_priority.patch
-
-# We define upstream file regex so we can be notifed of new upstream software release
-UFILES_REGEX = -(\d+(?:\.\d+)*).tar.gz
 
 # For msgfmt, msgmerge, xgettext and gettext to be used from GNU
 CONFIGURE_ENV_PATH = $(prefix)/gnu:$(PATH)
