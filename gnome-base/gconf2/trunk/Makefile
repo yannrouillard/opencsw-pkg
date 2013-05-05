@@ -21,13 +21,20 @@ VENDOR_URL = http://projects.gnome.org/gconf/
 
 # Many more missing
 BUILD_DEP_PKGS += CSWlibdbus-glib-dev
+BUILD_DEP_PKGS += CSWlibxslt
+BUILD_DEP_PKGS += CSWgtk-doc
+BUILD_DEP_PKGS += CSWintltool
 
 PACKAGES += CSWlibgconf2-4
 SPKG_DESC_CSWlibgconf2-4 = GNOME configuration database system, libgconf-2.so.4
 PKGFILES_CSWlibgconf2-4 += $(call pkgfiles_lib,libgconf-2.so.4)
 PKGFILES_CSWlibgconf2-4 += $(call baseisadirs,$(libdir),GConf/2/.*)
 PKGFILES_CSWlibgconf2-4 += $(sharedstatedir)/locale/.*\.mo
+PKGFILES_CSWlibgconf2-4 += $(sharedstatedir)/dbus-1/services/.*
 PKGFILES_CSWlibgconf2-4 += $(sysconfdir)/gconf/.*
+PKGFILES_CSWlibgconf2-4 += $(bindir)/.*
+PKGFILES_CSWlibgconf2-4 += $(libexecdir)/.*
+PKGFILES_CSWlibgconf2-4 += $(mandir)/man.*
 RUNTIME_DEP_PKGS_CSWlibgconf2-4 += CSWorbit2
 RUNTIME_DEP_PKGS_CSWlibgconf2-4 += CSWlibgthread2-0-0
 RUNTIME_DEP_PKGS_CSWlibgconf2-4 += CSWlibgmodule2-0-0
@@ -35,8 +42,13 @@ RUNTIME_DEP_PKGS_CSWlibgconf2-4 += CSWlibintl8
 RUNTIME_DEP_PKGS_CSWlibgconf2-4 += CSWlibgobject2-0-0
 RUNTIME_DEP_PKGS_CSWlibgconf2-4 += CSWlibglib2-0-0
 RUNTIME_DEP_PKGS_CSWlibgconf2-4 += CSWlibxml2-2
-RUNTIME_DEP_PKGS_CSWlibgconf2-4 += CSWoldaprt
 RUNTIME_DEP_PKGS_CSWlibgconf2-4 += CSWlibgio2-0-0
+RUNTIME_DEP_PKGS_CSWlibgconf2-4 += CSWlibgtk-x11-2-0-0
+RUNTIME_DEP_PKGS_CSWlibgconf2-4 += CSWliblber2-4-2
+RUNTIME_DEP_PKGS_CSWlibgconf2-4 += CSWlibldap2-4-2
+RUNTIME_DEP_PKGS_CSWlibgconf2-4 += CSWlibdbus1-3
+RUNTIME_DEP_PKGS_CSWlibgconf2-4 += CSWlibdbus-glib1-2
+
 OBSOLETED_BY_CSWlibgconf2-4 += CSWgconf2
 
 PACKAGES += CSWlibgconf-dev
@@ -54,9 +66,6 @@ RUNTIME_DEP_PKGS_CSWlibgconf-dev += CSWlibdbus-glib1-2
 RUNTIME_DEP_PKGS_CSWlibgconf-dev += CSWlibdbus1-3
 RUNTIME_DEP_PKGS_CSWlibgconf-dev += CSWlibgio2-0-0
 
-# man-page only, override for now
-CHECKPKG_OVERRIDES_CSWlibgconf-dev += file-with-bad-content|/usr/share|root/opt/csw/share/man/man1/gsettings-data-convert.1
-
 BUILD64_LIBS_ONLY = 1
 
 STRIP_LIBTOOL = 1
@@ -64,6 +73,8 @@ STRIP_LIBTOOL = 1
 CONFIGURE_ARGS = $(DIRPATHS)
 CONFIGURE_ARGS += --enable-static=no
 CONFIGURE_ARGS += --enable-gtk-doc
+CONFIGURE_ARGS += --with-gtk=2.0
+CONFIGURE_ARGS += --enable-introspection=no
 
 # CONFIGURE_ARGS += --disable-defaults-service
 #The "defaults service" requires polkit. and dbus.
