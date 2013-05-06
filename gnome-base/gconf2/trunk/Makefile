@@ -74,7 +74,10 @@ CONFIGURE_ARGS = $(DIRPATHS)
 CONFIGURE_ARGS += --enable-static=no
 CONFIGURE_ARGS += --enable-gtk-doc
 CONFIGURE_ARGS += --with-gtk=2.0
-CONFIGURE_ARGS += --enable-introspection=no
+CONFIGURE_ARGS += --enable-introspection=yes
+
+# Needed for introspection
+EXTRA_BUILD_EXPORTS += PKG_CONFIG_PATH
 
 # CONFIGURE_ARGS += --disable-defaults-service
 #The "defaults service" requires polkit. and dbus.
