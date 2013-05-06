@@ -13,6 +13,8 @@ endef
 MASTER_SITES = $(GNOME_MIRROR)
 DISTFILES  = $(DISTNAME).tar.gz
 
+PACKAGING_PLATFORMS = solaris9-sparc solaris9-i386
+
 CONFIGURE_ARGS  = $(DIRPATHS)
 CONFIGURE_ARGS += --with-libiconv
 
