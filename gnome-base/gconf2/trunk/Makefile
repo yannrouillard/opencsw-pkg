@@ -24,6 +24,7 @@ BUILD_DEP_PKGS += CSWlibdbus-glib-dev
 BUILD_DEP_PKGS += CSWlibxslt
 BUILD_DEP_PKGS += CSWgtk-doc
 BUILD_DEP_PKGS += CSWintltool
+BUILD_DEP_PKGS += CSWgobject-introspection-dev
 
 PACKAGES += CSWlibgconf2-4
 SPKG_DESC_CSWlibgconf2-4 = GNOME configuration database system, libgconf-2.so.4
