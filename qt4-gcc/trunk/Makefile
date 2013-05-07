@@ -129,12 +129,12 @@ RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibglib2-0-0
 # RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibxml2-2
 RUNTIME_DEP_PKGS_CSWqt4-dev += CSWgstplugins
 RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibgcc-s1
-RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibsybdb5
+# RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibsybdb5
 RUNTIME_DEP_PKGS_CSWqt4-dev += CSWsqlite
-RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibpq5
-RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibodbc2
+# RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibpq5
+# RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibodbc2
 RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibtiff3
-RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibmysqlclient18
+# RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibmysqlclient18
 RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibicui18n50
 CHECKPKG_OVERRIDES_CSWqt4-dev += surplus-dependency|CSWlibicui18n50
 # These are code examples.
@@ -175,7 +175,7 @@ RUNTIME_DEP_PKGS_CSWlibqtnetwork4 += CSWlibgcc-s1
 RUNTIME_DEP_PKGS_CSWlibqtnetwork4 += CSWlibstdc++6
 RUNTIME_DEP_PKGS_CSWlibqtnetwork4 += CSWlibqtcore4
 CHECKPKG_OVERRIDES_CSWlibqtnetwork4 += file-with-bad-content|/usr/share|root/opt/csw/lib/libQtNetwork.so.4.8.1
-OBSOLETED_BY_CSWlibqtnetwork4 = CSWlibqtnetwork4
+OBSOLETED_BY_CSWlibqtnetwork4 = CSWlibqtnetwork4-gxx
 
 PACKAGES += CSWlibqtopengl4
 PKGFILES_CSWlibqtopengl4 += $(call baseisadirs,$(libdir),libQtOpenGL\.so\.4(\.\d+)*)
