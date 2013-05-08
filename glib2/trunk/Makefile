@@ -286,7 +286,8 @@ BUILD_DEP_PKGS += CSWgsed
 LD_OPTIONS =
 EXTRA_LINKER_FLAGS =
 
-EXTRA_CFLAGS = -features=extensions -xc99 -D_XPG6 #  -D__EXTENSIONS__ -D_XOPEN_SOURCE=600 
+# -xO4 is necessary on sparc so that function inlining happens as expected
+EXTRA_CFLAGS = -xO4 -features=extensions -xc99 -D_XPG6 #  -D__EXTENSIONS__ -D_XOPEN_SOURCE=600 
 
 EXTRA_LDFLAGS = -lsocket $(RUNPATH_LINKER_FLAGS)
 
