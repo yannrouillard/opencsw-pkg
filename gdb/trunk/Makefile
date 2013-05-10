@@ -1,7 +1,7 @@
 # $Id$
 
 NAME = gdb
-VERSION = 7.5.1
+VERSION = 7.6
 GARTYPE = v2
 
 DESCRIPTION = The GNU Debugger
@@ -133,6 +133,7 @@ EXTRA_MERGE_EXCLUDE_FILES	+=	/opt/csw/share/locale/sv/LC_MESSAGES/bfd.mo
 EXTRA_MERGE_EXCLUDE_FILES	+=	/opt/csw/share/locale/sv/LC_MESSAGES/opcodes.mo
 EXTRA_MERGE_EXCLUDE_FILES	+=	/opt/csw/share/locale/tr/LC_MESSAGES/bfd.mo
 EXTRA_MERGE_EXCLUDE_FILES	+=	/opt/csw/share/locale/uk/LC_MESSAGES/bfd.mo
+EXTRA_MERGE_EXCLUDE_FILES	+=	/opt/csw/share/locale/uk/LC_MESSAGES/opcodes.mo
 EXTRA_MERGE_EXCLUDE_FILES	+=	/opt/csw/share/locale/tr/LC_MESSAGES/opcodes.mo
 EXTRA_MERGE_EXCLUDE_FILES	+=	/opt/csw/share/locale/vi/LC_MESSAGES/bfd.mo
 EXTRA_MERGE_EXCLUDE_FILES	+=	/opt/csw/share/locale/vi/LC_MESSAGES/opcodes.mo
