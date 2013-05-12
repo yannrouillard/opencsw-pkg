@@ -16,8 +16,18 @@ endef
 MASTER_SITES = http://curl.haxx.se/download/
 DISTFILES += $(NAME)-$(VERSION).tar.lzma
 
+VENDOR_URL = http://curl.haxx.se
+
 # Because of OpenSSL 1.0 update
 PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386
+
+BUILD_DEP_PKGS += CSWopenldap-dev
+BUILD_DEP_PKGS += CSWlibssl-dev
+BUILD_DEP_PKGS += CSWlibcares-dev
+BUILD_DEP_PKGS += CSWlibssh2-dev
+BUILD_DEP_PKGS += CSWlibfbopenssl-dev
+BUILD_DEP_PKGS += CSWlibrtmp-dev
+BUILD_DEP_PKGS += CSWlibidn-dev
 
 PACKAGES += CSWlibcurl4
 CATALOGNAME_CSWlibcurl4 = libcurl4
@@ -58,7 +68,7 @@ SPKG_DESC_CSWlibcurl-dev = Development files for libcurl.so.4
 PKGFILES_CSWlibcurl-dev = $(PKGFILES_DEVEL)
 RUNTIME_DEP_PKGS_CSWlibcurl-dev += CSWlibcurl4
 RUNTIME_DEP_PKGS_CSWlibcurl-dev += CSWlibidn-dev
-OBSOLETED_BY_CSWlibcurl-dev = CSWcurldevel
+OBSOLETED_BY_CSWlibcurl-dev += CSWcurldevel
 CATALOGNAME_CSWcurldevel = curl_devel_stub
 
 PACKAGES += CSWcurl
@@ -69,16 +79,6 @@ RUNTIME_DEP_PKGS_CSWcurl += CSWlibz1
 #RUNTIME_DEP_PKGS_CSWcurl += CSWlibidn11
 RUNTIME_DEP_PKGS_CSWcurl += CSWlibcurl4
 #RUNTIME_DEP_PKGS_CSWcurl += CSWlibssl1-0-0
-
-BUILD_DEP_PKGS += CSWopenldap-dev
-BUILD_DEP_PKGS += CSWlibssl-dev
-BUILD_DEP_PKGS += CSWlibcares-dev
-BUILD_DEP_PKGS += CSWlibssh2-dev
-BUILD_DEP_PKGS += CSWlibfbopenssl-dev
-BUILD_DEP_PKGS += CSWlibrtmp-dev
-BUILD_DEP_PKGS += CSWlibidn-dev
-
-VENDOR_URL = http://curl.haxx.se
 
 EXTRA_MODULATORS = FEATURES
 MODULATIONS_FEATURES = minimal full
@@ -135,15 +135,15 @@ include gar/category.mk
 $(GARCOMPILER)_LD_FLAGS :=
 
 # Rebuild the minimal library with AUX linkage to feature library
-post-build-modulated: EXTRA_LD_OPTIONS = -f libcurl-feature.so.4
-post-build-modulated:
+post-build: EXTRA_LD_OPTIONS = -f libcurl-feature.so.4
+post-build:
 	$(if $(filter minimal,$(FEATURES)),\
 	  rm -f $(WORKSRC)/lib/libcurl.la; \
 	  $(BUILD_ENV) $(MAKE) $(PARALLELMFLAGS) $(foreach TTT,$(BUILD_OVERRIDE_VARS),$(TTT)="$(BUILD_OVERRIDE_VAR_$(TTT))") $(foreach TTT,$(BUILD_OVERRIDE_DIRS),$(TTT)="$($(TTT))") -C $(WORKSRC)/lib $(BUILD_ARGS); \
 	)
 	@$(MAKECOOKIE)
 
-post-merge:
+post-merge-global:
 	@# This is needed because the substitutions from pax args do not change the
 	@# contents of the symlink
 	rm -f $(PKGROOT)$(libdir)/libcurl-feature.so.4
