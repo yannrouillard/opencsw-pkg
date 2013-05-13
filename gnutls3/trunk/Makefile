@@ -12,7 +12,7 @@ SUBV = $(shell echo $(VERSION) | awk -F. '{print $$1"."$$2}')
 MASTER_SITES = ftp://ftp.gnutls.org/gcrypt/gnutls/v$(SUBV)/
 DISTFILES += $(DISTNAME).tar.xz
 # PATCHFILES += 0001-Do-not-strip-norunpath.patch
-#PATCHFILES += 0002-Use-AF_UNIX-instead-of-AF_LOCAL-on-Solaris.patch
+PATCHFILES += 0002-Use-AF_UNIX-instead-of-AF_LOCAL-on-Solaris.patch
 
 # Sun Studio 12 bails out on .deinit_func
 GARCOMPILER = GCC4
@@ -59,6 +59,8 @@ RUNTIME_DEP_PKGS_CSWlibgnutls-dev += CSWlibgnutls26
 OBSOLETED_BY_CSWlibgnutls-dev = CSWgnutlsdevel
 CATALOGNAME_CSWgnutlsdevel = gnutls_devel_stub
 
+PATCHFILES += 0001-no-gets-warning.patch
+
 # We don't need it and if defined the test breaks
 #LD_OPTIONS =
 
@@ -73,4 +75,8 @@ CONFIGURE_ARGS += --with-lzo
 CHECKPKG_OVERRIDES_CSWlibgnutls26 += shared-lib-pkgname-mismatch
 
 include gar/category.mk
+
+pre-configure:
+	cd $(WORKSRC) && autoconf
+	@${MAKECOOKIE}
 
