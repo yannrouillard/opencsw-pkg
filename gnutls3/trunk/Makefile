@@ -70,6 +70,9 @@ BUILD64 = 1
 
 CONFIGURE_ARGS += $(DIRPATHS)
 CONFIGURE_ARGS += --with-lzo
+# Workaround a host detection bug in configure for amd64
+CONFIGURE_ARGS += $(CONFIGURE_ARGS_$(ISA))
+CONFIGURE_ARGS_amd64 += --host=x86_64-pc-solaris2$(shell uname -r |sed -e 's/[^.]*//')
 
 # We put all libs in one package as they are .so.26 and are all bumped together
 CHECKPKG_OVERRIDES_CSWlibgnutls26 += shared-lib-pkgname-mismatch
