@@ -66,8 +66,6 @@ PKGFILES_CSWlibkrb5-dev += $(PKGFILES_DEVEL)
 PKGFILES_CSWlibkrb5-dev += $(bindir)/(uuclient|sim_client|sclient|krb5-config|gss-client|compile_et)
 OBSOLETED_BY_CSWlibkrb5-dev = CSWkrb5libdev
 CATALOGNAME_CSWkrb5libdev = krb5_lib_dev_stub
-# /usr/local in a manpage is OK.
-CHECKPKG_OVERRIDES_CSWlibkrb5-dev += file-with-bad-content|/usr/local|root/opt/csw/share/man/man8/sserver.8
 
 PACKAGES += CSWlibcom-err3
 CATALOGNAME_CSWlibcom-err3 = libcom_err3
@@ -106,7 +104,6 @@ RUNTIME_DEP_PKGS_CSWlibkrb5-priv += CSWlibkrb5-3
 RUNTIME_DEP_PKGS_CSWlibkrb5-priv += CSWlibkrb5support0
 RUNTIME_DEP_PKGS_CSWlibkrb5-priv += CSWlibcom-err3
 RUNTIME_DEP_PKGS_CSWlibkrb5-priv += CSWlibk5crypto3
-CHECKPKG_OVERRIDES_CSWlibkrb5-priv += non-uniform-lib-versions-in-package
 
 PACKAGES += CSWlibkrb5-3
 CATALOGNAME_CSWlibkrb5-3 = libkrb5_3
@@ -179,3 +176,7 @@ post-extract-modulated:
 	perl -pi -e 's,-lcrypto,-L$(libdir) -lcrypto,' \
 		$(WORKSRC)/src/plugins/preauth/pkinit/Makefile.in
 	@$(MAKECOOKIE)
+
+# Remove Studio-specific arch references
+post-install-modulated:
+	gsed -i -e '/^[^#]/s/-xarch=[^ ]* //' -e '/^[^#]/s/-xchip=[^ ]* //' $(DESTDIR)$(bindir)/krb5-config
