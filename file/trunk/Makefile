@@ -1,7 +1,7 @@
 # $Id$
 
 NAME = file
-VERSION = 5.12
+VERSION = 5.14
 GARTYPE = v2
 
 define BLURB
@@ -15,7 +15,9 @@ endef
 MASTER_SITES = ftp://ftp.astron.com/pub/file/
 DISTFILES  = $(DISTNAME).tar.gz
 
-PATCHFILES += 0002-Do-not-use-find_library-at-runtime.patch
+# PATCHFILES += 0002-Do-not-use-find_library-at-runtime.patch
+
+PATCHFILES += 0001-Use-PCRE.patch
 
 VENDOR_URL = http://www.darwinsys.com/file/
 
@@ -46,6 +48,7 @@ SPKG_DESC_CSWlibmagic1 += The library behind file(1), libmagic.so.1
 PKGFILES_CSWlibmagic1 += $(call pkgfiles_lib,libmagic.so.1)
 RUNTIME_DEP_PKGS_CSWlibmagic1 += CSWlibz1
 RUNTIME_DEP_PKGS_CSWlibmagic1 += CSWlibmagic-data
+RUNTIME_DEP_PKGS_CSWlibmagic1 += CSWlibpcreposix0
 CHECKPKG_OVERRIDES_CSWlibmagic1 += surplus-dependency|CSWlibmagic-data
 OBSOLETED_BY_CSWlibmagic1 += CSWlibmagic
 
@@ -66,6 +69,8 @@ CONFIGURE_ENV_DISTUTILS_DEBUG = 1
 CONFIGURE_ARGS = $(DIRPATHS)
 # These flags are not understood by Sun Studio
 CONFIGURE_ARGS += --disable-warnings
+
+EXTRA_LINKER_FLAGS += -lpcreposix -lpcre
 
 BUILD64_LIBS_ONLY = 1
 
