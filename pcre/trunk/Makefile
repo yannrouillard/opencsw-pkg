@@ -1,5 +1,5 @@
 NAME = pcre
-VERSION = 8.31
+VERSION = 8.32
 GARTYPE = v2
 
 DESCRIPTION = Perl-compatible regular expression tools
@@ -22,6 +22,7 @@ SPKG_DESC_CSWpcre = Perl-compatible regular expression tools
 RUNTIME_DEP_PKGS_CSWpcre += CSWlibreadline6
 RUNTIME_DEP_PKGS_CSWpcre += CSWlibpcre1
 RUNTIME_DEP_PKGS_CSWpcre += CSWlibpcre16-0
+RUNTIME_DEP_PKGS_CSWpcre += CSWlibpcre32-0
 RUNTIME_DEP_PKGS_CSWpcre += CSWlibbz2-1-0
 RUNTIME_DEP_PKGS_CSWpcre += CSWlibz1
 RUNTIME_DEP_PKGS_CSWpcre += CSWlibpcreposix0
@@ -30,6 +31,7 @@ PACKAGES += CSWlibpcre-dev
 SPKG_DESC_CSWlibpcre-dev = Development files for libpcre.so.1, libpcre16.so.0, libpcrecpp.so.0 and libpcreposix.so.0
 RUNTIME_DEP_PKGS_CSWlibpcre-dev += CSWlibpcre1
 RUNTIME_DEP_PKGS_CSWlibpcre-dev += CSWlibpcre16-0
+RUNTIME_DEP_PKGS_CSWlibpcre-dev += CSWlibpcre32-0
 RUNTIME_DEP_PKGS_CSWlibpcre-dev += CSWlibpcreposix0
 RUNTIME_DEP_PKGS_CSWlibpcre-dev += CSWlibpcrecpp0
 PKGFILES_CSWlibpcre-dev += $(PKGFILES_DEVEL)
@@ -43,6 +45,9 @@ CHECKPKG_OVERRIDES_CSWlibpcre-dev += file-with-bad-content|/usr/local|root/opt/c
 CHECKPKG_OVERRIDES_CSWlibpcre-dev += file-with-bad-content|/usr/local|root/opt/csw/share/doc/pcre/html/pcresample.html
 CHECKPKG_OVERRIDES_CSWlibpcre-dev += file-with-bad-content|/usr/local|root/opt/csw/share/doc/pcre/html/pcredemo.html
 
+# We don't want to depend on pcre
+CHECKPKG_OVERRIDES_CSWlibpcre-dev += missing-dependency|CSWpcre
+
 PACKAGES += CSWlibpcre1
 SPKG_DESC_CSWlibpcre1 = Perl-compatible regular expression tools, libpcre.so.1
 PKGFILES_CSWlibpcre1 = $(call pkgfiles_lib,libpcre.so.1)
@@ -50,6 +55,10 @@ PKGFILES_CSWlibpcre1 = $(call pkgfiles_lib,libpcre.so.1)
 PACKAGES += CSWlibpcre16-0
 SPKG_DESC_CSWlibpcre16-0 = Perl-compatible regular expression tools, libpcre16.so.0
 PKGFILES_CSWlibpcre16-0 = $(call pkgfiles_lib,libpcre16.so.0)
+
+PACKAGES += CSWlibpcre32-0
+SPKG_DESC_CSWlibpcre32-0 = Perl-compatible regular expression tools, libpcre32.so.0
+PKGFILES_CSWlibpcre32-0 = $(call pkgfiles_lib,libpcre32.so.0)
 
 PACKAGES += CSWlibpcrecpp0
 SPKG_DESC_CSWlibpcrecpp0 += Perl-compatible regular expression tools, libpcrecpp.so.0
@@ -74,12 +83,19 @@ CONFIGURE_ARGS += --enable-pcregrep-libz
 CONFIGURE_ARGS += --enable-pcregrep-libbz2
 CONFIGURE_ARGS += --enable-pcretest-libreadline
 CONFIGURE_ARGS += --enable-pcre16
+CONFIGURE_ARGS += --enable-pcre32
+
+# The stack on Solaris is rather limited, disable stack allocation
+CONFIGURE_ARGS += --disable-stack-for-recursion
 
 # No JIT for Sparc, may try for x86 at some later time
 #CONFIGURE_ARGS += --enable-jit
 
+# This includes some alias things that don't work with the Sun linker
+BUILD_OVERRIDE_VARS += EXTRA_LIBPCRECPP_LDFLAGS
+
 # We need more than the default 8 MB of stack space
-TEST_SCRIPTS = custom
+# TEST_SCRIPTS = custom
 
 include gar/category.mk
 
