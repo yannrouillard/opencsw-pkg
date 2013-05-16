@@ -74,6 +74,7 @@ BUILD64 = 1
 CONFIGURE_ARGS += $(DIRPATHS)
 CONFIGURE_ARGS += --with-lzo
 CONFIGURE_ARGS += --disable-guile
+CONFIGURE_ARGS +=  --with-default-trust-store-file=$(sysconfdir)/ssl/certs/ca-certificates.crt
 # Workaround a host detection bug in configure for amd64
 CONFIGURE_ARGS += $(CONFIGURE_ARGS_$(ISA))
 CONFIGURE_ARGS_amd64 += --build=x86_64-pc-solaris2$(shell uname -r |sed -e 's/[^.]*//')
