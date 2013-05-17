@@ -23,6 +23,7 @@ MASTER_SITES = $(GNOME_MIRROR)
 
 DISTFILES = $(NAME)-$(VERSION).tar.xz
 DISTFILES += changelog.CSW
+DISTFILES += set-ulimit-for-build-test
 
 #
 # Build patches
@@ -287,7 +288,9 @@ LD_OPTIONS =
 EXTRA_LINKER_FLAGS =
 
 # -xO4 is necessary on sparc so that function inlining happens as expected
-EXTRA_CFLAGS = -xO4 -features=extensions -xc99 -D_XPG6 #  -D__EXTENSIONS__ -D_XOPEN_SOURCE=600 
+EXTRA_CFLAGS_sparc = -xO4 -features=extensions -xc99 -D_XPG6 #  -D__EXTENSIONS__ -D_XOPEN_SOURCE=600 
+EXTRA_CFLAGS_i386 = -features=extensions -xc99 -D_XPG6 #  -D__EXTENSIONS__ -D_XOPEN_SOURCE=600
+EXTRA_CFLAGS += $(EXTRA_CFLAGS_$(GARCH))
 
 EXTRA_LDFLAGS = -lsocket $(RUNPATH_LINKER_FLAGS)
 
@@ -315,6 +318,9 @@ CONFIGURE_ARGS += $(CONFIGURE_ARGS-$(MEMORYMODEL))
 CONFIGURE_ARGS += --disable-dtrace
 
 #SKIPTEST = 1
+
+# For tests to succeed, set the ulimit higher than the default of 256.
+EXTRA_TEST_ENV += BASH_ENV=$(abspath $(WORKDIR)/set-ulimit-for-build-test)
 
 # Those are to make the checks work
 EXTRA_COMMON_EXPORTS = TZ
