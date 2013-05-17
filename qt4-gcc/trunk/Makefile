@@ -3,6 +3,7 @@
 NAME = qt
 VERSION = 4.8.1
 GARTYPE = v2
+MAJOR = $(basename $(basename $(VERSION)))
 
 DESCRIPTION = TrollTech C++ application framework
 define BLURB
@@ -43,6 +44,14 @@ CONFIGURE_ARGS += -platform solaris-g++
 CONFIGURE_ARGS += -opensource
 CONFIGURE_ARGS += -confirm-license
 CONFIGURE_ARGS += -prefix $(prefix)
+CONFIGURE_ARGS += -plugindir $(libdir)/$(NAME)$(MAJOR)/plugins
+CONFIGURE_ARGS += -docdir $(docdir)/$(NAME)$(MAJOR)
+CONFIGURE_ARGS += -translationdir $(sharedstatedir)/$(NAME)$(MAJOR)/translations
+CONFIGURE_ARGS += -importdir $(libdir)/$(NAME)$(MAJOR)/imports
+CONFIGURE_ARGS += -demosdir $(sharedstatedir)/$(NAME)$(MAJOR)/demos
+CONFIGURE_ARGS += -examplesdir $(sharedstatedir)/$(NAME)$(MAJOR)/examples
+CONFIGURE_ARGS += -datadir $(sharedstatedir)/$(NAME)$(MAJOR)
+CONFIGURE_ARGS += -sysconfdir $(syconfdir)/$(NAME)$(MAJOR)
 CONFIGURE_ARGS += -no-qt3support
 CONFIGURE_ARGS += -no-xshape
 CONFIGURE_ARGS += -webkit
