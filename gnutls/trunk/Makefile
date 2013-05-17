@@ -1,5 +1,5 @@
 NAME = gnutls
-VERSION = 2.10.4
+VERSION = 2.12.23
 GARTYPE = v2
 
 DESCRIPTION = GNU Transport Layer Security libraries and tools
@@ -10,9 +10,15 @@ define BLURB
 endef
 
 MASTER_SITES = $(GNU_MIRROR)
-MASTER_SITES += http://alpha.gnu.org/gnu/gnutls/
+MASTER_SITES += ftp://ftp.gnutls.org/gcrypt/gnutls/v2.12/
 DISTFILES  = $(NAME)-$(VERSION).tar.bz2
-PATCHFILES += 0001-Do-not-strip-norunpath.patch
+#PATCHFILES += 0001-Do-not-strip-norunpath.patch
+PATCHFILES += 0002-Use-AF_UNIX-instead-of-AF_LOCAL-on-Solaris.patch
+# certtool uses fprintf to print the keyid but when 
+# the key id is null it segfaults under Solaris
+# (where it prints (null) under Linux)
+# This patchs fixes this (and is taken from gnutls3)
+PATCHFILES += 0003-correctly-handle-the-null-key-case.patch
 
 UFILES_REGEX = $(NAME)-(\d+(?:\.\d+)*).tar.bz2
 
@@ -37,12 +43,12 @@ CHECKPKG_OVERRIDES_CSWgnutls += surplus-dependency|CSWlibgnutls13
 PACKAGES += CSWlibgnutls26
 CATALOGNAME_CSWlibgnutls = libgnutls26
 SPKG_DESC_CSWlibgnutls26 = GNU Transport Layer Security libraries and tools providing libgnutls*.so.26
-PKGFILES_CSWlibgnutls26 = $(call baseisadirs,$(libdir),libgnutls.*\.so\.26(\.\d+)*)
+PKGFILES_CSWlibgnutls26 = $(PKGFILES_RT)
 RUNTIME_DEP_PKGS_CSWlibgnutls26 += CSWgcrypt
 RUNTIME_DEP_PKGS_CSWlibgnutls26 += CSWggettextrt
 RUNTIME_DEP_PKGS_CSWlibgnutls26 += CSWgpgerr
 RUNTIME_DEP_PKGS_CSWlibgnutls26 += CSWlibtasn1-3
-RUNTIME_DEP_PKGS_CSWlibgnutls26 += CSWzlib
+RUNTIME_DEP_PKGS_CSWlibgnutls26 += CSWlibz1
 
 PACKAGES += CSWlibgnutls-dev
 CATALOGNAME_CSWlibgnutls-dev = libgnutls_dev
@@ -61,7 +67,10 @@ CHECKPKG_OVERRIDES_CSWgnutlsdevel += archall-devel-package
 
 BUILD_DEP_PKGS += CSWreadline
 BUILD_DEP_PKGS += $(RUNTIME_DEP_PKGS_CSWlibgnutls26)
-BUILD_DEP_PKGS += CSWlibtasn1devel 
+BUILD_DEP_PKGS += CSWlibtasn1-dev
+
+GARCOMPILER = GNU
+GARFLAVOR = DBG
 
 # We don't need it and if defined the test breaks
 LD_OPTIONS =
