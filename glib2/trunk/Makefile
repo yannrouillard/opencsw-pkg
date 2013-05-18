@@ -164,13 +164,14 @@ RUNTIME_DEP_PKGS_CSWlibgthread2-0-0 += CSWlibglib2-0-0
 PACKAGES += CSWlibglib2-dev
 SPKG_DESC_CSWlibglib2-dev = Development files for libglib-2.0.so.0 and assorted libglib, libgmodule, libgobject and libgthread
 RUNTIME_DEP_PKGS_CSWlibglib2-dev += CSWlibintl8
-RUNTIME_DEP_PKGS_CSWlibglib2-dev += CSWglib2
 RUNTIME_DEP_PKGS_CSWlibglib2-dev += CSWlibgthread2-0-0
 RUNTIME_DEP_PKGS_CSWlibglib2-dev += CSWlibgobject2-0-0
 RUNTIME_DEP_PKGS_CSWlibglib2-dev += CSWlibglib2-0-0
 RUNTIME_DEP_PKGS_CSWlibglib2-dev += CSWlibgmodule2-0-0
 RUNTIME_DEP_PKGS_CSWlibglib2-dev += CSWlibgio2-0-0
 RUNTIME_DEP_PKGS_CSWlibglib2-dev += CSWpython
+RUNTIME_DEP_PKGS_CSWlibglib2-dev += CSWgio-fam-backend
+CHECKPKG_OVERRIDES_CSWCSWlibglib2-dev += surplus-dependency|CSWgio-fam-backend
 PKGFILES_CSWlibglib2-dev += $(PKGFILES_DEVEL)
 PKGFILES_CSWlibglib2-dev += .*/glib-2.0/include/.*
 PKGFILES_CSWlibglib2-dev += .*/gdbus-2.0.*
@@ -241,7 +242,7 @@ EXTRA_CFLAGS_sparc = -xO4 -features=extensions -xc99 -D_XPG6 #  -D__EXTENSIONS__
 EXTRA_CFLAGS_i386 = -features=extensions -xc99 -D_XPG6 #  -D__EXTENSIONS__ -D_XOPEN_SOURCE=600
 EXTRA_CFLAGS += $(EXTRA_CFLAGS_$(GARCH))
 
-EXTRA_LDFLAGS = -lsocket $(RUNPATH_LINKER_FLAGS)
+EXTRA_LDFLAGS += -lsocket
 
 BUILD64 = 1
 
@@ -265,8 +266,6 @@ CONFIGURE_ARGS += $(CONFIGURE_ARGS-$(MEMORYMODEL))
 
 # DTrace compilation fails, disable for now
 CONFIGURE_ARGS += --disable-dtrace
-
-#SKIPTEST = 1
 
 # For tests to succeed, set the ulimit higher than the default of 256.
 EXTRA_TEST_ENV += BASH_ENV=$(abspath $(WORKDIR)/set-ulimit-for-build-test)
