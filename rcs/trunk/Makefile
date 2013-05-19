@@ -9,10 +9,9 @@ endef
 MASTER_SITES = http://www.cs.purdue.edu/homes/trinkle/RCS/
 DISTFILES  = $(NAME)-$(VERSION).tar.gz
 
+# We need this for gdiff and gdiff3
 RUNTIME_DEP_PKGS = CSWdiffutils
-
-man1dir = $(mandir)/man1
-man5dir = $(mandir)/man5
+CHECKPKG_OVERRIDES_CSWrcs += surplus-dependency|CSWdiffutils
 
 DIFF = $(bindir)/gdiff
 DIFF3 = $(bindir)/gdiff3
@@ -27,7 +26,6 @@ CONFIGURE_ARGS += --with-diffutils
 
 TEST_TARGET =
 
-INSTALL_OVERRIDE_DIRS = prefix man1dir man5dir
 BUILD_OVERRIDE_DIRS = DIFF DIFF3
 
 include gar/category.mk
