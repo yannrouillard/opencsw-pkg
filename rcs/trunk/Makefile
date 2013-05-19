@@ -1,5 +1,5 @@
 NAME = rcs
-VERSION = 5.7
+VERSION = 5.8
 GARTYPE = v2
 
 DESCRIPTION = GNU Revision Control System
@@ -7,10 +7,7 @@ define BLURB
 endef
 
 MASTER_SITES = http://www.cs.purdue.edu/homes/trinkle/RCS/
-DISTFILES  = $(NAME)-$(VERSION).tar.Z
-
-# We define upstream file regex so we can be notifed of new upstream software release
-UFILES_REGEX = $(NAME)-(\d+(?:\.\d+)*).tar.gz
+DISTFILES  = $(NAME)-$(VERSION).tar.gz
 
 RUNTIME_DEP_PKGS = CSWdiffutils
 
@@ -19,6 +16,13 @@ man5dir = $(mandir)/man5
 
 DIFF = $(bindir)/gdiff
 DIFF3 = $(bindir)/gdiff3
+
+BUILD64 = 1
+ISAEXEC = 1
+
+# Every kind of -xO* leads to this strange error in Sun Studio 12 or even 12.3:
+#   cg error (as) : location counter not on word boundary
+OPT_FLAGS_SOS =
 
 NORUNPATH = 1
 CONFIGURE_ARGS = --prefix=$(prefix)
