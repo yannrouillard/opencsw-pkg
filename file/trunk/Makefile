@@ -15,7 +15,7 @@ endef
 MASTER_SITES = ftp://ftp.astron.com/pub/file/
 DISTFILES  = $(DISTNAME).tar.gz
 
-# PATCHFILES += 0002-Do-not-use-find_library-at-runtime.patch
+PATCHFILES += 0002-Do-not-use-find_library-at-runtime.patch
 
 PATCHFILES += 0001-Use-PCRE.patch
 
