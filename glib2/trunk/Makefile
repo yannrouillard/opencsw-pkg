@@ -171,7 +171,7 @@ RUNTIME_DEP_PKGS_CSWlibglib2-dev += CSWlibgmodule2-0-0
 RUNTIME_DEP_PKGS_CSWlibglib2-dev += CSWlibgio2-0-0
 RUNTIME_DEP_PKGS_CSWlibglib2-dev += CSWpython
 RUNTIME_DEP_PKGS_CSWlibglib2-dev += CSWgio-fam-backend
-CHECKPKG_OVERRIDES_CSWCSWlibglib2-dev += surplus-dependency|CSWgio-fam-backend
+CHECKPKG_OVERRIDES_CSWlibglib2-dev += surplus-dependency|CSWgio-fam-backend
 PKGFILES_CSWlibglib2-dev += $(PKGFILES_DEVEL)
 PKGFILES_CSWlibglib2-dev += .*/glib-2.0/include/.*
 PKGFILES_CSWlibglib2-dev += .*/gdbus-2.0.*
@@ -206,22 +206,39 @@ CHECKPKG_OVERRIDES_CSWlibglib2-dev += discouraged-path-in-pkgmap|/opt/csw/lib/gd
 CHECKPKG_OVERRIDES_CSWlibglib2-dev += discouraged-path-in-pkgmap|/opt/csw/lib/gdbus-2.0/codegen/parser.pyo
 CHECKPKG_OVERRIDES_CSWlibglib2-dev += discouraged-path-in-pkgmap|/opt/csw/lib/gdbus-2.0/codegen/utils.pyc
 CHECKPKG_OVERRIDES_CSWlibglib2-dev += discouraged-path-in-pkgmap|/opt/csw/lib/gdbus-2.0/codegen/utils.pyo
-CHECKPKG_OVERRIDES_CSWlibglib2-dev += discouraged-path-in-pkgmap|/opt/csw/lib/sparcv9/gdbus-2.0/codegen/__init__.pyc
-CHECKPKG_OVERRIDES_CSWlibglib2-dev += discouraged-path-in-pkgmap|/opt/csw/lib/sparcv9/gdbus-2.0/codegen/__init__.pyo
-CHECKPKG_OVERRIDES_CSWlibglib2-dev += discouraged-path-in-pkgmap|/opt/csw/lib/sparcv9/gdbus-2.0/codegen/codegen.pyc
-CHECKPKG_OVERRIDES_CSWlibglib2-dev += discouraged-path-in-pkgmap|/opt/csw/lib/sparcv9/gdbus-2.0/codegen/codegen.pyo
-CHECKPKG_OVERRIDES_CSWlibglib2-dev += discouraged-path-in-pkgmap|/opt/csw/lib/sparcv9/gdbus-2.0/codegen/codegen_docbook.pyc
-CHECKPKG_OVERRIDES_CSWlibglib2-dev += discouraged-path-in-pkgmap|/opt/csw/lib/sparcv9/gdbus-2.0/codegen/codegen_docbook.pyo
-CHECKPKG_OVERRIDES_CSWlibglib2-dev += discouraged-path-in-pkgmap|/opt/csw/lib/sparcv9/gdbus-2.0/codegen/codegen_main.pyc
-CHECKPKG_OVERRIDES_CSWlibglib2-dev += discouraged-path-in-pkgmap|/opt/csw/lib/sparcv9/gdbus-2.0/codegen/codegen_main.pyo
-CHECKPKG_OVERRIDES_CSWlibglib2-dev += discouraged-path-in-pkgmap|/opt/csw/lib/sparcv9/gdbus-2.0/codegen/config.pyc
-CHECKPKG_OVERRIDES_CSWlibglib2-dev += discouraged-path-in-pkgmap|/opt/csw/lib/sparcv9/gdbus-2.0/codegen/config.pyo
-CHECKPKG_OVERRIDES_CSWlibglib2-dev += discouraged-path-in-pkgmap|/opt/csw/lib/sparcv9/gdbus-2.0/codegen/dbustypes.pyc
-CHECKPKG_OVERRIDES_CSWlibglib2-dev += discouraged-path-in-pkgmap|/opt/csw/lib/sparcv9/gdbus-2.0/codegen/dbustypes.pyo
-CHECKPKG_OVERRIDES_CSWlibglib2-dev += discouraged-path-in-pkgmap|/opt/csw/lib/sparcv9/gdbus-2.0/codegen/parser.pyc
-CHECKPKG_OVERRIDES_CSWlibglib2-dev += discouraged-path-in-pkgmap|/opt/csw/lib/sparcv9/gdbus-2.0/codegen/parser.pyo
-CHECKPKG_OVERRIDES_CSWlibglib2-dev += discouraged-path-in-pkgmap|/opt/csw/lib/sparcv9/gdbus-2.0/codegen/utils.pyc
-CHECKPKG_OVERRIDES_CSWlibglib2-dev += discouraged-path-in-pkgmap|/opt/csw/lib/sparcv9/gdbus-2.0/codegen/utils.pyo
+CHECKPKG_OVERRIDES_CSWlibglib2-dev_sparc += discouraged-path-in-pkgmap|/opt/csw/lib/sparcv9/gdbus-2.0/codegen/__init__.pyc
+CHECKPKG_OVERRIDES_CSWlibglib2-dev_sparc += discouraged-path-in-pkgmap|/opt/csw/lib/sparcv9/gdbus-2.0/codegen/__init__.pyo
+CHECKPKG_OVERRIDES_CSWlibglib2-dev_sparc += discouraged-path-in-pkgmap|/opt/csw/lib/sparcv9/gdbus-2.0/codegen/codegen.pyc
+CHECKPKG_OVERRIDES_CSWlibglib2-dev_sparc += discouraged-path-in-pkgmap|/opt/csw/lib/sparcv9/gdbus-2.0/codegen/codegen.pyo
+CHECKPKG_OVERRIDES_CSWlibglib2-dev_sparc += discouraged-path-in-pkgmap|/opt/csw/lib/sparcv9/gdbus-2.0/codegen/codegen_docbook.pyc
+CHECKPKG_OVERRIDES_CSWlibglib2-dev_sparc += discouraged-path-in-pkgmap|/opt/csw/lib/sparcv9/gdbus-2.0/codegen/codegen_docbook.pyo
+CHECKPKG_OVERRIDES_CSWlibglib2-dev_sparc += discouraged-path-in-pkgmap|/opt/csw/lib/sparcv9/gdbus-2.0/codegen/codegen_main.pyc
+CHECKPKG_OVERRIDES_CSWlibglib2-dev_sparc += discouraged-path-in-pkgmap|/opt/csw/lib/sparcv9/gdbus-2.0/codegen/codegen_main.pyo
+CHECKPKG_OVERRIDES_CSWlibglib2-dev_sparc += discouraged-path-in-pkgmap|/opt/csw/lib/sparcv9/gdbus-2.0/codegen/config.pyc
+CHECKPKG_OVERRIDES_CSWlibglib2-dev_sparc += discouraged-path-in-pkgmap|/opt/csw/lib/sparcv9/gdbus-2.0/codegen/config.pyo
+CHECKPKG_OVERRIDES_CSWlibglib2-dev_sparc += discouraged-path-in-pkgmap|/opt/csw/lib/sparcv9/gdbus-2.0/codegen/dbustypes.pyc
+CHECKPKG_OVERRIDES_CSWlibglib2-dev_sparc += discouraged-path-in-pkgmap|/opt/csw/lib/sparcv9/gdbus-2.0/codegen/dbustypes.pyo
+CHECKPKG_OVERRIDES_CSWlibglib2-dev_sparc += discouraged-path-in-pkgmap|/opt/csw/lib/sparcv9/gdbus-2.0/codegen/parser.pyc
+CHECKPKG_OVERRIDES_CSWlibglib2-dev_sparc += discouraged-path-in-pkgmap|/opt/csw/lib/sparcv9/gdbus-2.0/codegen/parser.pyo
+CHECKPKG_OVERRIDES_CSWlibglib2-dev_sparc += discouraged-path-in-pkgmap|/opt/csw/lib/sparcv9/gdbus-2.0/codegen/utils.pyc
+CHECKPKG_OVERRIDES_CSWlibglib2-dev_sparc += discouraged-path-in-pkgmap|/opt/csw/lib/sparcv9/gdbus-2.0/codegen/utils.pyo
+CHECKPKG_OVERRIDES_CSWlibglib2-dev_i386 += discouraged-path-in-pkgmap|/opt/csw/lib/amd64/gdbus-2.0/codegen/__init__.pyc
+CHECKPKG_OVERRIDES_CSWlibglib2-dev_i386 += discouraged-path-in-pkgmap|/opt/csw/lib/amd64/gdbus-2.0/codegen/__init__.pyo
+CHECKPKG_OVERRIDES_CSWlibglib2-dev_i386 += discouraged-path-in-pkgmap|/opt/csw/lib/amd64/gdbus-2.0/codegen/codegen.pyc
+CHECKPKG_OVERRIDES_CSWlibglib2-dev_i386 += discouraged-path-in-pkgmap|/opt/csw/lib/amd64/gdbus-2.0/codegen/codegen.pyo
+CHECKPKG_OVERRIDES_CSWlibglib2-dev_i386 += discouraged-path-in-pkgmap|/opt/csw/lib/amd64/gdbus-2.0/codegen/codegen_docbook.pyc
+CHECKPKG_OVERRIDES_CSWlibglib2-dev_i386 += discouraged-path-in-pkgmap|/opt/csw/lib/amd64/gdbus-2.0/codegen/codegen_docbook.pyo
+CHECKPKG_OVERRIDES_CSWlibglib2-dev_i386 += discouraged-path-in-pkgmap|/opt/csw/lib/amd64/gdbus-2.0/codegen/codegen_main.pyc
+CHECKPKG_OVERRIDES_CSWlibglib2-dev_i386 += discouraged-path-in-pkgmap|/opt/csw/lib/amd64/gdbus-2.0/codegen/codegen_main.pyo
+CHECKPKG_OVERRIDES_CSWlibglib2-dev_i386 += discouraged-path-in-pkgmap|/opt/csw/lib/amd64/gdbus-2.0/codegen/config.pyc
+CHECKPKG_OVERRIDES_CSWlibglib2-dev_i386 += discouraged-path-in-pkgmap|/opt/csw/lib/amd64/gdbus-2.0/codegen/config.pyo
+CHECKPKG_OVERRIDES_CSWlibglib2-dev_i386 += discouraged-path-in-pkgmap|/opt/csw/lib/amd64/gdbus-2.0/codegen/dbustypes.pyc
+CHECKPKG_OVERRIDES_CSWlibglib2-dev_i386 += discouraged-path-in-pkgmap|/opt/csw/lib/amd64/gdbus-2.0/codegen/dbustypes.pyo
+CHECKPKG_OVERRIDES_CSWlibglib2-dev_i386 += discouraged-path-in-pkgmap|/opt/csw/lib/amd64/gdbus-2.0/codegen/parser.pyc
+CHECKPKG_OVERRIDES_CSWlibglib2-dev_i386 += discouraged-path-in-pkgmap|/opt/csw/lib/amd64/gdbus-2.0/codegen/parser.pyo
+CHECKPKG_OVERRIDES_CSWlibglib2-dev_i386 += discouraged-path-in-pkgmap|/opt/csw/lib/amd64/gdbus-2.0/codegen/utils.pyc
+CHECKPKG_OVERRIDES_CSWlibglib2-dev_i386 += discouraged-path-in-pkgmap|/opt/csw/lib/amd64/gdbus-2.0/codegen/utils.pyo
+CHECKPKG_OVERRIDES_CSWlibglib2-dev += $(CHECKPKG_OVERRIDES_CSWlibglib2-dev_$(GARCH))
 
 PACKAGES += CSWglib2-doc
 ARCHALL_CSWglib2-doc = 1
@@ -289,7 +306,9 @@ CHECKPKG_OVERRIDES_CSWlibgio2-0-0 += surplus-dependency|CSWsharedmimeinfo
 include gar/category.mk
 
 # We need /opt/csw/gnu/gettext, /usr/bin/gettext bails out
-PATH := /opt/csw/gnu:$(PATH)
+# IT seems that the correct Python is not picked up during make check on x86
+# without putting /opt/csw/bin first in PATH
+PATH := /opt/csw/gnu:/opt/csw/bin:$(PATH)
 
 post-merge:
 	@echo "=== Cleanup stray bash_completion.d ==="
