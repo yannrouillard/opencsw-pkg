@@ -1,5 +1,5 @@
 NAME = lcms2
-VERSION = 2.2
+VERSION = 2.4
 GARTYPE = v2
 
 DESCRIPTION = The little color management system and tools
@@ -18,8 +18,6 @@ SF_PROJECT = lcms
 MASTER_SITES = $(SF_MIRRORS)
 DISTFILES  = $(NAME)-$(VERSION).tar.gz
 
-PATCHFILES += 0001-Remove-hardcoded-Wall.patch
-
 VENDOR_URL = http://www.littlecms.com/
 
 PACKAGES += CSWliblcms2-2
@@ -35,9 +33,8 @@ PACKAGES += CSWliblcms2-utils
 SPKG_DESC_CSWliblcms2-utils = Utility programs for LCMS (Little Color Management)
 # PKGFILES is catchall
 RUNTIME_DEP_PKGS_CSWliblcms2-utils += CSWliblcms2-2
-RUNTIME_DEP_PKGS_CSWliblcms2-utils += CSWtiff
-RUNTIME_DEP_PKGS_CSWliblcms2-utils += CSWjpeg
-RUNTIME_DEP_PKGS_CSWliblcms2-utils += CSWzlib
+RUNTIME_DEP_PKGS_CSWliblcms2-utils += CSWlibjpeg7
+RUNTIME_DEP_PKGS_CSWliblcms2-utils += CSWlibtiff3
 
 # Probably make separate package for Solaris 10 as it has float support
 EXTRA_CPPFLAGS-5.9 = -Dpowf=pow -Dfabsf=labs
