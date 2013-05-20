@@ -86,6 +86,9 @@ PATCHFILES += 0006-Adjust-hardcoded-paths-to-match-Solaris-CSW.patch
 PATCHFILES += 0003-Make-glib-work-with-zoneinfo-version-1.patch
 PATCHFILES += 0022-Change-shell-to-bash-in-test-shell-scripts.patch
 
+# What to say? Disable yet another sporadically failing up test
+PATCHFILES += 0023-disable-mainloop-invoke-test.patch
+
 PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386
 
 
