@@ -62,8 +62,11 @@ PATCHFILES += $(PATCHFILES_$(GAROSREL))
 # tests.
 SKIPTEST = 1
 
-# TODO: Enable the 64-bit build at some point.
-# BUILD64 = 1
+# For now, do not set ISAEXEC, until _sysconfigdata.py returns right values
+# depending on runtime.
+# A thread on python-list:
+# http://mail.python.org/pipermail/python-list/2013-May/647197.html
+BUILD64 = 1
 
 EXTRA_INC += $(prefix)/bdb47/include
 EXTRA_LIB += $(prefix)/bdb47/lib
