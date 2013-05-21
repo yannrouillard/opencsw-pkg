@@ -2,7 +2,7 @@ NAME = wput
 VERSION = 0.6.2
 GARTYPE = v2
 
-DESCRIPTION = the opposite of wget: a command line ftp client
+DESCRIPTION = The opposite of wget: a command line ftp client
 define BLURB
  Wput is a command-line ftp-client that looks like wget but instead of
  downloading, uploads files or whole directories to remote ftp-servers.
@@ -16,8 +16,7 @@ SPKG_SOURCEURL = http://wput.sourceforge.net
 LICENSE = COPYING
 
 BUILD_DEP_PKGS = CSWgnutlsdevel
-
-RUNTIME_DEP_PKGS = CSWggettextrt CSWgnutls CSWgcrypt
+RUNTIME_DEP_PKGS = CSWlibintl8 CSWlibgnutls28 
 
 # We define upstream file regex so we can be notifed of new upstream software release
 UPSTREAM_MASTER_SITES = $(SF_PROJECT_SHOWFILE)=141519
