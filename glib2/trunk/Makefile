@@ -85,6 +85,7 @@ PATCHFILES += 0013-Disable-IPv6-tests.patch
 PATCHFILES += 0006-Adjust-hardcoded-paths-to-match-Solaris-CSW.patch
 PATCHFILES += 0003-Make-glib-work-with-zoneinfo-version-1.patch
 PATCHFILES += 0022-Change-shell-to-bash-in-test-shell-scripts.patch
+PATCHFILES += 0021-Disable-libelf-doesn-t-work-with-large-file-support.patch
 
 # What to say? Disable yet another sporadically failing up test
 PATCHFILES_isa-amd64 += 0023-disable-mainloop-invoke-test.patch
@@ -265,14 +266,6 @@ EXTRA_CFLAGS += $(EXTRA_CFLAGS_$(GARCH))
 EXTRA_LDFLAGS += -lsocket
 
 BUILD64 = 1
-
-# Glib 2.32.4 won't compile and abort with a message from sys/elf.h:
-#
-#   "/usr/include/libelf.h", line 23: #error: "large files are not supported by libelf"
-#
-# so, I decided to disable-largefile support for 32bit libs, instead of patching up the code.
-CONFIGURE_ARGS-32 = --disable-largefile
-CONFIGURE_ARGS-64 =
 
 CONFIGURE_ARGS  = $(DIRPATHS)
 CONFIGURE_ARGS += --with-libiconv=gnu
