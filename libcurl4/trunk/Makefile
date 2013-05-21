@@ -143,7 +143,7 @@ post-build:
 	)
 	@$(MAKECOOKIE)
 
-post-merge-global:
+post-merge-all:
 	@# This is needed because the substitutions from pax args do not change the
 	@# contents of the symlink
 	rm -f $(PKGROOT)$(libdir)/libcurl-feature.so.4
