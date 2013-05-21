@@ -90,7 +90,9 @@ PATCHFILES += 0021-Disable-libelf-doesn-t-work-with-large-file-support.patch
 # What to say? Disable yet another sporadically failing up test
 PATCHFILES_isa-amd64 += 0023-disable-mainloop-invoke-test.patch
 
+# Solaris 11 specific package for FEN support
 PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386
+PACKAGING_PLATFORMS += solaris11-sparc solaris11-i386
 
 
 PACKAGES += CSWglib2
