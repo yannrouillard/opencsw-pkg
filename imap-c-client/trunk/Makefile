@@ -23,6 +23,8 @@ PATCHDIRLEVEL = 0
 
 MERGE_EXCLUDE_STATICLIBS = 
 
+BUILD64_LIBS_ONLY = 1
+
 # Build libc-client.so
 PATCHFILES += shared.diff
 
@@ -36,31 +38,22 @@ PACKAGES += CSWlibc-client2007f
 SPKG_DESC_CSWlibc-client2007f += $(DESCRIPTION), libc-client.2007f.so
 PKGFILES_CSWlibc-client2007f += $(call pkgfiles_lib,libc-client.2007f.so)
 RUNTIME_DEP_PKGS_CSWlibc-client2007f += CSWlibssl1-0-0
-CHECKPKG_OVERRIDES_CSWlibc-client2007f += file-with-bad-content|/usr/share|root/opt/csw/lib/libc-client.2007f.so
 CHECKPKG_OVERRIDES_CSWlibc-client2007f += soname-equals-filename|file=/opt/csw/lib/libc-client.2007f.so
+CHECKPKG_OVERRIDES_CSWlibc-client2007f_i386  += soname-equals-filename|file=/opt/csw/lib/amd64/libc-client.2007f.so
+CHECKPKG_OVERRIDES_CSWlibc-client2007f_sparc += soname-equals-filename|file=/opt/csw/lib/sparcv9/libc-client.2007f.so
+CHECKPKG_OVERRIDES_CSWlibc-client2007f += $(CHECKPKG_OVERRIDES_CSWlibc-client2007f_$(GARCH))
 
 PACKAGES += CSWlibc-client-dev
 SPKG_DESC_CSWlibc-client-dev = Development files for $(NAME) $(VERSION)
 PKGFILES_CSWlibc-client-dev = $(PKGFILES_DEVEL_INCLUDEDIR)
-PKGFILES_CSWlibc-client-dev += $(libdir)/libc-client.so
-PKGFILES_CSWlibc-client-dev += $(libdir)/c-client.a
+PKGFILES_CSWlibc-client-dev += $(libdir)/.*libc-client.so
+PKGFILES_CSWlibc-client-dev += $(libdir)/.*c-client.a
 RUNTIME_DEP_PKGS_CSWlibc-client-dev += CSWlibc-client2007f
 OBSOLETED_BY_CSWlibc-client-dev = CSWimap-devel
-CHECKPKG_OVERRIDES_CSWlibc-client-dev += surplus-dependency|CSWlibc-client2007f
-CHECKPKG_OVERRIDES_CSWlibc-client-dev += file-with-bad-content|/usr/share|root/opt/csw/lib/c-client.a
 
 PACKAGES += CSWimap
 SPKG_DESC_CSWimap = Mail server daemon (UW)
 RUNTIME_DEP_PKGS_CSWimap = CSWlibssl1-0-0
-
-CHECKPKG_OVERRIDES_CSWimap += file-with-bad-content|/usr/local|root/opt/csw/share/man/man1/tmail.1
-CHECKPKG_OVERRIDES_CSWimap += file-with-bad-content|/usr/local|root/opt/csw/share/doc/imap/SSLBUILD
-CHECKPKG_OVERRIDES_CSWimap += file-with-bad-content|/usr/local|root/opt/csw/share/doc/imap/bugs.txt
-CHECKPKG_OVERRIDES_CSWimap += file-with-bad-content|/usr/local|root/opt/csw/share/doc/imap/IPv6.txt
-CHECKPKG_OVERRIDES_CSWimap += file-with-bad-content|/usr/local|root/opt/csw/share/doc/imap/BUILD
-CHECKPKG_OVERRIDES_CSWimap += file-with-bad-content|/usr/local|root/opt/csw/share/doc/imap/FAQ.html
-CHECKPKG_OVERRIDES_CSWimap += file-with-bad-content|/usr/local|root/opt/csw/share/doc/imap/FAQ.txt
-
 
 INETDCONF  = $(sysconfdir)/pkg/CSWimap/imap.inetd.conf
 INETDCONF += $(sysconfdir)/pkg/CSWimap/imaps.inetd.conf
@@ -80,7 +73,7 @@ TEST_SCRIPTS =
 include gar/category.mk
 
 build-custom:
-	@( cd $(WORKSRC) ; $(BUILD_ENV) DISTVERSION=$(VERSION) make soc )
+	@( cd $(WORKSRC) ; $(BUILD_ENV) DISTVERSION=$(VERSION) make EXTRALDFLAGS="$(LDFLAGS) $(EXTRA_LDFLAGS)" EXTRACFLAGS="$(CFLAGS) $(EXTRA_CFLAGS)" soc )
 	@$(MAKECOOKIE)
 
 install-uwimap:
@@ -113,14 +106,17 @@ install-uwimap:
 	@$(MAKECOOKIE)
 
 install-libc-client:
-	ginstall -d $(DESTDIR)$(libdir)
-	ginstall -p -m644 $(WORKSRC)/c-client/c-client.a $(DESTDIR)$(libdir)
-	ginstall -p -m755 \
-		$(WORKSRC)/c-client/libc-client.$(VERSION).so $(DESTDIR)$(libdir)
 	ginstall -d $(DESTDIR)$(includedir)/imap
 	ginstall -p -m644 $(WORKSRC)/c-client/*.h $(DESTDIR)$(includedir)/imap
 	ginstall -p -m644 $(WORKSRC)/c-client/linkage.c $(DESTDIR)$(includedir)/imap
 	ginstall -p -m644 \
 		$(WORKSRC)/src/osdep/tops-20/shortsym.h $(DESTDIR)$(includedir)/imap
+	@$(MAKECOOKIE)
+
+post-install-modulated:
+	ginstall -d $(DESTDIR)$(libdir)
+	ginstall -p -m644 $(WORKSRC)/c-client/c-client.a $(DESTDIR)$(libdir)
+	ginstall -p -m755 \
+		$(WORKSRC)/c-client/libc-client.$(VERSION).so $(DESTDIR)$(libdir)
 	cd $(DESTDIR)$(libdir); ln -sf libc-client.$(VERSION).so libc-client.so
 	@$(MAKECOOKIE)
