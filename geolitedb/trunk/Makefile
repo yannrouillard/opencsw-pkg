@@ -1,5 +1,5 @@
 NAME = geolitedb
-VERSION = 20120403
+VERSION = 20130521
 GARTYPE = v2
 
 DESCRIPTION = Geolite country database
