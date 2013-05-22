@@ -19,5 +19,7 @@ UFILES_REGEX = $(NAME)-(\d+(?:\.\d+)*).tar.gz
 
 CONFIGURE_ARGS = $(DIRPATHS)
 
+EXTRA_LINKER_FLAGS += -norunpath
+
 include gar/category.mk
 
