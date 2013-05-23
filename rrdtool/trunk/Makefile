@@ -1,5 +1,5 @@
 NAME = rrdtool
-VERSION = 1.4.7
+VERSION = 1.4.8
 GARTYPE = v2
 
 DESCRIPTION = Time-series data logging and graphing
@@ -41,7 +41,6 @@ SPKG_DESC_CSWrrdtool = Time-series data logging and graphing
 RUNTIME_DEP_PKGS_CSWrrdtool += CSWlibglib2-0-0
 RUNTIME_DEP_PKGS_CSWrrdtool += CSWlibintl8
 RUNTIME_DEP_PKGS_CSWrrdtool += CSWlibwrap1
-RUNTIME_DEP_PKGS_CSWrrdtool += CSWlibdbi1
 RUNTIME_DEP_PKGS_CSWrrdtool += CSWlibrrd4
 RUNTIME_DEP_PKGS_CSWrrdtool += CSWlibrrd-th4
 OBSOLETED_BY_CSWrrdtool = CSWrrd
@@ -62,15 +61,11 @@ RUNTIME_DEP_PKGS_CSWlibrrd4 += CSWlibglib2-0-0
 RUNTIME_DEP_PKGS_CSWlibrrd4 += CSWlibcairo2
 RUNTIME_DEP_PKGS_CSWlibrrd4 += CSWpango
 RUNTIME_DEP_PKGS_CSWlibrrd4 += CSWlibxml2-2
-RUNTIME_DEP_PKGS_CSWlibrrd4 += CSWlibintl8
-RUNTIME_DEP_PKGS_CSWlibrrd4 += CSWlibwrap1
 RUNTIME_DEP_PKGS_CSWlibrrd4 += CSWlibdbi1
 
 PACKAGES += CSWlibrrd-th4
 SPKG_DESC_CSWlibrrd-th4 = Runtime library for RRDtool, librrd_th.so.4
 PKGFILES_CSWlibrrd-th4 += $(call pkgfiles_lib,librrd_th.so.4)
-RUNTIME_DEP_PKGS_CSWlibrrd-th4 += CSWlibwrap1
-RUNTIME_DEP_PKGS_CSWlibrrd-th4 += CSWlibintl8
 RUNTIME_DEP_PKGS_CSWlibrrd-th4 += CSWlibcairo2
 RUNTIME_DEP_PKGS_CSWlibrrd-th4 += CSWlibxml2-2
 RUNTIME_DEP_PKGS_CSWlibrrd-th4 += CSWpango
