@@ -1,5 +1,5 @@
 NAME = libxml2
-VERSION = 2.7.8
+VERSION = 2.9.1
 GARTYPE = v2
 
 DESCRIPTION = XML Parser Library
@@ -9,7 +9,7 @@ endef
 
 MASTER_SITES = ftp://xmlsoft.org/libxml2/
 DISTFILES = $(NAME)-$(VERSION).tar.gz
-PATCHFILES = 0001-Forcefully-disable-the-symbol-versioning.patch
+# PATCHFILES = 0001-Forcefully-disable-the-symbol-versioning.patch
 
 # We define upstream file regex so we can be notifed of new upstream software release
 UFILES_REGEX = $(NAME)-(\d+(?:\.\d+)*).tar.gz
