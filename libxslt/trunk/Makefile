@@ -1,5 +1,5 @@
 NAME = libxslt
-VERSION = 1.1.26
+VERSION = 1.1.28
 GARTYPE = v2
 
 DESCRIPTION = XSLT engine for the XML Toolkit
@@ -10,20 +10,17 @@ endef
 
 MASTER_SITES = ftp://xmlsoft.org/libxslt/
 DISTFILES  = $(NAME)-$(VERSION).tar.gz
-PATCHFILES += 0001-Forcefully-disable-version-script-use.patch
+PATCHFILES += 0001-Forcefully-disable-version-script.patch
 
 BUILD_DEP_PKGS = CSWlibxml2-dev CSWlibgcrypt-dev
 
 PACKAGES = CSWlibxslt
 SPKG_DESC_CSWlibxslt =  XSLT engine runtime package
-CATALOGNAME_CSWlibxslt = libxslt
-RUNTIME_DEP_PKGS_CSWlibxslt += CSWlibgcrypt11 CSWlibgpg-error0
-RUNTIME_DEP_PKGS_CSWlibxslt += CSWiconv CSWlibxml2-2
-RUNTIME_DEP_PKGS_CSWlibxslt += CSWzlib
-RUNTIME_DEP_PKGS_CSWlibxslt += CSWlibxslt1 CSWlibexslt0
+RUNTIME_DEP_PKGS_CSWlibxslt += CSWlibxml2-2
+RUNTIME_DEP_PKGS_CSWlibxslt += CSWlibxslt1
+RUNTIME_DEP_PKGS_CSWlibxslt += CSWlibexslt0
 
 PACKAGES += CSWlibxslt-dev
-CATALOGNAME_CSWlibxslt-dev = libxslt_dev
 SPKG_DESC_CSWlibxslt-dev = XSLT engine development package
 OBSOLETED_BY_CSWlibxslt-dev = CSWlibxsltdevel
 RUNTIME_DEP_PKGS_CSWlibxslt-dev = CSWlibxslt
@@ -35,48 +32,40 @@ PKGFILES_CSWlibxslt-dev += $(libdir)/xsltConf.sh
 PKGFILES_CSWlibxslt-dev += $(call isadirs,$(libdir),xsltConf.sh)
 
 PACKAGES += CSWpy-libxslt
-CATALOGNAME_CSWpy-libxslt = py_libxslt
 SPKG_DESC_CSWpy-libxslt = XSLT engine python package
 OBSOLETED_BY_CSWpy-libxslt = CSWpylibxslt
-RUNTIME_DEP_PKGS_CSWpy-libxslt  = CSWpython
+RUNTIME_DEP_PKGS_CSWpy-libxslt += CSWlibpython2-6-1-0
+RUNTIME_DEP_PKGS_CSWpy-libxslt += CSWpython
 RUNTIME_DEP_PKGS_CSWpy-libxslt += CSWlibxslt1
 RUNTIME_DEP_PKGS_CSWpy-libxslt += CSWlibexslt0
 RUNTIME_DEP_PKGS_CSWpy-libxslt += CSWlibxml2-2
-RUNTIME_DEP_PKGS_CSWpy-libxslt += CSWzlib
-RUNTIME_DEP_PKGS_CSWpy-libxslt += CSWlibgpg-error0
-RUNTIME_DEP_PKGS_CSWpy-libxslt += CSWlibgcrypt11
-RUNTIME_DEP_PKGS_CSWpy-libxslt += CSWiconv
 PKGFILES_CSWpy-libxslt = $(libdir)/python.*
 PKGFILES_CSWpy-libxslt += $(docdir)/libxslt-python-$(VERSION)/.*
 
+# Sadly, yes....
+CHECKPKG_OVERRIDES_CSWpy-libxslt += 64bits-binaries-missing
+
 PACKAGES += CSWlibexslt0
-CATALOGNAME_CSWlibexslt0 = libexslt0
-PKGFILES_CSWlibexslt0 += $(call baseisadirs,$(libdir),libexslt\.so\.0\.8\.15)
-PKGFILES_CSWlibexslt0 += $(call baseisadirs,$(libdir),libexslt\.so\.0(\.\d+)*)
+PKGFILES_CSWlibexslt0 += $(call pkgfiles_lib,libexslt.so.0)
 SPKG_DESC_CSWlibexslt0 += XSLT engine runtime package, libexslt.so.0
-RUNTIME_DEP_PKGS_CSWlibexslt0 += CSWiconv
 RUNTIME_DEP_PKGS_CSWlibexslt0 += CSWlibgpg-error0
-RUNTIME_DEP_PKGS_CSWlibexslt0 += CSWzlib
 RUNTIME_DEP_PKGS_CSWlibexslt0 += CSWlibxml2-2
 RUNTIME_DEP_PKGS_CSWlibexslt0 += CSWlibxslt1
 RUNTIME_DEP_PKGS_CSWlibexslt0 += CSWlibgcrypt11
 
 PACKAGES += CSWlibxslt1
-CATALOGNAME_CSWlibxslt1 = libxslt1
-PKGFILES_CSWlibxslt1 += $(call baseisadirs,$(libdir),libxslt\.so\.1\.1\.26)
-PKGFILES_CSWlibxslt1 += $(call baseisadirs,$(libdir),libxslt\.so\.1(\.\d+)*)
+PKGFILES_CSWlibxslt1 += $(call pkgfiles_lib,libxslt.so.1)
 SPKG_DESC_CSWlibxslt1 += XSLT engine runtime package, libxslt.so.1
 RUNTIME_DEP_PKGS_CSWlibxslt1 += CSWlibxml2-2
-RUNTIME_DEP_PKGS_CSWlibxslt1 += CSWiconv
-RUNTIME_DEP_PKGS_CSWlibxslt1 += CSWzlib
 
 SPKG_SOURCEURL = http://xmlsoft.org/XSLT/
 CONFIGURE_ARGS_32 =
 CONFIGURE_ARGS_64 = --without-python
 CONFIGURE_ARGS = $(DIRPATHS) $(CONFIGURE_ARGS_$(MEMORYMODEL))
 
-BUILD64_LIBS_ONLY = 1
-STRIP_LIBTOOL = 1
+BUILD64 = 1
+ISAEXEC = 1
+
 PYCOMPILE = 1
 
 include gar/category.mk
