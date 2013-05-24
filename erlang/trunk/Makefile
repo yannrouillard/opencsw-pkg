@@ -17,6 +17,8 @@ DISTFILES  = $(DISTNAME).tar.gz
 
 PATCHFILES += 0001-Fix-main-signature.patch
 
+PATCHFILES += 0001-Do-not-use-ssl-standard-locations.patch
+
 # TBD:
 # - Solaris 10 x86 needs a libdlpi.so symlink:
 #     ln -s /lib/libdlpi.so.1 /lib/libdlpi.so
@@ -32,16 +34,28 @@ SPKG_DESC_CSWerlang = A functional programming language from Ericsson
 RUNTIME_DEP_PKGS_CSWerlang += CSWlibncurses5
 RUNTIME_DEP_PKGS_CSWerlang += CSWlibssl1-0-0
 
+# These are just examples
+CHECKPKG_OVERRIDES_CSWerlang += file-with-bad-content
+
+# This is just for the emacs style
+CHECKPKG_OVERRIDES_CSWerlang += missing-dependency|CSWemacs-common
+
+
 PACKAGES += CSWerlang-dev
 SPKG_DESC_CSWerlang-dev = Ericson Erlang OTP library sources and headers
-PKGFILES_CSWerlang-dev += $(PKGFILES_DEVEL)
+PKGFILES_CSWerlang-dev += .*/src/.*
+PKGFILES_CSWerlang-dev += .*/include/.*
+PKGFILES_CSWerlang-dev += $(mandir)/man3erl/.*
 OBSOLETED_BY_CSWerlang-dev = CSWerlangdevel
 CATALOGNAME_CSWerlangdevel = erlang_devel_stub
+
+CHECKPKG_OVERRIDES_CSWerlang-dev += file-with-bad-content
 
 PACKAGES += CSWerlang-doc
 SPKG_DESC_CSWerlang-doc = Erlang manual and documentation
 # This is empty right now, make sure docs are build later...
-PKGFILES_CSWerlang-doc += $(docdir)/.*
+PKGFILES_CSWerlang-doc += .*/doc/.*
+PKGFILES_CSWerlang-doc += .*/info
 OBSOLETED_BY_CSWerlang-doc = CSWerlangdoc
 CATALOGNAME_CSWerlangdoc = erlang_doc_stub
 
@@ -49,13 +63,16 @@ GARCOMPILER = GCC4
 # $(ARCHFLAGS_$(GARCOMPILER)_$(ISA))
 
 BUILD64 = 1
+ISAEXEC = 1
 
 # [8:23pm] aurora: LDFLAGS="-L/opt/csw/lib/64" CFLAGS="-I/opt/csw/include" CXXFLAGS="-I/opt/csw/include" AR=gar ./configure --with-ssl=/opt/csw --disable-dynamic-ssl-lib --enable-m64-build --with-odbc=/opt/csw --without-wx
 
 CONFIGURE_ARGS  = $(DIRPATHS)
+
 CONFIGURE_ARGS += --with-ssl=$(prefix)
-  CONFIGURE_ARGS += --disable-dynamic-ssl-lib
-  CONFIGURE_ARGS += --without-wx
+#CONFIGURE_ARGS += --disable-dynamic-ssl-lib
+
+CONFIGURE_ARGS += --without-wx
 #CONFIGURE_ARGS += --enable-threads
 #CONFIGURE_ARGS += --enable-smp-support
 #CONFIGURE_ARGS += --enable-kernel-poll
@@ -67,6 +84,9 @@ CONFIGURE_ARGS += --with-ssl=$(prefix)
 CONFIGURE_ARGS-32 += --enable-m32-build
 CONFIGURE_ARGS-64 += --enable-m64-build
 CONFIGURE_ARGS += $(CONFIGURE_ARGS-$(MEMORYMODEL))
+
+# We need to override this or we pollute RUNPATH with lots of invalid dirs like /usr/local etc.
+CONFIGURE_ARGS += std_ssl_locations=
 
 EXTRA_CONFIGURE_ENV += AR=$(bindir)/gar
 
