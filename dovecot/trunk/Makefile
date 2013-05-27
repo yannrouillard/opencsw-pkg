@@ -2,7 +2,7 @@
 # - SSL certs to /etc/opt/csw/ssl?
 # - /var/run/dovecot instead of /var/opt/csw/run?
 NAME = dovecot
-VERSION = 2.1.15
+VERSION = 2.1.16
 GARTYPE = v2
 
 DESCRIPTION = Secure IMAP server
@@ -17,6 +17,8 @@ SPKG_SOURCEURL = http://dovecot.org/
 MASTER_SITES   = http://dovecot.org/releases/2.1/
 DISTFILES      = $(NAME)-$(VERSION).tar.gz
 UFILES_REGEX   = $(NAME)-(\d+(?:\.\d+)*).tar.gz
+
+PATCHFILES = 0002-add-stdio.h-to-quota-status.c.patch
 
 GARCOMPILER    = SOS12
 
