@@ -8,7 +8,7 @@
 # Another thing is to see if it can be build with suncc see http://ftp.jaist.ac.jp/pub/pkgsrc/current/pkgsrc/multimedia/ffmpeg/Makefile.common
 
 NAME = ffmpeg
-VERSION = 1.1.3
+VERSION = 1.2.1
 GARTYPE = v2
 
 DESCRIPTION = Very fast video and audio converter (includes libavcodec)
@@ -37,6 +37,7 @@ BUILD_DEP_PKGS += CSWlibx264-dev
 PACKAGES += CSWlibavcodec54
 SPKG_DESC_CSWlibavcodec54 = FFMPEG library libavcodec.so.54
 PKGFILES_CSWlibavcodec54 += $(call pkgfiles_lib,libavcodec.so.54)
+RUNTIME_DEP_PKGS_CSWlibavcodec54 += CSWlibiconv2
 RUNTIME_DEP_PKGS_CSWlibavcodec54 += CSWlibvorbisenc2
 RUNTIME_DEP_PKGS_CSWlibavcodec54 += CSWlibavutil52
 RUNTIME_DEP_PKGS_CSWlibavdevice54 += CSWlibavfilter3
@@ -139,13 +140,6 @@ RUNTIME_DEP_PKGS_CSWffmpeg += CSWlibswresample0
 RUNTIME_DEP_PKGS_CSWffmpeg += CSWlibavfilter3
 RUNTIME_DEP_PKGS_CSWffmpeg += CSWlibpostproc52
 
-# These are all examples
-CHECKPKG_OVERRIDES_CSWffmpeg += file-with-bad-content|/usr/local|root/opt/csw/share/man/man1/ffmpeg.1
-CHECKPKG_OVERRIDES_CSWffmpeg += file-with-bad-content|/usr/local|root/opt/csw/share/man/man1/ffplay.1
-CHECKPKG_OVERRIDES_CSWffmpeg += file-with-bad-content|/usr/share|root/opt/csw/share/man/man1/ffmpeg.1
-CHECKPKG_OVERRIDES_CSWffmpeg += file-with-bad-content|/usr/share|root/opt/csw/share/man/man1/ffplay.1
-CHECKPKG_OVERRIDES_CSWffmpeg += file-with-bad-content|/usr/local|root/opt/csw/share/man/man1/ffmpeg-filters.1
-CHECKPKG_OVERRIDES_CSWffmpeg += file-with-bad-content|/usr/share|root/opt/csw/share/man/man1/ffmpeg-filters.1
 
 #EXTRA_MODULATORS = SHARED
 #MODULATIONS_SHARED = yes no
