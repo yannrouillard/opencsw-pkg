@@ -1,5 +1,5 @@
-NAME = scummvm
-VERSION = 1.4.0
+NAME    = scummvm
+VERSION = 1.6.0
 GARTYPE = v2
 
 DESCRIPTION = Virtual machine for several classic graphical point-and-click adventure games
@@ -20,7 +20,15 @@ RUNTIME_DEP_PKGS_CSWscummvm += CSWlibtheoradec1
 RUNTIME_DEP_PKGS_CSWscummvm += CSWlibmad0
 RUNTIME_DEP_PKGS_CSWscummvm += CSWlibgcc-s1
 RUNTIME_DEP_PKGS_CSWscummvm += CSWlibvorbisfile3
+RUNTIME_DEP_PKGS_CSWscummvm += CSWlibfluidsynth1
 
+BUILD64=1
+
+BUILD_DEP_PKGS_CSWscummvm += CSWlibsdl-dev
+BUILD_DEP_PKGS_CSWscummvm += CSWfluidsynth-dev
+
+PATCHFILES += 0001-redefining-FILE.patch
+PATCHFILES += 0002-configure-really-is-a-bash-script.patch
 # Don't know about these, investigate later
 CHECKPKG_OVERRIDES_CSWscummvm += file-with-bad-content|/usr/local|root/opt/csw/bin/scummvm
 CHECKPKG_OVERRIDES_CSWscummvm += file-with-bad-content|/usr/local|root/opt/csw/share/man/man6/scummvm.6
@@ -33,7 +41,10 @@ CONFIGURE_ARGS += --bindir=$(bindir)
 CONFIGURE_ARGS += --mandir=$(mandir)
 CONFIGURE_ARGS += --datadir=$(datadir)
 CONFIGURE_ARGS += --libdir=$(libdir)
-CONFIGURE_ARGS += --enable-all-engines
+CONFIGURE_ARGS += --enable-release
+CONFIGURE_ARGS += --enable-plugins
+CONFIGURE_ARGS += --default-dynamic
+CONFIGURE_ARGS += --enable-updates
 
 TEST_TARGET = test
 
