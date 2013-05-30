@@ -42,7 +42,7 @@ GARCOMPILER = GCC4
 CONFIGURE_ARGS = --prefix=$(prefix)
 CONFIGURE_ARGS += --bindir=$(bindir)
 CONFIGURE_ARGS += --mandir=$(mandir)
-CONFIGURE_ARGS += --datadir=$(datadir)
+CONFIGURE_ARGS += --datarootdir=$(datadir)
 CONFIGURE_ARGS += --libdir=$(libdir)
 CONFIGURE_ARGS += --enable-release
 CONFIGURE_ARGS += --enable-plugins
