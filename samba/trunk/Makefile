@@ -1,6 +1,6 @@
 
 NAME = samba
-VERSION = 4.0.3
+VERSION = 4.0.6
 GARTYPE = v2
 
 DESCRIPTION = Tools to access a servers filespace and printers via SMB (server)
@@ -311,8 +311,7 @@ CONFIGURE_ARGS += --with-piddir=$(SMBLOCKDIR)
 
 CONFIGURE_ARGS += --with-logfilebase=$(SMBLOGDIR)
 
-CONFIGURE_ARGS-64 +=  --disable-cups
-CONFIGURE_ARGS += $(CONFIGURE_ARGS-$(MEMORYMODEL))
+CONFIGURE_ARGS += --enable-cups
 
 # Can't use fdatasync atm do to linker problems
 #CONFIGURE_ARGS += ac_cv_lib_rt_fdatasync=no
