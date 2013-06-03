@@ -34,4 +34,6 @@ BUILD64_LIBS_ONLY = 1
 CONFIGURE_ARGS += $(DIRPATHS)
 CONFIGURE_ARGS += ac_cv_search_gettext=-lintl
 
+EXTRA_PKG_CONFIG_PATH = /opt/csw/X11/lib
+
 include gar/category.mk
