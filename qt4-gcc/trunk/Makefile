@@ -25,41 +25,69 @@ PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386
 REINPLACE_USRLOCAL += src/gui/kernel/qguiplatformplugin.cpp 
 REINPLACE_USRLOCAL += src/network/ssl/qsslsocket_openssl_symbols.cpp
 REINPLACE_USRLOCAL += src/network/ssl/qsslsocket_openssl.cpp
+# replace SSL cert location
 REINPLACE_USRLOCAL += src/network/ssl/qsslsocket.cpp
 REINPLACE_USRLOCAL += src/3rdparty/webkit/Source/WebCore/plugins/PluginDatabase.cpp
 PATCHFILES += mkspec-csw.patch
 # bug in 4.8.1, see: https//bugreports.qt-project.org/browse/QTBUG-25281
 PATCHFILES += 0001-shapeinput.patch
-
-REINPLACE_USRLOCAL += src/gui/kernel/qguiplatformplugin.cpp
-REINPLACE_USRLOCAL += src/network/ssl/qsslsocket_openssl_symbols.cpp
-# replace SSL cert location
-REINPLACE_USRLOCAL += src/network/ssl/qsslsocket.cpp
+BUILD_DEP_PKGS += CSWlibssl-dev
+BUILD_DEP_PKGS += CSWunixodbc-dev
+BUILD_DEP_PKGS += CSWpostgresql-dev
+BUILD_DEP_PKGS += CSWfreetds-dev
 
 # http://wiki.opencsw.org/porting-faq#toc9
 EXTRA_CFLAGS = -DSUN_OGL_NO_VERTEX_MACROS
 EXTRA_CXXFLAGS = -DSUN_OGL_NO_VERTEX_MACROS
 
-CONFIGURE_ARGS += -platform solaris-g++
-CONFIGURE_ARGS += -opensource
+platform_arg = solaris-g++
+
 CONFIGURE_ARGS += -confirm-license
 CONFIGURE_ARGS += -prefix $(prefix)
-CONFIGURE_ARGS += -plugindir $(libdir)/$(NAME)$(MAJOR)/plugins
-CONFIGURE_ARGS += -docdir $(docdir)/$(NAME)$(MAJOR)
-CONFIGURE_ARGS += -translationdir $(sharedstatedir)/$(NAME)$(MAJOR)/translations
-CONFIGURE_ARGS += -importdir $(libdir)/$(NAME)$(MAJOR)/imports
-CONFIGURE_ARGS += -demosdir $(sharedstatedir)/$(NAME)$(MAJOR)/demos
-CONFIGURE_ARGS += -examplesdir $(libdir)/$(NAME)$(MAJOR)/examples
+CONFIGURE_ARGS += -docdir $(sharedstatedir)/$(NAME)$(MAJOR)/doc
 CONFIGURE_ARGS += -datadir $(sharedstatedir)/$(NAME)$(MAJOR)
-CONFIGURE_ARGS += -sysconfdir $(syconfdir)/$(NAME)$(MAJOR)
+CONFIGURE_ARGS += -plugindir $(libdir)/$(NAME)$(MAJOR)/plugins
+CONFIGURE_ARGS += -importdir $(libdir)/$(NAME)$(MAJOR)/imports
+CONFIGURE_ARGS += -translationdir $(sharedstatedir)/$(NAME)$(MAJOR)/translations
+# CONFIGURE_ARGS += -sysconfdir $(syconfdir)/$(NAME)$(MAJOR)
+CONFIGURE_ARGS += -sysconfdir /etc/xdg
+CONFIGURE_ARGS += -demosdir $(libdir)/$(NAME)$(MAJOR)/demos
+CONFIGURE_ARGS += -examplesdir $(libdir)/$(NAME)$(MAJOR)/examples
+CONFIGURE_ARGS += -opensource
+#debain args -- without windows only options, defaults, undocumented options
+CONFIGURE_ARGS += -fast
+CONFIGURE_ARGS += -plugin-sql-mysql
+CONFIGURE_ARGS += -plugin-sql-odbc
+CONFIGURE_ARGS += -plugin-sql-psql
+CONFIGURE_ARGS += -plugin-sql-sqlite
+CONFIGURE_ARGS += -plugin-sql-tds
+CONFIGURE_ARGS += -system-sqlite
+CONFIGURE_ARGS += -platform $(platform_arg)
+CONFIGURE_ARGS += -system-zlib
+CONFIGURE_ARGS += -system-libtiff
+CONFIGURE_ARGS += -system-libpng
+CONFIGURE_ARGS += -system-libjpeg
+CONFIGURE_ARGS += -no-rpath
+CONFIGURE_ARGS += -reduce-relocations
+CONFIGURE_ARGS += -no-separate-debug-info
+CONFIGURE_ARGS += -verbose
+CONFIGURE_ARGS += -lfontconfig
+CONFIGURE_ARGS += -I$(includedir)/freetype2
+#endof debin args
 CONFIGURE_ARGS += -no-qt3support
 CONFIGURE_ARGS += -no-xshape
-CONFIGURE_ARGS += -webkit
-CONFIGURE_ARGS += -v -shared -stl -largefile -sm 
-CONFIGURE_ARGS += -qt-libjpeg -qt-libpng -qt-libmng -qt-zlib 
+CONFIGURE_ARGS += -v 
+CONFIGURE_ARGS += -shared
+CONFIGURE_ARGS += -stl
+CONFIGURE_ARGS += -largefile
+CONFIGURE_ARGS += -sm 
+CONFIGURE_ARGS += -qt-libjpeg
+CONFIGURE_ARGS += -qt-libpng
+CONFIGURE_ARGS += -qt-libmng
+CONFIGURE_ARGS += -qt-zlib 
 # compile error: error: 'QGtkStyle' has not been declared ??? since 10.12.2012
 CONFIGURE_ARGS += -no-gtkstyle
-CONFIGURE_ARGS += -I$(BUILD_PREFIX)/include/gtk-2.0
+CONFIGURE_ARGS += -I$(includedir)/gtk-2.0
 CONFIGURE_ARGS += -I/usr/X11/include 
 CONFIGURE_ARGS += -I/usr/X11/share/include
 CONFIGURE_ARGS_sparc += -big-endian -host-big-endian
