@@ -3,7 +3,7 @@
 # $Header$
 
 NAME = keychain
-VERSION = 2.7.0
+VERSION = 2.7.1
 GARTYPE = v2
 
 DESCRIPTION = Convenient ssh-agent and gpg-agent manager
@@ -19,11 +19,12 @@ define BLURB
 endef
 
 MASTER_SITES = http://www.funtoo.org/archive/keychain/
-DISTFILES  = $(NAME)-$(VERSION).tar.bz2
-PATCHFILES += bash.patch
-PATCHFILES += gsed.patch
+DISTFILES  = $(DISTNAME).tar.bz2
 
-UFILES_REGEX = $(NAME)-(\d+(?:\.\d+)*).tar.bz2
+PACKAGING_PLATFORMS = solaris9-i386 solaris9-sparc
+
+PATCHFILES += bash.patch
+PATCHFILES += 0002-Allow-to-use-own-sed.patch
 
 ARCHALL = 1
 CONFIGURE_SCRIPTS =
@@ -33,6 +34,8 @@ TEST_SCRIPTS =
 
 RUNTIME_DEP_PKGS = CSWbash
 BUILD_DEP_PKGS = $(RUNTIME_DEP_PKGS) CSWperl
+
+CHECKPKG_OVERRIDES_CSWkeychain += surplus-dependency|CSWbash
 
 include gar/category.mk
 
