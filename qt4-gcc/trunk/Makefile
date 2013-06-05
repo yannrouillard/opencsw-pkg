@@ -157,14 +157,12 @@ RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibqtsql4
 # RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibgthread2-0-0
 # RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibgmodule2-0-0
 # RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibintl8
-RUNTIME_DEP_PKGS_CSWqt4-dev += CSWgstreamer
 # RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibxrender
 RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibgobject2-0-0
 RUNTIME_DEP_PKGS_CSWqt4-dev += CSWmesa
 RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibstdc++6
 RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibglib2-0-0
 # RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibxml2-2
-RUNTIME_DEP_PKGS_CSWqt4-dev += CSWgstplugins
 RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibgcc-s1
 RUNTIME_DEP_PKGS_CSWqt4-dev += CSWsqlite
 RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibtiff3
@@ -180,6 +178,7 @@ RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibgstreamer0-10-0
 RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibgstvideo0-10-0
 RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibgstaudio0-10-0
 CHECKPKG_OVERRIDES_CSWqt4-dev += surplus-dependency|CSWlibicui18n50
+CHECKPKG_OVERRIDES_CSWqt4-dev += file-with-bad-content|/usr/share
 
 # because libdbus needs /etc/machine-id which can generated with a tool of CSWdbus
 CHECKPKG_OVERRIDES_CSWqt4-dev += surplus-dependency|CSWdbus
