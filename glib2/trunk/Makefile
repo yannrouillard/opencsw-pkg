@@ -272,6 +272,7 @@ BUILD_DEP_PKGS += CSWpy-gobject CSWpkgconfig CSWlibpcre-dev CSWdskutl
 BUILD_DEP_PKGS += CSWpython CSWdbuspython CSWsharedmimeinfo
 # This is used to adjust paths in documentation
 BUILD_DEP_PKGS += CSWgsed
+BUILD_DEP_PKGS += CSWlibz-dev
 
 # -xO4 is necessary on sparc so that function inlining happens as expected
 EXTRA_CFLAGS_sparc = -xO4 -features=extensions -xc99 -D_XPG6 #  -D__EXTENSIONS__ -D_XOPEN_SOURCE=600 
