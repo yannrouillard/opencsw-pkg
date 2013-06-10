@@ -15,9 +15,9 @@ endef
 
 DISTFILES  = $(NAME)-$(VERSION).tar.bz2
 
-SPKG_VENDOR_URL = http://www.wxwidgets.org/
-MASTER_SITES    = $(SF_MIRRORS)
-SF_PROJECT      = wxwindows
+VENDOR_URL   = http://www.wxwidgets.org/
+MASTER_SITES = $(SF_MIRRORS)
+SF_PROJECT   = wxwindows
 
 PACKAGES  = CSWwxwidgets
 PACKAGES += CSWwxwidgets-dev
