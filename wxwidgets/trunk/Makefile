@@ -15,18 +15,9 @@ endef
 
 DISTFILES  = $(NAME)-$(VERSION).tar.bz2
 
-SPKG_SOURCEURL = http://www.wxwidgets.org/
-MASTER_SITES  = $(SF_MIRRORS)
-SF_PROJECT = wxwindows
-
-#PATCHFILES_isa-i386-version-2.8.12  = 0001-Patches-from-http-trac.wxwidgets.org-ticket-10660.patch
-#PATCHFILES_isa-i386-version-2.8.12 += 0002-Fixing-retarded-checks-for-libGL.patch
-#PATCHFILES_isa-i386-version-2.8.12 += 0003-vsscanf-support-via-ncursesw.patch
-#PATCHFILES_isa-i386-version-2.8.12 += 0005-stupid-vwscanf-workaround.patch
-#PATCHFILES_isa-sparcv8-version-2.8.12  = 0001-Patches-from-http-trac.wxwidgets.org-ticket-10660.patch
-#PATCHFILES_isa-sparcv8-version-2.8.12 += 0002-Fixing-retarded-checks-for-libGL.patch
-#PATCHFILES_isa-sparcv8-version-2.8.12 += 0003-vsscanf-support-via-ncursesw.patch
-#PATCHFILES_isa-sparcv8-version-2.8.12 += 0005-stupid-vwscanf-workaround.patch
+SPKG_VENDOR_URL = http://www.wxwidgets.org/
+MASTER_SITES    = $(SF_MIRRORS)
+SF_PROJECT      = wxwindows
 
 PACKAGES  = CSWwxwidgets
 PACKAGES += CSWwxwidgets-dev
@@ -40,11 +31,7 @@ RUNTIME_DEP_PKGS_CSWwxwidgets += CSWlibexpat1
 RUNTIME_DEP_PKGS_CSWwxwidgets += CSWlibiconv2
 RUNTIME_DEP_PKGS_CSWwxwidgets += CSWlibz1
 
-RUNTIME_DEP_PKGS_CSWwxwidgets-dev += CSWexpat
-RUNTIME_DEP_PKGS_CSWwxwidgets-dev += CSWiconv
-RUNTIME_DEP_PKGS_CSWwxwidgets-dev += CSWncurses
-RUNTIME_DEP_PKGS_CSWwxwidgets-dev += CSWzlib
-
+RUNTIME_DEP_PKGS_CSWwxwidgetsgtk2 += CSWwxwidgets
 RUNTIME_DEP_PKGS_CSWwxwidgetsgtk2 += CSWlibpng15-15
 RUNTIME_DEP_PKGS_CSWwxwidgetsgtk2 += CSWlibgdk-x11-2-0-0
 RUNTIME_DEP_PKGS_CSWwxwidgetsgtk2 += CSWlibgdk-pixbuf2-0-0
@@ -57,10 +44,19 @@ RUNTIME_DEP_PKGS_CSWwxwidgetsgtk2 += CSWlibglib2-0-0
 RUNTIME_DEP_PKGS_CSWwxwidgetsgtk2 += CSWmesa
 RUNTIME_DEP_PKGS_CSWwxwidgetsgtk2 += CSWpango
 
-# Dependencies between wxwidgets subpackages
-RUNTIME_DEP_PKGS_CSWwxwidgetsgtk2 += CSWwxwidgets
-
-RUNTIME_DEP_PKGS_CSWwxwidgets-dev += CSWwxwidgets CSWwxwidgetsgtk2
+RUNTIME_DEP_PKGS_CSWwxwidgets-dev += CSWwxwidgets
+RUNTIME_DEP_PKGS_CSWwxwidgets-dev += CSWwxwidgetsgtk2
+RUNTIME_DEP_PKGS_CSWwxwidgets-dev += CSWintltool
+RUNTIME_DEP_PKGS_CSWwxwidgets-dev += CSWpkgconfig
+RUNTIME_DEP_PKGS_CSWwxwidgets-dev += CSWlibgtk2-dev
+RUNTIME_DEP_PKGS_CSWwxwidgets-dev += CSWlibpcre-dev
+RUNTIME_DEP_PKGS_CSWwxwidgets-dev += CSWfontconfig-dev
+RUNTIME_DEP_PKGS_CSWwxwidgets-dev += CSWlibfreetype-dev
+RUNTIME_DEP_PKGS_CSWwxwidgets-dev += CSWlibpng-dev
+RUNTIME_DEP_PKGS_CSWwxwidgets-dev += CSWsunx11devel
+RUNTIME_DEP_PKGS_CSWwxwidgets-dev += CSWlibiconv-dev
+RUNTIME_DEP_PKGS_CSWwxwidgets-dev += CSWggettext-dev
+RUNTIME_DEP_PKGS_CSWwxwidgets-dev += CSWlibexpat-dev
 
 BUILD_DEP_PKGS  = $(RUNTIME_DEP_PKGS)
 BUILD_DEP_PKGS += CSWintltool
@@ -75,6 +71,7 @@ BUILD_DEP_PKGS += CSWlibiconv-dev
 BUILD_DEP_PKGS += CSWggettext-dev
 BUILD_DEP_PKGS += CSWlibexpat-dev
 
+# Easier than defining each individual .so.xxx
 PKGFILES_CSWwxwidgets     = $(libdir).*libwx_base.*\.so\..*
 PKGFILES_CSWwxwidgets    += $(sharedir)/locale.*
 
@@ -82,10 +79,11 @@ PKGFILES_CSWwxwidgetsgtk2 = $(libdir).*libwx_gtk2.*\.so\..*
 
 PKGFILES_CSWwxwidgets-dev = $(PKGFILES_DEVEL)
 
-CATALOGNAME_CSWwxwidgets      = wxwidgets
-CATALOGNAME_CSWwxwidgets-dev  = wxwidgets_dev
-CATALOGNAME_CSWwxwidgetsgtk2  = wxwidgetsgtk2
-CATALOGNAME_CSWwxwidgetsdevel = wxwidgets_devel_stub 
+CATALOGNAME_CSWwxwidgets       = wxwidgets
+CATALOGNAME_CSWwxwidgets-dev   = wxwidgets_dev
+CATALOGNAME_CSWwxwidgetsgtk2   = wxwidgetsgtk2
+CATALOGNAME_CSWwxwidgetsdevel  = wxwidgets_devel_stub 
+CATALOGNAME_CSWwxwidgetscommon = wxwidgets_common_stub
 
 OBSOLETED_BY_CSWwxwidgets     = CSWwxwidgetscommon
 OBSOLETED_BY_CSWwxwidgets-dev = CSWwxwidgetsdevel
