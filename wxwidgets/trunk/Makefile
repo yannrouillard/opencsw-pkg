@@ -134,5 +134,5 @@ post-install-modulated:
 		-e '/^[^#]/s/-lCrun[^ ]* //' \
 		-e '/^[^#]/s/-lCstd[^ ]* //' \
 		-e '/^[^#]/s/-mt[^ ]* //' \
-		$(DESTDIR)$(bindir)/icu-config
+		$(DESTDIR)$(bindir)/wx-config
 
