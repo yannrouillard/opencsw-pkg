@@ -93,3 +93,15 @@ BUILD64_LIBS_ONLY = 1
 NOISALIST = 1
 
 include gar/category.mk
+
+# Remove Studio-specific arch references
+post-install-modulated:
+	gsed -i \
+		-e '/^[^#]/s/-xO3[^ ]* //' \
+		-e '/^[^#]/s/-xarch=[^ ]* //' \
+		-e '/^[^#]/s/-xchip=[^ ]* //' \
+		-e '/^[^#]/s/-norunpath[^ ]* //' \
+		-e '/^[^#]/s/-lCrun[^ ]* //' \
+		-e '/^[^#]/s/-lCstd[^ ]* //' \
+		$(DESTDIR)$(bindir)/icu-config
+
