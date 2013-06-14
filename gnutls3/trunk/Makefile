@@ -1,5 +1,5 @@
 NAME = gnutls
-VERSION = 3.1.10
+VERSION = 3.1.12
 
 DESCRIPTION = GNU Transport Layer Security libraries and tools
 define BLURB
