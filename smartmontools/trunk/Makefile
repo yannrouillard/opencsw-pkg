@@ -1,7 +1,7 @@
 # $Id$
 
 NAME = smartmontools
-VERSION = 5.42
+VERSION = 6.1
 GARTYPE = v2
 
 DESCRIPTION = S.M.A.R.T. disk monitoring tools
