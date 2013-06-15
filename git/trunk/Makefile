@@ -1,5 +1,5 @@
 NAME = git
-VERSION = 1.8.2.1
+VERSION = 1.8.3.1
 #PATCHLEVEL = rc4
 DISTNAME = $(NAME)-$(VERSION)
 GARTYPE = v2
@@ -117,7 +117,6 @@ PATCHFILES += 0004-Add-OpenCSW-apache2-path-to-instaweb-search-path.patch
 # to the selection of available utf8 locales.
 PATCHFILES_isa-sparcv8 += 0005-Force-en_US.UTF-8-for-a-git-svn-test.patch
 PATCHFILES += 0006-Patch-out-a-few-usr-share-references.patch
-PATCHFILES += 0006-Fix-use-of-non-portable-strftime-format-string.patch
 
 fdirs = $(bindir_install) $(mandir) $(libexecdir_install)
 define _git_files
