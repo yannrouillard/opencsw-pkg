@@ -76,7 +76,7 @@ RUNTIME_DEP_PKGS_CSWgit-svn = CSWgit CSWpmsvn
 
 RUNTIME_DEP_PKGS_CSWgit-cvs = CSWgit CSWcvs CSWcvsps
 
-RUNTIME_DEP_PKGS_CSWgit-emacs = CSWgit CSWemacscommon
+RUNTIME_DEP_PKGS_CSWgit-emacs = CSWgit CSWemacs-common
 
 RUNTIME_DEP_PKGS_CSWgit-doc = CSWgit
 
