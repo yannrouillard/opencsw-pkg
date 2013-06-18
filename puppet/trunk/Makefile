@@ -7,7 +7,7 @@
 # [1] http://garylaw.net/packages/puppet-build.sh
 
 NAME = puppet
-VERSION = 2.7.21
+VERSION = 2.7.22
 GARTYPE = v2
 
 define BLURB
