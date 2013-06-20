@@ -1,6 +1,6 @@
 NAME = gd
 VERSION = 2.0.36RC1
-GARTYPE = v2
+GARTYPE = bts
 
 DESCRIPTION = A library used for dynamic image creation
 define BLURB
