@@ -18,7 +18,7 @@ MASTER_SITES = $(SF_MIRRORS)
 DISTNAME = $(NAME)$(UNZIPVERSION)
 DISTFILES  = $(DISTNAME).tgz
 
-RUNTIME_DEP_PKGS = NIMOSSlibbz2-1-0
+#RUNTIME_DEP_PKGS = NIMOSSlibbz2-1-0
 BUILD_DEP_PKGS  = $(RUNTIME_DEP_PKGS)
 
 # zip's configure is... "special". We use a custom version
