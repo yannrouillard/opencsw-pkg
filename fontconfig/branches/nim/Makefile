@@ -14,7 +14,7 @@ endef
 
 MASTER_SITES = http://www.fontconfig.org/release/
 DISTFILES += $(DISTNAME).tar.gz
-DISTFILES += NIMOSSfontconfig.postinstall
+DISTFILES += CSWfontconfig.postinstall
 
 VENDOR_URL = http://www.fontconfig.org
 
