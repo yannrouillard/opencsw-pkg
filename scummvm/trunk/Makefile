@@ -8,6 +8,8 @@ endef
 
 MASTER_SITES = $(SF_MIRRORS)
 DISTFILES  = $(NAME)-$(VERSION).tar.bz2
+DISTFILES += README.solaris scummvm.desktop
+
 
 RUNTIME_DEP_PKGS_CSWscummvm += CSWlibz1
 RUNTIME_DEP_PKGS_CSWscummvm += CSWlibogg0
@@ -59,3 +61,9 @@ include gar/category.mk
 
 # For "install" with GNU syntax
 PATH := /opt/csw/gnu:$(PATH)
+
+post-install-modulated:
+	ginstall -m 0644 $(WORKSRC)/README.solaris \
+		$(DESTDIR)$(datadir)/doc/scummvm/
+	ginstall -m 0644 $(WORKSRC)/scummvm.desktop \
+		$(DESTDIR)$(datadir)/applications/scummvm/
