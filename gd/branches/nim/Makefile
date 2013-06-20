@@ -67,7 +67,7 @@ TEST_SCRIPTS =
 
 # This is ok as there are a number of search pathes for fonts in there.
 # We made sure that the $NIMOSS_DEFAULT_FONTPATH is the first one in the list.
-CHECKPKG_OVERRIDES_NIMOSSlibgd-dev += file-with-bad-content|/usr/share|root/opt/csw/include/gd.h
+CHECKPKG_OVERRIDES_NIMOSSlibgd-dev += file-with-bad-content|/usr/share|root/opt/csw/nimoss/include/gd.h
 
 include gar/category.mk
 
@@ -83,7 +83,7 @@ post-extract-modulated:
 # The shipped libtool doesn't know about Sun Studio C++ compiler 'CC'
 pre-configure-modulated:
 #	grm -f $(WORKSRC)/config/ltmain.sh
-#	gcp /opt/csw/share/libtool/config/ltmain.sh $(WORKSRC)/config/ltmain.sh
+#	gcp /opt/csw/nimoss/share/libtool/config/ltmain.sh $(WORKSRC)/config/ltmain.sh
 #	cd $(WORKSRC) && aclocal && automake
 	@$(MAKECOOKIE)
 
