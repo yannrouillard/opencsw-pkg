@@ -2,6 +2,7 @@
 
 NAME = zlib
 VERSION = 1.2.7
+CATEGORIES = lib
 GARTYPE = bts
 
 DESCRIPTION = Zlib data compression library
@@ -19,7 +20,7 @@ endef
 
 MASTER_SITES  = http://zlib.net/
 MASTER_SITES += $(SF_MIRROR)
-SF_PROJECT = libpng
+SF_PROJ = libpng
 DISTFILES  = $(DISTNAME).tar.bz2
 DISTFILES += COPYING
 
