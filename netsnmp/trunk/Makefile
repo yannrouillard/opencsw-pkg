@@ -38,8 +38,8 @@ GARCOMPILER = SOS12U3
 BUILD_DEP_PKGS = CSWpysetuptools
 PACKAGING_PLATFORMS += solaris10-sparc solaris10-i386
 
-INITSMF = /etc/init.d/snmpd
-INITSMF = /etc/init.d/snmptrapd
+INITSMF = $(sysconfdir)/init.d/snmpd
+INITSMF += $(sysconfdir)/init.d/snmptrapd
 
 PACKAGES += CSWnetsnmp-dev
 CATALOGNAME_CSWnetsnmp-dev = netsnmp_dev
@@ -64,7 +64,6 @@ CATALOGNAME_CSWlibnetsnmpagent25 = libnetsnmpagent25
 SPKG_DESC_CSWlibnetsnmpagent25 += $(DESCRIPTION), libsnmpagent.so.25
 PKGFILES_CSWlibnetsnmpagent25 += $(call baseisadirs,$(libdir),libnetsnmpagent\.so\.25(\.\d+)*)
 RUNTIME_DEP_PKGS_CSWlibnetsnmpagent25 += CSWlibnetsnmp25
-RUNTIME_DEP_PKGS_CSWlibnetsnmpagent25 += CSWlibssl1-0-0
 
 PACKAGES += CSWlibnetsnmphelpers25
 CATALOGNAME_CSWlibnetsnmphelpers25 = libnetsnmphelpers25
@@ -77,7 +76,6 @@ SPKG_DESC_CSWlibnetsnmpmibs25 += $(DESCRIPTION), libsnmpmibs.so.25
 PKGFILES_CSWlibnetsnmpmibs25 += $(call baseisadirs,$(libdir),libnetsnmpmibs\.so\.25(\.\d+)*)
 RUNTIME_DEP_PKGS_CSWlibnetsnmpmibs25 += CSWlibnetsnmp25
 RUNTIME_DEP_PKGS_CSWlibnetsnmpmibs25 += CSWlibnetsnmpagent25
-RUNTIME_DEP_PKGS_CSWlibnetsnmpmibs25 += CSWlibssl1-0-0
 
 PACKAGES += CSWlibnetsnmptrapd25
 CATALOGNAME_CSWlibnetsnmptrapd25 = libnetsnmptrapd25
@@ -86,19 +84,16 @@ PKGFILES_CSWlibnetsnmptrapd25 += $(call baseisadirs,$(libdir),libnetsnmptrapd\.s
 RUNTIME_DEP_PKGS_CSWlibnetsnmptrapd25 += CSWlibnetsnmpmibs25
 RUNTIME_DEP_PKGS_CSWlibnetsnmptrapd25 += CSWlibnetsnmp25
 RUNTIME_DEP_PKGS_CSWlibnetsnmptrapd25 += CSWlibnetsnmpagent25
-RUNTIME_DEP_PKGS_CSWlibnetsnmptrapd25 += CSWlibssl1-0-0
 
 EXTRA_MERGE_EXCLUDE_FILES += .*/perllocal.pod
 PACKAGES += CSWpmnetsnmp
 SPKG_DESC_CSWpmnetsnmp+= $(DESCRIPTION), Perl binding
 PKGFILES_CSWpmnetsnmp += $(libdir)/perl.*
 RUNTIME_DEP_PKGS_CSWpmnetsnmp += CSWperl
-RUNTIME_DEP_PKGS_CSWpmnetsnmp += CSWlibnetsnmpmibs25
+# RUNTIME_DEP_PKGS_CSWpmnetsnmp += CSWlibnetsnmpmibs25
 RUNTIME_DEP_PKGS_CSWpmnetsnmp += CSWlibnetsnmptrapd25
 RUNTIME_DEP_PKGS_CSWpmnetsnmp += CSWlibnetsnmp25
 RUNTIME_DEP_PKGS_CSWpmnetsnmp += CSWlibnetsnmpagent25
-# CHECKPKG_OVERRIDES_CSWpmnetsnmp += file-with-bad-content|/usr/local|root/opt/csw/lib/perl/site_perl/NetSNMP/TrapReceiver.pm
-RUNTIME_DEP_PKGS_CSWpmnetsnmp += CSWlibssl1-0-0
 
 EXTRA_MERGE_EXCLUDE_FILES += .*/*.pyc
 PACKAGES += CSWpy-netsnmp
@@ -108,7 +103,6 @@ PKGFILES_CSWpy-netsnmp = $(libdir)/python.*
 RUNTIME_DEP_PKGS_CSWpy-netsnmp += CSWpython
 RUNTIME_DEP_PKGS_CSWpy-netsnmp += CSWlibpython2-6-1-0
 RUNTIME_DEP_PKGS_CSWpy-netsnmp += CSWlibnetsnmp25
-RUNTIME_DEP_PKGS_CSWpy-netsnmp += CSWlibssl1-0-0
 
 PACKAGES += CSWnetsnmp
 SPKG_DESC_CSWnetsnmp += $(DESCRIPTION), Base
@@ -202,11 +196,11 @@ CFLAGS := $(filter-out -I/opt/csw/include,$(CFLAGS))
 # LDFLAGS := $(filter-out -R/opt/csw/lib% -L/opt/csw/lib,$(LDFLAGS))
 
 post-install:
-	ginstall -d $(DESTDIR)/etc/init.d
-	ginstall -d $(DESTDIR)/$(syconfdir)/snmp
-	ginstall -m 755	$(WORKSRC)/dist/snmpd-init.d $(DESTDIR)/etc/init.d/snmpd
-	ginstall -m 755	$(WORKSRC)/dist/snmptrapd-init.d $(DESTDIR)/etc/init.d/snmptrapd
-	ginstall -m 755	$(WORKSRC)/EXAMPLE.conf $(DESTDIR)/$(syconfdir)/snmp/snmpd
+	ginstall -d $(DESTDIR)/$(sysconfdir)/init.d
+	ginstall -d $(DESTDIR)/$(sysconfdir)/snmp
+	ginstall -m 755	$(WORKSRC)/dist/snmpd-init.d $(DESTDIR)/$(sysconfdir)/init.d/snmpd
+	ginstall -m 755	$(WORKSRC)/dist/snmptrapd-init.d $(DESTDIR)/$(sysconfdir)/init.d/snmptrapd
+	ginstall -m 755	$(WORKSRC)/EXAMPLE.conf $(DESTDIR)/$(sysconfdir)/snmp/snmpd
 	@$(MAKECOOKIE)
 
 #post-install-isa-sparcv8:
