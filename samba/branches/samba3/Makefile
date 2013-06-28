@@ -24,6 +24,10 @@ DISTFILES += smb.conf
 # This is taken from the old Samba package
 DISTFILES += cswkrb5.conf
 
+PATCHFILE += 0001-nss_winbind.patch
+PATCHFILE += 0002-smbd-patch-for-setgroups.c.patch
+PATCHFILE += 0003-rename-nss-modules.patch
+
 GARCOMPILER=SOS12U3
 
 #What needs to be fixed:
