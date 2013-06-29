@@ -24,9 +24,9 @@ DISTFILES += smb.conf
 # This is taken from the old Samba package
 DISTFILES += cswkrb5.conf
 
-PATCHFILE += 0001-nss_winbind.patch
-PATCHFILE += 0002-smbd-patch-for-setgroups.c.patch
-PATCHFILE += 0003-rename-nss-modules.patch
+PATCHFILES += 0001-nss_winbind.patch
+PATCHFILES += 0002-smbd-patch-for-setgroups.c.patch
+PATCHFILES += 0003-rename-nss-modules.patch
 
 GARCOMPILER=SOS12U3
 
@@ -150,10 +150,11 @@ CATALOGNAME_CSWlibtdb1 = libtdb1
 PKGFILES_CSWlibtdb1 += $(call pkgfiles_lib,libtdb.so.1)
 SPKG_DESC_CSWlibtdb1 += Samba client library, libtdb.so.1
 
-PACKAGES += CSWlibnss-winbind1
-CATALOGNAME_CSWlibnss-winbind1 = libnss_winbind1
-PKGFILES_CSWlibnss-winbind1 += $(call pkgfiles_lib,libnss_winbind.so.1)
-SPKG_DESC_CSWlibnss-winbind1 += Winbind nss libary,libnss_winbind.so.1
+PACKAGES += CSWnss-winbind1
+CATALOGNAME_CSWnss-winbind1 = nss_winbind1
+PKGFILES_CSWnss-winbind1 += $(call pkgfiles_lib,nss_winbind.so.1)
+SPKG_DESC_CSWnss-winbind1 += Winbind nss libary,nss_winbind.so.1
+OBSOLETED_BY_CSWnss-winbind1 += CSWlibnss-winbind1
 
 PACKAGES += CSWlibtevent0
 CATALOGNAME_CSWlibtevent0 = libtevent0
@@ -263,13 +264,13 @@ RUNTIME_DEP_PKGS_CSWsamba-winbind += CSWlibcom-err3
 RUNTIME_DEP_PKGS_CSWsamba-winbind += CSWlibtalloc2
 RUNTIME_DEP_PKGS_CSWsamba-winbind += CSWliblber2-4-2
 RUNTIME_DEP_PKGS_CSWsamba-winbind += CSWlibldap2-4-2
-RUNTIME_DEP_PKGS_CSWsamba-winbind += CSWlibnss-winbind1
+RUNTIME_DEP_PKGS_CSWsamba-winbind += CSWnss-winbind1
 RUNTIME_DEP_PKGS_CSWsamba-winbind += CSWlibwbclient0
 RUNTIME_DEP_PKGS_CSWsamba-winbind += CSWlibtdb1
 RUNTIME_DEP_PKGS_CSWsamba-winbind += CSWlibtevent0
 OBSOLETED_BY_CSWsamba-winbind += CSWsambawb
 
-CHECKPKG_OVERRIDES_CSWsamba-winbind += surplus-dependency|CSWlibnss-winbind1
+CHECKPKG_OVERRIDES_CSWsamba-winbind += surplus-dependency|CSWnss-winbind1
 
 # Needed as the configure script doesn't add it
 EXTRA_LINKER_FLAGS += -lintl 
@@ -352,4 +353,4 @@ post-install-modulated:
 	ginstall $(WORKDIR)/cswwinbind $(DESTDIR)/etc/opt/csw/init.d/cswwinbind
 	ginstall -d $(DESTDIR)/etc/opt/csw/samba
 	ginstall $(WORKDIR)/smb.conf $(DESTDIR)/etc/opt/csw/samba/smb.conf
-	ginstall $(WORKSRC)/nsswitch/libnss_winbind.so $(DESTDIR)/$(libdir)/libnss_winbind.so.1
+	ginstall $(WORKSRC)/nsswitch/nss_winbind.so $(DESTDIR)/$(libdir)/nss_winbind.so.1
