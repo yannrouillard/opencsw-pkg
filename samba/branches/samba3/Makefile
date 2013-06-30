@@ -365,6 +365,7 @@ post-extract-modulated:
 	#   KRB5_CFLAGS="`$KRB5CONFIG --cflags | sed s,-I/opt/csw/include,,`"
 	-perl -pi -e 's!/\@INCLUDE_des\@//!,-I$(includedir),,!' \
 		$(WORKSRC)/source3/configure
+	@$(MAKECOOKIE)
 
 post-install-modulated:
 	ginstall -d $(DESTDIR)/etc/opt/csw/init.d
@@ -390,3 +391,5 @@ post-install-modulated:
 		ln -s ../../../opt/csw/lib/$(MEMORYMODEL)/nss_wins.so.1 \
 			$(DESTDIR)/usr/lib/$(MEMORYMODEL)/nss_wins_csw.so.1; \
 	fi
+	@$(MAKECOOKIE)
+
