@@ -13,7 +13,7 @@ endef
 
 GARCOMPILER = GNU
 
-MASTER_SITES = ftp://ftp.qt-project.org/qt/source/
+MASTER_SITES = http://download.qt-project.org/official_releases/qt/$(basename $(VERSION))/$(VERSION)/
 DISTNAME = qt-everywhere-opensource-src-$(VERSION)
 DISTFILES = $(DISTNAME).tar.gz
 
