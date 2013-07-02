@@ -12,7 +12,6 @@ VERSION = 2.36.3
 GARTYPE = v2
 # for memory synchronisation primitives like __sync_synchronize we need gcc
 GARCOMPILER = GNU
-PYCOMPILE = 1
 
 DESCRIPTION = The GLib library of C routines.
 define BLURB
@@ -245,7 +244,7 @@ BUILD_DEP_PKGS += CSWlibz-dev
 EXTRA_CFLAGS  = -std=gnu99 # -xO4 -features=extensions -xc99 -D_XPG6
 EXTRA_LDFLAGS = -lsocket
 
-# BUILD64 = 1
+BUILD64 = 1
 
 CONFIGURE_ARGS  = $(DIRPATHS)
 CONFIGURE_ARGS += --with-libiconv=gnu
