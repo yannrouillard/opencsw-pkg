@@ -11,14 +11,13 @@ define BLURB
   new features such as exclusive start conditions.
 endef
 
-MASTER_SITES = $(GNU_NMIRROR)
-DISTFILES  = $(DISTNAME)a.tar.gz
-DISTFILES += CSWflex.gspec CSWflex.prototype
+SF_PROJ = flex
+MASTER_SITES = $(SF_MIRRORS)
+DISTFILES  = $(DISTNAME).tar.gz
+DISTFILES += $(call admfiles,CSWflex,)
 
 # Force Makefile to honor DESTDIR
 PATCHFILES += install.diff
-
-#DEPENDS = devel/bison
 
 CONFIGURE_ARGS = --prefix=$(prefix)
 
