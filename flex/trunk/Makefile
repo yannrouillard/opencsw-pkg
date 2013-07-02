@@ -1,10 +1,10 @@
 # $Id$
 
 NAME = flex
-VERSION = 2.5.35
+VERSION = 2.5.37
 GARTYPE = v2
 
-DESCRIPTION = A tool for generating text-scanning programs.
+DESCRIPTION = A tool for generating text-scanning programs
 define BLURB
   Flex is a tool for generating programs that recognize lexical patterns in
   text.  There are many applications for Flex, including writing compilers in
@@ -13,31 +13,26 @@ define BLURB
   new features such as exclusive start conditions.
 endef
 
-SPKG_SOURCEURL = http://flex.sourceforge.net/
+MASTER_SITES += $(SF_MIRRORS)
+DISTFILES += $(DISTNAME).tar.bz2
 
-SF_PROJECT = flex
-MASTER_SITES = $(SF_MIRRORS)
-DISTNAME = flex-$(VERSION)
-DISTFILES  = $(DISTNAME).tar.bz2
+VENDOR_URL = http://flex.sourceforge.net/
 
-PACKAGES = CSWflex-new
-CATALOGNAME = flex_new
+PACKAGES += CSWflex
+SPKG_DESC_CSWflex = A tool for generating text-scanning programs
+# PKGFILES is catchall
+RUNTIME_DEP_PKGS_CSWflex += CSWlibintl8
 
-RUNTIME_DEP_PKGS = CSWggettextrt
+# Previously the default flex was 2.5.4a and 2.5.35 was in /opt/csw/libexec/flex-2.5.35/bin
+OBSOLETED_BY_CSWflex += CSWflex-new
+CATALOGNAME_CSWflex-new += flex_new_stub
+PKGFILES_CSWflex-new += $(bindir)/newflex
 
-NOISALIST = 1
-CONFIGURE_ARGS = --prefix=$(libexecdir)/$(NAME)-$(VERSION)
-
-EXTRA_MERGE_EXCLUDE_FILES = $(prefix)/.*\.a
+# Must use GNU diff for option '-q' or two tests fail due to bailing out Sun diff
+TEST_ENV_PATH = $(prefix)/gnu:$(PATH)
 
 include gar/category.mk
 
-# Must use GNU diff for option '-q' or two tests fail due to bailing out Sun diff
-TEST_ENV += PATH=$(prefix)/gnu:$(PATH)
-
-post-install-modulated:
-	@mkdir -p $(DESTDIR)$(bindir)
-	@gln -sf ../libexec/$(NAME)-$(VERSION)/bin/flex $(DESTDIR)$(bindir)/newflex
-	@gln -sf ../libexec/$(NAME)-$(VERSION)/bin/flex $(DESTDIR)$(bindir)/flex-$(VERSION)
-	@rm -f $(DESTDIR)$(libexecdir)/$(NAME)-$(VERSION)/info/dir
+post-install:
+	gln -s flex $(DESTDIR)$(bindir)/newflex
 	@$(MAKECOOKIE)
