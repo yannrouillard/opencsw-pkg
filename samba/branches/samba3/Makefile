@@ -353,7 +353,8 @@ INITSMF += /etc/opt/csw/init.d/cswwinbind
 MIGRATE_FILES_CSWsamba += samba
 PRESERVECONF += $(sysconfdir)/samba/smb.conf
 
-EXTRA_MERGE_DIRS_isa-extra += /usr/lib
+EXTRA_MERGE_DIRS_isa-extra += /usr/lib/64
+MERGEBASE_/usr/lib/64 = /usr/lib
 
 include gar/category.mk
 
