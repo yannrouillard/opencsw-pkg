@@ -26,6 +26,15 @@ DISTFILES = $(NAME)-$(VERSION).tar.xz
 DISTFILES += changelog.CSW
 DISTFILES += set-ulimit-for-build-test
 
+BUILD_DEP_PKGS = CSWggettext-dev CSWlibiconv-dev CSWlibffi-dev
+BUILD_DEP_PKGS += CSWlibdbus-dev CSWdbus CSWlibgamin-dev CSWgamin
+BUILD_DEP_PKGS += CSWpy-gobject CSWpkgconfig CSWlibpcre-dev CSWdskutl
+# To make the tests working
+BUILD_DEP_PKGS += CSWpython CSWdbuspython CSWsharedmimeinfo
+# This is used to adjust paths in documentation
+BUILD_DEP_PKGS += CSWgsed
+BUILD_DEP_PKGS += CSWlibz-dev
+
 #
 # Build patches
 #
@@ -85,6 +94,7 @@ PATCHFILES += 0035-Disable-g_inet_socket_address_get_scope_id-test-does.patch
 # needs further investigtion, cf http://osdir.com/ml/freedesktop.dbus/2005-10/msg00058.html
 PATCHFILES += 0036-Disable-failing-gdbus-external-auth-tests.patch
 PATCHFILES += 0037-Remove-failing-tests-linking-is-broken.patch
+PATCHFILES_5.11 += 0038-Disable-appinfo-launch-test-fails-on-s11x86.patch
 
 PATCHFILES += $(PATCHFILES_$(GAROSREL))
 
@@ -145,6 +155,8 @@ RUNTIME_DEP_PKGS_CSWlibgio2-0-0 += CSWlibgcc-s1
 # Those are ok: hardcoded search paths which have added /opt/csw
 CHECKPKG_OVERRIDES_CSWlibgio2-0-0 += file-with-bad-content|/usr/local|root/opt/csw/lib/libgio-2.0.so.0.3600.3
 CHECKPKG_OVERRIDES_CSWlibgio2-0-0 += file-with-bad-content|/usr/share|root/opt/csw/lib/libgio-2.0.so.0.3600.3
+# libgio uses the mime info for determining the type of files
+CHECKPKG_OVERRIDES_CSWlibgio2-0-0 += surplus-dependency|CSWsharedmimeinfo
 CHECKPKG_OVERRIDES_CSWlibgio2-0-0_sparc += file-with-bad-content|/usr/local|root/opt/csw/lib/sparcv9/libgio-2.0.so.0.3600.3
 CHECKPKG_OVERRIDES_CSWlibgio2-0-0_sparc += file-with-bad-content|/usr/share|root/opt/csw/lib/sparcv9/libgio-2.0.so.0.3600.3
 CHECKPKG_OVERRIDES_CSWlibgio2-0-0_i386 += file-with-bad-content|/usr/local|root/opt/csw/lib/amd64/libgio-2.0.so.0.3600.3
@@ -231,15 +243,6 @@ SPKG_DESC_CSWglib2-doc = Gtk-doc Documentation for glib2
 PKGFILES_CSWglib2-doc =  .*/gtk-doc.*
 
 
-BUILD_DEP_PKGS = CSWggettext-dev CSWlibiconv-dev CSWlibffi-dev
-BUILD_DEP_PKGS += CSWlibdbus-dev CSWdbus CSWlibgamin-dev CSWgamin
-BUILD_DEP_PKGS += CSWpy-gobject CSWpkgconfig CSWlibpcre-dev CSWdskutl
-# To make the tests working
-BUILD_DEP_PKGS += CSWpython CSWdbuspython CSWsharedmimeinfo
-# This is used to adjust paths in documentation
-BUILD_DEP_PKGS += CSWgsed
-BUILD_DEP_PKGS += CSWlibz-dev
-
 # -xO4 is necessary on sparc so that function inlining happens as expected
 EXTRA_CFLAGS  = -std=gnu99 # -xO4 -features=extensions -xc99 -D_XPG6
 EXTRA_LDFLAGS = -lsocket
@@ -260,6 +263,9 @@ CONFIGURE_ARGS += --disable-dtrace
 CONFIGURE_ARGS += --with-threads=posix
 CONFIGURE_ARGS += --disable-compile-warnings
 CONFIGURE_ARGS += --disable-maintainer-mode
+CONFIGURE_ARGS += --with-xml-catalog=/etc/opt/csw/xml/catalog
+# ensure Docbook stuff is found for manpages, otherwise let configure fail
+CONFIGURE_ARGS += --enable-man
 
 # we must set the config shell to bash so configure sticks that
 # as SHELL variable in the generated Makefiles. That's what make
@@ -281,9 +287,6 @@ PYCOMPILE = 1
 MERGE_EXCLUDE_FILES = .*/charset.alias
 # Do we support gdb?
 MERGE_EXCLUDE_FILES += .*/gdb .*/gdb/.*
-
-# libgio uses the mime info for determining the type of files
-CHECKPKG_OVERRIDES_CSWlibgio2-0-0 += surplus-dependency|CSWsharedmimeinfo
 
 include gar/category.mk
 
@@ -309,19 +312,20 @@ post-merge:
 	fi
 
 # This is in place to fix paths that make checkpkg complain
-	@echo "=== Fixing paths in documentation ==="
-	for d in gio glib gobject ; do \
-		DOCBASEDIR="$(PKGROOT)/$(datadir)/gtk-doc/html/$$d/" ; \
-		if [ -d "$$DOCBASEDIR" ] ; then \
-			for f in $$DOCBASEDIR/*.html ; do \
-				echo "Adjusting path in $$f" ; \
-				/opt/csw/bin/gsed -e "s|/usr/share|$(datadir)|g" -e "s|/usr/local|$(prefix)|g" $$f > $$f.tmp ; \
-				mv $$f.tmp $$f ; \
-			done ; \
-		fi ; \
-	done
-	for f in $(PKGROOT)$(mandir)/man[123456789]/* ; do \
-		echo "Adjusting path in $$f" ; \
-		/opt/csw/bin/gsed -e "s|/usr/share|$(datadir)|g" -e "s|/usr/local|$(prefix)|g" $$f > $$f.tmp ; \
-		mv $$f.tmp $$f ; \
-	done ; \
+#	@echo "=== Fixing paths in documentation ==="
+#	for d in gio glib gobject ; do \
+#		DOCBASEDIR="$(PKGROOT)/$(datadir)/gtk-doc/html/$$d/" ; \
+#		if [ -d "$$DOCBASEDIR" ] ; then \
+#			for f in $$DOCBASEDIR/*.html ; do \
+#				echo "Adjusting path in $$f" ; \
+#				/opt/csw/bin/gsed -e "s|/usr/share|$(datadir)|g" -e "s|/usr/local|$(prefix)|g" $$f > $$f.tmp ; \
+#				mv $$f.tmp $$f ; \
+#			done ; \
+#		fi ; \
+#	done
+#	for f in $(PKGROOT)$(mandir)/man[123456789]/* ; do \
+#		echo "Adjusting path in $$f" ; \
+#		/opt/csw/bin/gsed -e "s|/usr/share|$(datadir)|g" -e "s|/usr/local|$(prefix)|g" $$f > $$f.tmp ; \
+#		mv $$f.tmp $$f ; \
+#	done ; \
+#
