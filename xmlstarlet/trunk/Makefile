@@ -1,6 +1,5 @@
 NAME = xmlstarlet
-VERSION = 1.3.1
-GARTYPE = v2
+VERSION = 1.4.2
 
 DESCRIPTION = XML transformation utility
 define BLURB
@@ -34,6 +33,8 @@ CONFIGURE_ARGS = $(DIRPATHS)
 CONFIGURE_ARGS += --disable-static-libs
 CONFIGURE_ARGS += --with-libxml-include-prefix=$(includedir)/libxml2
 CONFIGURE_ARGS += --with-libxml-libs-prefix=$(libdir)
+
+CONFIGURE_ARGS += --enable-build-docs
 
 BUILD_OVERRIDE_VARS = CFLAGS CPPFLAGS LDFLAGS
 BUILD_OVERRIDE_VAR_CFLAGS = $(CFLAGS)
