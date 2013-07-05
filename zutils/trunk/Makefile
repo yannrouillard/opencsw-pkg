@@ -1,5 +1,5 @@
 NAME = zutils
-VERSION = 1.0-rc3
+VERSION = 1.0
 GARTYPE = v2
 
 DESCRIPTION = Utilities to deal with compressed and non-compressed files
@@ -15,9 +15,8 @@ endef
 
 MASTER_SITES = http://download.savannah.gnu.org/releases/zutils/
 DISTFILES = $(DISTNAME).tar.lz
-PATCHFILES  = 0001-Use-inttypes.h-instead-of-stdint.h-and-add-signal.h.patch
+PATCHFILES += 0001-Add-headers-for-kill-2.patch
 PATCHFILES += 0003-Use-Zutils-instead-of-zutils.patch
-PATCHFILES += 0004-Avoid-ambiguity-between-char-and-unsigned-long-on-sp.patch
 
 BUILD_DEP_PKGS += CSWhelp2man
 BUILD_DEP_PKGS += CSWlzip
