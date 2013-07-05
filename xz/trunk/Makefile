@@ -1,5 +1,5 @@
 NAME = xz
-VERSION = 5.0.4
+VERSION = 5.0.5
 GARTYPE = v2
 
 DESCRIPTION = XZ Utils is free data compression software with high compression ratio
