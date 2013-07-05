@@ -19,23 +19,20 @@ PATCHFILES += 0002-Use-Sun-Studio-__func__-instead-of-gcc-__FUNCTION__.patch
 PATCHFILES += 0003-Force-GNU-sed-when-using-i.patch
 PATCHFILES += 0004-Keep-libtool-from-stripping-norunpath-during-linking.patch
 
-# We define upstream file regex so we can be notifed of new upstream software release
-UFILES_REGEX = $(NAME)-(\d+(?:\.\d+)*).tar.bz2
-
-PACKAGES = CSWftgl CSWftgldevel
-
-CATALOGNAME_CSWftgl = ftgl
-CATALOGNAME_CSWftgldevel = ftgl_devel
-
+PACKAGES = CSWftgl
 SPKG_DESC_CSWftgl = $(DESCRIPTION)
-SPKG_DESC_CSWftgldevel = FTGL Development Files
-
-DEP_PKGS_CSWftgl = CSWmesa CSWzlib CSWftype2 CSWfreeglut
+RUNTIME_DEP_PKGS_CSWftgl += CSWmesa
+RUNTIME_DEP_PKGS_CSWftgl += CSWzlib
+RUNTIME_DEP_PKGS_CSWftgl += CSWftype2
+RUNTIME_DEP_PKGS_CSWftgl += CSWfreeglut
+PKGFILES_CSWftgl = $(PKGFILES_RT)
 CHECKPKG_OVERRIDES_CSWftgl = surplus-dependency|CSWfreeglut
+
+PACKAGES += CSWftgldevel
+CATALOGNAME_CSWftgldevel = ftgl_devel
+SPKG_DESC_CSWftgldevel = FTGL Development Files
 RUNTIME_DEP_PKGS_CSWftgldevel = CSWftgl
 CHECKPKG_OVERRIDES_CSWftgldevel = surplus-dependency|CSWftgl
-
-PKGFILES_CSWftgl = $(PKGFILES_RT)
 
 NOISALIST = 1
 # Unless the Solaris 10 compilation problem with both SUNW mesa and CSW mesa
