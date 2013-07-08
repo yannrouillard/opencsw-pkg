@@ -19,8 +19,8 @@ DISTFILES = cyrus-$(NAME)-$(FILEVERSION).tar.gz
 DISTFILES += cswsaslauthd.init
 DISTFILES += saslauthd.init.CSW
 DISTFILES += saslauthd.conf.CSW
-DISTFILES += README.sasl
-DISTFILES += README.saslauthd
+DISTFILES += README.CSW.sasl
+DISTFILES += README.CSW.saslauthd
 DISTFILES += changelog.CSW
 DISTFILES += CSWsaslauthd.postmsg
 
