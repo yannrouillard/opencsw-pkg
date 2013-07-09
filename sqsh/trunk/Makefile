@@ -1,5 +1,5 @@
 NAME = sqsh
-VERSION = 2.1.7
+VERSION = 2.2.0
 GARTYPE = v2
 
 # Sybase is available on Solaris 9 sparc 32 and 64 bit and Solaris 10 amd64
@@ -33,7 +33,7 @@ endef
 
 SF_PROJECT = sqsh
 MASTER_SITES = $(SF_MIRRORS)
-DISTFILES  = $(DISTNAME).tar.gz
+DISTFILES += $(DISTNAME).tgz
 
 EXTRA_MODULATORS = DBDRIVER
 MODULATIONS_DBDRIVER = ocs 
