@@ -79,7 +79,6 @@ CHECKPKG_OVERRIDES_CSWopenssl-utils += file-with-bad-content|/usr/local|root/opt
 MASTER_SITES = http://www.openssl.org/source/
 
 DISTFILES  = $(NAME)-$(VERSION).tar.gz 
-DISTFILES += CSWlibssl1-0-0.checkinstall CSWlibssl1-0-0.preinstall CSWlibssl1-0-0.postinstall
 DISTFILES += changelog.CSW README.CSW
 DISTFILES += map.openssl.libcrypto map.openssl.libssl map.openssl.engines
 
