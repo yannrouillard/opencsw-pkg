@@ -23,6 +23,10 @@ CHECKPKG_OVERRIDES_CSWmonit_sparc += file-with-bad-content|/usr/local|root/opt/c
 CHECKPKG_OVERRIDES_CSWmonit_i386 = file-with-bad-content|/usr/local|root/opt/csw/bin/amd64/monit
 
 
+MIGRATE_FILES_CSWmonit = monitrc
+MIGRATE_SOURCE_DIR = $(prefix)/etc/
+MIGRATE_DEST_DIR = $(sysconfdir)/
+
 
 #GARCOMPILER = GNU
 # We build the 64 bits version to be have >2 Go file support
@@ -41,11 +45,6 @@ CONFIGURE_ARGS += --with-ssl-dir=$(prefix)
 RUNTIME_DEP_PKGS_CSWmonit += CSWlibssl1-0-0
 
 TEST_SCRIPTS = 
-
-# Revert to the old configuration path 
-# so we don't change anything 
-# for the ssl update
-sysconfdir = $(prefix)/etc
 
 include gar/category.mk
 
