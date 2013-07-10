@@ -23,6 +23,8 @@ endef
 
 PACKAGES = CSWlftp
 
+BUILD_DEP_PKGS = CSWgcc4g++
+
 RUNTIME_DEP_PKGS = CSWlibexpat1
 RUNTIME_DEP_PKGS += CSWlibiconv2
 RUNTIME_DEP_PKGS += CSWlibssl1-0-0
