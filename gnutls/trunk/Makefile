@@ -54,6 +54,10 @@ RUNTIME_DEP_PKGS_CSWlibgnutls26 += CSWlibgmp10
 BUILD_DEP_PKGS += CSWreadline
 BUILD_DEP_PKGS += $(RUNTIME_DEP_PKGS_CSWlibgnutls26)
 BUILD_DEP_PKGS += CSWlibtasn1-dev
+BUILD_DEP_PKGS += CSWlibnettle-dev
+BUILD_DEP_PKGS += CSWpkgconfig
+BUILD_DEP_PKGS += CSWlibp11kit-dev
+BUILD_DEP_PKGS += CSWlibgmp-dev
 
 GARCOMPILER = GNU
 
