@@ -84,6 +84,10 @@ CONFIGURE_ARGS += --without-gnutls --with-openssl=/opt/csw
 # Requested see https://www.opencsw.org/mantis/view.php?id=4481
 CONFIGURE_ARGS += --with-socksdante
 
+# For an unknown reason so far, lftp crashes when compiled
+# with compiled with lazyload enabled
+EXTRA_LD_OPTIONS = -z nolazyload
+
 # No test suite here
 TEST_SCRIPTS =
 
