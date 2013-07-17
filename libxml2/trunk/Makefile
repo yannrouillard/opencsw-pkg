@@ -14,6 +14,7 @@ endef
 MASTER_SITES = ftp://xmlsoft.org/libxml2/
 DISTFILES = $(DISTNAME).tar.gz
 # PATCHFILES = 0001-Forcefully-disable-the-symbol-versioning.patch
+PATCHFILES = 0002-fix-PyCapsulate-for-python-version-less-2.7.patch
 
 sysconfdir = /etc/opt/csw
 localstatedir = /var/opt/csw
