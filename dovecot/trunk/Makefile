@@ -2,7 +2,7 @@
 # - SSL certs to /etc/opt/csw/ssl?
 # - /var/run/dovecot instead of /var/opt/csw/run?
 NAME = dovecot
-VERSION = 2.1.17
+VERSION = 2.2.4
 GARTYPE = v2
 
 DESCRIPTION = Secure IMAP server
@@ -14,7 +14,7 @@ define BLURB
 endef
 
 SPKG_SOURCEURL = http://dovecot.org/
-MASTER_SITES   = http://dovecot.org/releases/2.1/
+MASTER_SITES   = http://dovecot.org/releases/2.2/
 DISTFILES      = $(NAME)-$(VERSION).tar.gz
 UFILES_REGEX   = $(NAME)-(\d+(?:\.\d+)*).tar.gz
 
