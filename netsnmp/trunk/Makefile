@@ -21,7 +21,6 @@ MASTER_SITES = $(SF_MIRRORS)
 DISTNAME = $(SF_PROJECT)-$(VERSION)
 DISTFILES = $(DISTNAME).tar.gz
 
-REINPLACE_USRLOCAL = dist/snmp*init.d
 REINPLACE_USRLOCAL += perl/TrapReceiver/TrapReceiver.pm
 REINPLACE_USRLOCAL += local/ipf-mod.pl
 REINPLACE_USRLOCAL += local/traptoemail
@@ -31,6 +30,8 @@ PATCHFILES = perl_makefiles.diff
 # Patch for python module
 PATCHFILES += Makefile.in.diff
 PATCHFILES += setup-py.patch
+PATCHFILES += 0001-remove-linux-specials.patch
+PATCHFILES += 0001-remove-linux-specials-2nd.patch
 
 VENDOR_URL = http://www.net-snmp.org/
 
@@ -200,7 +201,7 @@ post-install:
 	ginstall -d $(DESTDIR)/$(sysconfdir)/snmp
 	ginstall -m 755	$(WORKSRC)/dist/snmpd-init.d $(DESTDIR)/$(sysconfdir)/init.d/snmpd
 	ginstall -m 755	$(WORKSRC)/dist/snmptrapd-init.d $(DESTDIR)/$(sysconfdir)/init.d/snmptrapd
-	ginstall -m 755	$(WORKSRC)/EXAMPLE.conf $(DESTDIR)/$(sysconfdir)/snmp/snmpd
+	ginstall -m 755	$(WORKSRC)/EXAMPLE.conf $(DESTDIR)/$(sysconfdir)/snmp/snmpd.conf
 	@$(MAKECOOKIE)
 
 #post-install-isa-sparcv8:
