@@ -2,7 +2,7 @@
 # TODO (release-critical prefixed with !, non release-critical with *)
 #
 NAME = gsl
-VERSION = 1.15
+VERSION = 1.16
 GARTYPE = v2
 
 DESCRIPTION = GNU Scientific Library
