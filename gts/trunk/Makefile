@@ -18,8 +18,7 @@ DISTFILES    = $(NAME)-$(VERSION).tar.gz
 
 SPKG_SOURCEURL = http://gts.sourceforge.net/
 
-# We define upstream file regex so we can be notifed of new upstream software release
-UFILES_REGEX = $(NAME)-(\d+(?:\.\d+)*).tar.gz
+GARCOMPILER = GCC4
 
 # If the url used to check for software update is different of MASTER_SITES, then 
 # uncomment the next line. Otherwise it is set by default to the value of MASTER_SITES
@@ -33,6 +32,32 @@ CONFIGURE_ARGS = $(DIRPATHS) --disable-glibtest
 
 PATCHFILES = gts-fabsf.diff
 
-BUILD64_LIBS_ONLY = 1
+BUILD64 = 1
+ISAEXEC = 1
+
+PACKAGES += CSWlibgts0-7-5
+CATALOGNAME_CSWlibgts0-7-5 = libgts0_7_5
+PKGFILES_CSWlibgts0-7-5 += $(call baseisadirs,$(libdir),libgts-0\.7\.so\.5\.0\.1)
+PKGFILES_CSWlibgts0-7-5 += $(call baseisadirs,$(libdir),libgts-0\.7\.so\.5(\.\d+)*)
+SPKG_DESC_CSWlibgts0-7-5 += $(DESCRIPTION), libgts-0.7.so.5
+RUNTIME_DEP_PKGS_CSWlibgts0-7-5 += CSWlibgcc-s1
+RUNTIME_DEP_PKGS_CSWlibgts0-7-5 += CSWlibglib2-0-0
+
+PACKAGES += CSWgts-dev
+CATALOGNAME_CSWgts-dev = gts_dev
+SPKG_DESC_CSWgts-dev += $(DESCRIPTION), development files
+PKGFILES_CSWgts-dev += $(PKGFILES_DEVEL)
+RUNTIME_DEP_PKGS_CSWgts-dev += CSWlibgts0-7-5
+
+PACKAGES += CSWgts
+CATALOGNAME_CSWgts = gts
+SPKG_DESC_CSWgts  += $(DESCRIPTION), utilities
+# PKGFILES is catchall
+RUNTIME_DEP_PKGS_CSWgts += CSWlibgts0-7-5
+RUNTIME_DEP_PKGS_CSWgts += CSWlibglib2-0-0
+RUNTIME_DEP_PKGS_CSWgts += CSWlibnetpbm10
+
+# Some scripts are not +x
+SKIPTEST = 1
 
 include gar/category.mk
