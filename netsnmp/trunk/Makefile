@@ -30,7 +30,7 @@ PATCHFILES = perl_makefiles.diff
 # Patch for python module
 PATCHFILES += Makefile.in.diff
 PATCHFILES += setup-py.patch
-PATCHFILES += 0001-remove-linux-specials.patch
+PATCHFILES += 0001-fixing-init-scripts.patch
 
 VENDOR_URL = http://www.net-snmp.org/
 
@@ -38,8 +38,8 @@ GARCOMPILER = SOS12U3
 BUILD_DEP_PKGS = CSWpysetuptools
 PACKAGING_PLATFORMS += solaris10-sparc solaris10-i386
 
-INITSMF = $(sysconfdir)/init.d/snmpd
-INITSMF += $(sysconfdir)/init.d/snmptrapd
+INITSMF = $(sysconfdir)/init.d/netsnmpd
+INITSMF += $(sysconfdir)/init.d/netsnmptrapd
 
 PACKAGES += CSWnetsnmp-dev
 CATALOGNAME_CSWnetsnmp-dev = netsnmp_dev
@@ -198,8 +198,8 @@ CFLAGS := $(filter-out -I/opt/csw/include,$(CFLAGS))
 post-install:
 	ginstall -d $(DESTDIR)/$(sysconfdir)/init.d
 	ginstall -d $(DESTDIR)/$(sysconfdir)/snmp
-	ginstall -m 755	$(WORKSRC)/dist/snmpd-init.d $(DESTDIR)/$(sysconfdir)/init.d/snmpd
-	ginstall -m 755	$(WORKSRC)/dist/snmptrapd-init.d $(DESTDIR)/$(sysconfdir)/init.d/snmptrapd
+	ginstall -m 755	$(WORKSRC)/dist/snmpd-init.d $(DESTDIR)/$(sysconfdir)/init.d/netsnmpd
+	ginstall -m 755	$(WORKSRC)/dist/snmptrapd-init.d $(DESTDIR)/$(sysconfdir)/init.d/netsnmptrapd
 	ginstall -m 755	$(WORKSRC)/EXAMPLE.conf $(DESTDIR)/$(sysconfdir)/snmp/snmpd.conf
 	@$(MAKECOOKIE)
 
