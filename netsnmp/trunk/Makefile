@@ -24,6 +24,7 @@ DISTFILES = $(DISTNAME).tar.gz
 REINPLACE_USRLOCAL += perl/TrapReceiver/TrapReceiver.pm
 REINPLACE_USRLOCAL += local/ipf-mod.pl
 REINPLACE_USRLOCAL += local/traptoemail
+REINPLACE_USRSHARE += local/net-snmp-cert
 
 # Patch for perl modules
 PATCHFILES = perl_makefiles.diff
@@ -97,7 +98,7 @@ RUNTIME_DEP_PKGS_CSWpmnetsnmp += CSWlibnetsnmpagent25
 
 EXTRA_MERGE_EXCLUDE_FILES += .*/*.pyc
 PACKAGES += CSWpy-netsnmp
-OBSOLETED_BY_CSWpy-netsnmp = CSWnetsnmp-py
+# OBSOLETED_BY_CSWpy-netsnmp = CSWnetsnmp-py
 SPKG_DESC_CSWpy-netsnmp += $(DESCRIPTION), Python binding
 PKGFILES_CSWpy-netsnmp = $(libdir)/python.*
 RUNTIME_DEP_PKGS_CSWpy-netsnmp += CSWpython
