@@ -35,10 +35,12 @@ BUILD_DEP_PKGS += CSWlibtiff-dev
 RUNTIME_DEP_PKGS_CSWwebp += CSWlibwebp4
 RUNTIME_DEP_PKGS_CSWwebp += CSWlibjpeg7
 RUNTIME_DEP_PKGS_CSWwebp += CSWlibpng15-15
-RUNTIME_DEP_PKGS_CSWwebp += CSWlibtiff3
+RUNTIME_DEP_PKGS_CSWwebp += CSWlibtiff5
 
 ISAEXEC = 1
 BUILD64 = 1
+
+EXTRA_LD_OPTIONS = -z ignore -Bdirect
 
 include gar/category.mk
 
