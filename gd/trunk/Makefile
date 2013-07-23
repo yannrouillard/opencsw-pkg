@@ -1,5 +1,5 @@
-NAME = gd
-VERSION = 2.0.36RC1
+NAME    = gd
+VERSION = 2.1.0
 GARTYPE = v2
 
 DESCRIPTION = A library used for dynamic image creation
@@ -12,45 +12,51 @@ define BLURB
 	applications of GD involve web site development.
 endef
 
-MASTER_SITES = http://www.libgd.org/releases/
-# Master site down.  This version archived at:  http://www.graphviz.org/pub/tmp/gd-2.0.36RC1.tar.gz
-#     Contact:  ellson@opencsw.org
-DISTFILES  = $(NAME)-$(VERSION).tar.gz
+MASTER_SITES = https://bitbucket.org/libgd/gd-libgd/downloads/
+DISTNAME = lib$(NAME)-$(VERSION)
+DISTFILES  = $(DISTNAME).tar.xz
 
-PATCHFILES += gdkanji.c.patch
+GARCOMPILER = GCC4
+
+BUILD_DEP_PKGS += CSWpkgconfig
 
 PACKAGES = CSWgd
 CATALOGNAME_CSWgd = gd
 SPKG_DESC_CSWgd = Utilities facilitating libgd for dynamic image creation
 # PKGFILES is catchall
-RUNTIME_DEP_PKGS_CSWgd += CSWlibgd2
+RUNTIME_DEP_PKGS_CSWgd += CSWlibgd3
 
-PACKAGES += CSWlibgd2
-CATALOGNAME_CSWlibgd2 = libgd2
-SPKG_DESC_CSWlibgd2 = A library used for dynamic image creation providing libgd.so.2
-PKGFILES_CSWlibgd2 += $(call pkgfiles_lib,libgd.so.2)
-RUNTIME_DEP_PKGS_CSWlibgd2 += CSWlibfontconfig1
-RUNTIME_DEP_PKGS_CSWlibgd2 += CSWlibfreetype6
-RUNTIME_DEP_PKGS_CSWlibgd2 += CSWlibiconv2
-RUNTIME_DEP_PKGS_CSWlibgd2 += CSWlibjpeg7
-RUNTIME_DEP_PKGS_CSWlibgd2 += CSWlibpng15-15
-RUNTIME_DEP_PKGS_CSWlibgd2 += CSWlibxpm4
-RUNTIME_DEP_PKGS_CSWlibgd2 += CSWlibz1
+PACKAGES += CSWlibgd3
+CATALOGNAME_CSWlibgd3 = libgd3
+SPKG_DESC_CSWlibgd3 = A library used for dynamic image creation providing libgd.so.3
+PKGFILES_CSWlibgd3 += $(call pkgfiles_lib,libgd.so.3)
+RUNTIME_DEP_PKGS_CSWlibgd3 += CSWlibfontconfig1
+RUNTIME_DEP_PKGS_CSWlibgd3 += CSWlibfreetype6
+RUNTIME_DEP_PKGS_CSWlibgd3 += CSWlibiconv2
+RUNTIME_DEP_PKGS_CSWlibgd3 += CSWlibjpeg7
+RUNTIME_DEP_PKGS_CSWlibgd3 += CSWlibpng15-15
+RUNTIME_DEP_PKGS_CSWlibgd3 += CSWlibxpm4
+RUNTIME_DEP_PKGS_CSWlibgd3 += CSWlibz1
+RUNTIME_DEP_PKGS_CSWlibgd3 += CSWlibgcc-s1
+RUNTIME_DEP_PKGS_CSWlibgd3 += CSWlibtiff5
 
 PACKAGES += CSWlibgd-dev
 CATALOGNAME_CSWlibgd-dev = libgd_dev
-SPKG_DESC_CSWlibgd-dev = Development files for libgd.so.2
+SPKG_DESC_CSWlibgd-dev = Development files for libgd.so.3
 PKGFILES_CSWlibgd-dev += $(PKGFILES_DEVEL)
-RUNTIME_DEP_PKGS_CSWlibgd-dev = CSWlibgd2
-
-UFILES_REGEX = $(NAME)-(\d+(?:\.\d+)*).tar.gz
+RUNTIME_DEP_PKGS_CSWlibgd-dev = CSWlibgd3
 
 CSW_DEFAULT_FONTPATH = $(sharedstatedir)/fonts/truetype
 
 # This is evaluated twice, quote properly
 EXTRA_CPPFLAGS = -DDEFAULT_FONTPATH=\\\"$(CSW_DEFAULT_FONTPATH)\\\"
 
-BUILD64_LIBS_ONLY = 1
+# For the success of the test for iconv
+EXTRA_LINKER_FLAGS = -liconv
+
+BUILD64 = 1
+ISAEXEC = 1
+
 STRIP_LIBTOOL = 1
 
 CONFIGURE_ARGS  = $(DIRPATHS)
@@ -65,9 +71,11 @@ CONFIGURE_ARGS += --disable-fast-install
 # GD does not have a testsuite
 TEST_SCRIPTS =
 
-# This is ok as there are a number of search pathes for fonts in there.
-# We made sure that the $CSW_DEFAULT_FONTPATH is the first one in the list.
-CHECKPKG_OVERRIDES_CSWlibgd-dev += file-with-bad-content|/usr/share|root/opt/csw/include/gd.h
+# This is ok as it comes from a default error message
+CHECKPKG_OVERRIDES_CSWgd += file-with-bad-content|/usr/share|root/opt/csw/bin/amd64/annotate
+CHECKPKG_OVERRIDES_CSWgd += file-with-bad-content|/usr/share|root/opt/csw/bin/pentium_pro/annotate
+CHECKPKG_OVERRIDES_CSWgd += file-with-bad-content|/usr/share|root/opt/csw/bin/sparcv8plus/annotate
+CHECKPKG_OVERRIDES_CSWgd += file-with-bad-content|/usr/share|root/opt/csw/bin/sparcv9/annotate
 
 include gar/category.mk
 
@@ -78,12 +86,5 @@ post-extract-modulated:
 		$(WORKSRC)/annotate.c
 	perl -pi -e 's,(DEFAULT_FONTPATH\s+"),\1$(CSW_DEFAULT_FONTPATH):,' \
 		$(WORKSRC)/gd.h
-	@$(MAKECOOKIE)
-
-# The shipped libtool doesn't know about Sun Studio C++ compiler 'CC'
-pre-configure-modulated:
-#	grm -f $(WORKSRC)/config/ltmain.sh
-#	gcp /opt/csw/share/libtool/config/ltmain.sh $(WORKSRC)/config/ltmain.sh
-#	cd $(WORKSRC) && aclocal && automake
 	@$(MAKECOOKIE)
 
