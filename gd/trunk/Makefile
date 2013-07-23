@@ -53,6 +53,7 @@ EXTRA_CPPFLAGS = -DDEFAULT_FONTPATH=\\\"$(CSW_DEFAULT_FONTPATH)\\\"
 
 # For the success of the test for iconv
 EXTRA_LINKER_FLAGS = -liconv
+EXTRA_LD_OPTIONS   = -z ignore -Bdirect
 
 BUILD64 = 1
 ISAEXEC = 1
