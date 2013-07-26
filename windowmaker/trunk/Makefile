@@ -2,7 +2,7 @@
 # TODO (release-critical prefixed with !, non release-critical with *)
 #
 NAME = windowmaker
-VERSION = 0.95.2
+VERSION = 0.95.4
 GARTYPE = v2
 
 DESCRIPTION = X11 window manager
@@ -29,12 +29,10 @@ PACKAGES += CSWlibwings2
 PKGFILES_CSWlibwings2 += $(call baseisadirs,$(libdir),libWINGs\.so\.2(\.\d+)*)
 SPKG_DESC_CSWlibwings2 += $(DESCRIPTION), libWINGs.so.2
 RUNTIME_DEP_PKGS_CSWlibwings2 += CSWlibfontconfig1
-RUNTIME_DEP_PKGS_CSWlibwings2 += CSWlibfreetype6
 RUNTIME_DEP_PKGS_CSWlibwings2 += CSWlibgcc-s1
 RUNTIME_DEP_PKGS_CSWlibwings2 += CSWlibwraster3
 RUNTIME_DEP_PKGS_CSWlibwings2 += CSWlibwutil2
 RUNTIME_DEP_PKGS_CSWlibwings2 += CSWlibxft2
-RUNTIME_DEP_PKGS_CSWlibwings2 += CSWlibxrender
 
 PACKAGES += CSWlibwutil2
 PKGFILES_CSWlibwutil2 += $(call baseisadirs,$(libdir),libWUtil\.so\.2(\.\d+)*)
@@ -46,12 +44,12 @@ CHECKPKG_OVERRIDES_CSWlibwutil2 += file-with-bad-content|/usr/local|root/opt/csw
 PACKAGES += CSWlibwraster3
 PKGFILES_CSWlibwraster3 += $(call baseisadirs,$(libdir),libwraster\.so\.3(\.\d+)*)
 SPKG_DESC_CSWlibwraster3 += $(DESCRIPTION), libwraster.so.3
-RUNTIME_DEP_PKGS_CSWlibwraster3 += CSWlibpng12-0
-RUNTIME_DEP_PKGS_CSWlibwraster3 += CSWxpm
-RUNTIME_DEP_PKGS_CSWlibwraster3 += CSWlibtiff3
+RUNTIME_DEP_PKGS_CSWlibwraster3 += CSWlibtiff5
 RUNTIME_DEP_PKGS_CSWlibwraster3 += CSWlibjpeg7
 RUNTIME_DEP_PKGS_CSWlibwraster3 += CSWlibgif4
 RUNTIME_DEP_PKGS_CSWlibwraster3 += CSWlibgcc-s1
+RUNTIME_DEP_PKGS_CSWlibwraster3 += CSWlibpng15-15
+RUNTIME_DEP_PKGS_CSWlibwraster3 += CSWlibxpm4
 
 PACKAGES += CSWwindowmaker-dev
 SPKG_DESC_CSWwindowmaker-dev += $(DESCRIPTION), development files
@@ -59,27 +57,26 @@ PKGFILES_CSWwindowmaker-dev += $(PKGFILES_DEVEL)
 RUNTIME_DEP_PKGS_CSWwindowmaker-dev += CSWlibwutil2
 RUNTIME_DEP_PKGS_CSWwindowmaker-dev += CSWlibwraster3
 RUNTIME_DEP_PKGS_CSWwindowmaker-dev += CSWlibwings2
+RUNTIME_DEP_PKGS_CSWwindowmaker-dev += CSWwindowmaker
 
 PACKAGES += CSWwindowmaker
 SPKG_DESC_CSWwindowmaker = $(DESCRIPTION)
 OBSOLETED_BY_CSWwindowmaker = CSWwmaker
 INCOMPATIBLE_PKGS_CSWwindowmaker = CSWwmaker
-RUNTIME_DEP_PKGS_CSWwindowmaker += CSWemacscommon
+RUNTIME_DEP_PKGS_CSWwindowmaker += CSWemacs-common
 RUNTIME_DEP_PKGS_CSWwindowmaker += CSWlibfontconfig1
-RUNTIME_DEP_PKGS_CSWwindowmaker += CSWlibfreetype6
-RUNTIME_DEP_PKGS_CSWwindowmaker += CSWlibgif4
-RUNTIME_DEP_PKGS_CSWwindowmaker += CSWlibjpeg7
-RUNTIME_DEP_PKGS_CSWwindowmaker += CSWlibpng12-0
-RUNTIME_DEP_PKGS_CSWwindowmaker += CSWlibtiff3
 RUNTIME_DEP_PKGS_CSWwindowmaker += CSWlibwings2
 RUNTIME_DEP_PKGS_CSWwindowmaker += CSWlibwraster3
 RUNTIME_DEP_PKGS_CSWwindowmaker += CSWlibwutil2
 RUNTIME_DEP_PKGS_CSWwindowmaker += CSWlibxft2
-RUNTIME_DEP_PKGS_CSWwindowmaker += CSWlibxrender
 RUNTIME_DEP_PKGS_CSWwindowmaker += CSWperl
-RUNTIME_DEP_PKGS_CSWwindowmaker += CSWxpm
+RUNTIME_DEP_PKGS_CSWwindowmaker += CSWlibgcc-s1
+
 # Documentation
 CHECKPKG_OVERRIDES_CSWwindowmaker += file-with-bad-content
+
+# Main library file
+CHECKPKG_OVERRIDES_CSWwindowmaker += shared-lib-pkgname-mismatch|file=opt/csw/lib/libWMaker.so.1.0.1|soname=libWMaker.so.1|pkgname=CSWwindowmaker|expected=CSWlibwmaker1
 
 include gar/category.mk
 
