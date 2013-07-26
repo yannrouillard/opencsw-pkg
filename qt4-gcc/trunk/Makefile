@@ -1,7 +1,7 @@
 # $Id$
 
 NAME = qt
-VERSION = 4.8.4
+VERSION = 4.8.5
 GARTYPE = v2
 MAJOR = $(basename $(basename $(VERSION)))
 
@@ -76,7 +76,7 @@ CONFIGURE_ARGS += -no-separate-debug-info
 CONFIGURE_ARGS += -verbose
 CONFIGURE_ARGS += -lfontconfig
 CONFIGURE_ARGS += -I$(includedir)/freetype2
-#endof debin args
+#endof debian args
 CONFIGURE_ARGS += -no-qt3support
 CONFIGURE_ARGS += -no-xshape
 CONFIGURE_ARGS += -v 
@@ -344,10 +344,29 @@ SPKG_DESC_CSWqt4-doc += $(DESCRIPTION), documentation
 ARCHALL_CSWqt4-doc = 1
 CHECKPKG_OVERRIDES_CSWqt4-doc += file-with-bad-content
 
+PACKAGES						+=	CSWqt4-private-dev
+CATALOGNAME_CSWqt4-private-dev	=	qt4_private_dev
+SPKG_DESC_CSWqt4-private-dev	=	$(DESCRIPTION), private development
+PKGFILES_CSWqt4-private-dev		+=	$(includedir)/QtCore/private/.*
+PKGFILES_CSWqt4-private-dev		+=	$(includedir)/QtDeclarative/private/.*
+PKGFILES_CSWqt4-private-dev		+=	$(includedir)/QtGui/private/.*
+PKGFILES_CSWqt4-private-dev		+=	$(includedir)/QtScript/private/.*
+ARCHALL_CSWqt4-private-dev		=	1
+
 include gar/category.mk
+
+PATH:=:/opt/csw/gnu:$(PATH)
 
 # pre-reconfigure-modulated:
 # 	cd $(WORKSRC) && gmake confclean
 # 	@$(MAKECOOKIE)
 
-PATH:=$(PATH):/opt/csw/gcc4/bin
+
+# Ship private headers - ugly hack to build Qt Creator QML Designer;
+# adapted from Debian rules
+post-install:
+	gtar --directory=$(WORKSRC)/include/QtCore --create --file=- private | gtar --directory=$(DESTDIR)/$(includedir)/QtCore --extract --file=-
+	gtar --directory=$(WORKSRC)/include/QtDeclarative --create --file=- private | gtar --directory=$(DESTDIR)/$(includedir)/QtDeclarative --extract --file=-
+	gtar --directory=$(WORKSRC)/include/QtGui --create --file=- private | gtar --directory=$(DESTDIR)/$(includedir)/QtGui --extract --file=-
+	gtar --directory=$(WORKSRC)/include/QtScript --create --file=- private | gtar --directory=$(DESTDIR)/$(includedir)/QtScript --extract --file=-
+	$(MAKECOOKIE)
