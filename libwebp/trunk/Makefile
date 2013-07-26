@@ -40,8 +40,6 @@ RUNTIME_DEP_PKGS_CSWwebp += CSWlibtiff5
 ISAEXEC = 1
 BUILD64 = 1
 
-EXTRA_LD_OPTIONS = -z ignore -Bdirect
-
 include gar/category.mk
 
 post-extract-modulated:
