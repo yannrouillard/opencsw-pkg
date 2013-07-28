@@ -17,6 +17,11 @@ DISTFILES  = $(DISTNAME).tar.bz2
 LICENSE = LICENSE
 VENDOR_URL = http://code.google.com/p/serf/
 
+CONFIGURE_SCRIPTS =
+BUILD_SCRIPTS = serf
+INSTALL_SCRIPTS = serf
+TEST_SCRIPTS =
+
 # openssl-1.0 only available for sol-10
 PACKAGING_PLATFORMS += solaris10-sparc solaris10-i386
 
@@ -41,8 +46,23 @@ RUNTIME_DEP_PKGS_CSWlibserf-dev = CSWlibserf1-3
 
 EXTRA_LIB = $(prefix)/bdb48/lib
 
-CONFIGURE_ARGS = $(DIRPATHS)
-CONFIGURE_ARGS += --with-apr=$(bindir)/apr-1-config
-CONFIGURE_ARGS += --with-apr-util=$(bindir)/apu-1-config
+SCONS_FLAGS += PREFIX=$(prefix) 
+SCONS_FLAGS += APR=$(bindir)/apr-1-config
+SCONS_FLAGS += APU=$(bindir)/apu-1-config
 
 include gar/category.mk
+
+build-serf:
+	(cd $(WORKSRC); \
+		scons \
+		$(SCONS_FLAGS))
+	@$(MAKECOOKIE)
+
+install-serf:
+	(cd $(WORKSRC); \
+		scons  \
+		$(SCONS_FLAGS) \
+		-Q --prefix=$(DESTDIR)$(BUILD_PREFIX) \
+		install)
+	@$(MAKECOOKIE)
+
