@@ -238,6 +238,8 @@ CHECKPKG_OVERRIDES_CSWpython$(CVER) += catalogname-does-not-start-with-py_
 
 CHECKPKG_OVERRIDES_CSWpython$(CVER)-tk += surplus-dependency|CSWpython
 CHECKPKG_OVERRIDES_CSWidle$(CVER) += surplus-dependency|CSWpython
+CHECKPKG_OVERRIDES_CSWpython$(CVER)-tk += surplus-dependency|CSWpython
+CHECKPKG_OVERRIDES_CSWidle$(CVER) += surplus-dependency|CSWpython
 
 include gar/category.mk
 
