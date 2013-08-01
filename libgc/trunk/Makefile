@@ -61,6 +61,8 @@ SPKG_DESC_CSWlibgc-dev = Development files for libgc.so.1 libcord.so.1 and libgc
 RUNTIME_DEP_PKGS_CSWlibgc-dev += CSWlibcord1
 RUNTIME_DEP_PKGS_CSWlibgc-dev += CSWlibgc1
 RUNTIME_DEP_PKGS_CSWlibgc-dev += CSWlibgccpp1
+CHECKPKG_OVERRIDES_CSWlibgc-dev += archall-devel-package
+ARCHALL_CSWlibgc-dev = 1
 
 # One test is failing on amd64, disable for now:
 #   FAIL: gctest
