@@ -32,15 +32,19 @@ SPKG_DESC_CSWlibcord1 = A garbage collector for C and C++, libcord.so.1
 PKGFILES_CSWlibcord1 += $(call pkgfiles_lib,libcord.so.1)
 RUNTIME_DEP_PKGS_CSWlibcord1 += CSWlibgc1
 OBSOLETED_BY_CSWlibcord1 += CSWlibgc
+RUNTIME_DEP_PKGS_CSWlibcord1 += CSWlibgcc-s1
 
 PACKAGES += CSWlibgc1
 SPKG_DESC_CSWlibgc1 = A garbage collector for C and C++, libgc.so.1
 PKGFILES_CSWlibgc1 += $(call pkgfiles_lib,libgc.so.1)
 OBSOLETED_BY_CSWlibgc1 += CSWlibgc
+RUNTIME_DEP_PKGS_CSWlibgc1 += CSWlibgcc-s1
 
 PACKAGES += CSWlibgccpp1
 SPKG_DESC_CSWlibgccpp1 = A garbage collector for C and C++, libgccpp.so.1
 PKGFILES_CSWlibgccpp1 += $(call pkgfiles_lib,libgccpp.so.1)
+RUNTIME_DEP_PKGS_CSWlibgccpp1 += CSWlibgc1
+RUNTIME_DEP_PKGS_CSWlibgccpp1 += CSWlibgcc-s1
 
 PACKAGES += CSWlibgc-dev
 SPKG_DESC_CSWlibgc-dev = Development files for libgc.so.1 libcord.so.1 and libgccpp.so.1
@@ -48,9 +52,6 @@ SPKG_DESC_CSWlibgc-dev = Development files for libgc.so.1 libcord.so.1 and libgc
 RUNTIME_DEP_PKGS_CSWlibgc-dev += CSWlibcord1
 RUNTIME_DEP_PKGS_CSWlibgc-dev += CSWlibgc1
 RUNTIME_DEP_PKGS_CSWlibgc-dev += CSWlibgccpp1
-
-# This is just docs, ignore for now
-CHECKPKG_OVERRIDES_CSWlibgc-dev += file-with-bad-content|/usr/local|root/opt/csw/share/gc/README.autoconf
 
 # One test is failing on amd64, disable for now:
 #   FAIL: gctest
