@@ -39,6 +39,7 @@ RUNTIME_DEP_PKGS_CSWpygtk += CSWpango
 
 CHECKPKG_OVERRIDES_CSWpygtk += pkgname-does-not-start-with-CSWpy-
 CHECKPKG_OVERRIDES_CSWpygtk += catalogname-does-not-start-with-py_
+CHECKPKG_OVERRIDES_CSWpygtk += missing-dependency|CSWpython
 
 EXTRA_MERGE_EXCLUDE_FILES = .*\.pyo .*\.pyc
 PROTOTYPE_FILTER = awk '$$$$3 ~ /.*\.py$$$$/ { $$$$2 = "cswpycompile" } { print }'
@@ -53,4 +54,3 @@ CONFIGURE_ARGS  = $(DIRPATHS)
 #TEST_SCRIPTS =
 
 include gar/category.mk
-
