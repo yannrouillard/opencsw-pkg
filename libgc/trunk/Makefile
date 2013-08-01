@@ -1,5 +1,7 @@
 NAME = libgc
-VERSION = 7.1
+theVersion = 7.2
+thePatch = d
+VERSION = $(theVersion)$(thePatch)
 GARTYPE = v2
 
 DESCRIPTION = A garbage collector for C and C++
@@ -13,8 +15,8 @@ define BLURB
 endef
 
 MASTER_SITES = http://www.hpl.hp.com/personal/Hans_Boehm/gc/gc_source/
-DISTNAME = gc-$(VERSION)
-DISTFILES  = $(DISTNAME).tar.gz
+DISTNAME = gc-$(theVersion)
+DISTFILES  = $(DISTNAME)$(thePatch).tar.gz
 
 VENDOR_URL = http://www.hpl.hp.com/personal/Hans_Boehm/gc/
 
@@ -56,7 +58,7 @@ CHECKPKG_OVERRIDES_CSWlibgc-dev += file-with-bad-content|/usr/local|root/opt/csw
 #   http://www.hpl.hp.com/hosted/linux/mail-archives/gc/2012-January/004904.html
 TEST_SCRIPTS	=	custom
 
-# BUILD64_LIBS_ONLY = 1
+BUILD64_LIBS_ONLY = 1
 
 include gar/category.mk
 
