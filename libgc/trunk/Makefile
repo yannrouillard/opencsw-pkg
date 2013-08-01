@@ -70,6 +70,11 @@ CHECKPKG_OVERRIDES_CSWlibgc-dev += archall-with-arch-paths|/opt/csw/lib/sparcv9/
 CHECKPKG_OVERRIDES_CSWlibgc-dev += archall-with-arch-paths|/opt/csw/lib/sparcv9/libgccpp.so
 CHECKPKG_OVERRIDES_CSWlibgc-dev += archall-with-arch-paths|/opt/csw/lib/sparcv9/pkgconfig
 CHECKPKG_OVERRIDES_CSWlibgc-dev += archall-with-arch-paths|/opt/csw/lib/sparcv9/pkgconfig/bdw-gc.pc
+CHECKPKG_OVERRIDES_CSWlibgc-dev += archall-with-arch-paths|/opt/csw/lib/amd64/libcord.so
+CHECKPKG_OVERRIDES_CSWlibgc-dev += archall-with-arch-paths|/opt/csw/lib/amd64/libgc.so
+CHECKPKG_OVERRIDES_CSWlibgc-dev += archall-with-arch-paths|/opt/csw/lib/amd64/libgccpp.so
+CHECKPKG_OVERRIDES_CSWlibgc-dev += archall-with-arch-paths|/opt/csw/lib/amd64/pkgconfig
+CHECKPKG_OVERRIDES_CSWlibgc-dev += archall-with-arch-paths|/opt/csw/lib/amd64/pkgconfig/bdw-gc.pc
 
 TEST_SCRIPTS	=	custom
 
