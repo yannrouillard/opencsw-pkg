@@ -35,6 +35,7 @@ OBSOLETED_BY_CSWlibcord1 += CSWlibgc
 RUNTIME_DEP_PKGS_CSWlibcord1 += CSWlibgcc-s1
 CHECKPKG_OVERRIDES_CSWlibcord1 += bad-rpath-entry|/usr/lib/lwp/.|opt/csw/lib/libcord.so.1.0.3
 CHECKPKG_OVERRIDES_CSWlibcord1 += bad-rpath-entry|/usr/lib/lwp/.|opt/csw/lib/sparcv9/libcord.so.1.0.3
+CHECKPKG_OVERRIDES_CSWlibcord1 += bad-rpath-entry|/usr/lib/lwp/.|opt/csw/lib/amd64/libcord.so.1.0.3
 
 PACKAGES += CSWlibgc1
 SPKG_DESC_CSWlibgc1 = A garbage collector for C and C++, libgc.so.1
@@ -43,6 +44,7 @@ OBSOLETED_BY_CSWlibgc1 += CSWlibgc
 RUNTIME_DEP_PKGS_CSWlibgc1 += CSWlibgcc-s1
 CHECKPKG_OVERRIDES_CSWlibgc1 += bad-rpath-entry|/usr/lib/lwp/.|opt/csw/lib/libgc.so.1.0.3
 CHECKPKG_OVERRIDES_CSWlibgc1 += bad-rpath-entry|/usr/lib/lwp/.|opt/csw/lib/sparcv9/libgc.so.1.0.3
+CHECKPKG_OVERRIDES_CSWlibgc1 += bad-rpath-entry|/usr/lib/lwp/.|opt/csw/lib/amd64/libgc.so.1.0.3
 
 PACKAGES += CSWlibgccpp1
 SPKG_DESC_CSWlibgccpp1 = A garbage collector for C and C++, libgccpp.so.1
@@ -51,6 +53,7 @@ RUNTIME_DEP_PKGS_CSWlibgccpp1 += CSWlibgc1
 RUNTIME_DEP_PKGS_CSWlibgccpp1 += CSWlibgcc-s1
 CHECKPKG_OVERRIDES_CSWlibgccpp1 += bad-rpath-entry|/usr/lib/lwp/.|opt/csw/lib/libgccpp.so.1.0.3
 CHECKPKG_OVERRIDES_CSWlibgccpp1 += bad-rpath-entry|/usr/lib/lwp/.|opt/csw/lib/sparcv9/libgccpp.so.1.0.3
+CHECKPKG_OVERRIDES_CSWlibgccpp1 += bad-rpath-entry|/usr/lib/lwp/.|opt/csw/lib/amd64/libgccpp.so.1.0.3
 
 PACKAGES += CSWlibgc-dev
 SPKG_DESC_CSWlibgc-dev = Development files for libgc.so.1 libcord.so.1 and libgccpp.so.1
