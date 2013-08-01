@@ -44,6 +44,7 @@ BUILD_DEP_PKGS += CSWtcl-dev
 BUILD_DEP_PKGS += CSWtk-dev
 BUILD_DEP_PKGS += CSWswig
 BUILD_DEP_PKGS += CSWlibgc-dev
+BUILD_DEP_PKGS += CSWpython27-dev
 
 # This is a compatibility package which should go away after some time.
 # It only contains a link to CSWgraphviz.
