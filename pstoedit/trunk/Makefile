@@ -1,7 +1,7 @@
 # $Id$
 
 NAME = pstoedit
-VERSION = 3.60
+VERSION = 3.62
 GARTYPE = v2
 
 DESCRIPTION = Translates PostScript and PDF files to editable vector graphics converter
