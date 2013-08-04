@@ -127,6 +127,15 @@ RUNTIME_DEP_PKGS_CSWlibqtgui4 += CSWlibfontconfig1
 RUNTIME_DEP_PKGS_CSWlibqtgui4 += CSWlibfreetype6
 CHECKPKG_OVERRIDES_CSWlibqtgui4 += file-with-bad-content|/usr/share|root/opt/csw/lib/libQtGui.so.$(VERSION)
 
+PACKAGES						+=	CSWqt4-private-dev
+CATALOGNAME_CSWqt4-private-dev	=	qt4_private_dev
+SPKG_DESC_CSWqt4-private-dev	=	$(DESCRIPTION), private development files
+PKGFILES_CSWqt4-private-dev		+=	$(includedir)/QtCore/private/.*
+PKGFILES_CSWqt4-private-dev		+=	$(includedir)/QtDeclarative/private/.*
+PKGFILES_CSWqt4-private-dev		+=	$(includedir)/QtGui/private/.*
+PKGFILES_CSWqt4-private-dev		+=	$(includedir)/QtScript/private/.*
+ARCHALL_CSWqt4-private-dev		=	1
+
 PACKAGES += CSWqt4-dev
 SPKG_DESC_CSWqt4-dev += $(DESCRIPTION), development files
 PKGFILES_CSWqt4-dev += $(PKGFILES_DEVEL)
@@ -137,6 +146,7 @@ PKGFILES_CSWqt4-dev += $(libdir)/$(NAME)$(MAJOR)/plugins/.*
 PKGFILES_CSWqt4-dev += $(libdir)/$(NAME)$(MAJOR)/demos/.*
 PKGFILES_CSWqt4-dev += $(libdir)/$(NAME)$(MAJOR)/imports/.*
 PKGFILES_CSWqt4-dev += $(sharedstatedir)/$(NAME)$(MAJOR)/mkspecs/.*
+EXTRA_PKGFILES_EXCLUDED_CSWqt4-dev += $(PKGFILES_CSWqt4-private-dev)
 RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibqtscript4
 RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibqtdesignercomponents4
 RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibqtdesigner4
@@ -343,15 +353,6 @@ SPKG_DESC_CSWqt4-doc += $(DESCRIPTION), documentation
 # Catch-all
 ARCHALL_CSWqt4-doc = 1
 CHECKPKG_OVERRIDES_CSWqt4-doc += file-with-bad-content
-
-PACKAGES						+=	CSWqt4-private-dev
-CATALOGNAME_CSWqt4-private-dev	=	qt4_private_dev
-SPKG_DESC_CSWqt4-private-dev	=	$(DESCRIPTION), private development
-PKGFILES_CSWqt4-private-dev		+=	$(includedir)/QtCore/private/.*
-PKGFILES_CSWqt4-private-dev		+=	$(includedir)/QtDeclarative/private/.*
-PKGFILES_CSWqt4-private-dev		+=	$(includedir)/QtGui/private/.*
-PKGFILES_CSWqt4-private-dev		+=	$(includedir)/QtScript/private/.*
-ARCHALL_CSWqt4-private-dev		=	1
 
 include gar/category.mk
 
