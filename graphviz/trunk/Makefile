@@ -156,11 +156,9 @@ RUNTIME_DEP_PKGS_CSWgraphvizguile += CSWlibgvc6
 RUNTIME_DEP_PKGS_CSWgraphvizguile += CSWlibgcc-s1
 RUNTIME_DEP_PKGS_CSWgraphvizguile += CSWlibguile2-0-22
 RUNTIME_DEP_PKGS_CSWgraphvizguile += CSWlibcgraph6
-PKGFILES_CSWgraphvizguile = $(libdir)/graphviz/guile/.*
+PKGFILES_CSWgraphvizguile += $(call baseisadirs,$(libdir),graphviz/guile/.*)
 PKGFILES_CSWgraphvizguile += $(mandir)/man3/.*\.3guile
 PKGFILES_CSWgraphvizguile += $(sharedstatedir)/graphviz/demo/.*\.guile
-# No 64 bit guile
-CHECKPKG_OVERRIDES_CSWgraphvizguile += 64-bit-binaries-missing
 
 #PACKAGES += CSWgraphvizjava
 SPKG_DESC_CSWgraphvizjava = Graphviz language binding for java
@@ -374,7 +372,8 @@ CONFIGURE_ARGS += --disable-lua
 CONFIGURE_ARGS += --disable-ocaml
 CONFIGURE_ARGS += --disable-php
 CONFIGURE_ARGS += --disable-r
-CONFIGURE_ARGS += --enable-static --enable-shared
+CONFIGURE_ARGS += --enable-shared
+CONFIGURE_ARGS += --enable-static=no
 CONFIGURE_ARGS += --disable-silent-rules
 CONFIGURE_ARGS += "PANGOCAIRO_CFLAGS=`pkg-config --cflags pangocairo`"
 
@@ -385,9 +384,6 @@ CONFIGURE_ARGS-isa-sparcv9 += --build=sparc64-sun-solaris2.10
 # Also, no 64 bit perl
 CONFIGURE_ARGS-isa-amd64   += --enable-perl=no 
 CONFIGURE_ARGS-isa-sparcv9 += --enable-perl=no
-# No 64 bit guile
-CONFIGURE_ARGS-isa-amd64   += --enable-guile=no
-CONFIGURE_ARGS-isa-sparcv9 += --enable-guile=no
 # No 64 bit Ruby
 CONFIGURE_ARGS-isa-amd64   += --enable-ruby=no
 CONFIGURE_ARGS-isa-sparcv9 += --enable-ruby=no
