@@ -396,10 +396,6 @@ TEST_SCRIPTS =
 CHECKPKG_OVERRIDES_CSWlibgvpr2 += file-with-bad-content|/usr/local|root/opt/csw/lib/libgvpr.so.2.0.0
 CHECKPKG_OVERRIDES_CSWlibgvpr2 += file-with-bad-content|/usr/local|root/opt/csw/lib/amd64/libgvpr.so.2.0.0
 CHECKPKG_OVERRIDES_CSWlibgvpr2 += file-with-bad-content|/usr/local|root/opt/csw/lib/sparcv9/libgvpr.so.2.0.0
-CHECKPKG_OVERRIDES_CSWgraphviz += file-with-bad-content|/usr/local|root/opt/csw/bin/pentium_pro/gvpr_static
-CHECKPKG_OVERRIDES_CSWgraphviz += file-with-bad-content|/usr/local|root/opt/csw/bin/amd64/gvpr_static
-CHECKPKG_OVERRIDES_CSWgraphviz += file-with-bad-content|/usr/local|root/opt/csw/bin/sparcv9/gvpr_static
-CHECKPKG_OVERRIDES_CSWgraphviz += file-with-bad-content|/usr/local|root/opt/csw/bin/sparcv8plus/gvpr_static
 
 include gar/category.mk
 
