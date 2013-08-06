@@ -23,8 +23,6 @@ GARCOMPILER = GCC4
 PATCHFILES += 0001_configure_tcl_bin_path_not_good_for_64bit.patch
 
 INCOMPATIBLE_PKGS = CSWgraphvis
-# defer for some time to allow CSWgraphviz2 upgrades
-# INCOMPATIBLE_PKGS = CSWgraphviz2
 
 BUILD64 = 1
 ISAEXEC = 1
@@ -39,13 +37,6 @@ BUILD_DEP_PKGS += CSWswig
 BUILD_DEP_PKGS += CSWlibgc-dev
 BUILD_DEP_PKGS += CSWpython27-dev
 BUILD_DEP_PKGS += CSWpoppler-dev
-
-# This is a compatibility package which should go away after some time.
-# It only contains a link to CSWgraphviz.
-PACKAGES += CSWgraphviz2
-SPKG_DESC_CSWgraphviz2 = Stub to the CSWgraphviz package
-PKGFILES_CSWgraphviz2 = $(prefix)/graphviz2
-ARCHALL_CSWgraphviz2 = 1
 
 PACKAGES += CSWgraphviz
 SPKG_DESC_CSWgraphviz = Graph Visualization Tools
