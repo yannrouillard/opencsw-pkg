@@ -20,7 +20,7 @@ CATALOGNAME = mrtg
 # We define upstream file regex so we can be notifed of new upstream software release
 UFILES_REGEX = $(NAME)-(\d+(?:\.\d+)*).tar.gz
 
-PACKAGING_PLATFORMS =  solaris9-sparc solaris9-i386
+PACKAGING_PLATFORMS =  solaris9-sparc solaris9-i386 solaris10-sparc solaris10-i386
 
 CONFIGURE_ARGS = $(DIRPATHS)
 CONFIGURE_ARGS += --with-gd=/opt/csw
@@ -28,25 +28,10 @@ CONFIGURE_ARGS += --with-gd-lib=/opt/csw/lib
 CONFIGURE_ARGS += --with-gd-inc=/opt/csw/include
 
 RUNTIME_DEP_PKGS_CSWmrtg += CSWperl
-RUNTIME_DEP_PKGS_CSWmrtg += CSWlibgd2
-RUNTIME_DEP_PKGS_CSWmrtg += CSWlibpng12-0
-RUNTIME_DEP_PKGS_CSWmrtg += CSWlibz1
+RUNTIME_DEP_PKGS_CSWmrtg += CSWlibgd3
 
 # Reviewed checkpkg overrides
 CHECKPKG_OVERRIDES_CSWmrtg += file-with-bad-content|/usr/local|root/opt/csw/lib/mrtg2/Net_SNMP_util.pm
-CHECKPKG_OVERRIDES_CSWmrtg += file-with-bad-content|/usr/local|root/opt/csw/share/man/man1/mrtg-rrd.1
-CHECKPKG_OVERRIDES_CSWmrtg += file-with-bad-content|/usr/local|root/opt/csw/share/man/man1/mrtg-unix-guide.1
-CHECKPKG_OVERRIDES_CSWmrtg += file-with-bad-content|/usr/local|root/opt/csw/share/man/man1/mrtg-reference.1
-CHECKPKG_OVERRIDES_CSWmrtg += file-with-bad-content|/usr/local|root/opt/csw/share/doc/mrtg2/mrtg-rrd.txt
-CHECKPKG_OVERRIDES_CSWmrtg += file-with-bad-content|/usr/local|root/opt/csw/share/doc/mrtg2/CHANGES
-CHECKPKG_OVERRIDES_CSWmrtg += file-with-bad-content|/usr/local|root/opt/csw/share/doc/mrtg2/mrtg-unix-guide.txt
-CHECKPKG_OVERRIDES_CSWmrtg += file-with-bad-content|/usr/local|root/opt/csw/share/doc/mrtg2/mrtg-reference.txt
-CHECKPKG_OVERRIDES_CSWmrtg += file-with-bad-content|/usr/local|root/opt/csw/share/doc/mrtg2/mrtg-rrd.pod
-CHECKPKG_OVERRIDES_CSWmrtg += file-with-bad-content|/usr/local|root/opt/csw/share/doc/mrtg2/mrtg-reference.pod
-CHECKPKG_OVERRIDES_CSWmrtg += file-with-bad-content|/usr/local|root/opt/csw/share/doc/mrtg2/mrtg-unix-guide.pod
-CHECKPKG_OVERRIDES_CSWmrtg += file-with-bad-content|/usr/share|root/opt/csw/share/man/man1/mrtg-squid.1
-CHECKPKG_OVERRIDES_CSWmrtg += file-with-bad-content|/usr/share|root/opt/csw/share/doc/mrtg2/mrtg-squid.pod
-CHECKPKG_OVERRIDES_CSWmrtg += file-with-bad-content|/usr/share|root/opt/csw/share/doc/mrtg2/mrtg-squid.txt
 
 TEST_TARGET =
 
