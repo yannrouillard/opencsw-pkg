@@ -206,10 +206,40 @@ BUILD_DEP_PKGS += CSWlibgdbm-dev
 BUILD_DEP_PKGS += CSWlibgcrypt-dev
 
 # Allow to choose the default Python version.
-# Python $(VER) is the default one as of 2013-07-21.
+# Python 2.6 is the default one as of 2013-07-21.
+# alternatives management begins:
+
+# this is rebuilt in the merge phase
+
 ALTERNATIVES_CSWpython$(CVER) = python-$(VER)
-ALTERNATIVE_python-$(VER) = $(bindir)/python python-symlink $(bindir)/python$(VER) 2600
+ALTERNATIVE_python-$(VER) = $(bindir)/python2 python $(bindir)/python$(VER) 2600
+ALTERNATIVE_python-$(VER) += $(bindir)/python python2 $(bindir)/python2
+ALTERNATIVE_python-$(VER) += $(bindir)/2to3 2to3 $(bindir)/2to32
+ALTERNATIVE_python-$(VER) += $(bindir)/2to32 2to32 $(bindir)/2to3$(VER)
+ALTERNATIVE_python-$(VER) += $(bindir)/idle idle $(bindir)/idle2
+ALTERNATIVE_python-$(VER) += $(bindir)/idle2 idle2 $(bindir)/idle$(VER)
+ALTERNATIVE_python-$(VER) += $(bindir)/pydoc pydoc $(bindir)/pydoc2
+ALTERNATIVE_python-$(VER) += $(bindir)/pydoc2 pydoc2 $(bindir)/pydoc$(VER)
+ALTERNATIVE_python-$(VER) += $(bindir)/python-config python-config $(bindir)/python-config2
+ALTERNATIVE_python-$(VER) += $(bindir)/python-config2 python-config2 $(bindir)/python-config$(VER)
+ALTERNATIVE_python-$(VER) += $(bindir)/smtpd.py smtpd $(bindir)/smtpd.py2
+ALTERNATIVE_python-$(VER) += $(bindir)/smtpd.py2 smtpd2 $(bindir)/smtpd.py$(VER)
+ALTERNATIVE_python-$(VER) += $(mandir)/man1/python.1 man $(mandir)/man1/python2.1
+ALTERNATIVE_python-$(VER) += $(mandir)/man1/python2.1 man2 $(mandir)/man1/python$(VER).1
+
+EXTRA_MERGE_EXCLUDE_FILES += $(bindir)/2to3
+EXTRA_MERGE_EXCLUDE_FILES += $(bindir)/idle
+EXTRA_MERGE_EXCLUDE_FILES += $(bindir)/pydoc
 EXTRA_MERGE_EXCLUDE_FILES += $(bindir)/python
+EXTRA_MERGE_EXCLUDE_FILES += $(bindir)/python2
+EXTRA_MERGE_EXCLUDE_FILES += $(bindir)/python-config
+EXTRA_MERGE_EXCLUDE_FILES += $(bindir)/python2-config
+EXTRA_MERGE_EXCLUDE_FILES += $(bindir)/smtpd.py
+EXTRA_MERGE_EXCLUDE_FILES += $(mandir)/man1/python.1
+EXTRA_MERGE_EXCLUDE_FILES += $(mandir)/man1/python2.1
+
+# see also post-install for related actions
+# : alternatives management ends
 
 # This could be handled by automatic dependency detection
 CHECKPKG_OVERRIDES_CSWidle$(CVER) += surplus-dependency|CSWpython$(CVER)-tk
@@ -263,6 +293,14 @@ post-configure-modulated:
 		gsed -i -e 's+/usr/local+/opt/csw+g' $(WORKSRC)/$${f}; \
 		gsed -i -e 's+/usr/share+/opt/csw/share+g' $(WORKSRC)/$${f}; \
 	done
+	@$(MAKECOOKIE)
+
+post-install:
+	cd $(DESTDIR)$(bindir) && test -f 2to3 && mv -f 2to3 2to3$(VER)
+	cd $(DESTDIR)$(bindir) && test -f idle && mv -f idle idle$(VER)
+	cd $(DESTDIR)$(bindir) && test -f pydoc && mv -f pydoc pydoc$(VER)
+	cd $(DESTDIR)$(bindir) && test -f smtpd.py && mv -f smtpd.py smtpd.py$(VER)
+	cd $(DESTDIR)$(mandir)/man1 && test -f python.1 && mv -f python.1 python$(VER).1
 	@$(MAKECOOKIE)
 
 post-merge-modulated:
