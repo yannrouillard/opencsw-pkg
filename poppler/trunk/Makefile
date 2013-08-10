@@ -1,7 +1,7 @@
 # $Id$
 
 NAME = poppler
-VERSION = 0.22.4
+VERSION = 0.24.0
 GARTYPE = v2
 
 DESCRIPTION = Poppler is a PDF rendering library based on the xpdf-3.0 code base
@@ -10,7 +10,7 @@ endef
 
 SPKG_SOURCEURL = http://poppler.freedesktop.org/
 MASTER_SITES = http://poppler.freedesktop.org/
-DISTFILES  = $(NAME)-$(VERSION).tar.gz
+DISTFILES  = $(NAME)-$(VERSION).tar.xz
 DISTFILES += old_libs_i386.tar.bz2
 DISTFILES += old_libs_sparc.tar.bz2
 
@@ -29,7 +29,7 @@ PACKAGES += CSWlibpoppler-cpp0
 PKGFILES_CSWlibpoppler-cpp0 += $(call baseisadirs,$(libdir),libpoppler-cpp\.so\.0\.2\.0)
 PKGFILES_CSWlibpoppler-cpp0 += $(call baseisadirs,$(libdir),libpoppler-cpp\.so\.0(\.\d+)*)
 SPKG_DESC_CSWlibpoppler-cpp0 += $(DESCRIPTION), libpoppler-cpp.so.0
-RUNTIME_DEP_PKGS_CSWlibpoppler-cpp0 += CSWlibpoppler37
+RUNTIME_DEP_PKGS_CSWlibpoppler-cpp0 += CSWlibpoppler43
 RUNTIME_DEP_PKGS_CSWlibpoppler-cpp0 += CSWlibiconv2
 
 PACKAGES += CSWlibpoppler-glib8
@@ -40,24 +40,24 @@ RUNTIME_DEP_PKGS_CSWlibpoppler-glib8 += CSWlibcairo2
 RUNTIME_DEP_PKGS_CSWlibpoppler-glib8 += CSWlibfreetype6
 RUNTIME_DEP_PKGS_CSWlibpoppler-glib8 += CSWlibgobject2-0-0
 RUNTIME_DEP_PKGS_CSWlibpoppler-glib8 += CSWlibglib2-0-0
-RUNTIME_DEP_PKGS_CSWlibpoppler-glib8 += CSWlibpoppler37
+RUNTIME_DEP_PKGS_CSWlibpoppler-glib8 += CSWlibpoppler43
 RUNTIME_DEP_PKGS_CSWlibpoppler-glib8 += CSWlibgio2-0-0
 
-PACKAGES += CSWlibpoppler37
-PKGFILES_CSWlibpoppler37 += $(call baseisadirs,$(libdir),libpoppler\.so\.37\.0\.0)
-PKGFILES_CSWlibpoppler37 += $(call baseisadirs,$(libdir),libpoppler\.so\.37(\.\d+)*)
-SPKG_DESC_CSWlibpoppler37 += $(DESCRIPTION), libpoppler.so.37
-RUNTIME_DEP_PKGS_CSWlibpoppler37 += CSWlibfreetype6
-RUNTIME_DEP_PKGS_CSWlibpoppler37 += CSWlibjpeg7
-RUNTIME_DEP_PKGS_CSWlibpoppler37 += CSWlibfontconfig1
-RUNTIME_DEP_PKGS_CSWlibpoppler37 += CSWliblcms2-2
-RUNTIME_DEP_PKGS_CSWlibpoppler37 += CSWlibpng15-15
-RUNTIME_DEP_PKGS_CSWlibpoppler37 += CSWlibtiff3
+PACKAGES += CSWlibpoppler43
+PKGFILES_CSWlibpoppler43 += $(call baseisadirs,$(libdir),libpoppler\.so\.43\.0\.0)
+PKGFILES_CSWlibpoppler43 += $(call baseisadirs,$(libdir),libpoppler\.so\.43(\.\d+)*)
+SPKG_DESC_CSWlibpoppler43 += $(DESCRIPTION), libpoppler.so.43
+RUNTIME_DEP_PKGS_CSWlibpoppler43 += CSWlibfreetype6
+RUNTIME_DEP_PKGS_CSWlibpoppler43 += CSWlibjpeg7
+RUNTIME_DEP_PKGS_CSWlibpoppler43 += CSWlibfontconfig1
+RUNTIME_DEP_PKGS_CSWlibpoppler43 += CSWliblcms2-2
+RUNTIME_DEP_PKGS_CSWlibpoppler43 += CSWlibpng15-15
+RUNTIME_DEP_PKGS_CSWlibpoppler43 += CSWlibtiff5
 
 PACKAGES += CSWpoppler-dev
 SPKG_DESC_CSWpoppler-dev += $(DESCRIPTION), development files
 PKGFILES_CSWpoppler-dev += $(PKGFILES_DEVEL)
-RUNTIME_DEP_PKGS_CSWpoppler-dev += CSWlibpoppler37
+RUNTIME_DEP_PKGS_CSWpoppler-dev += CSWlibpoppler43
 RUNTIME_DEP_PKGS_CSWpoppler-dev += CSWlibpoppler-cpp0
 RUNTIME_DEP_PKGS_CSWpoppler-dev += CSWlibpoppler-glib8
 
@@ -83,7 +83,7 @@ CHECKPKG_OVERRIDES_CSWpoppler += file-collision|/opt/csw/share/man/man1/pdftops.
 CHECKPKG_OVERRIDES_CSWpoppler += file-collision|/opt/csw/share/man/man1/pdftotext.1|CSWpoppler|CSWxpdf
 CHECKPKG_OVERRIDES_CSWpoppler += file-collision|/opt/csw/share/man/man1/pdffonts.1|CSWpoppler|CSWxpdf
 CHECKPKG_OVERRIDES_CSWpoppler += file-collision|/opt/csw/share/man/man1/pdftohtml.1|CSWpdftohtml|CSWpoppler
-RUNTIME_DEP_PKGS_CSWpoppler += CSWlibpoppler37
+RUNTIME_DEP_PKGS_CSWpoppler += CSWlibpoppler43
 RUNTIME_DEP_PKGS_CSWpoppler += CSWlibfreetype6
 RUNTIME_DEP_PKGS_CSWpoppler += CSWliblcms2-2
 RUNTIME_DEP_PKGS_CSWpoppler += CSWlibcairo2
