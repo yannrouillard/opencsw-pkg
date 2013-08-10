@@ -50,8 +50,6 @@ RUNTIME_DEP_PKGS_CSWliblasi1 += CSWlibfontconfig1
 RUNTIME_DEP_PKGS_CSWliblasi1 += CSWlibgcc-s1
 RUNTIME_DEP_PKGS_CSWliblasi1 += CSWpango
 OBSOLETED_BY_CSWliblasi1 = CSWliblasi
-# A lot of those, but the test returns nothing, so false positive
-CHECKPKG_OVERRIDES_CSWliblasi1 += no-direct-binding
 
 PACKAGES += CSWliblasi-dev
 SPKG_DESC_CSWliblasi-dev = Developer support for libLASi.so.0
@@ -65,9 +63,8 @@ BUILD64_LIBS_ONLY = 1
 EXTRA_LD_OPTIONS = -z nolazyload
 
 CONFIGURE_SCRIPTS = custom
-BUILD_SCRIPTS = custom
-TEST_SCRIPTS = custom
 INSTALL_SCRIPTS = custom
+TEST_TARGET = test
 
 include gar/category.mk
 
@@ -86,16 +83,6 @@ configure-custom:
 	-DCMAKE_CXX_COMPILER="$(CXX)" \
 	-DCMAKE_CXX_FLAGS:STRING="$(CXXFLAGS)" \
 			. )
-	@$(MAKECOOKIE)
-
-build-custom:
-	@echo " ==> Building $(NAME) (custom)"
-	@( cd $(WORKSRC) ; gmake )
-	@$(MAKECOOKIE)
-
-test-custom:
-	@echo " ==> Testing $(NAME) (custom)"
-	@( cd $(WORKSRC) ; gmake  test)
 	@$(MAKECOOKIE)
 
 install-custom:
