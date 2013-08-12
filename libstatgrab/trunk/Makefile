@@ -26,15 +26,8 @@ SPKG_DESC_CSWlibstatgrab-dev = Development files for libstatgrab.so.9
 PKGFILES_CSWlibstatgrab-dev += $(PKGFILES_DEVEL)
 RUNTIME_DEP_PKGS_CSWlibstatgrab-dev += CSWlibstatgrab9
 
-# Put this in -utils:
-#   statgrab-make-mrtg-config
-PKGFILES_DEVEL_CONFIG =
-PKGFILES_DEVEL_CONFIG_MANPAGE =
-DEVEL_EXECUTABLES =
-ISAEXEC_EXCLUDE_FILES =
-
 PACKAGES += CSWlibstatgrab-utils
-SPKG_DESC_CSWlibstatgrab-utils = Statistic gathering tools based on libstatgrab.so.6
+SPKG_DESC_CSWlibstatgrab-utils = Statistic gathering tools based on libstatgrab.so.9
 # PKGFILES is catchall
 RUNTIME_DEP_PKGS_CSWlibstatgrab-utils += CSWlibstatgrab9
 
@@ -43,7 +36,6 @@ LINKER_FLAGS =
 
 BUILD64 = 1
 ISAEXEC = 1
-NORUNPATH = 1
 CONFIGURE_ARGS = $(DIRPATHS)
 CONFIGURE_ARGS += --with-curses-prefix=/usr
 
