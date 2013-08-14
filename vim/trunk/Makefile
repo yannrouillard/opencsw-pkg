@@ -1,6 +1,6 @@
 NAME           = vim
-DISTVERSION    = 7.3
-PATCHREV       = 905
+DISTVERSION    = 7.4
+PATCHREV       = 0
 VERSION        = $(DISTVERSION).$(PATCHREV)
 GARTYPE        = v2
 SPKG_SOURCEURL = http://www.vim.org/download.php
@@ -15,6 +15,10 @@ endef
 
 # Let's build a CLI vim for those stuck with S9
 PACKAGING_PLATFORMS += solaris9-sparc solaris9-i386
+
+ifneq ($(shell /usr/bin/uname -r),5.9)
+       GARCOMPILER = SOS12U3
+endif
 
 PACKAGES           = CSWvim
 CATALOGNAME_CSWvim = vim
@@ -56,9 +60,6 @@ DISTFILES += gvimrc
 DISTFILES += COPYING
 
 PATCHFILES  = $(foreach T,$(shell gseq -f "%03g" 001 $(PATCHREV)),$(DISTVERSION).$(T))
-
-PATCHFILES += 0003-solaris-sleep-does-not-do-decimals.patch
-PATCHFILES += 0004-solaris9-msgfmt-hates-empty-files.patch
 
 PATCHDIRLEVEL = 0
 
