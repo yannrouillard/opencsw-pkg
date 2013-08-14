@@ -15,6 +15,7 @@ endef
 
 # Let's build a CLI vim for those stuck with S9
 PACKAGING_PLATFORMS += solaris9-sparc solaris9-i386
+PACKAGING_PLATFORMS += solaris10-sparc solaris10-i386
 
 ifneq ($(shell /usr/bin/uname -r),5.9)
        GARCOMPILER = SOS12U3
@@ -77,9 +78,8 @@ CONFIGURE_ARGS += --with-tlib=ncurses
 CONFIGURE_ARGS += --enable-multibyte
 CONFIGURE_ARGS += --enable-cscope
 CONFIGURE_ARGS += --without-local-dir
-
 CONFIGURE_ARGS += --enable-pythoninterp=dynamic
-CONFIGURE_ARGS += --with-python-config-dir=$(libdir)/python/config
+CONFIGURE_ARGS += --with-python-config-dir=$(libdir)/python2.6/config
 
 BUILD_ARGS  = "VIMRCLOC=/opt/csw/share/vim"
 BUILD_ARGS += "VIMRUNTIMEDIR=/opt/csw/share/vim/vim$(subst .,,$(DISTVERSION))"
