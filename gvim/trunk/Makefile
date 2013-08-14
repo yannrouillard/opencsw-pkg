@@ -1,6 +1,6 @@
 NAME           = vim
-DISTVERSION    = 7.3
-PATCHREV       = 905
+DISTVERSION    = 7.4
+PATCHREV       = 0
 VERSION        = $(DISTVERSION).$(PATCHREV)
 GARTYPE        = v2
 SPKG_SOURCEURL = http://www.vim.org/download.php
@@ -12,6 +12,8 @@ define BLURB
   It is descended from the vi clone "stevie" and runs on many systems, including
   Unix, MS Windows, OS/2, Macintosh, VMS, and Amiga.
 endef
+
+GARCOMPILER = SOS12U3
 
 PACKAGES            = CSWgvim
 CATALOGNAME_CSWgvim = gvim
@@ -25,7 +27,6 @@ DISTFILES += gvim.desktop
 DISTFILES += COPYING
 
 PATCHFILES  = $(foreach T,$(shell gseq -f "%03g" 001 $(PATCHREV)),$(DISTVERSION).$(T))
-PATCHFILES += 0003-solaris-sleep-does-not-do-decimals.patch
 
 PATCHDIRLEVEL = 0
 
@@ -44,7 +45,7 @@ CONFIGURE_ARGS += --without-local-dir
 CONFIGURE_ARGS += --with-vim-name="vim-gnome"
 
 CONFIGURE_ARGS += --enable-pythoninterp=dynamic
-CONFIGURE_ARGS += --with-python-config-dir=$(libdir)/python/config
+CONFIGURE_ARGS += --with-python-config-dir=$(libdir)/python2.6/config
 
 BUILD_ARGS  = "VIMRCLOC=/opt/csw/share/vim"
 BUILD_ARGS += "VIMRUNTIMEDIR=/opt/csw/share/vim/vim$(subst .,,$(DISTVERSION))"
@@ -57,7 +58,7 @@ BUILD_DEP_PKGS += CSWlibiconv-dev
 BUILD_DEP_PKGS += CSWlibncurses-dev
 BUILD_DEP_PKGS += CSWlibpcre-dev
 BUILD_DEP_PKGS += CSWlibfreetype-dev
-BUILD_DEP_PKGS += CSWfconfig-dev
+BUILD_DEP_PKGS += CSWfontconfig-dev
 BUILD_DEP_PKGS += CSWlibpng-dev
 BUILD_DEP_PKGS += CSWsunx11devel
 BUILD_DEP_PKGS += CSWlibgnomeui-devel
