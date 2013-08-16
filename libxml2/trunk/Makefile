@@ -13,12 +13,17 @@ endef
 
 MASTER_SITES = ftp://xmlsoft.org/libxml2/
 DISTFILES = $(DISTNAME).tar.gz
+DISTFILES += map.sudo
+
 # PATCHFILES = 0001-Forcefully-disable-the-symbol-versioning.patch
 # see Bug: https://www.opencsw.org/mantis/view.php?id=5093
 PATCHFILES = 0002-fix-PyCapsulate-for-python-version-less-2.7.patch
 
 sysconfdir = /etc/opt/csw
 localstatedir = /var/opt/csw
+
+# Force custom mapfile because sudo uses one and sudo uses libxml2
+LINKER_MAPS = -M "$(abspath $(WORKDIR)/map.sudo)"
 
 EXTRA_CPPFLAGS  = -DXML_XML_DEFAULT_CATALOG=\\\"$(sysconfdir)/xml/catalog\\\"
 EXTRA_CPPFLAGS += -DXML_SGML_DEFAULT_CATALOG=\\\"$(sysconfdir)/sgml/catalog\\\"
@@ -57,7 +62,6 @@ PACKAGES += CSWpy-libxml2
 OBSOLETED_BY_CSWpy-libxml2 = CSWpylibxml2
 SPKG_DESC_CSWpy-libxml2  = XML Parser Library Python Bindings
 RUNTIME_DEP_PKGS_CSWpy-libxml2  = CSWlibpython2-6-1-0
-RUNTIME_DEP_PKGS_CSWpy-libxml2 += CSWpython
 RUNTIME_DEP_PKGS_CSWpy-libxml2 += CSWlibxml2-2
 PKGFILES_CSWpy-libxml2  = $(libdir)/python/.*
 PKGFILES_CSWpy-libxml2 += $(docdir)/pylibxml2/.*
