@@ -63,6 +63,7 @@ OBSOLETED_BY_CSWpy-libxml2 = CSWpylibxml2
 SPKG_DESC_CSWpy-libxml2  = XML Parser Library Python Bindings
 RUNTIME_DEP_PKGS_CSWpy-libxml2  = CSWlibpython2-6-1-0
 RUNTIME_DEP_PKGS_CSWpy-libxml2 += CSWlibxml2-2
+RUNTIME_DEP_PKGS_CSWpy-libxml2 += CSWpython
 PKGFILES_CSWpy-libxml2  = $(libdir)/python/.*
 PKGFILES_CSWpy-libxml2 += $(docdir)/pylibxml2/.*
 # There is no 64-bit Python.
