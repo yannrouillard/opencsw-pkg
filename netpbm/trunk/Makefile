@@ -67,7 +67,7 @@ EXTRA_MERGE_EXCLUDE_FILES += $(prefix)/pkginfo
 EXTRA_MERGE_EXCLUDE_FILES += $(prefix)/VERSION
 EXTRA_MERGE_EXCLUDE_FILES += $(prefix)/config_template
 EXTRA_MERGE_EXCLUDE_FILES += $(prefix)/man/.*
-EXTRA_MERGE_EXCLUDE_FILES += $(prefix)/link/.*
+EXTRA_MERGE_EXCLUDE_FILES += $(prefix)/link.*
 
 EXTRA_PAX_ARGS = -s ",$(prefix)/misc,$(sharedstatedir)/netpbm,"
 
@@ -85,8 +85,6 @@ pre-install-modulated:
 	@$(MAKECOOKIE)
 
 post-install-modulated:
+	rm -rf $(DESTDIR)$(prefix)/link
 	rm -f $(DESTDIR)$(libdir)/libnetpbm.so
 	gln -s libnetpbm.so.11 $(DESTDIR)$(libdir)/libnetpbm.so
-	# Wherever that comes from, it must go
-	rmdir $(DESTDIR)/link
-	@$(MAKECOOKIE)
