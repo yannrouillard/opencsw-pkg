@@ -1,5 +1,5 @@
 NAME = netpbm
-VERSION = 10.35.80
+VERSION = 10.63.00
 GARTYPE = v2
 
 DESCRIPTION = Netpbm is a toolkit for manipulation of graphic images
@@ -8,25 +8,31 @@ define BLURB
   including conversion of images between a variety of different formats.
 endef
 
-MASTER_SITES += $(SF_MIRRORS)
-DISTFILES += $(DISTNAME).tgz
-DISTFILES += Makefile.config
+SF_PROJECT = netpbm
+MASTER_SITES  = svn-http://svn.code.sf.net/p/$(NAME)/code/release_number/
+DISTFILES += config.mk
+DISTFILES += $(VERSION)
+NOCHECKSUM += $(VERSION)
+DISTNAME = $(VERSION)
 
-EXPANDVARS += Makefile.config
+GARCOMPILER = GCC4
 
-PATCHFILES += 0001-Reorder-includes-so-that-local-includes-come-before-.patch
-PATCHFILES += 0002-Remove-unused-external-references-causing-link-error.patch
-PATCHFILES += 0003-Remove-extra-conversion-in-function-call-causing-err.patch
-PATCHFILES += 0004-Move-opt-csw-include-to-the-end.patch
+EXPANDVARS += config.mk
+
+PATCHFILES += 0005_missing_stdlib.h.patch
+PATCHFILES += 0006-memcpy.patch
+PATCHFILES += 0007_stdout_already_used.patch
 
 VENDOR_URL = http://netpbm.sourceforge.net/
 
 LICENSE = doc/GPL_LICENSE.txt
 
+BUILD_DEP_PKGS += CSWx11xproto
+
 PACKAGES += CSWnetpbm
 SPKG_DESC_CSWnetpbm = A toolkit for manipulation of graphic images
 RUNTIME_DEP_PKGS_CSWnetpbm += CSWlibjpeg7
-RUNTIME_DEP_PKGS_CSWnetpbm += CSWlibtiff3
+RUNTIME_DEP_PKGS_CSWnetpbm += CSWlibtiff5
 RUNTIME_DEP_PKGS_CSWnetpbm += CSWlibpng12-0
 RUNTIME_DEP_PKGS_CSWnetpbm += CSWlibiconv2
 RUNTIME_DEP_PKGS_CSWnetpbm += CSWlibz1
@@ -43,8 +49,6 @@ PKGFILES_CSWlibnetpbm-dev += $(PKGFILES_DEVEL)
 RUNTIME_DEP_PKGS_CSWlibnetpbm-dev += CSWlibnetpbm10
 
 CONFIGURE_SCRIPTS = custom
-
-EXTRA_CFLAGS += -D__inline=
 
 INSTALL_OVERRIDE_VARS += PKGMANDIR
 INSTALL_ARGS = package pkgdir=$(DESTDIR)$(prefix)
@@ -64,8 +68,10 @@ EXTRA_PAX_ARGS = -s ",$(prefix)/misc,$(sharedstatedir)/netpbm,"
 
 include gar/category.mk
 
+PATH := /opt/csw/gnu:$(PATH):/opt/csw/gcc4/bin
+
 configure-custom:
-	cp $(WORKDIR)/Makefile.config $(WORKSRC)
+	cp $(WORKDIR)/config.mk $(WORKSRC)
 	perl -pi \
 		-e 's,(#define\s+RGB_DB1\s+).*,$$1"/opt/csw/share/netpbm/rgb.txt",;' \
 		-e 's,(#define\s+RGB_DB2\s+).*,$$1"/usr/openwin/lib/X11/rgb.txt",;' \
