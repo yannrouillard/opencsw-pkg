@@ -304,6 +304,8 @@ RUNTIME_DEP_PKGS_CSWsamba-winbind += CSWsamba-nss
 RUNTIME_DEP_PKGS_CSWsamba-winbind += CSWlibwbclient0
 RUNTIME_DEP_PKGS_CSWsamba-winbind += CSWlibtdb1
 RUNTIME_DEP_PKGS_CSWsamba-winbind += CSWlibtevent0
+# Needed for smb.conf
+RUNTIME_DEP_PKGS_CSWsamba-winbind += CSWsamba
 OBSOLETED_BY_CSWsamba-winbind += CSWsambawb
 
 CHECKPKG_OVERRIDES_CSWsamba-winbind += surplus-dependency|CSWsamba-nss
