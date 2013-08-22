@@ -105,6 +105,7 @@ PKGFILES_CSWpy-netsnmp = $(libdir)/python.*
 RUNTIME_DEP_PKGS_CSWpy-netsnmp += CSWpython
 RUNTIME_DEP_PKGS_CSWpy-netsnmp += CSWlibpython2-6-1-0
 RUNTIME_DEP_PKGS_CSWpy-netsnmp += CSWlibnetsnmp25
+CHECKPKG_OVERRIDES_CSWpy-netsnmp += surplus-dependency|CSWpython
 
 PACKAGES += CSWnetsnmp
 SPKG_DESC_CSWnetsnmp += $(DESCRIPTION), Base
@@ -121,7 +122,7 @@ RUNTIME_DEP_PKGS_CSWnetsnmp += CSWperl
 # CHECKPKG_OVERRIDES_CSWnetsnmp += file-with-bad-content|/usr/local|root/opt/csw/bin/traptoemail
 # CHECKPKG_OVERRIDES_CSWnetsnmp += file-with-bad-content|/usr/local|root/opt/csw/bin/ipf-mod.pl
 # CHECKPKG_OVERRIDES_CSWnetsnmp += file-with-bad-content|/usr/local|root/opt/csw/share/snmp/mib2c-data/mfd-makefile.m2m
-CHECKPKG_OVERRIDES_CSWnetsnmp += file-with-bad-content|/usr/share|root/opt/csw/bin/net-snmp-cert
+# CHECKPKG_OVERRIDES_CSWnetsnmp += file-with-bad-content|/usr/share|root/opt/csw/bin/net-snmp-cert
 
 # BUILD64 = 1
 BUILD64_LIBS_ONLY = 1
