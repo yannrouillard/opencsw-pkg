@@ -32,6 +32,7 @@ PATCHFILES = perl_makefiles.diff
 PATCHFILES += Makefile.in.diff
 PATCHFILES += setup-py.patch
 PATCHFILES += 0001-fixing-init-scripts.patch
+PATCHFILES += 0002-workaround-ksh-stop-alias-problem.patch
 
 VENDOR_URL = http://www.net-snmp.org/
 
