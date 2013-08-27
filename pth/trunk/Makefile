@@ -13,7 +13,10 @@ MASTER_SITES = $(GNU_MIRROR)
 DISTFILES  = $(DISTNAME).tar.gz
 
 # Patch PTH.H to increase FD_SETSIZE for 64bit builds
-PATCHFILES = patch_pth_fdsetsize64.diff
+PATCHFILES += 0001_patch_pth_fdsetsize64.diff
+
+# The max FD_SETSIZE test must depend on the architecture being built
+PATCHFILES += 0002_FD_SETSIZE_depends_on_arch.patch
 
 VENDOR_URL = http://www.gnu.org/software/pth/
 
@@ -28,6 +31,8 @@ SPKG_DESC_CSWlibpth-dev = Development files for libpth.so.20
 RUNTIME_DEP_PKGS_CSWlibpth-dev = CSWlibpth20
 
 BUILD64_LIBS_ONLY = 1
+
+CONFIGURE_ARGS = $(DIRPATHS)
 
 # This is an example of 'configure'
 CHECKPKG_OVERRIDES_CSWlibpth-dev += file-with-bad-content|/usr/local|root/opt/csw/share/man/man3/pth.3
