@@ -1,5 +1,5 @@
 NAME = libgpg-error
-VERSION = 1.10
+VERSION = 1.12
 GARTYPE = v2
 
 DESCRIPTION = GNU gpg related library
