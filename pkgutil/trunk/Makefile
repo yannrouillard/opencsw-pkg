@@ -1,5 +1,5 @@
 NAME = pkgutil
-VERSION = 2.6.5
+VERSION = 2.6.6b1
 GARTYPE = v2
 
 DESCRIPTION = Installs Solaris packages easily
@@ -72,8 +72,15 @@ CHECKPKG_OVERRIDES_CSWpkgutilplus += surplus-dependency|CSWgnupg
 CHECKPKG_OVERRIDES_CSWpkgutilplus += surplus-dependency|CSWpmstringapprox
 CHECKPKG_OVERRIDES_CSWpkgutilplus += surplus-dependency|CSWpkgutil
 
-# This is slightly suspicious, may take a look later
+# This is Dago's script
 CHECKPKG_OVERRIDES_CSWpkgutilplus += file-with-bad-content|/export/home|root/opt/csw/bin/cswcatalog
+
+# There's actually a Python script in this package
+CHECKPKG_OVERRIDES_CSWpkgutilplus += surplus-dependency|CSWpython
+
+# These are just included binaries used as last resort
+CHECKPKG_OVERRIDES_CSWpkgutil += no-direct-binding|/opt/csw/libexec/pkgutil/wget-i386|is|not|directly|bound|to|soname|libmd5.so.1
+CHECKPKG_OVERRIDES_CSWpkgutil += no-direct-binding|/opt/csw/libexec/pkgutil/wget-sparc|is|not|directly|bound|to|soname|libmd5.so.1
 
 PKGFILES_CSWpkgutilplus  = .*bldcat.*
 PKGFILES_CSWpkgutilplus += .*chkcat.*
