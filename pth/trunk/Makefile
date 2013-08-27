@@ -34,7 +34,4 @@ BUILD64_LIBS_ONLY = 1
 
 CONFIGURE_ARGS = $(DIRPATHS)
 
-# This is an example of 'configure'
-CHECKPKG_OVERRIDES_CSWlibpth-dev += file-with-bad-content|/usr/local|root/opt/csw/share/man/man3/pth.3
-
 include gar/category.mk
