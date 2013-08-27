@@ -1,5 +1,5 @@
 NAME = libassuan
-VERSION = 2.1.0
+VERSION = 2.1.1
 GARTYPE = v2
 
 DESCRIPTION = IPC library used by some GnuPG related software
