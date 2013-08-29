@@ -65,9 +65,6 @@ RUNTIME_DEP_PKGS_CSWgnupg-agent += CSWlibassuan0
 RUNTIME_DEP_PKGS_CSWgnupg-agent += CSWpinentry
 CHECKPKG_OVERRIDES_CSWgnupg-agent += surplus-dependency|CSWpinentry
 
-# Documentation overrides
-CHECKPKG_OVERRIDES_CSWgnupg-agent += file-with-bad-content|/usr/local|root/opt/csw/share/man/man1/gpg-agent.1
-
 NOISALIST = 1
 
 BUILD64 = 1
