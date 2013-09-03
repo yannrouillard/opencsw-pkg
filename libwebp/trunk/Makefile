@@ -12,6 +12,7 @@ endef
 GOOGLE_PROJECT = webp
 MASTER_SITES = $(GOOGLE_MIRROR)
 DISTFILES  = $(DISTNAME).tar.gz
+VENDOR_URL = https://code.google.com/p/webp/
 
 GARCOMPILER = SOS12U3
 
