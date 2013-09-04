@@ -11,8 +11,6 @@ define BLURB
   development and internationalization.
 endef
 
-GARCOMPILER = GNU
-
 MASTER_SITES = http://download.qt-project.org/official_releases/qt/$(basename $(VERSION))/$(VERSION)/
 DISTNAME = qt-everywhere-opensource-src-$(VERSION)
 DISTFILES = $(DISTNAME).tar.gz
@@ -21,6 +19,9 @@ LICENSE = README
 
 NOGITPATCH = 1
 PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386
+
+GARCOMPILER = GNU
+# GARFLAVOR = DBG
 
 REINPLACE_USRLOCAL += src/gui/kernel/qguiplatformplugin.cpp 
 REINPLACE_USRLOCAL += src/network/ssl/qsslsocket_openssl_symbols.cpp
@@ -42,9 +43,13 @@ BUILD_DEP_PKGS += CSWmysql-dev
 # http://wiki.opencsw.org/porting-faq#toc9
 EXTRA_CFLAGS = -DSUN_OGL_NO_VERTEX_MACROS
 EXTRA_CXXFLAGS = -DSUN_OGL_NO_VERTEX_MACROS
+# override -O2 because of core dumps of designer, qmlplugindump and other in libQtDeclarative.so.4?
+CXXFLAGS = -pipe $(ARCHFLAGS_$(GARCOMPILER)_$(ISA)) $(EXTRA_CXXFLAGS)
 
 platform_arg = solaris-g++
 
+CONFIGURE_ARGS_DBG += -debug
+CONFIGURE_ARGS_OPT += -release
 CONFIGURE_ARGS += -confirm-license
 CONFIGURE_ARGS += -prefix $(prefix)
 CONFIGURE_ARGS += -docdir $(sharedstatedir)/$(NAME)$(MAJOR)/doc
@@ -72,7 +77,7 @@ CONFIGURE_ARGS += -system-libpng
 CONFIGURE_ARGS += -system-libjpeg
 CONFIGURE_ARGS += -no-rpath
 CONFIGURE_ARGS += -reduce-relocations
-CONFIGURE_ARGS += -no-separate-debug-info
+# CONFIGURE_ARGS += -no-separate-debug-info
 CONFIGURE_ARGS += -verbose
 CONFIGURE_ARGS += -lfontconfig
 CONFIGURE_ARGS += -I$(includedir)/freetype2
@@ -93,9 +98,15 @@ CONFIGURE_ARGS += -no-gtkstyle
 CONFIGURE_ARGS += -I$(includedir)/gtk-2.0
 CONFIGURE_ARGS += -I/usr/X11/include 
 CONFIGURE_ARGS += -I/usr/X11/share/include
-CONFIGURE_ARGS_sparc += -big-endian -host-big-endian
+CONFIGURE_ARGS_sparc += -big-endian -host-big-endian 
+
+# not build for Sparc because core dump in designer, qmlplugindump, ..
+CONFIGURE_ARGS_sparc += -no-javascript-jit
+CONFIGURE_ARGS_sparc += -no-script
+
 # CONFIGURE_ARGS_i386 += -little-endian -host-big-endian
 CONFIGURE_ARGS += $(CONFIGURE_ARGS_$(GARCH))
+CONFIGURE_ARGS += $(CONFIGURE_ARGS_$(GARFLAVOR))
 
 # TEST_TARGET =
 
@@ -135,7 +146,7 @@ PKGFILES_CSWqt4-private-dev		+=	$(includedir)/QtDeclarative/private/.*
 PKGFILES_CSWqt4-private-dev		+=	$(includedir)/QtGui/private/.*
 PKGFILES_CSWqt4-private-dev		+=	$(includedir)/QtScript/private/.*
 PKGFILES_CSWqt4-private-dev		+=	$(includedir)/src/.*
-ARCHALL_CSWqt4-private-dev		=	1
+# ARCHALL_CSWqt4-private-dev		=	1
 RUNTIME_DEP_PKGS_CSWqt4-private-dev += CSWqt4-dev
 CHECKPKG_OVERRIDES_CSWqt4-private-dev += surplus-dependency|CSWqt4-dev
 
@@ -180,7 +191,7 @@ RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibglib2-0-0
 # RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibxml2-2
 RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibgcc-s1
 RUNTIME_DEP_PKGS_CSWqt4-dev += CSWsqlite
-RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibtiff3
+RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibtiff5
 RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibicui18n50
 RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibodbc2
 RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibpq5
