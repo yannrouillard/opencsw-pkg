@@ -146,9 +146,10 @@ PKGFILES_CSWqt4-private-dev		+=	$(includedir)/QtDeclarative/private/.*
 PKGFILES_CSWqt4-private-dev		+=	$(includedir)/QtGui/private/.*
 PKGFILES_CSWqt4-private-dev		+=	$(includedir)/QtScript/private/.*
 PKGFILES_CSWqt4-private-dev		+=	$(includedir)/src/.*
-# ARCHALL_CSWqt4-private-dev		=	1
+ARCHALL_CSWqt4-private-dev		=	1
 RUNTIME_DEP_PKGS_CSWqt4-private-dev += CSWqt4-dev
 CHECKPKG_OVERRIDES_CSWqt4-private-dev += surplus-dependency|CSWqt4-dev
+CHECKPKG_OVERRIDES_CSWqt4-private-dev += archall-devel-package
 
 PACKAGES += CSWqt4-dev
 SPKG_DESC_CSWqt4-dev += $(DESCRIPTION), development files
@@ -161,7 +162,6 @@ PKGFILES_CSWqt4-dev += $(libdir)/$(NAME)$(MAJOR)/demos/.*
 PKGFILES_CSWqt4-dev += $(libdir)/$(NAME)$(MAJOR)/imports/.*
 PKGFILES_CSWqt4-dev += $(sharedstatedir)/$(NAME)$(MAJOR)/mkspecs/.*
 EXTRA_PKGFILES_EXCLUDED_CSWqt4-dev += $(PKGFILES_CSWqt4-private-dev)
-RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibqtscript4
 RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibqtdesignercomponents4
 RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibqtdesigner4
 RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibqtxml4
@@ -172,8 +172,6 @@ RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibqtdbus4
 RUNTIME_DEP_PKGS_CSWqt4-dev += CSWdbus
 RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibqtclucene4
 RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibqtcore4
-RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibqtscripttools4
-RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibqtdeclarative4
 RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibqtgui4
 RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibqtopengl4
 RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibqtmultimedia4
@@ -203,19 +201,62 @@ RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibsqlite3-0
 RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibgstreamer0-10-0
 RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibgstvideo0-10-0
 RUNTIME_DEP_PKGS_CSWqt4-dev += CSWlibgstaudio0-10-0
-CHECKPKG_OVERRIDES_CSWqt4-dev += surplus-dependency|CSWlibicui18n50
-CHECKPKG_OVERRIDES_CSWqt4-dev += file-with-bad-content|/usr/share|root/opt/csw/lib/qt4/demos/declarative/twitter/twitter_harmattan.desktop
-CHECKPKG_OVERRIDES_CSWqt4-dev += file-with-bad-content|/usr/share|root/opt/csw/lib/qt4/demos/declarative/flickr/flickr_harmattan.desktop
-CHECKPKG_OVERRIDES_CSWqt4-dev += file-with-bad-content|/usr/share|root/opt/csw/lib/qt4/demos/declarative/samegame/samegame_harmattan.desktop
-CHECKPKG_OVERRIDES_CSWqt4-dev += file-with-bad-content|/usr/share|root/opt/csw/lib/qt4/demos/declarative/rssnews/rssnews_harmattan.desktop
-CHECKPKG_OVERRIDES_CSWqt4-dev += file-with-bad-content|/usr/share|root/opt/csw/lib/qt4/demos/declarative/photoviewer/photoviewer_harmattan.desktop
-CHECKPKG_OVERRIDES_CSWqt4-dev += file-with-bad-content|/usr/share|root/opt/csw/lib/qt4/demos/declarative/calculator/calculator_harmattan.desktop
-CHECKPKG_OVERRIDES_CSWqt4-dev += file-with-bad-content|/usr/share|root/opt/csw/lib/qt4/demos/declarative/snake/snake_harmattan.desktop
-CHECKPKG_OVERRIDES_CSWqt4-dev += file-with-bad-content|/usr/share|root/opt/csw/lib/qt4/demos/helper/qmlapplicationviewer/qmlapplicationviewer.pri
-CHECKPKG_OVERRIDES_CSWqt4-dev += file-with-bad-content|/usr/share|root/opt/csw/lib/qt4/examples/helper/qmlapplicationviewer/qmlapplicationviewer.pri
 
+CHECKPKG_OVERRIDES_CSWqt4-dev += surplus-dependency|CSWlibicui18n50
+CHECKPKG_OVERRIDES_CSWqt4-dev_i386 += file-with-bad-content|/usr/share|root/opt/csw/lib/qt4/demos/declarative/twitter/twitter_harmattan.desktop
+CHECKPKG_OVERRIDES_CSWqt4-dev_i386 += file-with-bad-content|/usr/share|root/opt/csw/lib/qt4/demos/declarative/flickr/flickr_harmattan.desktop
+CHECKPKG_OVERRIDES_CSWqt4-dev_i386 += file-with-bad-content|/usr/share|root/opt/csw/lib/qt4/demos/declarative/samegame/samegame_harmattan.desktop
+CHECKPKG_OVERRIDES_CSWqt4-dev_i386 += file-with-bad-content|/usr/share|root/opt/csw/lib/qt4/demos/declarative/rssnews/rssnews_harmattan.desktop
+CHECKPKG_OVERRIDES_CSWqt4-dev_i386 += file-with-bad-content|/usr/share|root/opt/csw/lib/qt4/demos/declarative/photoviewer/photoviewer_harmattan.desktop
+CHECKPKG_OVERRIDES_CSWqt4-dev_i386 += file-with-bad-content|/usr/share|root/opt/csw/lib/qt4/demos/declarative/calculator/calculator_harmattan.desktop
+CHECKPKG_OVERRIDES_CSWqt4-dev_i386 += file-with-bad-content|/usr/share|root/opt/csw/lib/qt4/demos/declarative/snake/snake_harmattan.desktop
+CHECKPKG_OVERRIDES_CSWqt4-dev_i386 += file-with-bad-content|/usr/share|root/opt/csw/lib/qt4/demos/helper/qmlapplicationviewer/qmlapplicationviewer.pri
+CHECKPKG_OVERRIDES_CSWqt4-dev_i386 += file-with-bad-content|/usr/share|root/opt/csw/lib/qt4/examples/helper/qmlapplicationviewer/qmlapplicationviewer.pri
 # because libdbus needs /etc/machine-id which can generated with a tool of CSWdbus
 CHECKPKG_OVERRIDES_CSWqt4-dev += surplus-dependency|CSWdbus
+CHECKPKG_OVERRIDES_CSWqt4-dev += $(CHECKPKG_OVERRIDES_CSWqt4-dev_$(GARCH))
+
+#
+# temporary special packaging for Sprac build without script
+#
+RUNTIME_DEP_PKGS_CSWqt4-dev_i386 += CSWlibqtscript4
+RUNTIME_DEP_PKGS_CSWqt4-dev_i386 += CSWlibqtscripttools4
+RUNTIME_DEP_PKGS_CSWqt4-dev_i386 += CSWlibqtdeclarative4
+RUNTIME_DEP_PKGS_CSWqt4-dev += $(RUNTIME_DEP_PKGS_CSWqt4-dev_$(GARCH))
+
+PACKAGES += CSWlibqtscript4
+PKGFILES_CSWlibqtscript4 += $(call baseisadirs,$(libdir),libQtScript\.so\.4(\.\d+)*)
+SPKG_DESC_CSWlibqtscript4 += $(DESCRIPTION), libQtScript.so.4
+RUNTIME_DEP_PKGS_CSWlibqtscript4_i386 += CSWlibgcc-s1
+RUNTIME_DEP_PKGS_CSWlibqtscript4_i386 += CSWlibstdc++6
+RUNTIME_DEP_PKGS_CSWlibqtscript4_i386 += CSWlibqtcore4
+RUNTIME_DEP_PKGS_CSWlibqtscript4 += $(RUNTIME_DEP_PKGS_CSWlibqtscript4_$(GARCH))
+
+PACKAGES += CSWlibqtscripttools4
+PKGFILES_CSWlibqtscripttools4 += $(call baseisadirs,$(libdir),libQtScriptTools\.so\.4(\.\d+)*)
+SPKG_DESC_CSWlibqtscripttools4 += $(DESCRIPTION), libQtScriptTools.so.4
+RUNTIME_DEP_PKGS_CSWlibqtscripttools4_i386 += CSWlibqtscript4
+RUNTIME_DEP_PKGS_CSWlibqtscripttools4_i386 += CSWlibgcc-s1
+RUNTIME_DEP_PKGS_CSWlibqtscripttools4_i386 += CSWlibstdc++6
+RUNTIME_DEP_PKGS_CSWlibqtscripttools4_i386 += CSWlibqtgui4
+RUNTIME_DEP_PKGS_CSWlibqtscripttools4_i386 += CSWlibqtcore4
+RUNTIME_DEP_PKGS_CSWlibqtscripttools4 += $(RUNTIME_DEP_PKGS_CSWlibqtscripttools4_$(GARCH))
+
+PACKAGES += CSWlibqtdeclarative4
+PKGFILES_CSWlibqtdeclarative4 += $(call baseisadirs,$(libdir),libQtDeclarative\.so\.4(\.\d+)*)
+SPKG_DESC_CSWlibqtdeclarative4 += $(DESCRIPTION), libQtDeclarative.so.4
+RUNTIME_DEP_PKGS_CSWlibqtdeclarative4_i386 += CSWlibqtscript4
+RUNTIME_DEP_PKGS_CSWlibqtdeclarative4_i386 += CSWlibqtnetwork4
+RUNTIME_DEP_PKGS_CSWlibqtdeclarative4_i386 += CSWlibqtcore4
+RUNTIME_DEP_PKGS_CSWlibqtdeclarative4_i386 += CSWlibstdc++6
+RUNTIME_DEP_PKGS_CSWlibqtdeclarative4_i386 += CSWlibqtgui4
+# RUNTIME_DEP_PKGS_CSWlibqtdeclarative4 += CSWlibqtsvg4
+RUNTIME_DEP_PKGS_CSWlibqtdeclarative4_i386 += CSWlibgcc-s1
+RUNTIME_DEP_PKGS_CSWlibqtdeclarative4_i386 += CSWlibqtsql4
+RUNTIME_DEP_PKGS_CSWlibqtdeclarative4 += $(RUNTIME_DEP_PKGS_CSWlibqtdeclarative4_$(GARCH))
+#
+# end temporay packaging
+#
 
 PACKAGES += CSWlibqthelp4
 PKGFILES_CSWlibqthelp4 += $(call baseisadirs,$(libdir),libQtHelp\.so\.4(\.\d+)*)
@@ -256,23 +297,6 @@ RUNTIME_DEP_PKGS_CSWlibqtopengl4 += CSWlibqtgui4
 RUNTIME_DEP_PKGS_CSWlibqtopengl4 += CSWlibgcc-s1
 RUNTIME_DEP_PKGS_CSWlibqtopengl4 += CSWlibfreetype6
 RUNTIME_DEP_PKGS_CSWlibqtopengl4 += $(RUNTIME_DEP_PKGS_CSWlibqtopengl4_$(GARCH))
-
-
-PACKAGES += CSWlibqtscript4
-PKGFILES_CSWlibqtscript4 += $(call baseisadirs,$(libdir),libQtScript\.so\.4(\.\d+)*)
-SPKG_DESC_CSWlibqtscript4 += $(DESCRIPTION), libQtScript.so.4
-RUNTIME_DEP_PKGS_CSWlibqtscript4 += CSWlibgcc-s1
-RUNTIME_DEP_PKGS_CSWlibqtscript4 += CSWlibstdc++6
-RUNTIME_DEP_PKGS_CSWlibqtscript4 += CSWlibqtcore4
-
-PACKAGES += CSWlibqtscripttools4
-PKGFILES_CSWlibqtscripttools4 += $(call baseisadirs,$(libdir),libQtScriptTools\.so\.4(\.\d+)*)
-SPKG_DESC_CSWlibqtscripttools4 += $(DESCRIPTION), libQtScriptTools.so.4
-RUNTIME_DEP_PKGS_CSWlibqtscripttools4 += CSWlibqtscript4
-RUNTIME_DEP_PKGS_CSWlibqtscripttools4 += CSWlibgcc-s1
-RUNTIME_DEP_PKGS_CSWlibqtscripttools4 += CSWlibstdc++6
-RUNTIME_DEP_PKGS_CSWlibqtscripttools4 += CSWlibqtgui4
-RUNTIME_DEP_PKGS_CSWlibqtscripttools4 += CSWlibqtcore4
 
 PACKAGES += CSWlibqtsql4
 PKGFILES_CSWlibqtsql4 += $(call baseisadirs,$(libdir),libQtSql\.so\.4(\.\d+)*)
@@ -322,27 +346,16 @@ RUNTIME_DEP_PKGS_CSWlibqtdbus4 += CSWlibstdc++6
 RUNTIME_DEP_PKGS_CSWlibqtdbus4 += CSWlibqtxml4
 RUNTIME_DEP_PKGS_CSWlibqtdbus4 += CSWlibqtcore4
 
-PACKAGES += CSWlibqtdeclarative4
-PKGFILES_CSWlibqtdeclarative4 += $(call baseisadirs,$(libdir),libQtDeclarative\.so\.4(\.\d+)*)
-SPKG_DESC_CSWlibqtdeclarative4 += $(DESCRIPTION), libQtDeclarative.so.4
-RUNTIME_DEP_PKGS_CSWlibqtdeclarative4 += CSWlibqtscript4
-RUNTIME_DEP_PKGS_CSWlibqtdeclarative4 += CSWlibqtnetwork4
-RUNTIME_DEP_PKGS_CSWlibqtdeclarative4 += CSWlibqtcore4
-RUNTIME_DEP_PKGS_CSWlibqtdeclarative4 += CSWlibstdc++6
-RUNTIME_DEP_PKGS_CSWlibqtdeclarative4 += CSWlibqtgui4
-# RUNTIME_DEP_PKGS_CSWlibqtdeclarative4 += CSWlibqtsvg4
-RUNTIME_DEP_PKGS_CSWlibqtdeclarative4 += CSWlibgcc-s1
-RUNTIME_DEP_PKGS_CSWlibqtdeclarative4 += CSWlibqtsql4
-
 PACKAGES += CSWlibqtdesigner4
 PKGFILES_CSWlibqtdesigner4 += $(call baseisadirs,$(libdir),libQtDesigner\.so\.4(\.\d+)*)
 SPKG_DESC_CSWlibqtdesigner4 += $(DESCRIPTION), libQtDesigner.so.4
-RUNTIME_DEP_PKGS_CSWlibqtdesigner4 += CSWlibqtscript4
+RUNTIME_DEP_PKGS_CSWlibqtdesigner4_i386 += CSWlibqtscript4
 RUNTIME_DEP_PKGS_CSWlibqtdesigner4 += CSWlibqtxml4
 RUNTIME_DEP_PKGS_CSWlibqtdesigner4 += CSWlibqtcore4
 RUNTIME_DEP_PKGS_CSWlibqtdesigner4 += CSWlibstdc++6
 RUNTIME_DEP_PKGS_CSWlibqtdesigner4 += CSWlibqtgui4
 RUNTIME_DEP_PKGS_CSWlibqtdesigner4 += CSWlibgcc-s1
+RUNTIME_DEP_PKGS_CSWlibqtdesigner4 += $(RUNTIME_DEP_PKGS_CSWlibqtdesigner4_$(GARCH))
 
 PACKAGES += CSWlibqtdesignercomponents4
 PKGFILES_CSWlibqtdesignercomponents4 += $(call baseisadirs,$(libdir),libQtDesignerComponents\.so\.4(\.\d+)*)
