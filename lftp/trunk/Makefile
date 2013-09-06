@@ -13,7 +13,7 @@
 ###### Package information #######
 
 NAME = lftp
-VERSION = 4.4.8
+VERSION = 4.4.9
 GARTYPE = v2
 
 DESCRIPTION = A sophisticated command-line ftp/http client
@@ -51,12 +51,6 @@ DISTFILES += changelog.CSW
 #PATCHFILES = munmap.patch
 
 PATCHFILES += dont_use_csw_getopt_h.patch
-
-# Disable the use of IPV6_V6ONLY function if it is not defined
-# It is not mandatory here, lftp uses the option for the torrent listen socket
-# it opens a socket first for ipv4 then for ipv6, so the ipv6 one will never
-# catch the ipv4 connection even if IPV6_V6ONLY can't be set
-PATCHFILES += 0006-no-ipv6_v6only-setsock-option-under-solaris-9.patch
 
 # Update the system-wide lftp.conf path in the man page
 PATCHFILES += 0007-update-configuration-files-paths-in-documentation.patch
