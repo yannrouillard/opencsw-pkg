@@ -4,7 +4,7 @@
 # investigated.
 
 NAME = graphviz
-VERSION = 2.32.0
+VERSION = 2.34.0
 GARTYPE = v2
 
 DESCRIPTION = Graph visualization tools 
@@ -19,8 +19,6 @@ MASTER_SITES = http://www.graphviz.org/pub/graphviz/stable/SOURCES/
 LICENSE = COPYING
 
 GARCOMPILER = GCC4
-
-PATCHFILES += 0001_configure_tcl_bin_path_not_good_for_64bit.patch
 
 INCOMPATIBLE_PKGS = CSWgraphvis
 
