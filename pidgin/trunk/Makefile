@@ -10,13 +10,15 @@ define BLURB
 endef
 
 MASTER_SITES = $(SF_MIRRORS)
-DISTFILES  = $(NAME)-$(VERSION).tar.gz
+DISTFILES += $(NAME)-$(VERSION).tar.bz2
 STRIP_LIBTOOL = 1
 
+VENDOR_URL = http://pidgin.im
+
 CONFIGURE_ARGS  = $(DIRPATHS)
-CONFIGURE_ARGS += --with-dbus-services=/etc/opt/csw/dbus-1
-CONFIGURE_ARGS += --with-tclconfig=/opt/csw/lib
-CONFIGURE_ARGS += --with-tkconfig=/opt/csw/lib
+CONFIGURE_ARGS += --with-dbus-services=$(sysconfdir)/dbus-1
+CONFIGURE_ARGS += --with-tclconfig=$(libdir)
+CONFIGURE_ARGS += --with-tkconfig=$(libdir)
 CONFIGURE_ARGS += --enable-gnutls=yes
 CONFIGURE_ARGS += --enable-nss=yes
 CONFIGURE_ARGS += --disable-avahi
@@ -25,6 +27,11 @@ CONFIGURE_ARGS += --with-x
 CONFIGURE_ARGS += --disable-vv
 CONFIGURE_ARGS += --enable-trayicon-compat 
 
+CONFIGURE_ARGS += --enable-gtkui
+CONFIGURE_ARGS += --enable-consoleui
+
+# We deffinitely want SASL
+CONFIGURE_ARGS += --enable-cyrus-sasl
 
 # For msgfmt, msgmerge, xgettext and gettext to be used from GNU
 CONFIGURE_ENV_PATH = $(prefix)/gnu:$(PATH)
@@ -43,7 +50,7 @@ RUNTIME_DEP_PKGS_CSWpidgin += CSWaspell
 RUNTIME_DEP_PKGS_CSWpidgin += CSWlibdbus1-3
 RUNTIME_DEP_PKGS_CSWpidgin += CSWlibdbus-glib1-2
 RUNTIME_DEP_PKGS_CSWpidgin += CSWlibglib2-0-0
-RUNTIME_DEP_PKGS_CSWpidgin += CSWgstreamer
+RUNTIME_DEP_PKGS_CSWpidgin += CSWlibgstreamer0-10-0
 RUNTIME_DEP_PKGS_CSWpidgin += CSWlibgtk-x11-2-0-0
 RUNTIME_DEP_PKGS_CSWpidgin += CSWgtkspell
 RUNTIME_DEP_PKGS_CSWpidgin += CSWlibatk1-0-0
@@ -56,7 +63,6 @@ RUNTIME_DEP_PKGS_CSWpidgin += CSWtcl
 RUNTIME_DEP_PKGS_CSWpidgin += CSWtk
 RUNTIME_DEP_PKGS_CSWpidgin += CSWdbus
 RUNTIME_DEP_PKGS_CSWpidgin += CSWlibidn11
-RUNTIME_DEP_PKGS_CSWpidgin += CSWgstplugins
 RUNTIME_DEP_PKGS_CSWpidgin += CSWlibnss3
 RUNTIME_DEP_PKGS_CSWpidgin += CSWlibnspr4
 RUNTIME_DEP_PKGS_CSWpidgin += CSWlibgthread2-0-0
@@ -76,6 +82,7 @@ RUNTIME_DEP_PKGS_CSWpidgin += CSWlibpanelw5
 RUNTIME_DEP_PKGS_CSWpidgin += CSWlibgnutls28
 RUNTIME_DEP_PKGS_CSWpidgin += CSWlibsilc1-1-2
 RUNTIME_DEP_PKGS_CSWpidgin += CSWlibsilcclient1-1-3
+RUNTIME_DEP_PKGS_CSWpidgin += CSWlibsasl2-2
 
 BUILD_DEP_PKGS += CSWpkgconfig
 BUILD_DEP_PKGS += CSWlibxml2-dev
