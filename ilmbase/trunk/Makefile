@@ -55,6 +55,7 @@ PKGFILES_CSWlibiexmath2-0-10 += $(call baseisadirs,$(libdir),libIexMath-2_0\.so\
 SPKG_DESC_CSWlibiexmath2-0-10 += $(DESCRIPTION), libIexMath-2_0.so.10
 RUNTIME_DEP_PKGS_CSWlibiexmath2-0-10 += CSWlibgcc-s1
 RUNTIME_DEP_PKGS_CSWlibiexmath2-0-10 += CSWlibstdc++6
+RUNTIME_DEP_PKGS_CSWlibiexmath2-0-10 += CSWlibiex2-0-10
 
 PACKAGES += CSWlibilmthread2-0-10
 CATALOGNAME_CSWlibilmthread2-0-10 = libilmthread2_0_10
@@ -63,6 +64,7 @@ PKGFILES_CSWlibilmthread2-0-10 += $(call baseisadirs,$(libdir),libIlmThread-2_0\
 SPKG_DESC_CSWlibilmthread2-0-10 += $(DESCRIPTION), libIlmThread-2_0.so.10
 RUNTIME_DEP_PKGS_CSWlibilmthread2-0-10 += CSWlibgcc-s1
 RUNTIME_DEP_PKGS_CSWlibilmthread2-0-10 += CSWlibstdc++6
+RUNTIME_DEP_PKGS_CSWlibilmthread2-0-10 += CSWlibiex2-0-10
 
 PACKAGES += CSWlibimath2-0-10
 CATALOGNAME_CSWlibimath2-0-10 = libimath2_0_10
@@ -71,6 +73,7 @@ PKGFILES_CSWlibimath2-0-10 += $(call baseisadirs,$(libdir),libImath-2_0\.so\.10(
 SPKG_DESC_CSWlibimath2-0-10 += $(DESCRIPTION), libImath-2_0.so.10
 RUNTIME_DEP_PKGS_CSWlibimath2-0-10 += CSWlibgcc-s1
 RUNTIME_DEP_PKGS_CSWlibimath2-0-10 += CSWlibstdc++6
+RUNTIME_DEP_PKGS_CSWlibimath2-0-10 += CSWlibiex2-0-10
 
 PACKAGES += CSWilmbase-dev
 SPKG_DESC_CSWilmbase-dev += Development files for ILM base libraries
