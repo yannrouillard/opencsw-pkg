@@ -232,6 +232,7 @@ CHECKPKG_OVERRIDES_CSWqt4-dev_i386 += file-with-bad-content|/usr/share|root/opt/
 # because libdbus needs /etc/machine-id which can generated with a tool of CSWdbus
 CHECKPKG_OVERRIDES_CSWqt4-dev += surplus-dependency|CSWdbus
 CHECKPKG_OVERRIDES_CSWqt4-dev += $(CHECKPKG_OVERRIDES_CSWqt4-dev_$(GARCH))
+CHECKPKG_OVERRIDES_CSWqt4-dev += file-with-bad-content|/usr/share|root/opt/csw/lib/qt4/demos/declarative/webbrowser/webbrowser_harmattan.desktop
 
 #
 # temporary special packaging for Sprac build without script
@@ -266,7 +267,8 @@ RUNTIME_DEP_PKGS_CSWlibqtdeclarative4_i386 += CSWlibqtscript4
 RUNTIME_DEP_PKGS_CSWlibqtdeclarative4_i386 += CSWlibqtnetwork4
 RUNTIME_DEP_PKGS_CSWlibqtdeclarative4_i386 += CSWlibqtcore4
 RUNTIME_DEP_PKGS_CSWlibqtdeclarative4_i386 += CSWlibstdc++6
-RUNTIME_DEP_PKGS_CSWlibqtdeclarative4_i386 += CSWlibqtgui4
+RUNTIME_DEP_PKGS_CSWlibqtdeclarative4_i386 += CSWlibqtgui
+RUNTIME_DEP_PKGS_CSWlibqtdeclarative4 += CSWlibqtxmlpatterns4
 # RUNTIME_DEP_PKGS_CSWlibqtdeclarative4 += CSWlibqtsvg4
 RUNTIME_DEP_PKGS_CSWlibqtdeclarative4_i386 += CSWlibgcc-s1
 RUNTIME_DEP_PKGS_CSWlibqtdeclarative4_i386 += CSWlibqtsql4
