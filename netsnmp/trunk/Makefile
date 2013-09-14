@@ -5,7 +5,7 @@
 #
 
 NAME = netsnmp
-VERSION = 5.6.1.1
+VERSION = 5.7.2
 GARTYPE = v2
 
 DESCRIPTION = A suite of applications used to implement SNMP
@@ -47,55 +47,55 @@ PACKAGES += CSWnetsnmp-dev
 CATALOGNAME_CSWnetsnmp-dev = netsnmp_dev
 SPKG_DESC_CSWnetsnmp-dev += $(DESCRIPTION), development files
 PKGFILES_CSWnetsnmp-dev += $(PKGFILES_DEVEL)
-RUNTIME_DEP_PKGS_CSWnetsnmp-dev += CSWlibnetsnmphelpers25
-RUNTIME_DEP_PKGS_CSWnetsnmp-dev += CSWlibnetsnmpmibs25
-RUNTIME_DEP_PKGS_CSWnetsnmp-dev += CSWlibnetsnmptrapd25
-RUNTIME_DEP_PKGS_CSWnetsnmp-dev += CSWlibnetsnmp25
-RUNTIME_DEP_PKGS_CSWnetsnmp-dev += CSWlibnetsnmpagent25
+RUNTIME_DEP_PKGS_CSWnetsnmp-dev += CSWlibnetsnmphelpers30
+RUNTIME_DEP_PKGS_CSWnetsnmp-dev += CSWlibnetsnmpmibs30
+RUNTIME_DEP_PKGS_CSWnetsnmp-dev += CSWlibnetsnmptrapd30
+RUNTIME_DEP_PKGS_CSWnetsnmp-dev += CSWlibnetsnmp30
+RUNTIME_DEP_PKGS_CSWnetsnmp-dev += CSWlibnetsnmpagent30
 # CHECKPKG_OVERRIDES_CSWnetsnmp-dev += file-with-bad-content|/usr/local|root/opt/csw/share/man/man3/NetSNMP::TrapReceiver.3perl
 
-PACKAGES += CSWlibnetsnmp25
-CATALOGNAME_CSWlibnetsnmp25 = libnetsnmp25
-SPKG_DESC_CSWlibnetsnmp25 += $(DESCRIPTION), libsnmp.so.25
-PKGFILES_CSWlibnetsnmp25 += $(call baseisadirs,$(libdir),libnetsnmp\.so\.25(\.\d+)*)
-RUNTIME_DEP_PKGS_CSWlibnetsnmp25 += CSWlibssl1-0-0
+PACKAGES += CSWlibnetsnmp30
+CATALOGNAME_CSWlibnetsnmp30 = libnetsnmp30
+SPKG_DESC_CSWlibnetsnmp30 += $(DESCRIPTION), libsnmp.so.30
+PKGFILES_CSWlibnetsnmp30 += $(call baseisadirs,$(libdir),libnetsnmp\.so\.30(\.\d+)*)
+RUNTIME_DEP_PKGS_CSWlibnetsnmp30 += CSWlibssl1-0-0
 
 
-PACKAGES += CSWlibnetsnmpagent25
-CATALOGNAME_CSWlibnetsnmpagent25 = libnetsnmpagent25
-SPKG_DESC_CSWlibnetsnmpagent25 += $(DESCRIPTION), libsnmpagent.so.25
-PKGFILES_CSWlibnetsnmpagent25 += $(call baseisadirs,$(libdir),libnetsnmpagent\.so\.25(\.\d+)*)
-RUNTIME_DEP_PKGS_CSWlibnetsnmpagent25 += CSWlibnetsnmp25
+PACKAGES += CSWlibnetsnmpagent30
+CATALOGNAME_CSWlibnetsnmpagent30 = libnetsnmpagent30
+SPKG_DESC_CSWlibnetsnmpagent30 += $(DESCRIPTION), libsnmpagent.so.30
+PKGFILES_CSWlibnetsnmpagent30 += $(call baseisadirs,$(libdir),libnetsnmpagent\.so\.30(\.\d+)*)
+RUNTIME_DEP_PKGS_CSWlibnetsnmpagent30 += CSWlibnetsnmp30
 
-PACKAGES += CSWlibnetsnmphelpers25
-CATALOGNAME_CSWlibnetsnmphelpers25 = libnetsnmphelpers25
-SPKG_DESC_CSWlibnetsnmphelpers25 += $(DESCRIPTION), libsnmphelpers.so.25
-PKGFILES_CSWlibnetsnmphelpers25 += $(call baseisadirs,$(libdir),libnetsnmphelpers\.so\.25(\.\d+)*)
+PACKAGES += CSWlibnetsnmphelpers30
+CATALOGNAME_CSWlibnetsnmphelpers30 = libnetsnmphelpers30
+SPKG_DESC_CSWlibnetsnmphelpers30 += $(DESCRIPTION), libsnmphelpers.so.30
+PKGFILES_CSWlibnetsnmphelpers30 += $(call baseisadirs,$(libdir),libnetsnmphelpers\.so\.30(\.\d+)*)
 
-PACKAGES += CSWlibnetsnmpmibs25
-CATALOGNAME_CSWlibnetsnmpmibs25 = libnetsnmpmibs25
-SPKG_DESC_CSWlibnetsnmpmibs25 += $(DESCRIPTION), libsnmpmibs.so.25
-PKGFILES_CSWlibnetsnmpmibs25 += $(call baseisadirs,$(libdir),libnetsnmpmibs\.so\.25(\.\d+)*)
-RUNTIME_DEP_PKGS_CSWlibnetsnmpmibs25 += CSWlibnetsnmp25
-RUNTIME_DEP_PKGS_CSWlibnetsnmpmibs25 += CSWlibnetsnmpagent25
+PACKAGES += CSWlibnetsnmpmibs30
+CATALOGNAME_CSWlibnetsnmpmibs30 = libnetsnmpmibs30
+SPKG_DESC_CSWlibnetsnmpmibs30 += $(DESCRIPTION), libsnmpmibs.so.30
+PKGFILES_CSWlibnetsnmpmibs30 += $(call baseisadirs,$(libdir),libnetsnmpmibs\.so\.30(\.\d+)*)
+RUNTIME_DEP_PKGS_CSWlibnetsnmpmibs30 += CSWlibnetsnmp30
+RUNTIME_DEP_PKGS_CSWlibnetsnmpmibs30 += CSWlibnetsnmpagent30
 
-PACKAGES += CSWlibnetsnmptrapd25
-CATALOGNAME_CSWlibnetsnmptrapd25 = libnetsnmptrapd25
-SPKG_DESC_CSWlibnetsnmptrapd25 += $(DESCRIPTION), libsnmptrapd.so.25
-PKGFILES_CSWlibnetsnmptrapd25 += $(call baseisadirs,$(libdir),libnetsnmptrapd\.so\.25(\.\d+)*)
-RUNTIME_DEP_PKGS_CSWlibnetsnmptrapd25 += CSWlibnetsnmpmibs25
-RUNTIME_DEP_PKGS_CSWlibnetsnmptrapd25 += CSWlibnetsnmp25
-RUNTIME_DEP_PKGS_CSWlibnetsnmptrapd25 += CSWlibnetsnmpagent25
+PACKAGES += CSWlibnetsnmptrapd30
+CATALOGNAME_CSWlibnetsnmptrapd30 = libnetsnmptrapd30
+SPKG_DESC_CSWlibnetsnmptrapd30 += $(DESCRIPTION), libsnmptrapd.so.30
+PKGFILES_CSWlibnetsnmptrapd30 += $(call baseisadirs,$(libdir),libnetsnmptrapd\.so\.30(\.\d+)*)
+RUNTIME_DEP_PKGS_CSWlibnetsnmptrapd30 += CSWlibnetsnmpmibs30
+RUNTIME_DEP_PKGS_CSWlibnetsnmptrapd30 += CSWlibnetsnmp30
+RUNTIME_DEP_PKGS_CSWlibnetsnmptrapd30 += CSWlibnetsnmpagent30
 
 EXTRA_MERGE_EXCLUDE_FILES += .*/perllocal.pod
 PACKAGES += CSWpmnetsnmp
 SPKG_DESC_CSWpmnetsnmp+= $(DESCRIPTION), Perl binding
 PKGFILES_CSWpmnetsnmp += $(libdir)/perl.*
 RUNTIME_DEP_PKGS_CSWpmnetsnmp += CSWperl
-# RUNTIME_DEP_PKGS_CSWpmnetsnmp += CSWlibnetsnmpmibs25
-RUNTIME_DEP_PKGS_CSWpmnetsnmp += CSWlibnetsnmptrapd25
-RUNTIME_DEP_PKGS_CSWpmnetsnmp += CSWlibnetsnmp25
-RUNTIME_DEP_PKGS_CSWpmnetsnmp += CSWlibnetsnmpagent25
+# RUNTIME_DEP_PKGS_CSWpmnetsnmp += CSWlibnetsnmpmibs30
+RUNTIME_DEP_PKGS_CSWpmnetsnmp += CSWlibnetsnmptrapd30
+RUNTIME_DEP_PKGS_CSWpmnetsnmp += CSWlibnetsnmp30
+RUNTIME_DEP_PKGS_CSWpmnetsnmp += CSWlibnetsnmpagent30
 
 EXTRA_MERGE_EXCLUDE_FILES += .*/*.pyc
 PACKAGES += CSWpy-netsnmp
@@ -104,15 +104,15 @@ SPKG_DESC_CSWpy-netsnmp += $(DESCRIPTION), Python binding
 PKGFILES_CSWpy-netsnmp = $(libdir)/python.*
 RUNTIME_DEP_PKGS_CSWpy-netsnmp += CSWpython
 RUNTIME_DEP_PKGS_CSWpy-netsnmp += CSWlibpython2-6-1-0
-RUNTIME_DEP_PKGS_CSWpy-netsnmp += CSWlibnetsnmp25
+RUNTIME_DEP_PKGS_CSWpy-netsnmp += CSWlibnetsnmp30
 CHECKPKG_OVERRIDES_CSWpy-netsnmp += surplus-dependency|CSWpython
 
 PACKAGES += CSWnetsnmp
 SPKG_DESC_CSWnetsnmp += $(DESCRIPTION), Base
-RUNTIME_DEP_PKGS_CSWnetsnmp += CSWlibnetsnmpmibs25
-RUNTIME_DEP_PKGS_CSWnetsnmp += CSWlibnetsnmptrapd25
-RUNTIME_DEP_PKGS_CSWnetsnmp += CSWlibnetsnmp25
-RUNTIME_DEP_PKGS_CSWnetsnmp += CSWlibnetsnmpagent25
+RUNTIME_DEP_PKGS_CSWnetsnmp += CSWlibnetsnmpmibs30
+RUNTIME_DEP_PKGS_CSWnetsnmp += CSWlibnetsnmptrapd30
+RUNTIME_DEP_PKGS_CSWnetsnmp += CSWlibnetsnmp30
+RUNTIME_DEP_PKGS_CSWnetsnmp += CSWlibnetsnmpagent30
 RUNTIME_DEP_PKGS_CSWnetsnmp += CSWlibssl1-0-0
 RUNTIME_DEP_PKGS_CSWnetsnmp += CSWperl
 # CHECKPKG_OVERRIDES_CSWnetsnmp += file-with-bad-content|/usr/local|root/opt/csw/share/man/man1/snmpcmd.1
