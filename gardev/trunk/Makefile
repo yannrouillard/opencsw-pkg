@@ -1,3 +1,5 @@
+# $Id$
+
 NAME = gar_dev
 VERSION = 1.0
 GARTYPE = v2
@@ -33,22 +35,21 @@ RUNTIME_DEP_PKGS_CSWgar-dev += CSWlftp
 RUNTIME_DEP_PKGS_CSWgar-dev += CSWnetcat
 RUNTIME_DEP_PKGS_CSWgar-dev += CSWpy-cheetah
 RUNTIME_DEP_PKGS_CSWgar-dev += CSWpy-curl
-RUNTIME_DEP_PKGS_CSWgar-dev += CSWpy-hachoir-core
-RUNTIME_DEP_PKGS_CSWgar-dev += CSWpy-hachoir-parser
 RUNTIME_DEP_PKGS_CSWgar-dev += CSWpy-libmagic
 RUNTIME_DEP_PKGS_CSWgar-dev += CSWpy-mako
 RUNTIME_DEP_PKGS_CSWgar-dev += CSWpy-mox
-RUNTIME_DEP_PKGS_CSWgar-dev += CSWpymysql
+RUNTIME_DEP_PKGS_CSWgar-dev += CSWpy-mysql
 RUNTIME_DEP_PKGS_CSWgar-dev += CSWpy-progressbar
+RUNTIME_DEP_PKGS_CSWgar-dev += CSWpy-pyelftools
 RUNTIME_DEP_PKGS_CSWgar-dev += CSWpy-sqlobject
 RUNTIME_DEP_PKGS_CSWgar-dev += CSWpy-unittest2
-RUNTIME_DEP_PKGS_CSWgar-dev += CSWpy-yaml
 RUNTIME_DEP_PKGS_CSWgar-dev += CSWpython
 RUNTIME_DEP_PKGS_CSWgar-dev += CSWsvn
 RUNTIME_DEP_PKGS_CSWgar-dev += CSWwget
 RUNTIME_DEP_PKGS_CSWgar-dev += CSWxz
 
-MASTER_SITES = 
+
+MASTER_SITES =
 
 CONFIGURE_SCRIPTS =
 BUILD_SCRIPTS =
