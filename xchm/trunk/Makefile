@@ -20,6 +20,7 @@ UFILES_REGEX = $(NAME)-(\d+(?:\.\d+)*).tar.gz
 
 BUILD_DEP_PKGS += CSWwxwidgets-dev
 BUILD_DEP_PKGS += CSWlibncurses-dev
+BUILD_DEP_PKGS += CSWlibchm-dev
 
 RUNTIME_DEP_PKGS_CSWxchm  = CSWchmlib
 RUNTIME_DEP_PKGS_CSWxchm += CSWwxwidgetscommon
