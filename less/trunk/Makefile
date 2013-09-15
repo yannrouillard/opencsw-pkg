@@ -1,5 +1,5 @@
 NAME = less
-VERSION = 451
+VERSION = 458
 GARTYPE = v2
 
 DESCRIPTION = Less is a free, open-source file pager
