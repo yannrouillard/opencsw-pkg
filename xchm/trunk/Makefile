@@ -22,11 +22,12 @@ BUILD_DEP_PKGS += CSWwxwidgets-dev
 BUILD_DEP_PKGS += CSWlibncurses-dev
 BUILD_DEP_PKGS += CSWlibchm-dev
 
-RUNTIME_DEP_PKGS_CSWxchm  = CSWchmlib
-RUNTIME_DEP_PKGS_CSWxchm += CSWwxwidgetscommon
+RUNTIME_DEP_PKGS_CSWxchm += CSWlibchm0
+RUNTIME_DEP_PKGS_CSWxchm += CSWwxwidgets
 RUNTIME_DEP_PKGS_CSWxchm += CSWwxwidgetsgtk2
-RUNTIME_DEP_PKGS_CSWxchm += CSWsunmath
-RUNTIME_DEP_PKGS_CSWxchm += CSWncurses
+
+EXTRA_CFLAGS = -xnorunpath
+EXTRA_CXXFLAGS = -norunpath
 
 CONFIGURE_ARGS = $(DIRPATHS)
 
