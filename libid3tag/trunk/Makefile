@@ -1,7 +1,7 @@
-NAME    = libid3tag
-VERSION = 0.15.1
-REV     = b
-GARTYPE = v2
+NAME      = libid3tag
+VERSION   = 0.15.1
+GARSUBREV = b
+GARTYPE   = v2
 
 DESCRIPTION = A library for reading and (eventually) writing ID3 tags
 define BLURB
@@ -9,12 +9,12 @@ endef
 
 SF_PROJECT = mad
 MASTER_SITES = $(SF_MIRRORS)
-DISTFILES  = $(NAME)-$(VERSION)$(REV).tar.gz
+DISTFILES  = $(NAME)-$(VERSION)$(GARSUBREV).tar.gz
 DISTFILES += id3tag.pc-32 id3tag.pc-64
 
 GARCOMPILER = GCC4
 
-WORKSRC = $(WORKDIR)/$(NAME)-$(VERSION)$(REV)
+WORKSRC = $(WORKDIR)/$(NAME)-$(VERSION)$(GARSUBREV)
 
 RUNTIME_DEP_PKGS = CSWlibz1
 
@@ -22,8 +22,6 @@ BUILD64_LIBS_ONLY = 1
 NOISALIST = 1
 
 CONFIGURE_ARGS = $(DIRPATHS)
-
-SPKG_VERSION := $(SPKG_VERSION)_rev=$(REV)
 
 PACKAGES += CSWlibid3tag0
 CATALOGNAME_CSWlibid3tag0 = libid3tag0
@@ -41,6 +39,8 @@ PKGFILES_CSWlibid3tag-dev += $(PKGFILES_DEVEL)
 RUNTIME_DEP_PKGS_CSWlibid3tag-dev += CSWlibid3tag0
 
 include gar/category.mk
+
+SPKG_REVSTAMP := $(SPKG_REVSTAMP)_rev=$(GARSUBREV)
 
 post-install-modulated:
 	@ginstall -d $(DESTDIR)$(libdir)/pkgconfig
