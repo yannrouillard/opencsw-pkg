@@ -28,10 +28,10 @@ PATCHFILES += 0001-nss_winbind.patch
 PATCHFILES += 0002-smbd-patch-for-setgroups.c.patch
 PATCHFILES += 0003-rename-nss-modules.patch
 
-GARCOMPILER=SOS12U3
-
-#What needs to be fixed:
-# Split libs and packages
+# Studio 12 is the last supported on Solaris 9
+GARCOMPILER-5.9  = SOS12
+GARCOMPILER-5.10 = SOS12U3
+GARCOMPILER = $(GARCOMPILER-$(GAROSREL))
 
 BUILD_DEP_PKGS += CSWlibtalloc-dev
 BUILD_DEP_PKGS += CSWopenldap-dev
@@ -40,7 +40,8 @@ BUILD_DEP_PKGS += CSWcups-dev
 BUILD_DEP_PKGS += CSWggettext-dev
 BUILD_DEP_PKGS += CSWlibreadline-dev
 
-PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386
+PACKAGING_PLATFORMS  =  solaris9-sparc solaris9-i386
+PACKAGING_PLATFORMS += solaris10-sparc solaris10-i386
 
 PACKAGES += CSWsamba
 CATALOGNAME_CSWsamba= samba
@@ -50,7 +51,6 @@ RUNTIME_DEP_PKGS_CSWsamba += CSWlibpopt0
 RUNTIME_DEP_PKGS_CSWsamba += CSWlibiconv2
 RUNTIME_DEP_PKGS_CSWsamba += CSWlibz1
 RUNTIME_DEP_PKGS_CSWsamba += CSWlibintl8
-RUNTIME_DEP_PKGS_CSWsamba += CSWlibfam0
 RUNTIME_DEP_PKGS_CSWsamba += CSWlibgssapi-krb5-2
 RUNTIME_DEP_PKGS_CSWsamba += CSWlibkrb5-3
 RUNTIME_DEP_PKGS_CSWsamba += CSWlibcom-err3
@@ -63,6 +63,11 @@ RUNTIME_DEP_PKGS_CSWsamba += CSWlibreadline6
 RUNTIME_DEP_PKGS_CSWsamba += CSWlibwbclient0
 RUNTIME_DEP_PKGS_CSWsamba += CSWlibtdb1
 RUNTIME_DEP_PKGS_CSWsamba += CSWlibtevent0
+
+# Different dependency names on different repos
+RUNTIME_DEP_PKGS_CSWsamba_5.9  += CSWgamin
+RUNTIME_DEP_PKGS_CSWsamba_5.10 += CSWlibfam0
+RUNTIME_DEP_PKGS_CSWsamba += $(RUNTIME_DEP_PKGS_CSWsamba_$(GAROSREL))
 
 # Make one unified package for now
 OBSOLETED_BY_CSWsamba += CSWsambacommon
@@ -314,7 +319,10 @@ CHECKPKG_OVERRIDES_CSWsamba-winbind += surplus-dependency|CSWsamba-nss
 EXTRA_LINKER_FLAGS += -lintl 
 EXTRA_LINKER_FLAGS += -z ignore -z lazyload
 
-BUILD64 = 1
+# 32 bit only on Solaris 9 - just to save build time
+BUILD64-5.9 =
+BUILD64-5.10 = 1
+BUILD64 = $(BUILD64-$(GAROSREL))
 ISAEXEC = 1
 
 SMBLOCKDIR = $(localstatedir)/samba/locks
@@ -331,7 +339,12 @@ CONFIGURE_ARGS += --with-aio-support
 CONFIGURE_ARGS += --with-pam
 CONFIGURE_ARGS += --with-winbind
 CONFIGURE_ARGS += --with-static-modules=vfs_solarisacl
-CONFIGURE_ARGS += --with-shared-modules=vfs_zfsacl,vfs_prealloc,vfs_cacheprime,vfs_commit,idmap_ldap,idmap_tdb2,idmap_rid,idmap_ad,idmap_hash,idmap_adex
+
+# ZFS is only on S10+
+CONFIGURE_ARGS_5.9 += --with-shared-modules=vfs_prealloc,vfs_cacheprime,vfs_commit,idmap_ldap,idmap_tdb2,idmap_rid,idmap_ad,idmap_hash,idmap_adex
+CONFIGURE_ARGS_5.10 += --with-shared-modules=vfs_zfsacl,vfs_prealloc,vfs_cacheprime,vfs_commit,idmap_ldap,idmap_tdb2,idmap_rid,idmap_ad,idmap_hash,idmap_adex
+CONFIGURE_ARGS += $(CONFIGURE_ARGS_$(GAROSREL))
+
 CONFIGURE_ARGS += --with-readline
 CONFIGURE_ARGS += --with-ads
 CONFIGURE_ARGS += --with-ldap
