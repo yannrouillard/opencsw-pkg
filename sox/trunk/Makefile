@@ -1,5 +1,5 @@
 NAME = sox
-VERSION = 14.4.0
+VERSION = 14.4.1
 GARTYPE = v2
 
 DESCRIPTION = Swiss Army Knife of sound processing utilities
@@ -12,12 +12,13 @@ endef
 MASTER_SITES = $(SF_MIRRORS)
 DISTFILES = $(DISTNAME).tar.bz2
 
-# There is a hack in there to rewind pipes when detecting file formats.
-# As the FILE struct is opaque in 64 bit we must disable this for 64 bit.
-# But as we only need the library in 64 bit anyway this shouldn't hurt.
-PATCHFILES = 0001-Disable-stdio-hack-to-rewind-pipes.patch
+GARCOMPILER = GCC4
 
-PATCHFILES += 0001-Fix-SunStudio-version-string.patch
+# There is a hack in there to rewind pipes when detecting file formats.
+# As the FILE struct is opaque in 64 bit we must disable this:
+# I believe the behaviour should be consistent in both 32 and 64, and
+# anyway, rewinding a *pipe*?!
+PATCHFILES = 0001-Disable-stdio-hack-to-rewind-pipes.patch
 
 VENDOR_URL = http://sox.sourceforge.net/
 
@@ -31,7 +32,7 @@ BUILD_DEP_PKGS += CSWlibwavpack-dev
 BUILD_DEP_PKGS += CSWlibz-dev
 BUILD_DEP_PKGS += CSWlibmagic-dev
 BUILD_DEP_PKGS += CSWlibmp3lame-dev
-BUILD_DEP_PKGS += CSWlibsndfile
+BUILD_DEP_PKGS += CSWlibsndfile-dev
 BUILD_DEP_PKGS += CSWlibid3tag
 
 PACKAGES += CSWsox
