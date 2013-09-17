@@ -29,9 +29,11 @@ PATCHFILES += 0002-smbd-patch-for-setgroups.c.patch
 PATCHFILES += 0003-rename-nss-modules.patch
 
 # Studio 12 is the last supported on Solaris 9
-GARCOMPILER-5.9  = SOS12
-GARCOMPILER-5.10 = SOS12U3
-GARCOMPILER = $(GARCOMPILER-$(GAROSREL))
+ifeq ($(shell /usr/bin/uname -r),5.9)
+  GARCOMPILER = SOS12
+else
+  GARCOMPILER = SOS12U3
+endif
 
 BUILD_DEP_PKGS += CSWlibtalloc-dev
 BUILD_DEP_PKGS += CSWopenldap-dev
