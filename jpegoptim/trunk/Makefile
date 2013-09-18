@@ -1,5 +1,5 @@
 NAME = jpegoptim
-VERSION = 1.2.4
+VERSION = 1.3.0
 GARTYPE = v2
 
 DESCRIPTION = Utility to optimize jpeg files
@@ -10,9 +10,8 @@ endef
 MASTER_SITES = http://www.kokkonen.net/tjko/src/
 DISTFILES  = $(NAME)-$(VERSION).tar.gz
 
-PATCHFILES += 0001-Remove-Wall-reference.patch
+RUNTIME_DEP_PKGS += CSWlibjpeg7
 
-RUNTIME_DEP_PKGS = CSWjpeg
 
 TEST_TARGET =
 INSTALL_SCRIPTS = custom
