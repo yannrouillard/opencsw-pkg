@@ -36,9 +36,6 @@ PATCHFILES = 0001-Install-plugin-at-proper-location.patch
 # patch libtool discards -R options passed with LDFLAGS
 PATCHFILES += ltmain.diff
 
-# Use patch until it is fixed upstream:
-#   http://www.spinics.net/lists/cyrus-sasl/msg02004.html
-PATCHFILES += check-realloc.patch
 
 VENDOR_URL = http://asg.web.cmu.edu/sasl/
 
