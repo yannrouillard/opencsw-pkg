@@ -1,5 +1,5 @@
 NAME = gnutls
-VERSION = 3.1.13
+VERSION = 3.1.14
 
 DESCRIPTION = GNU Transport Layer Security libraries and tools
 define BLURB
@@ -40,6 +40,7 @@ RUNTIME_DEP_PKGS_CSWgnutls += CSWlibintl8
 RUNTIME_DEP_PKGS_CSWgnutls += CSWlibgnutls13
 CHECKPKG_OVERRIDES_CSWgnutls += unidentified-dependency|CSWlibgnutls13
 CHECKPKG_OVERRIDES_CSWgnutls += surplus-dependency|CSWlibgnutls13
+CHECKPKG_OVERRIDES_CSWgnutls += surplus-dependency|CSWlibgnutls28
 
 PACKAGES += CSWlibgnutls28
 CATALOGNAME_CSWlibgnutls = libgnutls28
