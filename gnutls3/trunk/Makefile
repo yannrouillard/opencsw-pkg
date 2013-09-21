@@ -29,6 +29,7 @@ BUILD_DEP_PKGS += CSWlibtasn1-dev
 BUILD_DEP_PKGS += CSWlibgpg-error-dev
 BUILD_DEP_PKGS += CSWlibgcrypt-dev
 BUILD_DEP_PKGS += CSWlibp11kit-dev
+BUILD_DEP_PKGS += CSWlibiconv-dev
 
 PACKAGES += CSWgnutls
 CATALOGNAME_gnutls = gnutls
