@@ -36,6 +36,9 @@ PATCHFILES = 0001-Install-plugin-at-proper-location.patch
 # patch libtool discards -R options passed with LDFLAGS
 PATCHFILES += ltmain.diff
 
+# sasl thinks it must define gethostname on Solaris but
+# it's not the case
+PATCHFILES += 0003-remove-gethostname-re-definition-on-sun.patch
 
 VENDOR_URL = http://asg.web.cmu.edu/sasl/
 
