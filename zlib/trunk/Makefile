@@ -51,4 +51,12 @@ CONFIGURE_ARGS += --libdir=$(libdir)
 CONFIGURE_ARGS += --includedir=$(includedir)
 CONFIGURE_ARGS += --shared
 
+# By default, the configure script uses /bin/sh
+# which gives trouble when expanding $mandir, i.e.
+# we end up with man pages installed into
+#  /opt/csw/share/man/share/man}
+REINPLACE_MATCH = ^\#!/bin/sh
+REINPLACE_WITH  = \#!$(prefix)/bin/bash
+REINPLACE_FILES = configure
+
 include gar/category.mk
