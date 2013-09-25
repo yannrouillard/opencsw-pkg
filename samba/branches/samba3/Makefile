@@ -2,13 +2,15 @@
 # - Check http://src.opensolaris.org/source/xref/userland/src/components/samba/samba/ from time to time
 
 NAME    = samba
-VERSION = 3.6.18
+VERSION = 3.6.19
 GARTYPE = v2
 
 DESCRIPTION = Tools to access a servers filespace and printers via SMB (server)
 define BLURB
   Tools to access a servers filespace and printers via SMB (server)
 endef
+
+# GARCOMPILER is set below the include
 
 MASTER_SITES = http://samba.org/samba/ftp/stable/
 DISTFILES  = $(NAME)-$(VERSION).tar.gz
@@ -27,13 +29,7 @@ DISTFILES += cswkrb5.conf
 PATCHFILES += 0001-nss_winbind.patch
 PATCHFILES += 0002-smbd-patch-for-setgroups.c.patch
 PATCHFILES += 0003-rename-nss-modules.patch
-
-# Studio 12 is the last supported on Solaris 9
-ifeq ($(shell /usr/bin/uname -r),5.9)
-  GARCOMPILER = SOS12
-else
-  GARCOMPILER = SOS12U3
-endif
+PATCHFILES += 0004-illegal-multibyte-error.patch
 
 BUILD_DEP_PKGS += CSWlibtalloc-dev
 BUILD_DEP_PKGS += CSWopenldap-dev
@@ -392,6 +388,12 @@ MERGEBASE_/usr/lib/security/64 = /usr/lib/security
 EXTRA_PKGFILES_EXCLUDED += /usr/lib/security
 
 include gar/category.mk
+
+# Studio 12 is the last supported on Solaris 9
+GARCOMPILER_5.9 = SOS12
+GARCOMPILER_5.10 = SOS12U3
+GARCOMPILER_5.11 = SOS12U3
+GARCOMPILER = $(GARCOMPILER_$(GAROSREL))
 
 # Set the target dir for modules with the proper arch
 NSS_MODULE_DIR = /usr/lib
