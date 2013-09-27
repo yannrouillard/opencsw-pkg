@@ -1,5 +1,5 @@
 NAME = pcre
-VERSION = 8.32
+VERSION = 8.33
 GARTYPE = v2
 
 DESCRIPTION = Perl-compatible regular expression tools
