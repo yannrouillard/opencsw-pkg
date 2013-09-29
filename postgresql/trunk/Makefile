@@ -87,12 +87,13 @@
 # maintainers to use `pg_config'.
 
 NAME = postgresql
-BASE_VERSION = 9.2
+BASE_VERSION = 9.3
 VERSION_NODOT = $(subst .,_,$(BASE_VERSION))
 BASE_VERSION_NODOT = $(subst .,,$(BASE_VERSION))
-PATCHLEVEL = 4
+PATCHLEVEL = 0
 VERSION = $(BASE_VERSION).$(PATCHLEVEL)
 GARTYPE = v2
+GARCOMPILER = SOS12U3
 
 PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386
 
