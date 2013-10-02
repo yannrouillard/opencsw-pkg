@@ -2,7 +2,7 @@
 #
 
 NAME = sudo
-VERSION = 1.8.7
+VERSION = 1.8.8
 GARTYPE = v2
 
 EXTRA_MODULATORS = LDAP
@@ -43,14 +43,7 @@ RUNTIME_DEP_PKGS_CSWsudo += CSWlibz1
 OBSOLETED_BY_CSWsudo = CSWsudo-common
 
 # These are just docs
-CHECKPKG_OVERRIDES_CSWsudo += file-with-bad-content|/usr/local|root/opt/csw/share/man/man1m/sudo.1m
-CHECKPKG_OVERRIDES_CSWsudo += file-with-bad-content|/usr/local|root/opt/csw/share/man/man4/sudoers.4
-CHECKPKG_OVERRIDES_CSWsudo += file-with-bad-content|/usr/local|root/opt/csw/share/doc/sudo/UPGRADE
-CHECKPKG_OVERRIDES_CSWsudo += file-with-bad-content|/usr/local|root/opt/csw/share/doc/sudo/sample.sudoers
-CHECKPKG_OVERRIDES_CSWsudo += file-with-bad-content|/usr/local|root/opt/csw/share/doc/sudo/TROUBLESHOOTING
-CHECKPKG_OVERRIDES_CSWsudo += file-with-bad-content|/usr/local|root/opt/csw/share/doc/sudo/ChangeLog
 CHECKPKG_OVERRIDES_CSWsudo += file-with-bad-content|/usr/local|root/etc/opt/csw/sudoers.CSW
-CHECKPKG_OVERRIDES_CSWsudo += file-with-bad-content|/usr/share|root/opt/csw/share/doc/sudo/ChangeLog
 
 # This is a private library
 CHECKPKG_OVERRIDES_CSWsudo += soname-not-part-of-filename|soname=libsudo_noexec.so|filename=sudo_noexec.so
@@ -76,7 +69,6 @@ RUNTIME_DEP_PKGS_CSWsudo-ldap += CSWsudo
 CHECKPKG_OVERRIDES_CSWsudo-ldap += surplus-dependency|CSWsudo
 OBSOLETED_BY_CSWsudo-ldap += CSWsudoldap
 CATALOGNAME_CSWsudoldap = sudo_ldap_stub
-CHECKPKG_OVERRIDES_CSWsudo-ldap += file-with-bad-content|/usr/local|root/opt/csw/share/doc/sudo/README.LDAP
 #on solaris9 this is still a dep. Should be checked
 CHECKPKG_OVERRIDES_CSWsudo-ldap += surplus-dependency|CSWliblber2-4-2
 
