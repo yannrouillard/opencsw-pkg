@@ -18,7 +18,7 @@ MASTER_SITES   = http://dovecot.org/releases/2.2/
 DISTFILES      = $(NAME)-$(VERSION).tar.gz
 UFILES_REGEX   = $(NAME)-(\d+(?:\.\d+)*).tar.gz
 
-GARCOMPILER    = SOS12
+GARCOMPILER	= GCC4
 
 PACKAGES  = CSWdovecot CSWdovecot-dev
 
