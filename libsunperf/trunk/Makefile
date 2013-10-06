@@ -4,13 +4,14 @@ VERSION = 20121030
 GARTYPE = v2
 
 DESCRIPTION = Sun Studio U1 Performance Libraries
-define BLURB
-endef
 
-MASTER_SITES = http://www.oracle.com/technetwork/server-storage/solarisstudio/documentation/ss12u1-distributionreadme-429216.txt
+MASTER_SITES = http://www.oracle.com/technetwork/server-storage/solarisstudio/documentation/
 DISTFILES  = ss12u1-distributionreadme-429216.txt
 
 VENDOR_URL = http://www.oracle.com/technetwork/server-storage/solarisstudio/documentation/ss12u1-distributionreadme-429216.txt
+
+PACKAGING_PLATFORMS = solaris9-i386 solaris9-sparc
+PACKAGING_PLATFORMS += solaris10-i386 solaris10-sparc
 
 LICENSE = ss12u1-distributionreadme-429216.txt
 
@@ -41,7 +42,13 @@ CHECKPKG_OVERRIDES += soname-not-found
 CHECKPKG_OVERRIDES += surplus-dependency|CSWss12f95rt
 CHECKPKG_OVERRIDES += surplus-dependency|CSWsunmath
 
+# They are binary blobs which we have no control of.
+CHECKPKG_OVERRIDES_CSWlibsunperf2 += no-direct-binding
+CHECKPKG_OVERRIDES_CSWlibsunperf3 += no-direct-binding
+CHECKPKG_OVERRIDES_CSWlibsunperf7 += no-direct-binding
+
 include gar/category.mk
+
 
 SRCDIR-sparcv9 = v9
 SRCDIR-amd64   = amd64
