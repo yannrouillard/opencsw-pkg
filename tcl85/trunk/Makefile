@@ -8,8 +8,8 @@ endef
 
 SF_PROJECT = tcl
 MASTER_SITES = $(SF_MIRRORS)
-DISTNAME = $(SF_PROJ)$(VERSION)
-DISTFILES  = $(DISTNAME)-src.tar.gz
+DISTNAME = $(SF_PROJECT)$(VERSION)
+DISTFILES  = $(VERSION)-src.tar.gz
 
 # Separate build for Solaris 10 with DTrace support
 PACKAGING_PLATFORMS += solaris9-sparc solaris9-i386
