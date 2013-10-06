@@ -5,7 +5,7 @@
 #
 
 NAME = krb5
-VERSION = 1.9.2
+VERSION = 1.9.5
 GARTYPE = v2
 
 DESCRIPTION = MIT Kerberos 5 core libraries
@@ -23,10 +23,10 @@ DISTFILES  = $(NAME)-$(VERSION)-signed.tar
 PATCHFILES  = patch-man2html-perl.patch
 PATCHFILES += 0002-libintl-for-kproplog.patch
 # PATCHFILES += 0003-local-libraries-first-when-linking.patch
-PATCHFILES += 0004-libkdb_ldap-isblank-define.patch
-PATCHFILES += 0005-Add-strings.h-to-setenv.c-for-strlen-and-other-stuff.patch
+#PATCHFILES += 0004-libkdb_ldap-isblank-define.patch
+#PATCHFILES += 0005-Add-strings.h-to-setenv.c-for-strlen-and-other-stuff.patch
 # PATCHFILES += krb5-1.9.2-krb5_set_password_using_ccache.patch
-PATCHFILES += 0005-krb5_set_password_using_ccache.patch
+#PATCHFILES += 0005-krb5_set_password_using_ccache.patch
 
 # PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386
 
@@ -132,10 +132,7 @@ BUILD64_LIBS_ONLY = 1
 # We turn off almost everything as we are just interested in the library.
 NODIRPATHS = --docdir
 CONFIGURE_ARGS  = $(DIRPATHS)
-# --enable-ipv6 is deprecated and autodetected
-#CONFIGURE_ARGS += --enable-ipv6
-CONFIGURE_ARGS += --enable-kdc-replay-cache --enable-dns-for-realm
-#CONFIGURE_ARGS += --disable-thread-support
+CONFIGURE_ARGS +=  --enable-dns-for-realm
 CONFIGURE_ARGS += --enable-thread-support
 CONFIGURE_ARGS += --disable-static --disable-profiled
 CONFIGURE_ARGS += --without-ldap
@@ -173,6 +170,12 @@ post-extract-modulated:
 		$(WORKSRC)/src/plugins/preauth/pkinit/Makefile.in
 	@$(MAKECOOKIE)
 
-# Remove Studio-specific arch references
 post-install-modulated:
-	gsed -i -e '/^[^#]/s/-xarch=[^ ]* //' -e '/^[^#]/s/-xchip=[^ ]* //' $(DESTDIR)$(bindir)/krb5-config
+	# Remove Studio-specific arch references
+	gsed -i \
+		-e '/^[^#]/s/-xarch=[^ ]* //' \
+		-e '/^[^#]/s/-xchip=[^ ]* //' \
+		$(DESTDIR)$(bindir)/krb5-config
+	# Add a link to the system's Kerberos configuration
+	ginstall -m 755 -d $(DESTDIR)$(sysconfdir)
+	gln -s ../../krb5/krb5.conf $(DESTDIR)$(sysconfdir)/krb5.conf
