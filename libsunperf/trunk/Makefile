@@ -40,9 +40,9 @@ RUNTIME_DEP_PKGS += CSWss12f95rt
 CHECKPKG_OVERRIDES_CSWlibsunperf2 += bad-rpath-entry
 CHECKPKG_OVERRIDES_CSWlibsunperf3 += bad-rpath-entry
 CHECKPKG_OVERRIDES_CSWlibsunperf7 += bad-rpath-entry
-CHECKPKG_OVERRIDES += soname-not-found
-CHECKPKG_OVERRIDES += surplus-dependency|CSWss12f95rt
-CHECKPKG_OVERRIDES += surplus-dependency|CSWsunmath
+CHECKPKG_OVERRIDES_CSWlibsunperf7 += soname-not-found
+CHECKPKG_OVERRIDES_CSWlibsunperf7 += surplus-dependency|CSWss12f95rt
+CHECKPKG_OVERRIDES_CSWlibsunperf7 += surplus-dependency|CSWsunmath
 
 # They are binary blobs which we have no control of.
 CHECKPKG_OVERRIDES_CSWlibsunperf2 += no-direct-binding
