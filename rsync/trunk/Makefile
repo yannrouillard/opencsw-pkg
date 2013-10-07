@@ -3,7 +3,7 @@
 # $Id$
 
 NAME = rsync
-VERSION = 3.0.9
+VERSION = 3.1.0
 GARTYPE = v2
 
 DESCRIPTION = Utility which provides fast incremental file transfer
