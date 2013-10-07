@@ -1,5 +1,5 @@
 NAME = tcl8.5
-VERSION = 8.5.12
+VERSION = 8.5.15
 GARTYPE = v2
 
 DESCRIPTION = Tcl programming language v8.5
@@ -9,18 +9,20 @@ endef
 SF_PROJECT = tcl
 MASTER_SITES = $(SF_MIRRORS)
 DISTNAME = $(SF_PROJECT)$(VERSION)
-DISTFILES  = $(VERSION)-src.tar.gz
+DISTFILES  = $(DISTNAME)-src.tar.gz
 
 # Separate build for Solaris 10 with DTrace support
 PACKAGING_PLATFORMS += solaris9-sparc solaris9-i386
 PACKAGING_PLATFORMS += solaris10-sparc solaris10-i386
+
+GARCOMPILER = GCC4
 
 VENDOR_URL = http://www.tcl.tk/
 LICENSE = license.terms
 
 REN_TCLSH = tclsh8.5
 
-PATCHDIR = $(WORKDIR)/$(DISTNAME)
+#PATCHDIR = $(WORKDIR)/$(DISTNAME)
 #PATCHFILES += 0001-Enable-SONAME-in-library.patch
 #PATCHFILES += 0002-Fix-linking-issues-and-enable-building-on-Solaris-9-.patch
 
@@ -36,8 +38,6 @@ RUNTIME_DEP_PKGS_CSWtcl += CSWlibtcl8-5
 # There are legacy packages depending on CSWtcl which require libtcl 8.4
 FOREIGN_PACKAGES += CSWlibtcl8-4
 RUNTIME_DEP_PKGS_CSWtcl += CSWlibtcl8-4
-#RUNTIME_DEP_PKGS_CSWtcl-i386-5.9 = CSWsunmath
-#RUNTIME_DEP_PKGS_CSWtcl += $(RUNTIME_DEP_PKGS_CSWtcl-$(GARCH)-$(GAROSREL))
 CHECKPKG_OVERRIDES_CSWtcl += surplus-dependency|CSWlibtcl8-4
 CHECKPKG_OVERRIDES_CSWtcl += unidentified-dependency|CSWlibtcl8-4
 
@@ -47,8 +47,7 @@ PKGFILES_CSWlibtcl8-5 += $(call pkgfiles_lib,libtcl8.5.so)
 PKGFILES_CSWlibtcl8-5 += $(libdir)/tcl8.5/.*
 # This dependency can not be tracked by checkpkg
 RUNTIME_DEP_PKGS_CSWlibtcl8-5 += CSWtcl8-tclmodules
-#RUNTIME_DEP_PKGS_CSWlibtcl8-5-i386-5.9 += CSWsunmath
-#RUNTIME_DEP_PKGS_CSWlibtcl8-5 += $(RUNTIME_DEP_PKGS_CSWlibtcl8-5-$(GARCH)-$(GAROSREL))
+RUNTIME_DEP_PKGS_CSWlibtcl8-5 += CSWlibgcc-s1
 CHECKPKG_OVERRIDES_CSWlibtcl8-5 += surplus-dependency|CSWtcl8-tclmodules
 
 
@@ -84,7 +83,12 @@ INCLUDE_FLAGS =
 WORKSRC = $(WORKDIR)/$(DISTNAME)/unix
 
 CONFIGURE_ARGS  = $(DIRPATHS)
+CONFIGURE_ARGS += --enable-shared
 CONFIGURE_ARGS += --enable-threads
+CONFIGURE_ARGS-64 += --enable-64bit
+CONFIGURE_ARGS-64-sparc += --enable-64bit-vis
+CONFIGURE_ARGS += CONFIGURE_ARGS-$(MEMORYMODEL)
+CONFIGURE_ARGS += CONFIGURE_ARGS-$(MEMORYMODEL)-$(GARCH)
 
 # DTrace support is currently broken, disable for now
 #  Text relocation remains                         referenced
@@ -92,8 +96,7 @@ CONFIGURE_ARGS += --enable-threads
 #  st                                  0x634       tclDTrace.o
 #  ld: fatal: relocations remain against allocatable but non-writable sections
 # CONFIGURE_ARGS-5.10 += --enable-dtrace
-
-CONFIGURE_ARGS += $(CONFIGURE_ARGS-$(GAROSREL))
+# CONFIGURE_ARGS += $(CONFIGURE_ARGS-$(GAROSREL))
 
 INSTALL_ARGS = install install-libraries install-private-headers install-tzdata install-msgs
 
@@ -112,14 +115,19 @@ post-install-modulated:
 		$(DESTDIR)$(libdir)/tclConfig.sh
 	perl -pi -e "s|/usr/local|$(prefix)|g" \
 		$(DESTDIR)$(mandir)/man1/tclsh.1
-	# Remove Studio-specific arch references
+	# Remove compiler-specific arch references
+	# Those compatible between GCC4 and Studio 12 are left in.
 	gsed -i \
-		-e '/^[^#]/s/-xO[0-5][^ ]* //' \
-		-e '/^[^#]/s/-xarch=[^ ]* //' \
-		-e '/^[^#]/s/-xchip=[^ ]* //' \
-		-e '/^[^#]/s/-norunpath[^ ]* //' \
-		-e '/^[^#]/s/-lCrun[^ ]* //' \
-		-e '/^[^#]/s/-lCstd[^ ]* //' \
+		-e '/^[^#]/s/-xO[0-5][^ ]* *//g' \
+		-e '/^[^#]/s/-xarch=[^ ]* *//g' \
+		-e '/^[^#]/s/-xchip=[^ ]* *//g' \
+		-e '/^[^#]/s/-norunpath[^ ]* *//g' \
+		-e '/^[^#]/s/-lCrun[^ ]* *//g' \
+		-e '/^[^#]/s/-lCstd[^ ]* *//g' \
+		-e '/^[^#]/s/-mtune=[^ ]* *//g' \
+		-e '/^[^#]/s/-march=[^ ]* *//g' \
+		-e '/^[^#]/s/-Wall *//g' \
+		-e '/^[^#]/s/-pipe *//g' \
 		$(DESTDIR)$(libdir)/tclConfig.sh
 	@$(MAKECOOKIE)
 
