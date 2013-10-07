@@ -63,17 +63,6 @@ endif
 # We use SUN perl, not the opencsw one
 CHECKPKG_OVERRIDES_CSWopenssl-utils += missing-dependency|CSWperl
 
-# References to default path in documentation files, can be safely ignored
-CHECKPKG_OVERRIDES_CSWlibssl-dev += file-with-bad-content|/usr/local|root/opt/csw/share/doc/libssl_dev/INSTALL
-CHECKPKG_OVERRIDES_CSWlibssl-dev += file-with-bad-content|/usr/local|root/opt/csw/share/doc/libssl_dev/CHANGES
-CHECKPKG_OVERRIDES_CSWlibssl-dev += file-with-bad-content|/usr/local|root/opt/csw/share/doc/libssl_dev/FAQ
-CHECKPKG_OVERRIDES_CSWlibssl1-0-0 += file-with-bad-content|/usr/local|root/opt/csw/share/doc/libssl1_0_0/INSTALL
-CHECKPKG_OVERRIDES_CSWlibssl1-0-0 += file-with-bad-content|/usr/local|root/opt/csw/share/doc/libssl1_0_0/FAQ
-CHECKPKG_OVERRIDES_CSWlibssl1-0-0 += file-with-bad-content|/usr/local|root/opt/csw/share/doc/libssl1_0_0/CHANGES
-CHECKPKG_OVERRIDES_CSWopenssl-utils += file-with-bad-content|/usr/local|root/opt/csw/share/doc/openssl_utils/CHANGES
-CHECKPKG_OVERRIDES_CSWopenssl-utils += file-with-bad-content|/usr/local|root/opt/csw/share/doc/openssl_utils/FAQ
-CHECKPKG_OVERRIDES_CSWopenssl-utils += file-with-bad-content|/usr/local|root/opt/csw/share/doc/openssl_utils/INSTALL
-
 ###### Upstream and opencsw files information #######
 
 MASTER_SITES = http://www.openssl.org/source/
