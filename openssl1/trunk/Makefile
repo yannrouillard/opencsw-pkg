@@ -174,7 +174,7 @@ endif
 # The corresponding os/compiler to pass to the
 # openssl Configure script
 i386_OS_COMPILER 	= no-sse2 solaris-x86-cc-sunw
-pentium_pro_OS_COMPILER	= no-sse2 solaris-x86-pentium_pro-cc-sunw
+pentium_pro_OS_COMPILER	= solaris-x86-pentium_pro-cc-sunw
 amd64_OS_COMPILER 	= solaris64-x86_64-cc-sunw
 
 sparcv8_OS_COMPILER 		= solaris-sparcv8-cc-sunw
