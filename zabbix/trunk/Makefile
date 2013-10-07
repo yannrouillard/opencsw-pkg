@@ -2,7 +2,7 @@
 # TODO (release-critical prefixed with !, non release-critical with *)
 #
 NAME = zabbix
-VERSION = 2.0.7
+VERSION = 2.0.9rc2
 GARTYPE = v2
 
 DESCRIPTION = Zabbix monitoring system
@@ -38,8 +38,8 @@ RUNTIME_DEP_PKGS_CSWzabbix-agent += CSWlibldap2-4-2
 RUNTIME_DEP_PKGS_CSWzabbix-agent += CSWliblber2-4-2
 
 # These are just examples
-CHECKPKG_OVERRIDES_CSWzabbix-agent += file-with-bad-content|/usr/local|root/opt/csw/share/man/man8/zabbix_agentd.8
-CHECKPKG_OVERRIDES_CSWzabbix-agent += file-with-bad-content|/usr/local|root/opt/csw/share/man/man1/zabbix_sender.1
+#CHECKPKG_OVERRIDES_CSWzabbix-agent += file-with-bad-content|/usr/local|root/opt/csw/share/man/man8/zabbix_agentd.8
+#CHECKPKG_OVERRIDES_CSWzabbix-agent += file-with-bad-content|/usr/local|root/opt/csw/share/man/man1/zabbix_sender.1
 CHECKPKG_OVERRIDES_CSWzabbix-agent += file-with-bad-content|/usr/local|root/etc/opt/csw/zabbix_agentd.conf.CSW
 CHECKPKG_OVERRIDES_CSWzabbix-agent += file-with-bad-content|/usr/local|root/etc/opt/csw/zabbix_agent.conf.CSW
 
