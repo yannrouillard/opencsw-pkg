@@ -1,4 +1,4 @@
-NAME = tcl8.5
+NAME = tcl
 VERSION = 8.5.15
 GARTYPE = v2
 
@@ -8,7 +8,7 @@ endef
 
 SF_PROJECT = tcl
 MASTER_SITES = $(SF_MIRRORS)
-DISTNAME = $(SF_PROJECT)$(VERSION)
+DISTNAME = $(NAME)$(VERSION)
 DISTFILES  = $(DISTNAME)-src.tar.gz
 
 # Separate build for Solaris 10 with DTrace support
