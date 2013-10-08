@@ -21,6 +21,7 @@ LICENSE = license.terms
 
 PATCHFILES += 0001-disable-libsunmath.patch
 PATCHFILES += 0002-CFLAGS-should-be-at-the-end.patch
+PATCHFILES += 0003-make-xft-use-pkgconfig.patch
 
 PACKAGES += CSWtk
 SPKG_DESC_CSWtk = GUI toolkit for tcl
