@@ -1,5 +1,5 @@
 NAME = tk
-VERSION = 8.5.12
+VERSION = 8.5.15
 GARTYPE = v2
 
 DESCRIPTION = GUI toolkit for tcl
@@ -12,19 +12,17 @@ MASTER_SITES = $(SF_MIRRORS)
 DISTNAME = $(NAME)$(VERSION)
 DISTFILES  = $(DISTNAME)-src.tar.gz
 
-PATCHFILES = Makefile.in.diff
-PATCHDIR = $(WORKDIR)/$(DISTNAME)
-
-#DEP_PKGS_CSWtk = CSWfconfig CSWftype2 CSWlibx11 CSWlibxft2 CSWlibxrender CSWtcl
-#DEP_PKGS_CSWtk += CSWlibxext
-#DEP_PKGS_CSWtk += CSWlibxscrnsaver
-#DEP_PKGS_CSWtk += CSWsunmath
+#PATCHFILES = Makefile.in.diff
+#PATCHDIR = $(WORKDIR)/$(DISTNAME)
 
 # libsunmath support on Solaris 9 i386 is broken
-PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386
+PACKAGING_PLATFORMS  = solaris9-sparc solaris9-i386
+PACKAGING_PLATFORMS += solaris10-sparc solaris10-i386
 
 VENDOR_URL = http://www.tcl.tk/
 LICENSE = license.terms
+
+PATCHFILES += 0001-disable-libsunmath.patch
 
 PACKAGES += CSWtk
 SPKG_DESC_CSWtk = GUI toolkit for tcl
@@ -35,16 +33,12 @@ RUNTIME_DEP_PKGS_CSWtk += CSWlibtk8-5
 RUNTIME_DEP_PKGS_CSWtk-i386 += CSWsunmath
 RUNTIME_DEP_PKGS_CSWtk += $(RUNTIME_DEP_PKGS_CSWtk-$(GARCH))
 
-# Leave the manpage for now
-CHECKPKG_OVERRIDES_CSWtk += file-with-bad-content|/usr/local|root/opt/csw/share/man/man1/wish.1
-
 PACKAGES += CSWlibtk8-5
 SPKG_DESC_CSWlibtk8-5 = GUI toolkit library for tcl, libtk8.5.so
 PKGFILES_CSWlibtk8-5 += $(call pkgfiles_lib,libtk8.5.so)
 PKGFILES_CSWlibtk8-5 += $(call baseisadirs,$(libdir),tk8.5/.*)
-
-RUNTIME_DEP_PKGS_CSWlibtk8-5-i386 += CSWsunmath
-RUNTIME_DEP_PKGS_CSWlibtk8-5 += $(RUNTIME_DEP_PKGS_CSWlibtk8-5-$(GARCH))
+RUNTIME_DEP_PKGS_CSWlibtk8-5 += CSWlibxft2
+RUNTIME_DEP_PKGS_CSWlibtk8-5 += CSWlibfontconfig1
 
 # This is correct, the soname with *.so is really the one to use
 CHECKPKG_OVERRIDES_CSWlibtk8-5 += soname-equals-filename
@@ -59,12 +53,12 @@ PKGFILES_CSWtk-dev += $(PKGFILES_DEVEL)
 PKGFILES_CSWtk-dev += $(call baseisadirs,$(libdir),tkConfig.sh)
 RUNTIME_DEP_PKGS_CSWtcl-dev += CSWlibtk8-5
 
-# We define upstream file regex so we can be notifed of new upstream software release
-UPSTREAM_MASTER_SITES = $(SF_PROJECT_SHOWFILE)=10894
-UPSTREAM_USE_SF = 1
-UFILES_REGEX = $(NAME)(\d+(?:\.\d+)*)-src.tar.gz
-
-BUILD64 = 1
+# Enable 64 bits, but not for Solaris 9 x86
+BUILD64_5.9_sparc  = 1
+BUILD64_5.10_sparc = 1
+BUILD64_5.9_i386   =
+BUILD64_5.10_i386  = 1
+BUILD64 = $(BUILD64_$(GAROSREL)_$(GARCH))
 ISAEXEC = 1
 
 WORKSRC = $(WORKDIR)/$(DISTNAME)/unix
