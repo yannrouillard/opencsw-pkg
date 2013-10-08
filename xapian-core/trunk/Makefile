@@ -43,6 +43,7 @@ SPKG_DESC_CSWlibxapian-dev = Xapian development files for libxapian-1.3.so.1
 PKGFILES_CSWlibxapian-dev = $(PKGFILES_DEVEL)
 PKGFILES_CSWlibxapian-dev += $(docdir)/xapian-core/apidoc/.*
 PKGFILES_CSWlibxapian-dev += .*\.cmake
+PKGFILES_CSWlibxapian-dev += $(call baseisadirs,$(bindir),xapian-config-1.3)
 RUNTIME_DEP_PKGS_CSWlibxapian-dev += CSWlibxapian1-3-1
 
 EXTRA_LD_FLAGS += -norunpath
@@ -52,6 +53,8 @@ EXTRA_CXXFLAGS += -L$(libdir)
 
 BUILD64 = 1
 ISAEXEC = 1
+
+EXTRA_ISAEXEC_EXCLUDE_FILES += $(bindir)/xapian-config-1.3 $(bindir)/%/xapian-config-1.3
 
 # This is just an example of the default install location
 CHECKPKG_OVERRIDES_CSWxapian += file-with-bad-content|/usr/local|root/opt/csw/share/doc/xapian-core/install.html
