@@ -1,5 +1,5 @@
 NAME = gawk
-VERSION = 4.0.2
+VERSION = 4.1.0
 GARTYPE = v2
 
 DESCRIPTION = GNU awk
@@ -17,15 +17,20 @@ endef
 MASTER_SITES = $(GNU_MIRROR)
 DISTFILES = $(DISTNAME).tar.xz
 
+PATCHFILES += 0001-Add-inclusion-of-mkdev.h-for-major-minor.patch
+
+# Use patch until this is fixed:
+#   http://lists.gnu.org/archive/html/bug-gawk/2013-10/msg00000.html
+PATCHFILES += 0001-Allow-null-pointer-on-readline-detect.patch
+
 PACKAGES += CSWgawk
 SPKG_DESC_CSWgawk = GNU awk
 # PKGFILES is catchall
 RUNTIME_DEP_PKGS_CSWgawk += CSWlibintl8
 RUNTIME_DEP_PKGS_CSWgawk += CSWlibsigsegv2
 RUNTIME_DEP_PKGS_CSWgawk += CSWlibreadline6
-
-# This is just an example
-CHECKPKG_OVERRIDES_CSWgawk += file-with-bad-content|/usr/local|root/opt/csw/share/man/man1/gawk.1
+RUNTIME_DEP_PKGS_CSWgawk += CSWlibmpfr4
+RUNTIME_DEP_PKGS_CSWgawk += CSWlibgmp10
 
 BUILD64 = 1
 ISAEXEC = 1
@@ -35,15 +40,6 @@ ISAEXEC = 1
 # Additionally, there is probably a bug in /usr/include/ia32/sys/reg.h which requires
 # the replacement of uint64_t by upad64_t.
 EXTRA_CFLAGS = -Xc -D_XPG4_2 -Duint64_t=upad64_t
-
-# These are install instructions for other platforms (os/2... 'nuff said.)
-CHECKPKG_OVERRIDES_CSWgawk += file-with-bad-content|/usr/share|root/opt/csw/share/info/gawk.info
-
-# These are instruction for awk, possible adjust them later
-CHECKPKG_OVERRIDES_CSWgawk += file-with-bad-content|/usr/local|root/opt/csw/share/info/gawk.info
-
-# This is an example path (YMMV in the docs)
-CHECKPKG_OVERRIDES_CSWgawk += file-with-bad-content|/usr/local|root/opt/csw/share/man/man1/pgawk.1
 
 include gar/category.mk
 
