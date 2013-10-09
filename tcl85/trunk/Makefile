@@ -104,6 +104,9 @@ MERGE_EXCLUDE_STATICLIBS =
 
 TEST_TARGET = test
 
+# To help it find the libsunmath it so desperately needs
+EXTRA_LD_OPTIONS = -L$(libdir)
+
 include gar/category.mk
 
 post-install-modulated:
