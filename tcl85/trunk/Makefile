@@ -20,16 +20,13 @@ LICENSE = license.terms
 
 REN_TCLSH = tclsh8.5
 
-#PATCHDIR = $(WORKDIR)/$(DISTNAME)
-#PATCHFILES += 0001-Enable-SONAME-in-library.patch
-#PATCHFILES += 0002-Fix-linking-issues-and-enable-building-on-Solaris-9-.patch
-#PATCHFILES += 0003_ld_lacks_LDFLAGS.patch
-PATCHFILES += 0004-disable-libsunmath.patch
-
 # The dependencies on the ISAs differ, here's from tcl-x.y.z/unix/tcl.m4: 
 #
 #              # On Solaris 5.x i386 with the sunpro compiler we need to link
 #              # with sunmath to get floating point rounding control
+#
+# I think it's not really needed on recent Solaris 10, but it also appears
+# to be a pain to remove, so I'll just let it be.
 
 PACKAGES  = CSWtcl
 SPKG_DESC_CSWtcl = Tcl programming language 8.5
@@ -47,8 +44,9 @@ PKGFILES_CSWlibtcl8-5 += $(call pkgfiles_lib,libtcl8.5.so)
 PKGFILES_CSWlibtcl8-5 += $(libdir)/tcl8.5/.*
 # This dependency can not be tracked by checkpkg
 RUNTIME_DEP_PKGS_CSWlibtcl8-5 += CSWtcl8-tclmodules
+RUNTIME_DEP_PKGS_CSWlibtcl8-5-i386 += CSWsunmath
+RUNTIME_DEP_PKGS_CSWlibtcl8-5 += $(RUNTIME_DEP_PKGS_CSWlibtcl8-5-$(GARCH))
 CHECKPKG_OVERRIDES_CSWlibtcl8-5 += surplus-dependency|CSWtcl8-tclmodules
-
 
 # This is correct, the soname with *.so is really the one to use
 CHECKPKG_OVERRIDES_CSWlibtcl8-5 += soname-equals-filename
