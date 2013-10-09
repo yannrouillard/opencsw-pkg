@@ -18,6 +18,8 @@ PACKAGING_PLATFORMS += solaris10-sparc solaris10-i386
 VENDOR_URL = http://www.tcl.tk/
 LICENSE = license.terms
 
+PATCHFILES += 0001-libsunmath-needs-fix-on-S9.patch
+
 REN_TCLSH = tclsh8.5
 
 # The dependencies on the ISAs differ, here's from tcl-x.y.z/unix/tcl.m4: 
