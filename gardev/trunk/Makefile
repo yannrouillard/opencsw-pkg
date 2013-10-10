@@ -18,6 +18,11 @@ CATALOGNAME_CSWgar-dev = gar_dev
 SPKG_DESC_CSWgar-dev = $(DESCRIPTION)
 OBSOLETED_BY_CSWgar-dev = CSWgardevel
 
+# This is a metapackage, ARCH=all, so only 1 build platform necessary.
+# We're building on Solaris 0 to maintain the infrastructure operational on
+# Solaris 9.
+PACKAGING_PLATFORMS = solaris9-i386
+
 # git and netcat are required if a GAR repo is tracking a git repo instead
 # of upstream tarballs.  svn is required for commiting gar recipes
 RUNTIME_DEP_PKGS_CSWgar-dev  = CSWgmake
