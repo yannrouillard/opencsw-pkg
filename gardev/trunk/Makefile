@@ -43,6 +43,7 @@ RUNTIME_DEP_PKGS_CSWgar-dev += CSWpy-progressbar
 RUNTIME_DEP_PKGS_CSWgar-dev += CSWpy-pyelftools
 RUNTIME_DEP_PKGS_CSWgar-dev += CSWpy-sqlobject
 RUNTIME_DEP_PKGS_CSWgar-dev += CSWpy-unittest2
+RUNTIME_DEP_PKGS_CSWgar-dev += CSWpy-webtest
 RUNTIME_DEP_PKGS_CSWgar-dev += CSWpython
 RUNTIME_DEP_PKGS_CSWgar-dev += CSWsvn
 RUNTIME_DEP_PKGS_CSWgar-dev += CSWwget
