@@ -1,5 +1,5 @@
 NAME = pigz
-VERSION = 2.3
+VERSION = 2.3.1
 GARTYPE = v2
 
 DESCRIPTION = A parallel implementation of gzip
@@ -22,8 +22,6 @@ LICENSE = README
 PACKAGES += CSWpigz
 SPKG_DESC_CSWpigz = A parallel implementation of gzip
 RUNTIME_DEP_PKGS_CSWpigz += CSWlibz1
-# This is just the license
-CHECKPKG_OVERRIDES_CSWpigz += file-with-bad-content|/usr/local|root/opt/csw/share/doc/pigz/license
 
 # Optimization show effects < 5%
 #REQUESTED_ISAS = $(ISALIST_$(GARCOMPILER))
