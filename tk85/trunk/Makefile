@@ -12,14 +12,13 @@ MASTER_SITES = $(SF_MIRRORS)
 DISTNAME = $(NAME)$(VERSION)
 DISTFILES  = $(DISTNAME)-src.tar.gz
 
-# libsunmath support on Solaris 9 i386 is broken
 PACKAGING_PLATFORMS  = solaris9-sparc solaris9-i386
 PACKAGING_PLATFORMS += solaris10-sparc solaris10-i386
 
 VENDOR_URL = http://www.tcl.tk/
 LICENSE = license.terms
 
-PATCHFILES += 0001-disable-libsunmath.patch
+#PATCHFILES += 0001-disable-libsunmath.patch
 PATCHFILES += 0002-CFLAGS-should-be-at-the-end.patch
 PATCHFILES += 0003-make-xft-use-pkgconfig.patch
 
@@ -28,7 +27,6 @@ SPKG_DESC_CSWtk = GUI toolkit for tcl
 # PKGFILES is catchall
 RUNTIME_DEP_PKGS_CSWtk += CSWlibtcl8-5
 RUNTIME_DEP_PKGS_CSWtk += CSWlibtk8-5
-
 RUNTIME_DEP_PKGS_CSWtk-i386 += CSWsunmath
 RUNTIME_DEP_PKGS_CSWtk += $(RUNTIME_DEP_PKGS_CSWtk-$(GARCH))
 
