@@ -27,8 +27,8 @@ SPKG_DESC_CSWtk = GUI toolkit for tcl
 # PKGFILES is catchall
 RUNTIME_DEP_PKGS_CSWtk += CSWlibtcl8-5
 RUNTIME_DEP_PKGS_CSWtk += CSWlibtk8-5
-RUNTIME_DEP_PKGS_CSWtk-i386 += CSWsunmath
-RUNTIME_DEP_PKGS_CSWtk += $(RUNTIME_DEP_PKGS_CSWtk-$(GARCH))
+#RUNTIME_DEP_PKGS_CSWtk-i386 += CSWsunmath
+#RUNTIME_DEP_PKGS_CSWtk += $(RUNTIME_DEP_PKGS_CSWtk-$(GARCH))
 
 PACKAGES += CSWlibtk8-5
 SPKG_DESC_CSWlibtk8-5 = GUI toolkit library for tcl, libtk8.5.so
