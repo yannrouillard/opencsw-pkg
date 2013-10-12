@@ -22,7 +22,7 @@ DISTFILES  = $(NAME)-$(VERSION)-signed.tar
 
 GARCOMPILER = GCC4
 
-BUILD_DEP_PKGS = CSWtcl
+BUILD_DEP_PKGS += CSWtcl
 
 PACKAGES += CSWlibkrb5-dev
 SPKG_DESC_CSWlibkrb5-dev      = MIT Kerberos 5 developer libraries
@@ -93,12 +93,13 @@ PKGFILES_CSWlibkrb5support0 += $(call baseisadirs,$(libdir),libkrb5support\.so\.
 SPKG_DESC_CSWlibkrb5support0 += MIT Kerberos 5 core libraries, libkrb5support.so.0
 OBSOLETED_BY_CSWlibkrb5-3 = CSWkrb5lib
 
-LICENSE = doc/copyright.texinfo
+LICENSE = doc/copyright.rst
 
 EXTRA_LD_OPTIONS += -M $(abspath mapfile)
 
-EXTRA_CPPFLAGS += -D__EXTENSIONS__
-EXTRA_LDFLAGS += -L$(libdir) -lintl 
+EXTRA_CFLAGS   += -std=gnu99
+EXTRA_CPPFLAGS += -D__EXTENSIONS__ 
+EXTRA_LDFLAGS  += -L$(libdir) -lintl 
 
 CONFIGURE_SCRIPTS = $(WORKSRC)/src/configure
 
@@ -112,8 +113,13 @@ CONFIGURE_ARGS += --enable-thread-support
 CONFIGURE_ARGS += --disable-static --disable-profiled
 CONFIGURE_ARGS += --without-ldap
 CONFIGURE_ARGS += --with-readline
+CONFIGURE_ARGS += --with-system-db
 # To pick the right tclConfig.sh
 CONFIGURE_ARGS += --with-tcl=$(libdir)
+CONFIGURE_ARGS += DB_HEADER=$(prefix)/bdb48/include/db_185.h
+CONFIGURE_ARGS += DB_LIB="-L$(prefix)/bdb48/$(MM_LIBDIR) -R$(prefix)/bdb48/$(MM_LIBDIR)"
+
+SKIPTEST = 1
 
 BUILD_SCRIPTS = $(WORKSRC)/src/Makefile
 
