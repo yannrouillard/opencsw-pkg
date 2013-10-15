@@ -1,23 +1,29 @@
-NAME = libdvdcss
-VERSION = 1.2.9
-GARTYPE = v1
+# $Id$
 
-DESCRIPTION = library for accessing DVDs like a block device without having to bother about decryption
+NAME	=	libdvdcss
+VERSION	=	1.2.13
+GARTYPE	=	v2
+
+DESCRIPTION	=	Library for accessing DVDs like a block device without having to bother about decryption
+
 define BLURB
-library for accessing DVDs like a block device without having to bother about decryption
+	Library for accessing DVDs like a block device without having to bother about decryption
 endef
 
-MASTER_SITES = http://download.videolan.org/pub/libdvdcss/1.2.9/
-DISTFILES  = $(NAME)-$(VERSION).tar.gz
-DISTFILES += $(call admfiles,CSWlibdvdcss, depend )
+MASTER_SITES	=	http://download.videolan.org/pub/$(NAME)/$(VERSION)/
+DISTFILES 		=	$(NAME)-$(VERSION).tar.bz2
+PATCHFILES		+=	0001-fix-uscsi-detection.patch
 
-# We define upstream file regex so we can be notifed of new upstream software release
-UFILES_REGEX = $(NAME)-(\d+(?:\.\d+)*).tar.gz
+GARCOMPILER		=	GNU
 
-GARCOMPILER ?= GNU
+CONFIGURE_ARGS	=	$(DIRPATHS)
 
-CONFIGURE_ARGS = $(DIRPATHS)
-
-#ENABLE_TEST = 0
+RUNTIME_DEP_PKGS_CSWlibdvdcss += CSWlibgcc-s1
 
 include gar/category.mk
+
+PATH := /opt/csw/gnu:$(PATH)
+
+pre-configure-modulated:
+	cd $(WORKSRC); autoreconf -fi
+	@$(MAKECOOKIE)
