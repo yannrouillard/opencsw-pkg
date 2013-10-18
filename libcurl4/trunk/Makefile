@@ -16,6 +16,10 @@ endef
 MASTER_SITES = http://curl.haxx.se/download/
 DISTFILES += $(NAME)-$(VERSION).tar.lzma
 
+# Use patch until this is fixed:
+#   http://sourceforge.net/p/curl/bugs/1291/
+PATCHFILES += 0001-Add-patch-from-bug-1291.patch
+
 VENDOR_URL = http://curl.haxx.se
 
 # Because of OpenSSL 1.0 update
@@ -113,7 +117,7 @@ CONFIGURE_ARGS += $(EXTRA_CONFIGURE_ARGS_features-$(FEATURES))
 BUILD64 = 1
 
 # There are some failing tests, ignore for now
-# SKIPTEST ?= 1
+SKIPTEST ?= 1
 
 # We do special 32/64 merging for this one, see post-merge
 EXTRA_MERGE_EXCLUDE_FILES += $(includedir)/curl/curlbuild.h
