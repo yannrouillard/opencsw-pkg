@@ -133,10 +133,10 @@ EXTRA_PAX_ARGS += $(EXTRA_PAX_ARGS_features-$(FEATURES))
 # Make sure to pick the "curl" binary from features-full as e.g. metalink support is only in the binary
 # and not libmetalink
 MERGE_SCRIPTS_isa-default-features-minimal = copy-only
+MERGE_DIRS_isa-default-features-minimal = $(libdir)
 MERGE_SCRIPTS_isa-default64-features-minimal = copy-relocated-only copy-config-only
 MERGE_DIRS_isa-default64-features-minimal = $(libdir)
 MERGE_SCRIPTS_isa-default-features-full = copy-all
-MERGE_DIRS_isa-default-features-full = $(libdir)
 MERGE_SCRIPTS_isa-default64-features-full = copy-relocated-only
 MERGE_DIRS_isa-default64-features-full = $(libdir)
 
