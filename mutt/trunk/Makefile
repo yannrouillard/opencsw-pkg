@@ -1,5 +1,5 @@
 NAME = mutt
-VERSION = 1.5.21
+VERSION = 1.5.22
 GARTYPE = v2
 
 EXTRA_MODULATORS = SLANG
@@ -42,6 +42,8 @@ RUNTIME_DEP_PKGS_CSWmutt-base += CSWlibintl8
 
 # This warning from checkpkg is obviously wrong...
 CHECKPKG_OVERRIDES_CSWmutt-base = missing-dependency|CSWperl
+# This is just a comment
+CHECKPKG_OVERRIDES_CSWmutt-base += file-with-bad-content|/usr/local|root/etc/opt/csw/Muttrc.CSW
 
 PACKAGES += CSWmutt-ncurses
 SPKG_DESC_CSWmutt-ncurses = Mutt mail client with ncurses interface
@@ -50,9 +52,8 @@ RUNTIME_DEP_PKGS_CSWmutt-ncurses += CSWlibiconv2
 RUNTIME_DEP_PKGS_CSWmutt-ncurses += CSWlibncursesw5
 RUNTIME_DEP_PKGS_CSWmutt-ncurses += CSWlibssl1-0-0
 RUNTIME_DEP_PKGS_CSWmutt-ncurses += CSWlibintl8
-RUNTIME_DEP_PKGS_CSWmutt-ncurses += CSWlibgpg-error0
 RUNTIME_DEP_PKGS_CSWmutt-ncurses += CSWlibsasl2-2
-RUNTIME_DEP_PKGS_CSWmutt-ncurses += CSWlibgdbm4
+RUNTIME_DEP_PKGS_CSWmutt-ncurses += CSWlibtokyocabinet9
 RUNTIME_DEP_PKGS_CSWmutt-ncurses += CSWlibidn11
 RUNTIME_DEP_PKGS_CSWmutt-ncurses += CSWgpgme
 RUNTIME_DEP_PKGS_CSWmutt-ncurses += CSWmutt-base
@@ -64,27 +65,13 @@ PKGFILES_CSWmutt-slang = $(bindir)/mutt-slang
 RUNTIME_DEP_PKGS_CSWmutt-slang += CSWlibslang2
 RUNTIME_DEP_PKGS_CSWmutt-slang += CSWlibssl1-0-0
 RUNTIME_DEP_PKGS_CSWmutt-slang += CSWlibintl8
-RUNTIME_DEP_PKGS_CSWmutt-slang += CSWlibgpg-error0
 RUNTIME_DEP_PKGS_CSWmutt-slang += CSWlibsasl2-2
 RUNTIME_DEP_PKGS_CSWmutt-slang += CSWgpgme
 RUNTIME_DEP_PKGS_CSWmutt-slang += CSWlibiconv2
-RUNTIME_DEP_PKGS_CSWmutt-slang += CSWlibgdbm4
+RUNTIME_DEP_PKGS_CSWmutt-slang += CSWlibtokyocabinet9
 RUNTIME_DEP_PKGS_CSWmutt-slang += CSWlibidn11
 RUNTIME_DEP_PKGS_CSWmutt-slang += CSWmutt-base
 CHECKPKG_OVERRIDES_CSWmutt-slang += surplus-dependency|CSWmutt-base
-
-CHECKPKG_OVERRIDES_CSWmutt-base += file-with-bad-content|/usr/local|root/etc/opt/csw/Muttrc.CSW
-CHECKPKG_OVERRIDES_CSWmutt-base += file-with-bad-content|/usr/local|root/opt/csw/share/doc/mutt/reference.html
-CHECKPKG_OVERRIDES_CSWmutt-base += file-with-bad-content|/usr/local|root/opt/csw/share/doc/mutt/ChangeLog
-CHECKPKG_OVERRIDES_CSWmutt-base += file-with-bad-content|/usr/local|root/opt/csw/share/doc/mutt/INSTALL
-CHECKPKG_OVERRIDES_CSWmutt-base += file-with-bad-content|/usr/local|root/opt/csw/share/doc/mutt/configuration.html
-CHECKPKG_OVERRIDES_CSWmutt-base += file-with-bad-content|/usr/local|root/opt/csw/share/doc/mutt/samples/sample.muttrc
-CHECKPKG_OVERRIDES_CSWmutt-base += file-with-bad-content|/usr/share|root/opt/csw/share/doc/mutt/devel-notes.txt
-CHECKPKG_OVERRIDES_CSWmutt-base += file-with-bad-content|/usr/local|root/opt/csw/share/doc/mutt/mimesupport.html
-CHECKPKG_OVERRIDES_CSWmutt-base += file-with-bad-content|/usr/local|root/opt/csw/share/doc/mutt/manual.txt
-CHECKPKG_OVERRIDES_CSWmutt-base += file-with-bad-content|/usr/local|root/opt/csw/share/doc/mutt/manual.html
-CHECKPKG_OVERRIDES_CSWmutt-base += file-with-bad-content|/usr/local|root/opt/csw/share/man/man5/muttrc.5
-CHECKPKG_OVERRIDES_CSWmutt-base += pkginfo-opencsw-repository-uncommitted
 
 REINPLACEMENTS += mailcap
 REINPLACE_MATCH_mailcap = /usr/local/etc/mailcap
@@ -96,6 +83,10 @@ REINPLACE_FILES_mailcap += doc/mimesupport.html
 # Raise optimizer level unless this bug has been fixed:
 #   http://dev.mutt.org/trac/ticket/3347
 OPT_FLAGS_SOS = -xO4
+
+# Needed to use stdbool.h, add manually until this is fixed:
+#   http://dev.mutt.org/trac/ticket/3657
+EXTRA_CPPFLAGS += -xc99=all
 
 sysconfdir = /etc/opt/csw
 
