@@ -13,6 +13,8 @@ MASTER_SITES = $(SF_MIRRORS)
 DISTFILES += $(NAME)-$(VERSION).tar.bz2
 STRIP_LIBTOOL = 1
 
+GARCOMPILER = SOS12U3
+
 VENDOR_URL = http://pidgin.im
 
 CONFIGURE_ARGS  = $(DIRPATHS)
@@ -31,7 +33,8 @@ CONFIGURE_ARGS += --enable-gtkui
 CONFIGURE_ARGS += --enable-consoleui
 
 # We deffinitely want SASL
-CONFIGURE_ARGS += --enable-cyrus-sasl
+### BREAKS IRC
+#CONFIGURE_ARGS += --enable-cyrus-sasl
 
 # For msgfmt, msgmerge, xgettext and gettext to be used from GNU
 CONFIGURE_ENV_PATH = $(prefix)/gnu:$(PATH)
@@ -106,6 +109,8 @@ BUILD_DEP_PKGS += CSWlibnss-dev
 BUILD_DEP_PKGS += CSWnspr-dev
 BUILD_DEP_PKGS += CSWmeanwhile-dev
 BUILD_DEP_PKGS += CSWlibsilc-dev
+BUILD_DEP_PKGS += CSWgstreamer-dev
+BUILD_DEP_PKGS += CSWsasl-dev
 
 PATCHFILES += patch-pidgin-Makefile.in
 PATCHFILES += patch-pidgin-plugin.c
