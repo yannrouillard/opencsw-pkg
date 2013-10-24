@@ -33,19 +33,17 @@ CONFIGURE_ARGS += --enable-gtkui
 CONFIGURE_ARGS += --enable-consoleui
 
 # We deffinitely want SASL
-### BREAKS IRC
-#CONFIGURE_ARGS += --enable-cyrus-sasl
+CONFIGURE_ARGS += --enable-cyrus-sasl
 
 # For msgfmt, msgmerge, xgettext and gettext to be used from GNU
 CONFIGURE_ENV_PATH = $(prefix)/gnu:$(PATH)
 
-CFLAGS = -xc99 -D_XPG6 -D__EXTENSIONS__
+EXTRA_CFLAGS  = -xc99 -D_XPG6 -D__EXTENSIONS__
+EXTRA_LD_OPTIONS = -z nolazyload
+
 NCURSES_HEADERS = /opt/csw/include/ncursesw
 EXTRA_CONFIGURE_EXPORTS += CFLAGS NCURSES_HEADERS
 TEST_SCRIPTS =
-# We define upstream file regex so we can be notifed of new upstream software release
-UPSTREAM_USE_SF = 1
-UFILES_REGEX = (\d+(?:\.\d+)*)
 
 EXTRA_MERGE_EXCLUDE_FILES = .*/perllocal.pod
 
@@ -85,7 +83,7 @@ RUNTIME_DEP_PKGS_CSWpidgin += CSWlibpanelw5
 RUNTIME_DEP_PKGS_CSWpidgin += CSWlibgnutls28
 RUNTIME_DEP_PKGS_CSWpidgin += CSWlibsilc1-1-2
 RUNTIME_DEP_PKGS_CSWpidgin += CSWlibsilcclient1-1-3
-#RUNTIME_DEP_PKGS_CSWpidgin += CSWlibsasl2-2
+RUNTIME_DEP_PKGS_CSWpidgin += CSWlibsasl2-2
 
 BUILD_DEP_PKGS += CSWpkgconfig
 BUILD_DEP_PKGS += CSWlibxml2-dev
@@ -110,12 +108,13 @@ BUILD_DEP_PKGS += CSWnspr-dev
 BUILD_DEP_PKGS += CSWmeanwhile-dev
 BUILD_DEP_PKGS += CSWlibsilc-dev
 BUILD_DEP_PKGS += CSWgstreamer-dev
-#BUILD_DEP_PKGS += CSWsasl-dev
+BUILD_DEP_PKGS += CSWsasl-dev
 
 PATCHFILES += patch-pidgin-Makefile.in
 PATCHFILES += patch-pidgin-plugin.c
 PATCHFILES += patch-pidgin-plugins-perl-common-Makefile.PL.in
 PATCHFILES += patch-libpurple-plugins-perl-common-Makefile.PL.in
+PATCHFILES += 0004-irc-with-sasl.patch
 
 CHECKPKG_OVERRIDES_CSWpidgin += file-with-bad-content|/usr/local|root/opt/csw/lib/pidgin/musicmessaging.so 
 CHECKPKG_OVERRIDES_CSWpidgin += shared-lib-package-contains-so-symlink|file=/opt/csw/lib/libgnt.so
