@@ -112,6 +112,12 @@ PATCHFILES += c_rehash-compat.patch
 # crazy during library migration
 PATCHFILES += 0007-enables-symbols-versioning.patch
 
+# openssl currently only uses issetugid on freebsd and openbsd 
+# althought it is also available on Solaris 10
+# We make issetugid support configurable via preprocessor flag
+# to be able to enable it for Solaris
+PATCHFILES += make_issetugid_support_configurable.patch
+
 # support for pkcs11 engine http://blogs.sun.com/chichang1/entry/how_to_integrate_pkcs11_engine
 ifneq ($(shell /usr/bin/uname -r),5.9)
 # There is a problem with this patch under sparc when using tls protocol
@@ -176,12 +182,16 @@ sparcv8plus_OS_COMPILER		= solaris-sparcv9-cc-sunw
 sparcv8plus+vis_OS_COMPILER	= solaris-sparcv9+vis-cc-sunw
 sparcv9_OS_COMPILER		= solaris64-sparcv9-cc-sunw
 
+# Solaris has the issetugid function since libc version interface SUNW_1.21
+# but openssl doesn't use it by default so we manually enable it
+CONFIGURE_FLAGS = -DHAVE_ISSETUGID
+
 # --libdir must only be given if the directory is actually different from lib or the creation will fail
 # as the directory is already there
 LIBDIR_64 = --libdir=lib/64
 LIBDIR = $(LIBDIR_$(MEMORYMODEL))
 
-CONFIGURE_ARGS = --prefix=$(prefix) shared $($(ISA)_OS_COMPILER) --install_prefix=$(DESTDIR) $(LIBDIR)
+CONFIGURE_ARGS = --prefix=$(prefix) shared $(CONFIGURE_FLAGS) $($(ISA)_OS_COMPILER) --install_prefix=$(DESTDIR) $(LIBDIR)
 
 # PKCS11 is only for Solaris 10 so we must create solaris 10 specific packages
 ifneq ($(shell /usr/bin/uname -r),5.9)
