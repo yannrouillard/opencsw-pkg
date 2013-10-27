@@ -146,10 +146,6 @@ LICENSE = LICENSE
 BUILD64 = 1
 ISAEXEC = 1
 
-# We re-enable the i386 default ISA to be able
-# to provide an isa not requiring sse2 for old servers
-ISA_DEFAULT_i386 = i386
-
 # The list of instructions set for which we will 
 # provide optimized libraries and binaries
 EXTRA_BUILD_ISAS_i386 = pentium_pro amd64
@@ -173,7 +169,7 @@ endif
 
 # The corresponding os/compiler to pass to the
 # openssl Configure script
-i386_OS_COMPILER 	= no-sse2 solaris-x86-cc-sunw
+i386_OS_COMPILER 	= solaris-x86-cc-sunw
 pentium_pro_OS_COMPILER	= solaris-x86-pentium_pro-cc-sunw
 amd64_OS_COMPILER 	= solaris64-x86_64-cc-sunw
 
@@ -224,6 +220,17 @@ STRIP_DIRS = $(DESTDIR)/$(libdir) $(DESTDIR)/$(libdir)/openssl-$(SONAME)/engines
 TEST_SCRIPTS = 
 
 include gar/category.mk
+
+# We remove SSE2 hardware capability in the elf header of libcrypto as
+# openssl is able to select it at runtime and the Solaris OS support SSE2 since
+# Solaris 9 4/04 (according to "Sun Studio 12: C++ User's Guide")
+post-install:
+	if [[ "$(uname -p)" = "i386" ]]; then \
+		echo " ==> Removing the SSE2 hardware capability from libcrypto"; \
+		chmod +w "$(DESTDIR)/$(libdir)/libcrypto.so.1.0.0"; \
+		elfedit -e 'cap:hw1 -and -cmp sse2' "$(DESTDIR)/$(libdir)/libcrypto.so.1.0.0"; \
+	fi
+	@$(MAKECOOKIE)
 
 pre-configure-modulated:
 	echo " ==> Creating configure script"
