@@ -220,7 +220,7 @@ BUILD_DEP_PKGS += CSWlibkrb5-dev
 BUILD_DEP_PKGS += CSWggettext
 BUILD_DEP_PKGS += CSWlibpixman-dev
 BUILD_DEP_PKGS += CSWlibpng-dev
-BUILD_DEP_PKGS += CSWfconfig-dev
+BUILD_DEP_PKGS += CSWfontconfig-dev
 BUILD_DEP_PKGS += CSWlibfreetype-dev
 # Needed to make a test work
 BUILD_DEP_PKGS += CSWgamin
