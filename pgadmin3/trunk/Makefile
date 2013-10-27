@@ -3,7 +3,7 @@
 # $Id$
 
 NAME = pgadmin3
-VERSION = 1.16.1
+VERSION = 1.18.1
 GARTYPE = v2
 LICENSE = LICENSE
 
@@ -19,13 +19,13 @@ DISTFILES  = $(NAME)-$(VERSION).tar.gz
 DISTFILES += changelog.CSW
 UFILES_REGEX = $(NAME)-(\d+(?:\.\d+)*).tar.gz
 
-PATCHFILES += 0001-use-wxT.patch
-
 RUNTIME_DEP_PKGS_CSWpgadmin3 += CSWwxwidgets
 RUNTIME_DEP_PKGS_CSWpgadmin3 += CSWwxwidgetsgtk2
 RUNTIME_DEP_PKGS_CSWpgadmin3 += CSWlibxslt1
 RUNTIME_DEP_PKGS_CSWpgadmin3 += CSWlibxml2-2
 RUNTIME_DEP_PKGS_CSWpgadmin3 += CSWlibpq5
+RUNTIME_DEP_PKGS_CSWpgadmin3 += CSWlibssl1-0-0
+RUNTIME_DEP_PKGS_CSWpgadmin3 += CSWlibz1
 
 BUILD_DEP_PKGS += CSWlibxml2-dev
 BUILD_DEP_PKGS += CSWlibxslt-dev
