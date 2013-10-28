@@ -116,6 +116,7 @@ PATCHFILES += 0007-enables-symbols-versioning.patch
 # althought it is also available on Solaris 10
 # We make issetugid support configurable via preprocessor flag
 # to be able to enable it for Solaris
+# Bug opened upstream: http://rt.openssl.org/Ticket/Display.html?id=3153
 PATCHFILES += make_issetugid_support_configurable.patch
 
 # support for pkcs11 engine http://blogs.sun.com/chichang1/entry/how_to_integrate_pkcs11_engine
