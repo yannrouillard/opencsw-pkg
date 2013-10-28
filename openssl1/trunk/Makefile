@@ -225,7 +225,7 @@ include gar/category.mk
 # openssl is able to select it at runtime and the Solaris OS support SSE2 since
 # Solaris 9 4/04 (according to "Sun Studio 12: C++ User's Guide")
 post-install:
-	if command -v elfedit >/dev/null 2>&1 && [[ "$(uname -p)" = "i386" ]]; then \
+	if command -v elfedit >/dev/null 2>&1 && [ "$(GARCH)" = "i386" ]; then \
 		echo " ==> Removing the SSE2 hardware capability from libcrypto"; \
 		chmod +w "$(DESTDIR)/$(libdir)/libcrypto.so.1.0.0"; \
 		elfedit -e 'cap:hw1 -and -cmp sse2' "$(DESTDIR)/$(libdir)/libcrypto.so.1.0.0"; \
