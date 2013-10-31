@@ -1,7 +1,7 @@
 # $Id$
 
 NAME = Python
-VERSION = 2.6.8
+VERSION = 2.6.9
 VER = 2.6
 DVER = 2-6
 UVER = 2_6
@@ -36,7 +36,7 @@ UFILES_REGEX = $(VER)\.\d+
 PACKAGING_PLATFORMS = solaris9-i386 solaris9-sparc
 PACKAGING_PLATFORMS += solaris10-i386 solaris10-sparc
 
-DISTFILES  = $(DISTNAME).tar.bz2
+DISTFILES  = $(DISTNAME).tar.xz
 DISTFILES += pyport.h
 
 # Patches
@@ -178,13 +178,9 @@ RUNTIME_DEP_PKGS_CSWpython$(CVER)-dev += CSWlibpython$(DVER)-1-0
 RUNTIME_DEP_PKGS_CSWpython$(CVER)-dev += CSWpython$(CVER)
 
 RUNTIME_DEP_PKGS_CSWpython$(CVER)-tk += CSWlibpython$(DVER)-1-0
+RUNTIME_DEP_PKGS_CSWpython$(CVER)-tk += CSWlibtcl8-5
+RUNTIME_DEP_PKGS_CSWpython$(CVER)-tk += CSWlibtk8-5
 RUNTIME_DEP_PKGS_CSWpython$(CVER)-tk += CSWpython$(CVER)
-
-RUNTIME_DEP_PKGS_CSWpython$(CVER)-tk_5.9    += CSWlibtcl8-4
-RUNTIME_DEP_PKGS_CSWpython$(CVER)-tk_5.9    += CSWtk
-RUNTIME_DEP_PKGS_CSWpython$(CVER)-tk_5.10   += CSWlibtcl8-5
-RUNTIME_DEP_PKGS_CSWpython$(CVER)-tk_5.10   += CSWlibtk8-5
-RUNTIME_DEP_PKGS_CSWpython$(CVER)-tk += $(RUNTIME_DEP_PKGS_CSWpython$(CVER)-tk_$(GAROSREL))
 
 # Don't merge test files.
 EXTRA_MERGE_EXCLUDE_FILES += $(libdir)/python$(VER)/test
