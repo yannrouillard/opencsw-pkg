@@ -33,6 +33,9 @@ RUNTIME_DEP_PKGS_CSWlibgsasl7 += CSWlibntlm0
 RUNTIME_DEP_PKGS_CSWlibgsasl7 += CSWlibidn11
 OBSOLETED_BY_CSWlibgsasl7 += CSWlibgsasl
 
+# Annoying, override for now
+CHECKPKG_OVERRIDES_CSWlibgsasl7 += surplus-dependency|CSWlibgpg-error0
+
 PACKAGES += CSWlibgsasl-dev
 SPKG_DESC_CSWlibgsasl-dev = Development files for GNU SASL library libgsasl.so.7
 PKGFILES_CSWlibgsasl-dev += $(PKGFILES_DEVEL)
