@@ -14,8 +14,8 @@ define BLURB
 endef
 
 MASTER_SITES	=	 $(SF_MIRRORS)
-SF_PROJ			=	ming
-DISTNAME		=	$(SF_PROJ)-$(VERSION)
+SF_PROJECT			=	ming
+DISTNAME		=	$(SF_PROJECT)-$(VERSION)
 DISTFILES		=	$(DISTNAME).tar.bz2
 PATCHFILES		+=	0001-PrintGifError-to-GifErrorString.patch
 PATCHFILES		+=	0002-makeswf-include-path.patch

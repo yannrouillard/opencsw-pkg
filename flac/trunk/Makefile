@@ -26,11 +26,11 @@ endef
 
 SF_PROJECT = flac
 MASTER_SITES = $(SF_MIRRORS)
-DISTNAME = $(SF_PROJ)-$(VERSION)
-SOURCEFILES = $(foreach VERSION,$(MODULATIONS_VERSION),$(SF_PROJ)-$(VERSION).tar.gz)
+DISTNAME = $(SF_PROJECT)-$(VERSION)
+SOURCEFILES = $(foreach VERSION,$(MODULATIONS_VERSION),$(SF_PROJECT)-$(VERSION).tar.gz)
 DISTFILES = $(SOURCEFILES)
 
-NOEXTRACT = $(filter-out $(SF_PROJ)-$(VERSION).tar.gz,$(SOURCEFILES))
+NOEXTRACT = $(filter-out $(SF_PROJECT)-$(VERSION).tar.gz,$(SOURCEFILES))
 
 PATCHFILES_isa-sparcv8-version-1.1.2 = libtool-64bit.patch
 PATCHFILES_isa-sparcv9-version-1.1.2 = libtool-64bit.patch

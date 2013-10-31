@@ -11,7 +11,7 @@ endef
 
 DISTNAME		=	metauml_lib
 MASTER_SITES	=	$(SF_MIRRORS)
-SF_PROJ			=	metauml
+SF_PROJECT			=	metauml
 DISTFILES		=	$(DISTNAME)_$(VERSION).tgz
 DISTFILES		+=	README.CSW
 

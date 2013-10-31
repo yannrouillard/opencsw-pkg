@@ -14,7 +14,7 @@ DISTNAME		=	metauml_manual
 WORKSRC			=	$(WORKDIR)/$(DISTNAME)2
 PATCHDIR		=	$(WORKSRC)
 MASTER_SITES	=	$(SF_MIRRORS)
-SF_PROJ			=	metauml
+SF_PROJECT			=	metauml
 DISTFILES		=	$(DISTNAME)_src_$(VERSION).tgz
 DISTFILES		+=	fdl-1.3.txt
 

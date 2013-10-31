@@ -11,7 +11,7 @@ define BLURB
 endef
 
 MASTER_SITES	=	$(SF_MIRRORS)
-SF_PROJ			=	parchive
+SF_PROJECT			=	parchive
 DISTFILES		=	$(DISTNAME).tar.gz
 PATCHFILES		=	0001-Debian-0.4-11-serial-000_unidentified.patch
 PATCHFILES		+=	0002-Debian-0.4-11-serial-001_hardlinks.patch
