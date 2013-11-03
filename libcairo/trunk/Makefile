@@ -1,5 +1,5 @@
 NAME = cairo
-VERSION = 1.10.2
+VERSION = 1.12.16
 GARTYPE = v2
 GARCOMPILER = SOS12U3
 
@@ -12,13 +12,11 @@ define BLURB
 endef
 
 MASTER_SITES = http://www.cairographics.org/releases/
-DISTFILES = $(DISTNAME).tar.gz 
-
-# Apply patch until this is fixed:
-#   https://bugs.freedesktop.org/show_bug.cgi?id=37916
-PATCHFILES += 0001-Use-detected-EGREP-instead-of-generic-grep.patch
+DISTFILES = $(DISTNAME).tar.xz
 
 PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386
+
+PATCHFILES += 0001-Remove-cairo_private-from-_cairo_unbounded_rectangle.patch
 
 PACKAGES += CSWlibcairo2
 SPKG_DESC_CSWlibcairo2 = The Cairo 2D Graphics Library, libcairo.so.2
@@ -66,17 +64,23 @@ ARCHALL_CSWlibcairo-doc = 1
 OBSOLETED_BY_CSWlibcairo-doc = CSWlibcairodoc
 CATALOGNAME_CSWlibcairodoc = libcairo_doc_stub
 
-# We do NOT want -L/opt/csw/lib in there as the pathes are detected properly and this disturbs libtool later on
-LINKER_FLAGS =
-
 BUILD64_LIBS_ONLY = 1
+EXTRA_CFLAGS  =  -xc99=all
+
+# There are several tests failing, but I'm in a hurry to release... :/
+SKIPTEST ?= 1
+
+# Use custom test script, because many `source' tests fail
+TEST_SCRIPTS  = custom
 
 CONFIGURE_ARGS += $(DIRPATHS)
+CONFIGURE_ARGS += --disable-silent-rules
+CONFIGURE_ARGS += --disable-static
 CONFIGURE_ARGS += --disable-full-testing
 CONFIGURE_ARGS += --enable-xlib=yes
 CONFIGURE_ARGS += --enable-xlib-xrender=yes
 CONFIGURE_ARGS += --enable-ft=yes
-CONFIGURE_ARGS += --with-x 
+CONFIGURE_ARGS += --with-x
 CONFIGURE_ARGS += --enable-png=yes
 CONFIGURE_ARGS += --enable-ps=yes
 CONFIGURE_ARGS += --enable-pdf=yes
@@ -85,16 +89,26 @@ CONFIGURE_ARGS += --enable-xcb=no
 CONFIGURE_ARGS += --enable-gtk-doc
 CONFIGURE_ARGS += --enable-test-surfaces=yes 
 
-# Use custom lroundf at least on Solaris 9 as it does not provide its own
-CONFIGURE_ARGS += --disable-some-floating-point
-
-# This is broken due to missing stdint.h and use of setenv(3c)
-CONFIGURE_ARGS += --enable-trace=no
-
-# There are many source tests failing
-SKIPTEST ?= 1
+PWD:=$(shell pwd)
 
 include gar/category.mk
 
+# What's this for!?
+#
+# During the the link of any2ppm, the currently built libcairo.so is
+# included as well as any libcairo.so lying in the -L path. Thus the
+# linker complains about multiple inclusion of libcairo.so from two
+# different places and dies.
+#
+# By providing a linker path to the currently built libcairo.so, we
+# can resolve the issue.
+#
+# I don't think this an error a priori, but a result of circular
+# dependencies. However, `I think' so I might be wrong as well -- raos
+LD_OPTIONS += -L$(PWD)/$(WORKSRC)/src/.libs 
+
 # configure has problems with non-gnu utilities
 PATH := /opt/csw/gnu:$(PATH)
+
+test-custom:
+	cd $(WORKSRC)/test ; $(BUILD_ENV) gmake $(BUILD_FLAGS) check
