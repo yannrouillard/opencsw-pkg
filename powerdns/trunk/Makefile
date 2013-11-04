@@ -63,7 +63,7 @@ CONFIGURE_ARGS += --with-mysql=$(prefix)
 CONFIGURE_ARGS += --with-mysql-lib=$(prefix)/lib
 CONFIGURE_ARGS += --with-mysql-includes=$(prefix)/include
 CONFIGURE_ARGS += --with-sqlite3
-CONFIGURE_ARGS += --with-modules="ldap geo gmysql gsqlite3"
+CONFIGURE_ARGS += --with-modules="ldap geo gmysql gsqlite3 remote"
 
 EXTRA_CONFIGURE_ENV += "PKG_CONFIG=/opt/csw/bin/pkg-config"
 EXTRA_CONFIGURE_ENV += "PKG_CONFIG_PATH=/opt/csw/lib/pkgconfig"
@@ -89,11 +89,13 @@ RUNTIME_DEP_PKGS_CSWpdns += CSWlibboost-s13n1-49-0-gxx
 RUNTIME_DEP_PKGS_CSWpdns += CSWliblber2-4-2
 RUNTIME_DEP_PKGS_CSWpdns += CSWlibldap-r2-4-2
 RUNTIME_DEP_PKGS_CSWpdns += CSWlibsqlite3-0
+RUNTIME_DEP_PKGS_CSWpdns += CSWlibcurl4
 BUILD_DEP_PKGS_CSWpdns += CSWmysql-dev
 BUILD_DEP_PGKS_CSWpdns += CSWboostdevel
 BUILD_DEP_PKGS_CSWpdns += CSWlibsqlite3-dev
 BUILD_DEP_PGKS_CSWpdns += CSWopenldap-dev
 BUILD_DEP_PGKS_CSWpdns += CSWlibz-dev
+BUILD_DEP_PGKS_CSWpdns += CSWlibcurl-dev
 
 # These are not errors!
 CHECKPKG_OVERRIDES_CSWpdns += catalogname-does-not-match-pkgname|pkgname=CSWpdns|catalogname=powerdns|expected-catalogname=pdns
