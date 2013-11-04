@@ -26,12 +26,7 @@ DISTFILES += README.CSW
 EXPANDVARS = CSWgtk2.postinstall
 
 # This makes the tests work in the first place
-#PATCHFILES += 0002-Use-absolute-path-to-Xvfb.patch
-
-# This patch adds a command line option `--update-modules` to
-# gtk-query-immodules-2.0 which has the default location of
-# gtk.immodules hardcoded and takes 32/64bit ISAs into account.
-PATCHFILES += 0001-Add-update-modules-cmd-line-option.patch
+PATCHFILES += 0000-Use-absolute-path-to-Xvfb.patch
 
 PATCHFILES += 0000-Disable-gtk_test_create_widget-g_type_from_name-GtkT.patch
 
@@ -191,8 +186,6 @@ CHECKPKG_OVERRIDES_CSWlibgtk2-dev += missing-dependency|CSWlibgobject2-0-0
 CHECKPKG_OVERRIDES_CSWlibgtk2-dev += missing-dependency|CSWlibglib2-0-0
 
 
-
-
 PACKAGES += CSWgtk2doc
 SPKG_DESC_CSWgtk2doc = $(DESCRIPTION), Documentation
 ARCHALL_CSWgtk2doc = 1
@@ -219,6 +212,9 @@ BUILD_DEP_PKGS += CSWlibpixman-dev
 BUILD_DEP_PKGS += CSWlibpng-dev
 BUILD_DEP_PKGS += CSWfontconfig-dev
 BUILD_DEP_PKGS += CSWlibfreetype-dev
+BUILD_DEP_PKGS += CSWlibgcrypt-dev
+BUILD_DEP_PKGS += CSWlibgpg-error-dev
+BUILD_DEP_PKGS += CSWlibgnutls-dev 
 # Needed to make a test work
 BUILD_DEP_PKGS += CSWgamin
 # Used to adjust documentation
@@ -244,8 +240,8 @@ CONFIGURE_ARGS += $(CONFIGURE_ARGS-$(MEMORYMODEL))
 include gar/category.mk
 
 post-merge:
-	ginstall -d $(PKGROOT)$(sysconfdir)/64/gtk-2.0
-	ginstall $(PKGROOT)$(sysconfdir)/gtk-2.0/im-multipress.conf $(PKGROOT)$(sysconfdir)/64/gtk-2.0/
+	ginstall -d $(PKGROOT)$(sysconfdir)/gtk-2.0
+	[ -f $(PKGROOT)$(sysconfdir)/gtk-2.0/im-multipress.conf ] || ginstall $(PKGROOT)/etc/opt/csw/gtk-2.0/im-multipress.conf $(PKGROOT)$(sysconfdir)/gtk-2.0/
 	gsed -i -e 's|/usr/share/|$(sharedstatedir)/|g' \
 		-e 's|/usr/lib|$(libdir)|g' \
 		-e 's|/usr/include|$(includedir)|g' `find $(PKGROOT)$(sharedstatedir)/gtk-doc -type f`
