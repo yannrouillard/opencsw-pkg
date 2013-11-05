@@ -78,45 +78,14 @@ CHECKPKG_OVERRIDES_CSWgtk2 += surplus-dependency|CSWlibgio2-0-0
 CHECKPKG_OVERRIDES_CSWgtk2 += surplus-dependency|CSWlibfreetype6
 
 PACKAGES += CSWgtk2-printbackends-papi
-SPKG_DESC_CSWgtk2-printbackends-papi = $(DESCRIPTION), Print Backend
-PKGFILES_CSWgtk2-printbackends-papi  = .*/printbackends/libprintbackend-papi.*
-PKGFILES_CSWgtk2-printbackends-papi += $(docdir)/gtk2_printbackends_papi.*
-RUNTIME_DEP_PKGS_CSWgtk2-printbackends-papi += CSWlibcairo2
-RUNTIME_DEP_PKGS_CSWgtk2-printbackends-papi += CSWlibglib2-0-0
-RUNTIME_DEP_PKGS_CSWgtk2-printbackends-papi += CSWlibgobject2-0-0
-RUNTIME_DEP_PKGS_CSWgtk2-printbackends-papi += CSWlibgtk-x11-2-0-0
-RUNTIME_DEP_PKGS_CSWgtk2-printbackends-papi += CSWlibgcc-s1
-# There is now libpapi.so in /usr/lib/64
-CHECKPKG_OVERRIDES_CSWgtk2-printbackends-papi += 64-bit-binaries-missing
-# Remove after -z ignore issue has been resolved
-CHECKPKG_OVERRIDES_CSWgtk2-printbackends-papi += soname-unused
-RUNTIME_DEP_PKGS_CSWgtk2-printbackends-papi += CSWlibgmodule2-0-0
-RUNTIME_DEP_PKGS_CSWgtk2-printbackends-papi += CSWlibgdk-x11-2-0-0
-RUNTIME_DEP_PKGS_CSWgtk2-printbackends-papi += CSWlibintl8
-RUNTIME_DEP_PKGS_CSWgtk2-printbackends-papi += CSWlibgdk-pixbuf2-0-0
-RUNTIME_DEP_PKGS_CSWgtk2-printbackends-papi += CSWlibxrender
-RUNTIME_DEP_PKGS_CSWgtk2-printbackends-papi += CSWlibfreetype6
-RUNTIME_DEP_PKGS_CSWgtk2-printbackends-papi += CSWlibgio2-0-0
-RUNTIME_DEP_PKGS_CSWgtk2-printbackends-papi += CSWpango
-RUNTIME_DEP_PKGS_CSWgtk2-printbackends-papi += CSWlibfontconfig1
-RUNTIME_DEP_PKGS_CSWgtk2-printbackends-papi += CSWlibatk1-0-0
-CHECKPKG_OVERRIDES_CSWgtk2-printbackends-papi += surplus-dependency|CSWlibfontconfig1
-CHECKPKG_OVERRIDES_CSWgtk2-printbackends-papi += surplus-dependency|CSWlibgmodule2-0-0
-CHECKPKG_OVERRIDES_CSWgtk2-printbackends-papi += surplus-dependency|CSWlibintl8
-CHECKPKG_OVERRIDES_CSWgtk2-printbackends-papi += surplus-dependency|CSWlibxrender
-CHECKPKG_OVERRIDES_CSWgtk2-printbackends-papi += surplus-dependency|CSWpango
-CHECKPKG_OVERRIDES_CSWgtk2-printbackends-papi += surplus-dependency|CSWlibgdk-x11-2-0-0
-CHECKPKG_OVERRIDES_CSWgtk2-printbackends-papi += surplus-dependency|CSWlibatk1-0-0
-CHECKPKG_OVERRIDES_CSWgtk2-printbackends-papi += surplus-dependency|CSWlibfreetype6
-CHECKPKG_OVERRIDES_CSWgtk2-printbackends-papi += surplus-dependency|CSWlibgdk-pixbuf2-0-0
-CHECKPKG_OVERRIDES_CSWgtk2-printbackends-papi += surplus-dependency|CSWlibgio2-0-0
-
+ARCHALL_CSWgtk2-printbackends-papi = 1
+SPKG_DESC_CSWgtk2-printbackends-papi = $(DESCRIPTION), Print Backend (OBSOLETE)
+PKGFILES_CSWgtk2-printbackends-papi = intentionally_empty
 
 PACKAGES += CSWgtk2-printbackends-file
 SPKG_DESC_CSWgtk2-printbackends-file = $(DESCRIPTION), File Print Backend
 PKGFILES_CSWgtk2-printbackends-file  = .*/printbackends/libprintbackend-file.*
 PKGFILES_CSWgtk2-printbackends-file += $(docdir)/gtk2_printbackends_file.*
-RUNTIME_DEP_PKGS_CSWgtk2-printbackends-file  = CSWgtk2-printbackends-papi
 RUNTIME_DEP_PKGS_CSWgtk2-printbackends-file += CSWlibcairo2
 RUNTIME_DEP_PKGS_CSWgtk2-printbackends-file += CSWlibgdk-x11-2-0-0
 RUNTIME_DEP_PKGS_CSWgtk2-printbackends-file += CSWlibgio2-0-0
@@ -124,7 +93,6 @@ RUNTIME_DEP_PKGS_CSWgtk2-printbackends-file += CSWlibglib2-0-0
 RUNTIME_DEP_PKGS_CSWgtk2-printbackends-file += CSWlibgobject2-0-0
 RUNTIME_DEP_PKGS_CSWgtk2-printbackends-file += CSWlibgtk-x11-2-0-0
 RUNTIME_DEP_PKGS_CSWgtk2-printbackends-file += CSWlibgcc-s1
-CHECKPKG_OVERRIDES_CSWgtk2-printbackends-file += surplus-dependency|CSWgtk2-printbackends-papi
 # Remove after -z ignore issue has been resolved
 CHECKPKG_OVERRIDES_CSWgtk2-printbackends-file += soname-unused
 RUNTIME_DEP_PKGS_CSWgtk2-printbackends-file += CSWlibgmodule2-0-0
@@ -148,7 +116,6 @@ PACKAGES += CSWgtk2-printbackends-cups
 SPKG_DESC_CSWgtk2-printbackends-cups = $(DESCRIPTION), CUPS Print Backend
 PKGFILES_CSWgtk2-printbackends-cups  = .*/printbackends/libprintbackend-cups.*
 PKGFILES_CSWgtk2-printbackends-cups += $(docdir)/gtk2_printbackends_cups.*
-RUNTIME_DEP_PKGS_CSWgtk2-printbackends-cups  = CSWgtk2-printbackends-papi
 RUNTIME_DEP_PKGS_CSWgtk2-printbackends-cups += CSWlibcairo2
 RUNTIME_DEP_PKGS_CSWgtk2-printbackends-cups += CSWlibcups2
 RUNTIME_DEP_PKGS_CSWgtk2-printbackends-cups += CSWlibgdk-x11-2-0-0
@@ -156,7 +123,6 @@ RUNTIME_DEP_PKGS_CSWgtk2-printbackends-cups += CSWlibglib2-0-0
 RUNTIME_DEP_PKGS_CSWgtk2-printbackends-cups += CSWlibgobject2-0-0
 RUNTIME_DEP_PKGS_CSWgtk2-printbackends-cups += CSWlibgtk-x11-2-0-0
 RUNTIME_DEP_PKGS_CSWgtk2-printbackends-cups += CSWlibgcc-s1
-CHECKPKG_OVERRIDES_CSWgtk2-printbackends-cups += surplus-dependency|CSWgtk2-printbackends-papi
 # Remove after -z ignore issue has been resolved
 CHECKPKG_OVERRIDES_CSWgtk2-printbackends-cups += soname-unused
 RUNTIME_DEP_PKGS_CSWgtk2-printbackends-cups += CSWlibgmodule2-0-0
@@ -189,13 +155,11 @@ PACKAGES += CSWgtk2-printbackends-lpr
 SPKG_DESC_CSWgtk2-printbackends-lpr = $(DESCRIPTION), LPR Print Backend
 PKGFILES_CSWgtk2-printbackends-lpr  = .*/printbackends/libprintbackend-lpr.*
 PKGFILES_CSWgtk2-printbackends-lpr += $(docdir)/gtk2_printbackends_lpr.*
-RUNTIME_DEP_PKGS_CSWgtk2-printbackends-lpr = CSWgtk2-printbackends-papi
 RUNTIME_DEP_PKGS_CSWgtk2-printbackends-lpr += CSWlibcairo2
 RUNTIME_DEP_PKGS_CSWgtk2-printbackends-lpr += CSWlibglib2-0-0
 RUNTIME_DEP_PKGS_CSWgtk2-printbackends-lpr += CSWlibgobject2-0-0
 RUNTIME_DEP_PKGS_CSWgtk2-printbackends-lpr += CSWlibgtk-x11-2-0-0
 RUNTIME_DEP_PKGS_CSWgtk2-printbackends-lpr += CSWlibgcc-s1
-CHECKPKG_OVERRIDES_CSWgtk2-printbackends-lpr += surplus-dependency|CSWgtk2-printbackends-papi
 # Remove once -z ignore issue has been resolved
 CHECKPKG_OVERRIDES_CSWgtk2-printbackends-lpr += soname-unused
 RUNTIME_DEP_PKGS_CSWgtk2-printbackends-lpr += CSWlibgmodule2-0-0
@@ -378,6 +342,7 @@ CONFIGURE_ARGS += --enable-shm
 CONFIGURE_ARGS += --enable-xkb
 CONFIGURE_ARGS += --enable-xinerama
 CONFIGURE_ARGS += --enable-cups
+CONFIGURE_ARGS += --disable-papi
 CONFIGURE_ARGS += --disable-introspection
 CONFIGURE_ARGS += $(CONFIGURE_ARGS-$(MEMORYMODEL))
 
