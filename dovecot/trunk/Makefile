@@ -18,7 +18,7 @@ MASTER_SITES   = http://dovecot.org/releases/2.2/
 DISTFILES      = $(NAME)-$(VERSION).tar.gz
 UFILES_REGEX   = $(NAME)-(\d+(?:\.\d+)*).tar.gz
 
-GARCOMPILER	= GCC4
+GARCOMPILER	= SOS12
 
 PACKAGES  = CSWdovecot CSWdovecot-dev
 
@@ -41,7 +41,6 @@ RUNTIME_DEP_PKGS_CSWdovecot += CSWlibsqlite3-0
 RUNTIME_DEP_PKGS_CSWdovecot += CSWlibssl1-0-0
 RUNTIME_DEP_PKGS_CSWdovecot += CSWliblber2-4-2
 RUNTIME_DEP_PKGS_CSWdovecot += CSWlibldap2-4-2
-RUNTIME_DEP_PKGS_CSWdovecot += CSWlibgcc-s1
 
 PKGFILES_CSWdovecot-dev = $(PKGFILES_DEVEL)
 
