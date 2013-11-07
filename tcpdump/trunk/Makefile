@@ -1,5 +1,5 @@
 NAME = tcpdump
-VERSION = 4.3.0
+VERSION = 4.4.0
 GARTYPE = v2
 
 DESCRIPTION = Dump network traffic
