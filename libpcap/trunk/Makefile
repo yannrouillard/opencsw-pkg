@@ -1,5 +1,5 @@
 NAME = libpcap
-VERSION = 1.3.0
+VERSION = 1.4.0
 GARTYPE = v2
 
 DESCRIPTION = System-independent interface for user-level packet capture
