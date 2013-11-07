@@ -1,5 +1,5 @@
 NAME = doxygen
-VERSION = 1.8.4
+VERSION = 1.8.5
 GARTYPE = v2
 
 DESCRIPTION = A documentation system for programming languages
