@@ -2,7 +2,7 @@
 # TODO (release-critical prefixed with !, non release-critical with *)
 #
 NAME = nodejs
-VERSION = 0.6.18
+VERSION = 0.10.21
 GARTYPE = v2
 
 DESCRIPTION = Node.js JavaScript interpreter
