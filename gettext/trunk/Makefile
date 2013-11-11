@@ -11,7 +11,6 @@ endef
 
 MASTER_SITES += $(GNU_MIRROR)
 DISTFILES += $(NAME)-$(VERSION).tar.gz
-DISTFILES += CSWggettext.cswreleasenotes
 
 # A few legacy packages that we still need to depend on for dependency reasons
 # that we no longer want to rebuild and carry.
