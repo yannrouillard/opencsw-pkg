@@ -1,5 +1,5 @@
 NAME = pkgutil
-VERSION = 2.6.6b2
+VERSION = 2.6.6
 GARTYPE = v2
 
 DESCRIPTION = Installs Solaris packages easily
@@ -11,7 +11,7 @@ define BLURB
 endef
 
 MASTER_SITES = $(SF_MIRRORS)
-#MASTER_SITES = http://sourceforge.net/projects/pkgutil/files/pkgutil/2.4/
+#MASTER_SITES = http://sourceforge.net/projects/pkgutil/files/pkgutil/2.6.6/
 DISTFILES  = $(NAME)-$(VERSION).zip
 
 #DISTFILES += $(call admfiles,CSWpkgutil,prototype preremove postinstall)
@@ -33,7 +33,7 @@ DISTFILES += cswcatalog
 
 LICENSE = license
 
-# Disable inclusion of CSWcommon by default.
+# Disable inclusion of CSWcommon by default
 COMMON_PKG_DEPENDS = 
 
 PACKAGES               = CSWpkgutil
