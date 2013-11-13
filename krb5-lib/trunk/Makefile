@@ -37,6 +37,7 @@ PKGFILES_CSWlibkrb5-dev += $(mandir)/man1/(sclient|krb5-config|compile_et)\.1
 PKGFILES_CSWlibkrb5-dev += $(sbindir)/(uuserver|sserver|sim_server|gss-server)
 PKGFILES_CSWlibkrb5-dev += $(PKGFILES_DEVEL)
 PKGFILES_CSWlibkrb5-dev += $(bindir)/(uuclient|sim_client|sclient|krb5-config|gss-client|compile_et)
+RUNTIME_DEP_PKGS_CSWlibkrb5-dev += CSWlibintl8
 OBSOLETED_BY_CSWlibkrb5-dev = CSWkrb5libdev
 CATALOGNAME_CSWkrb5libdev = krb5_lib_dev_stub
 
@@ -46,6 +47,8 @@ PKGFILES_CSWlibcom-err3 +=  $(call baseisadirs,$(libdir),libcom_err\.so\.3(\.\d+
 SPKG_DESC_CSWlibcom-err3 += MIT Kerberos 5 core libraries, libcom_err.so.3
 OBSOLETED_BY_CSWlibcom-err3 = CSWkrb5lib
 RUNTIME_DEP_PKGS_CSWlibcom-err3 += CSWlibkrb5support0
+RUNTIME_DEP_PKGS_CSWlibcom-err3 += CSWlibintl8
+RUNTIME_DEP_PKGS_CSWlibcom-err3 += CSWlibgcc-s1
 
 PACKAGES += CSWlibgssapi-krb5-2
 CATALOGNAME_CSWlibgssapi-krb5-2 = libgssapi_krb5_2
@@ -56,12 +59,16 @@ RUNTIME_DEP_PKGS_CSWlibgssapi-krb5-2 += CSWlibkrb5-3
 RUNTIME_DEP_PKGS_CSWlibgssapi-krb5-2 += CSWlibcom-err3
 RUNTIME_DEP_PKGS_CSWlibgssapi-krb5-2 += CSWlibk5crypto3
 RUNTIME_DEP_PKGS_CSWlibgssapi-krb5-2 += CSWlibkrb5support0
+RUNTIME_DEP_PKGS_CSWlibgssapi-krb5-2 += CSWlibintl8
+RUNTIME_DEP_PKGS_CSWlibgssapi-krb5-2 += CSWlibgcc-s1
 
 PACKAGES += CSWlibk5crypto3
 CATALOGNAME_CSWlibk5crypto3 = libk5crypto3
 PKGFILES_CSWlibk5crypto3 += $(call baseisadirs,$(libdir),libk5crypto\.so\.3(\.\d+)*)
 SPKG_DESC_CSWlibk5crypto3 += MIT Kerberos 5 core libraries, libk5crypto.so.3
 RUNTIME_DEP_PKGS_CSWlibk5crypto3 += CSWlibkrb5support0
+RUNTIME_DEP_PKGS_CSWlibk5crypto3 += CSWlibintl8
+RUNTIME_DEP_PKGS_CSWlibk5crypto3 += CSWlibgcc-s1
 OBSOLETED_BY_CSWlibk5crypto3 = CSWkrb5lib
 
 PACKAGES += CSWlibkrb5-priv
@@ -77,6 +84,8 @@ RUNTIME_DEP_PKGS_CSWlibkrb5-priv += CSWlibkrb5-3
 RUNTIME_DEP_PKGS_CSWlibkrb5-priv += CSWlibkrb5support0
 RUNTIME_DEP_PKGS_CSWlibkrb5-priv += CSWlibcom-err3
 RUNTIME_DEP_PKGS_CSWlibkrb5-priv += CSWlibk5crypto3
+RUNTIME_DEP_PKGS_CSWlibkrb5-priv += CSWlibintl8
+RUNTIME_DEP_PKGS_CSWlibkrb5-priv += CSWlibgcc-s1
 
 PACKAGES += CSWlibkrb5-3
 CATALOGNAME_CSWlibkrb5-3 = libkrb5_3
@@ -86,11 +95,15 @@ OBSOLETED_BY_CSWlibkrb5-3 = CSWkrb5lib
 RUNTIME_DEP_PKGS_CSWlibkrb5-3 += CSWlibkrb5support0
 RUNTIME_DEP_PKGS_CSWlibkrb5-3 += CSWlibcom-err3
 RUNTIME_DEP_PKGS_CSWlibkrb5-3 += CSWlibk5crypto3
+RUNTIME_DEP_PKGS_CSWlibkrb5-3 += CSWlibintl8
+RUNTIME_DEP_PKGS_CSWlibkrb5-3 += CSWlibgcc-s1
 
 PACKAGES += CSWlibkrb5support0
 CATALOGNAME_CSWlibkrb5support0 = libkrb5support0
 PKGFILES_CSWlibkrb5support0 += $(call baseisadirs,$(libdir),libkrb5support\.so\.0(\.\d+)*)
 SPKG_DESC_CSWlibkrb5support0 += MIT Kerberos 5 core libraries, libkrb5support.so.0
+RUNTIME_DEP_PKGS_CSWlibkrb5support0 += CSWlibintl8
+RUNTIME_DEP_PKGS_CSWlibkrb5support0 += CSWlibgcc-s1
 OBSOLETED_BY_CSWlibkrb5-3 = CSWkrb5lib
 
 LICENSE = doc/copyright.rst
