@@ -22,7 +22,9 @@ DISTFILES  = $(NAME)-$(VERSION)-signed.tar
 
 GARCOMPILER = GCC4
 
+BUILD_DEP_PKGS += CSWggettext
 BUILD_DEP_PKGS += CSWtcl
+BUILD_DEP_PKGS += CSWbdb48devel
 
 PACKAGES += CSWlibkrb5-dev
 SPKG_DESC_CSWlibkrb5-dev      = MIT Kerberos 5 developer libraries
@@ -111,8 +113,8 @@ OBSOLETED_BY_CSWlibkrb5-3 = CSWkrb5lib
 LICENSE = doc/copyright.rst
 
 EXTRA_CFLAGS   += -std=gnu99
-EXTRA_CPPFLAGS += -D__EXTENSIONS__ 
-EXTRA_LDFLAGS  += -L$(libdir) -lintl 
+EXTRA_CPPFLAGS += -D__EXTENSIONS__ -I$(prefix)/bdb48/include
+EXTRA_LDFLAGS  += -L$(libdir) -lintl -L$(prefix)/bdb48/lib/$(MM_LIBDIR) -R$(prefix)/bdb48/lib/$(MM_LIBDIR)
 
 CONFIGURE_SCRIPTS = $(WORKSRC)/src/configure
 
@@ -129,8 +131,8 @@ CONFIGURE_ARGS += --with-readline
 CONFIGURE_ARGS += --with-system-db
 # To pick the right tclConfig.sh
 CONFIGURE_ARGS += --with-tcl=$(libdir)
-CONFIGURE_ARGS += DB_HEADER=$(prefix)/bdb48/include/db_185.h
-CONFIGURE_ARGS += DB_LIB="-L$(prefix)/bdb48/$(MM_LIBDIR) -R$(prefix)/bdb48/$(MM_LIBDIR)"
+CONFIGURE_ARGS += DB_HEADER=db_185.h
+CONFIGURE_ARGS += DB_LIB="-ldb-4.8"
 
 SKIPTEST = 1
 
@@ -152,7 +154,6 @@ post-extract-modulated:
 
 post-install-modulated:
 	# Remove Studio-specific arch references
-
 	gsed -i \
 		-e '/^[^#]/s/-xO[0-5][^ ]* *//g' \
 		-e '/^[^#]/s/-xarch=[^ ]* *//g' \
