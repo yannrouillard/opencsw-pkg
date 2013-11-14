@@ -10,18 +10,6 @@ define BLURB
   Tools to access a servers filespace and printers via SMB (server)
 endef
 
-# Temp overrides for ld bug
-CHECKPKG_OVERRIDES_CSWlibtdb1 += missing-dependency|CSWlibintl8
-CHECKPKG_OVERRIDES_CSWlibnetapi0 += missing-dependency|CSWlibintl8
-CHECKPKG_OVERRIDES_CSWsamba-client += missing-dependency|CSWlibintl8
-CHECKPKG_OVERRIDES_CSWsamba-swat += missing-dependency|CSWlibintl8
-CHECKPKG_OVERRIDES_CSWlibwbclient0 += missing-dependency|CSWlibintl8
-CHECKPKG_OVERRIDES_CSWlibsmbclient0 += missing-dependency|CSWlibintl8
-CHECKPKG_OVERRIDES_CSWlibtevent0 += missing-dependency|CSWlibintl8
-CHECKPKG_OVERRIDES_CSWsamba-nss += missing-dependency|CSWlibintl8
-CHECKPKG_OVERRIDES_CSWlibsmbsharemodes0 += missing-dependency|CSWlibintl8
-CHECKPKG_OVERRIDES_CSWlibsmbsharemodes0 += missing-dependency|CSWlibtalloc2
-
 # GARCOMPILER is set below the include
 
 MASTER_SITES = http://samba.org/samba/ftp/stable/
