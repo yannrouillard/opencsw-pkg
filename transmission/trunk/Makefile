@@ -10,45 +10,60 @@ define BLURB
 endef
 MASTER_SITES = http://download.transmissionbt.com/files/
 DISTFILES  = $(NAME)-$(VERSION).tar.xz
+DISTFILES += CSWtransmission-gtk2.postinstall
+DISTFILES += changelog.CSW
+
+EXPANDVARS = CSWtransmission-gtk2.postinstall
+
 
 # We define upstream file regex so we can be notifed of new upstream software release
 UFILES_REGEX = -(\d+(?:\.\d+)*).tar.xz
 
 PATCHFILES += 0001-minupnpc.c-add-missing-preproc-test.patch
-PATCHFILES += 0002-utils-test.c-fix-test.patch
+PATCHFILES += 0003-utils-test.c-fix-test.patch
 PATCHFILES += 0003-platform.c-remove-usr-local-share-and-add-opt-csw-sh.patch
 
 PACKAGES  = CSWtransmission
-PACKAGES += CSWtransmissiongtk2
+PACKAGES += CSWtransmission-gtk2
 SPKG_DESC_CSWtransmission = Fast, easy, and free multi-platform BitTorrent client
-SPKG_DESC_CSWtransmissiongtk2 = Transmission  BitTorrent client , gtk2 Interface
+SPKG_DESC_CSWtransmission-gtk2 = Transmission  BitTorrent client , gtk2 Interface
 
-RUNTIME_DEP_PKGS_CSWtransmissiongtk2 = CSWcurlrt
-RUNTIME_DEP_PKGS_CSWtransmissiongtk2 += CSWdbusglib
-RUNTIME_DEP_PKGS_CSWtransmissiongtk2 += CSWfconfig
-RUNTIME_DEP_PKGS_CSWtransmissiongtk2 += CSWftype2
-RUNTIME_DEP_PKGS_CSWtransmissiongtk2 += CSWggettextrt
-RUNTIME_DEP_PKGS_CSWtransmissiongtk2 += CSWgtk2
-RUNTIME_DEP_PKGS_CSWtransmissiongtk2 += CSWglib2
-RUNTIME_DEP_PKGS_CSWtransmissiongtk2 += CSWlibatk
-RUNTIME_DEP_PKGS_CSWtransmissiongtk2 += CSWlibcairo
-RUNTIME_DEP_PKGS_CSWtransmissiongtk2 += CSWlibdbus
-RUNTIME_DEP_PKGS_CSWtransmissiongtk2 += CSWlibevent2-0-5
-RUNTIME_DEP_PKGS_CSWtransmissiongtk2 += CSWosslrt
-RUNTIME_DEP_PKGS_CSWtransmissiongtk2 += CSWpango
-RUNTIME_DEP_PKGS_CSWtransmissiongtk2 += CSWzlib
-RUNTIME_DEP_PKGS_CSWtransmissiongtk2 += CSWdbus
-RUNTIME_DEP_PKGS_CSWtransmissiongtk2 += CSWgconf2
-RUNTIME_DEP_PKGS_CSWtransmissiongtk2 += CSWiconv
-
-
-RUNTIME_DEP_PKGS_CSWtransmission = CSWcurlrt
+RUNTIME_DEP_PKGS_CSWtransmission += CSWlibintl8
+RUNTIME_DEP_PKGS_CSWtransmission += CSWlibiconv2
+RUNTIME_DEP_PKGS_CSWtransmission += CSWlibssl1-0-0
+RUNTIME_DEP_PKGS_CSWtransmission += CSWlibcurl4
+RUNTIME_DEP_PKGS_CSWtransmission += CSWlibz1
 RUNTIME_DEP_PKGS_CSWtransmission += CSWlibevent2-0-5
-RUNTIME_DEP_PKGS_CSWtransmission += CSWggettextrt
-RUNTIME_DEP_PKGS_CSWtransmission += CSWosslrt
-RUNTIME_DEP_PKGS_CSWtransmission += CSWzlib
-RUNTIME_DEP_PKGS_CSWtransmission += CSWiconv
-RUNTIME_DEP_PKGS_CSWtransmissiongtk2 += CSWtransmission
+# I'm pulling CSWgtk2 in order to execute CSWgtk2.postinstall
+RUNTIME_DEP_PKGS_CSWtransmission-gtk2  = CSWgtk2
+CHECKPKG_OVERRIDES_CSWtransmission-gtk2 += surplus-dependency|CSWgtk2
+RUNTIME_DEP_PKGS_CSWtransmission-gtk2 += CSWlibpango1-0-0
+RUNTIME_DEP_PKGS_CSWtransmission-gtk2 += CSWlibgthread2-0-0
+RUNTIME_DEP_PKGS_CSWtransmission-gtk2 += CSWlibiconv2
+RUNTIME_DEP_PKGS_CSWtransmission-gtk2 += CSWlibssl1-0-0
+RUNTIME_DEP_PKGS_CSWtransmission-gtk2 += CSWlibz1
+RUNTIME_DEP_PKGS_CSWtransmission-gtk2 += CSWlibintl8
+RUNTIME_DEP_PKGS_CSWtransmission-gtk2 += CSWlibgdk-pixbuf2-0-0
+RUNTIME_DEP_PKGS_CSWtransmission-gtk2 += CSWlibgdk-x11-2-0-0
+RUNTIME_DEP_PKGS_CSWtransmission-gtk2 += CSWlibcurl4
+RUNTIME_DEP_PKGS_CSWtransmission-gtk2 += CSWlibgobject2-0-0
+RUNTIME_DEP_PKGS_CSWtransmission-gtk2 += CSWlibgio2-0-0
+RUNTIME_DEP_PKGS_CSWtransmission-gtk2 += CSWlibgtk-x11-2-0-0
+RUNTIME_DEP_PKGS_CSWtransmission-gtk2 += CSWlibglib2-0-0
+RUNTIME_DEP_PKGS_CSWtransmission-gtk2 += CSWlibevent2-0-5
+# This is due to the `ld -z ignore' issue on sparc, remove once fixed
+RUNTIME_DEP_PKGS_CSWtransmission-gtk2 += CSWlibfreetype6
+CHECKPKG_OVERRIDES_CSWtransmission-gtk2 += surplus-dependency|CSWlibfreetype6
+
+# These are ok, /opt/csw/share has been added in front the list.
+CHECKPKG_OVERRIDES_CSWtransmission += file-with-bad-content|/usr/share|root/opt/csw/bin/transmission-cli
+CHECKPKG_OVERRIDES_CSWtransmission += file-with-bad-content|/usr/share|root/opt/csw/bin/transmission-remote
+CHECKPKG_OVERRIDES_CSWtransmission += file-with-bad-content|/usr/share|root/opt/csw/bin/transmission-edit
+CHECKPKG_OVERRIDES_CSWtransmission += file-with-bad-content|/usr/share|root/opt/csw/bin/transmission-create
+CHECKPKG_OVERRIDES_CSWtransmission += file-with-bad-content|/usr/share|root/opt/csw/bin/transmission-daemon
+CHECKPKG_OVERRIDES_CSWtransmission += file-with-bad-content|/usr/share|root/opt/csw/bin/transmission-show
+CHECKPKG_OVERRIDES_CSWtransmission-gtk2 += file-with-bad-content|/usr/share|root/opt/csw/bin/transmission-gtk
+
 
 PKGFILES_CSWtransmission  = /opt/csw/bin/transmission-cli
 PKGFILES_CSWtransmission  += /opt/csw/bin/transmission-create
@@ -59,6 +74,7 @@ PKGFILES_CSWtransmission  += /opt/csw/bin/transmission-remote
 PKGFILES_CSWtransmission  += /opt/csw/share/locale/.*
 PKGFILES_CSWtransmission  += /opt/csw/share/man/.*
 PKGFILES_CSWtransmission  += /opt/csw/share/transmission/.*
+PKGFILES_CSWtransmission  += $(docdir)/transmission/changelog.CSW
 
 BUILD_DEP_PKGS += CSWlibcurl-dev
 BUILD_DEP_PKGS += CSWlibgtk2-dev
@@ -66,11 +82,7 @@ BUILD_DEP_PKGS += CSWlibssl-dev
 BUILD_DEP_PKGS += CSWlibevent-dev
 BUILD_DEP_PKGS += CSWintltool
 
-CATALOGNAME_CSWtransmission = transmission
-CATALOGNAME_CSWtransmissiongtk2 = transmission_gtk2
-
 EXTRA_LINKER_FLAGS = -lintl -liconv
-
 
 CONFIGURE_ARGS  = $(DIRPATHS)
 CONFIGURE_ARGS += --with-gtk
