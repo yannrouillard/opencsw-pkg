@@ -3,7 +3,8 @@ VERSION = 2.4
 GARTYPE = v2
 
 # Sybase is available on Solaris 9 sparc 32 and 64 bit and Solaris 10 amd64
-PACKAGING_PLATFORMS = solaris9-sparc solaris9-i386
+#PACKAGING_PLATFORMS = solaris9-sparc solaris9-i386
+PACKAGING_PLATFORMS = solaris9-sparc
 PACKAGING_PLATFORMS += solaris10-sparc solaris10-i386
 
 # using this recipe as a reference for how to work with Sybase OCS
