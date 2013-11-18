@@ -51,44 +51,18 @@ RUNTIME_DEP_PKGS_CSWsqsh-ocs += CSWlibreadline6
 # This is for libintl.so which is provided by Sybase and should be used from there,
 # it is not to be taken from the development package CSWggettext-dev
 CHECKPKG_OVERRIDES_CSWsqsh-ocs += missing-dependency|CSWggettext-dev
-# The Sybase package can not be released due to license restrictions
-CHECKPKG_OVERRIDES_CSWsqsh-ocs += soname-not-found|libsybct64.so|is|needed|by|opt/csw/bin/amd64/sqsh-ocs
-CHECKPKG_OVERRIDES_CSWsqsh-ocs += soname-not-found|libsybblk64.so|is|needed|by|opt/csw/bin/amd64/sqsh-ocs
-CHECKPKG_OVERRIDES_CSWsqsh-ocs += soname-not-found|libsybcomn64.so|is|needed|by|opt/csw/bin/amd64/sqsh-ocs
-CHECKPKG_OVERRIDES_CSWsqsh-ocs += soname-not-found|libsybcs64.so|is|needed|by|opt/csw/bin/amd64/sqsh-ocs
-CHECKPKG_OVERRIDES_CSWsqsh-ocs += soname-not-found|libsybintl64.so|is|needed|by|opt/csw/bin/amd64/sqsh-ocs
-CHECKPKG_OVERRIDES_CSWsqsh-ocs += soname-not-found|libsybtcl64.so|is|needed|by|opt/csw/bin/amd64/sqsh-ocs
-CHECKPKG_OVERRIDES_CSWsqsh-ocs += soname-not-found|libsybcomn64.so|is|needed|by|opt/csw/bin/sparcv9/sqsh-ocs
-CHECKPKG_OVERRIDES_CSWsqsh-ocs += soname-not-found|libsybtcl64.so|is|needed|by|opt/csw/bin/sparcv9/sqsh-ocs
-CHECKPKG_OVERRIDES_CSWsqsh-ocs += soname-not-found|libsybtcl.so|is|needed|by|opt/csw/bin/sparcv8plus/sqsh-ocs
-CHECKPKG_OVERRIDES_CSWsqsh-ocs += soname-not-found|libsybcs64.so|is|needed|by|opt/csw/bin/sparcv9/sqsh-ocs
-CHECKPKG_OVERRIDES_CSWsqsh-ocs += soname-not-found|libsybblk64.so|is|needed|by|opt/csw/bin/sparcv9/sqsh-ocs
-CHECKPKG_OVERRIDES_CSWsqsh-ocs += soname-not-found|libsybcs.so|is|needed|by|opt/csw/bin/sparcv8plus/sqsh-ocs
-CHECKPKG_OVERRIDES_CSWsqsh-ocs += soname-not-found|libsybct64.so|is|needed|by|opt/csw/bin/sparcv9/sqsh-ocs
-CHECKPKG_OVERRIDES_CSWsqsh-ocs += soname-not-found|libsybct.so|is|needed|by|opt/csw/bin/sparcv8plus/sqsh-ocs
-CHECKPKG_OVERRIDES_CSWsqsh-ocs += soname-not-found|libsybblk.so|is|needed|by|opt/csw/bin/sparcv8plus/sqsh-ocs
-CHECKPKG_OVERRIDES_CSWsqsh-ocs += soname-not-found|libsybcomn.so|is|needed|by|opt/csw/bin/sparcv8plus/sqsh-ocs
-CHECKPKG_OVERRIDES_CSWsqsh-ocs += soname-not-found|libsybintl.so|is|needed|by|opt/csw/bin/sparcv8plus/sqsh-ocs
-CHECKPKG_OVERRIDES_CSWsqsh-ocs += soname-not-found|libsybintl64.so|is|needed|by|opt/csw/bin/sparcv9/sqsh-ocs
+
+# These are all provided by Sybase. A library from freetds-dev is also included in Sybase, hence the false detection.
 CHECKPKG_OVERRIDES_CSWsqsh-ocs += soname-not-found|libcomn.so|is|needed|by|opt/csw/bin/sqsh-ocs
 CHECKPKG_OVERRIDES_CSWsqsh-ocs += soname-not-found|libcs.so|is|needed|by|opt/csw/bin/sqsh-ocs
-CHECKPKG_OVERRIDES_CSWsqsh-ocs += surplus-dependency|CSWlibreadline6
-# This is for /usr/local/lib/sqsh/help, this is not in the distribution, don't know where to find that, ignore for now.
-CHECKPKG_OVERRIDES_CSWsqsh-ocs += file-with-bad-content|/usr/local|root/opt/csw/bin/amd64/sqsh-ocs
-CHECKPKG_OVERRIDES_CSWsqsh-ocs += file-with-bad-content|/usr/local|root/opt/csw/bin/sparcv9/sqsh-ocs
-CHECKPKG_OVERRIDES_CSWsqsh-ocs += file-with-bad-content|/usr/local|root/opt/csw/bin/sparcv8plus/sqsh-ocs
+CHECKPKG_OVERRIDES_CSWsqsh-ocs += missing-dependency|CSWfreetds-dev
+
 
 PACKAGES += CSWsqsh-freetds
 SPKG_DESC_CSWsqsh-freetds = $(DESCRIPTION) (Linked against FreeTDS)
 # PKGFILES is catchall
 RUNTIME_DEP_PKGS_CSWsqsh-freetds += CSWlibct4
 RUNTIME_DEP_PKGS_CSWsqsh-freetds += CSWlibreadline6
-# This is for /usr/local/lib/sqsh/help in sqsh, this is not in the distribution, don't know where to find that, ignore for now.
-CHECKPKG_OVERRIDES_CSWsqsh-freetds += file-with-bad-content|/usr/local|root/opt/csw/bin/amd64/sqsh-freetds
-CHECKPKG_OVERRIDES_CSWsqsh-freetds += file-with-bad-content|/usr/local|root/opt/csw/bin/i386/sqsh-freetds
-CHECKPKG_OVERRIDES_CSWsqsh-freetds += file-with-bad-content|/usr/local|root/opt/csw/bin/pentium_pro/sqsh-freetds
-CHECKPKG_OVERRIDES_CSWsqsh-freetds += file-with-bad-content|/usr/local|root/opt/csw/bin/sparcv9/sqsh-freetds
-CHECKPKG_OVERRIDES_CSWsqsh-freetds += file-with-bad-content|/usr/local|root/opt/csw/bin/sparcv8plus/sqsh-freetds
 
 ARGS-32 =
 ARGS-64 = -m64
@@ -129,6 +103,10 @@ CONFIGURE_ENV_LIBDIRS = $(SYBASE)/lib:$(libdir)
 BUILD64-5.10 = 1
 BUILD64 = $(BUILD64-$(GAROSREL))
 ISAEXEC = 1
+
+# Defaults to /usr/local/lib/sqsh/help
+# There are no help pages yet, make sure to relocate these later on when the are included in tarballs of later versions
+EXTRA_CPPFLAGS += -DSQSH_HELP=\\\"$(sharedstatedir)/sqsh/help\\\"
 
 CONFIGURE_ARGS = $(DIRPATHS)
 CONFIGURE_ARGS += --enable-shared --disable-nls
