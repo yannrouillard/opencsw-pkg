@@ -39,6 +39,7 @@ PKGFILES_CSWlibkrb5-dev += $(sbindir)/(uuserver|sserver|sim_server|gss-server)
 PKGFILES_CSWlibkrb5-dev += $(PKGFILES_DEVEL)
 PKGFILES_CSWlibkrb5-dev += $(bindir)/(uuclient|sim_client|sclient|krb5-config|gss-client|compile_et)
 RUNTIME_DEP_PKGS_CSWlibkrb5-dev += CSWlibintl8
+RUNTIME_DEP_PKGS_CSWlibkrb5-dev += CSWlibkrb5-priv
 OBSOLETED_BY_CSWlibkrb5-dev = CSWkrb5libdev
 CATALOGNAME_CSWkrb5libdev = krb5_lib_dev_stub
 # On unstable10x, that lib does not appear to be linked
@@ -83,6 +84,8 @@ PKGFILES_CSWlibkrb5-priv += $(call baseisadirs,$(libdir),libkdb5\.so\.\d+(\.\d+)
 PKGFILES_CSWlibkrb5-priv += $(call baseisadirs,$(libdir),krb5.*)
 # Private libraries in one common package.
 CHECKPKG_OVERRIDES_CSWlibkrb5-priv += shared-lib-pkgname-mismatch
+CHECKPKG_OVERRIDES_CSWlibkrb5-priv += soname-not-part-of-filename
+RUNTIME_DEP_PKGS_CSWlibkrb5-priv += CSWlibssl1-0-0
 RUNTIME_DEP_PKGS_CSWlibkrb5-priv += CSWlibgssapi-krb5-2
 RUNTIME_DEP_PKGS_CSWlibkrb5-priv += CSWlibkrb5-3
 RUNTIME_DEP_PKGS_CSWlibkrb5-priv += CSWlibkrb5support0
@@ -104,6 +107,7 @@ RUNTIME_DEP_PKGS_CSWlibkrb5-3 += CSWlibk5crypto3
 RUNTIME_DEP_PKGS_CSWlibkrb5-3 += CSWlibintl8
 RUNTIME_DEP_PKGS_CSWlibkrb5-3 += CSWlibgcc-s1
 RUNTIME_DEP_PKGS_CSWlibkrb5-3 += CSWlibkrb5-priv
+CHECKPKG_OVERRIDES_CSWlibkrb5-3 += surplus-dependency|CSWlibkrb5-priv
 
 PACKAGES += CSWlibkrb5support0
 CATALOGNAME_CSWlibkrb5support0 = libkrb5support0
