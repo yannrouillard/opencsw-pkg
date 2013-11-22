@@ -32,7 +32,6 @@ RUNTIME_DEP_PKGS_CSWlibkrb5-dev += CSWlibcom-err3
 RUNTIME_DEP_PKGS_CSWlibkrb5-dev += CSWlibgssapi-krb5-2
 RUNTIME_DEP_PKGS_CSWlibkrb5-dev += CSWlibk5crypto3
 RUNTIME_DEP_PKGS_CSWlibkrb5-dev += CSWlibkrb5support0
-RUNTIME_DEP_PKGS_CSWlibkrb5-dev += CSWlibkrb5-priv
 RUNTIME_DEP_PKGS_CSWlibkrb5-dev += CSWlibverto0
 PKGFILES_CSWlibkrb5-dev  = $(mandir)/man8/sserver.8
 PKGFILES_CSWlibkrb5-dev += $(mandir)/man1/(sclient|krb5-config|compile_et)\.1
@@ -81,6 +80,7 @@ PKGFILES_CSWlibkrb5-priv += $(call baseisadirs,$(libdir),libgssrpc\.so\.\d+(\.\d
 PKGFILES_CSWlibkrb5-priv += $(call baseisadirs,$(libdir),libkadm5clnt_mit\.so\.\d+(\.\d+)*)
 PKGFILES_CSWlibkrb5-priv += $(call baseisadirs,$(libdir),libkadm5srv_mit\.so\.\d+(\.\d+)*)
 PKGFILES_CSWlibkrb5-priv += $(call baseisadirs,$(libdir),libkdb5\.so\.\d+(\.\d+)*)
+PKGFILES_CSWlibkrb5-priv += $(call baseisadirs,$(libdir),krb5.*)
 # Private libraries in one common package.
 CHECKPKG_OVERRIDES_CSWlibkrb5-priv += shared-lib-pkgname-mismatch
 RUNTIME_DEP_PKGS_CSWlibkrb5-priv += CSWlibgssapi-krb5-2
@@ -103,6 +103,7 @@ RUNTIME_DEP_PKGS_CSWlibkrb5-3 += CSWlibcom-err3
 RUNTIME_DEP_PKGS_CSWlibkrb5-3 += CSWlibk5crypto3
 RUNTIME_DEP_PKGS_CSWlibkrb5-3 += CSWlibintl8
 RUNTIME_DEP_PKGS_CSWlibkrb5-3 += CSWlibgcc-s1
+RUNTIME_DEP_PKGS_CSWlibkrb5-3 += CSWlibkrb5-priv
 
 PACKAGES += CSWlibkrb5support0
 CATALOGNAME_CSWlibkrb5support0 = libkrb5support0
@@ -136,6 +137,9 @@ CONFIGURE_ARGS += --disable-static --disable-profiled
 CONFIGURE_ARGS += --with-readline
 # To pick the right tclConfig.sh
 CONFIGURE_ARGS += --with-tcl=$(libdir)
+# Must be explicitly disabled or else the already installed version is
+# considered to be system
+CONFIGURE_ARGS += --with-system-verto=no
 
 SKIPTEST = 1
 
