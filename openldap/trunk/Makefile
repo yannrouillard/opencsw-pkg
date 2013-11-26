@@ -1,7 +1,7 @@
 # $Id$
 
 NAME = openldap
-VERSION = 2.4.33
+VERSION = 2.4.38
 GARTYPE = v2
 
 DESCRIPTION = Open source implementation of the Lightweight Directory Access Protocol
@@ -18,13 +18,22 @@ DISTFILES  = $(DISTNAME).tgz
 DISTFILES += CSWoldap.postinstall
 DISTFILES += README.CSW openldaprc
 DISTFILES += cswopenldap openldap.xml
+# This is the 32/64 exec wrapper
+DISTFILES += slapd
 
-EXPANDVARS = cswopenldap
 EXPANDVARS += CSWoldap.postinstall
+EXPANDVARS += cswopenldap
+EXPANDVARS += slapd
 
 PATCHFILES += patch-oldap-2.4.16-ntlm.diff
+
+# Use patch until this is fixed:
+#   http://www.openldap.org/its/index.cgi/Build?id=6306
 PATCHFILES += patch-libtool-64bit.diff
+
 DISTFILES += patch-oldap-2.4.16-ntlm.diff
+
+#PATCHFILES += 0001-Do-not-hardcode-name-of-make.patch
 
 PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386
 
@@ -60,6 +69,8 @@ RUNTIME_DEP_PKGS_CSWopenldap += CSWlibsasl2-2
 RUNTIME_DEP_PKGS_CSWopenldap += CSWlibslp1
 RUNTIME_DEP_PKGS_CSWopenldap += CSWlibssl1-0-0
 RUNTIME_DEP_PKGS_CSWopenldap += CSWlibwrap1
+RUNTIME_DEP_PKGS_CSWopenldap += CSWlibuuid1
+RUNTIME_DEP_PKGS_CSWopenldap += CSWlibicuuc51
 OBSOLETED_BY_CSWopenldap += CSWoldap
 CATALOGNAME_CSWoldap = openldap_stub
 
@@ -97,6 +108,9 @@ RUNTIME_DEP_PKGS_CSWopenldap-back-perl += CSWperl
 RUNTIME_DEP_PKGS_CSWopenldap-back-perl += CSWliblber2-4-2
 RUNTIME_DEP_PKGS_CSWopenldap-back-perl += CSWlibldap-r2-4-2
 RUNTIME_DEP_PKGS_CSWopenldap-back-perl += CSWopenldap
+
+# We don't have 64 bit Perl yet
+CHECKPKG_OVERRIDES_CSWopenldap-back-perl += 64-bit-binaries-missing
 
 PACKAGES += CSWopenldap-back-bdb
 SPKG_DESC_CSWopenldap-back-bdb = OpenLDAP BerkerleyDB bdb backend
@@ -151,7 +165,7 @@ RUNTIME_DEP_PKGS_CSWlibldap-r2-4-2 += CSWlibsasl2-2
 RUNTIME_DEP_PKGS_CSWlibldap-r2-4-2 += CSWlibssl1-0-0
 OBSOLETED_BY_CSWlibldap-r2-4-2 += CSWoldaprt
 
-EXTRA_DOCS = README.CSW $(PATCHFILES) openldaprc
+EXTRA_DOCS = README.CSW openldaprc
 
 # This is also used during EXPANDVARS
 bdbdir = $(prefix)/bdb48
@@ -176,7 +190,7 @@ NODIRPATHS = --docdir
 BUILD64 = 1
 
 # This takes some more work, the sbin/ files should be linked to libexec but the linklevel is not deep enough
-# ISAEXEC = 1
+#ISAEXEC = 1
 
 CONFIGURE_ARGS = $(DIRPATHS)
 CONFIGURE_ARGS += --enable-crypt
@@ -210,11 +224,14 @@ CONFIGURE_ARGS_64 += --enable-perl=no
 CONFIGURE_ARGS += $(CONFIGURE_ARGS_$(MEMORYMODEL))
 
 # The testsuite takes a couple of hours
-SKIPTEST ?= 1
+# SKIPTEST ?= 1
 
 # Perl backend is built, although it has been told not to.
-EXTRA_PAX_ARGS = -s ,.*/opt/csw/libexec/sparcv9/openldap/back_perl.*,,
-EXTRA_PAX_ARGS = -s ,.*/opt/csw/libexec/amd64/openldap/back_perl.*,,
+EXTRA_PAX_ARGS += -s ,.*/opt/csw/libexec/sparcv9/openldap/back_perl.*,,
+EXTRA_PAX_ARGS += -s ,.*/opt/csw/libexec/amd64/openldap/back_perl.*,,
+
+# Relocate 32 bit slapd to default isa subdir for 32/64 selector
+EXTRA_PAX_ARGS += -s ,/opt/csw/libexec/slapd,/opt/csw/libexec/$(ISA_DEFAULT)/slapd,
 
 # These are the config templates. As we have preserveconf which takes
 # care of this we exclude them in the package.
@@ -227,10 +244,11 @@ INITSMF = /etc/opt/csw/init.d/cswopenldap
 
 include gar/category.mk
 
-post-merge-modulated:
+post-merge-all:
 	ginstall -D $(WORKDIR)/cswopenldap \
 		$(PKGROOT)/etc/opt/csw/init.d/cswopenldap
 	$(foreach F,$(EXTRA_DOCS),ginstall --mode=644 -D $(WORKDIR)/$F $(PKGROOT)$(docdir)/$(NAME)/$F;)
+	ginstall -D $(WORKDIR)/slapd $(PKGROOT)$(libexecdir)/slapd
 	@# Enable BDB backend so OpenLDAP can start
-	perl -pi -e 's/#\s*(modulepath)/$$1/; s/#\s*(moduleload\s*back_bdb.la)/$$1/' $(PKGROOT)$(sysconfdir)/openldap/slapd.conf
+	perl -pi -e 's/#\s*(modulepath)/$$1/; s/#\s*(moduleload\s*back_bdb.la)/$$1/' $(PKGROOT)$(sysconfdir)/openldap/slapd.conf.CSW
 	@$(MAKECOOKIE)
