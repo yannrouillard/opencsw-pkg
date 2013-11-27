@@ -25,7 +25,7 @@
 NAME = nss
 MAJOR_VERSION = 3
 MINOR_VERSION = 14
-PATCHLEVEL    = 1
+PATCHLEVEL    = 4
 VERSION = $(MAJOR_VERSION).$(MINOR_VERSION).$(PATCHLEVEL)
 # #VERSION = $(MAJOR_VERSION).$(MINOR_VERSION)
 GARTYPE = v2
@@ -47,7 +47,8 @@ DISTFILES  = $(NAME)-$(VERSION).tar.gz
 DISTFILES += mpl-tri-license-txt
 
 PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386
-GARCOMPILER = SOS12U3
+# GARCOMPILER = GCC4
+# GARCOMPILER = SOS12U3
 
 PACKAGES += CSWlibnss3
 CATALOGNAME_CSWlibnss3 = libnss3
@@ -58,8 +59,9 @@ RUNTIME_DEP_PKGS_CSWlibnss3 += CSWlibnssutil3
 RUNTIME_DEP_PKGS_CSWlibnss3 += CSWlibplds4
 RUNTIME_DEP_PKGS_CSWlibnss3 += CSWlibnspr4
 RUNTIME_DEP_PKGS_CSWlibnss3 += CSWlibplc4
+RUNTIME_DEP_PKGS_CSWlibnss3 += CSWlibgcc-s1
 CHECKPKG_OVERRIDES_CSWlibnss3 += soname-equals-filename
-CHECKPKG_OVERRIDES_CSWlibnss3 += shared-lib-pkgname-mismatch
+# CHECKPKG_OVERRIDES_CSWlibnss3 += shared-lib-pkgname-mismatch
 
 PACKAGES += CSWlibnssckbi
 CATALOGNAME_CSWlibnssckbi = libnssckbi
@@ -69,8 +71,9 @@ SPKG_DESC_CSWlibnssckbi += $(DESCRIPTION), libnssckbi.so
 RUNTIME_DEP_PKGS_CSWlibnssckbi += CSWlibplds4
 RUNTIME_DEP_PKGS_CSWlibnssckbi += CSWlibnspr4
 RUNTIME_DEP_PKGS_CSWlibnssckbi += CSWlibplc4
+RUNTIME_DEP_PKGS_CSWlibnssckbi += CSWlibgcc-s1
 CHECKPKG_OVERRIDES_CSWlibnssckbi += soname-equals-filename
-CHECKPKG_OVERRIDES_CSWlibnssckb1 += shared-lib-pkgname-mismatch
+# CHECKPKG_OVERRIDES_CSWlibnssckb1 += shared-lib-pkgname-mismatch
 
 PACKAGES += CSWlibnssdbm3
 CATALOGNAME_CSWlibnssdbm3 = libnssdbm3
@@ -82,10 +85,11 @@ RUNTIME_DEP_PKGS_CSWlibnssdbm3 += CSWlibnssutil3
 RUNTIME_DEP_PKGS_CSWlibnssdbm3 += CSWlibplds4
 RUNTIME_DEP_PKGS_CSWlibnssdbm3 += CSWlibnspr4
 RUNTIME_DEP_PKGS_CSWlibnssdbm3 += CSWlibplc4
+RUNTIME_DEP_PKGS_CSWlibnssdbm3 += CSWlibgcc-s1
 # i368 needs that, sparcs hates that
 CHECKPKG_OVERRIDES_CSWlibnssdbm3 += surplus-dependency|CSWlibplc4
 CHECKPKG_OVERRIDES_CSWlibnssdbm3 += soname-equals-filename
-CHECKPKG_OVERRIDES_CSWlibnssdbm3 += shared-lib-pkgname-mismatch
+# CHECKPKG_OVERRIDES_CSWlibnssdbm3 += shared-lib-pkgname-mismatch
 
 PACKAGES += CSWlibnssutil3
 CATALOGNAME_CSWlibnssutil3 = libnssutil3
@@ -95,8 +99,9 @@ SPKG_DESC_CSWlibnssutil3 += $(DESCRIPTION), libnssutil3.so
 RUNTIME_DEP_PKGS_CSWlibnssutil3 += CSWlibplds4
 RUNTIME_DEP_PKGS_CSWlibnssutil3 += CSWlibnspr4
 RUNTIME_DEP_PKGS_CSWlibnssutil3 += CSWlibplc4
+RUNTIME_DEP_PKGS_CSWlibnssutil3 += CSWlibgcc-s1
 CHECKPKG_OVERRIDES_CSWlibnssutil3 += soname-equals-filename
-CHECKPKG_OVERRIDES_CSWlibnssutil3 += shared-lib-pkgname-mismatch
+# CHECKPKG_OVERRIDES_CSWlibnssutil3 += shared-lib-pkgname-mismatch
 
 PACKAGES += CSWlibsmime3
 CATALOGNAME_CSWlibsmime3 = libsmime3
@@ -108,8 +113,9 @@ RUNTIME_DEP_PKGS_CSWlibsmime3 += CSWlibnssutil3
 RUNTIME_DEP_PKGS_CSWlibsmime3 += CSWlibplds4
 RUNTIME_DEP_PKGS_CSWlibsmime3 += CSWlibnspr4
 RUNTIME_DEP_PKGS_CSWlibsmime3 += CSWlibplc4
+RUNTIME_DEP_PKGS_CSWlibsmime3 += CSWlibgcc-s1
 CHECKPKG_OVERRIDES_CSWlibsmime3 += soname-equals-filename
-CHECKPKG_OVERRIDES_CSWlibsmine3 += shared-lib-pkgname-mismatch
+# CHECKPKG_OVERRIDES_CSWlibsmine3 += shared-lib-pkgname-mismatch
 
 PACKAGES += CSWlibsoftokn3
 CATALOGNAME_CSWlibsoftokn3 = libsoftokn3
@@ -122,8 +128,9 @@ RUNTIME_DEP_PKGS_CSWlibsoftokn3 += CSWlibplc4
 RUNTIME_DEP_PKGS_CSWlibsoftokn3 += CSWlibsqlite3-0
 RUNTIME_DEP_PKGS_CSWlibsoftokn3 += CSWlibnssutil3 
 RUNTIME_DEP_PKGS_CSWlibsoftokn3 += CSWlibplds4
+RUNTIME_DEP_PKGS_CSWlibsoftokn3 += CSWlibgcc-s1
 CHECKPKG_OVERRIDES_CSWlibsoftokn3 += soname-equals-filename
-CHECKPKG_OVERRIDES_CSWlibsoftokn3 += shared-lib-pkgname-mismatch
+# CHECKPKG_OVERRIDES_CSWlibsoftokn3 += shared-lib-pkgname-mismatch
 
 PACKAGES += CSWlibssl3
 CATALOGNAME_CSWlibssl3 = libssl3
@@ -134,8 +141,9 @@ RUNTIME_DEP_PKGS_CSWlibssl3 += CSWlibnss3
 RUNTIME_DEP_PKGS_CSWlibssl3 += CSWlibnspr4
 RUNTIME_DEP_PKGS_CSWlibssl3 += CSWlibplc4
 RUNTIME_DEP_PKGS_CSWlibssl3 += CSWlibnssutil3
+RUNTIME_DEP_PKGS_CSWlibssl3 += CSWlibgcc-s1
 CHECKPKG_OVERRIDES_CSWlibssl3 += soname-equals-filename
-CHECKPKG_OVERRIDES_CSWlibssl3 += shared-lib-pkgname-mismatch
+# CHECKPKG_OVERRIDES_CSWlibssl3 += shared-lib-pkgname-mismatch
 
 PACKAGES += CSWlibfreebl3
 CATALOGNAME_CSWlibfreebl3 = libfreebl3
@@ -146,9 +154,10 @@ SPKG_DESC_CSWlibfreebl3 += $(DESCRIPTION), libfreebl libs
 PKGFILES_CSWlibfreebl3 += $(call baseisadirs,$(libdir),libfreebl.*)
 RUNTIME_DEP_PKGS_CSWlibfreebl3 += CSWlibnssutil3
 RUNTIME_DEP_PKGS_CSWlibfreebl3 += CSWlibnspr4
+RUNTIME_DEP_PKGS_CSWlibfreebl3 += CSWlibgcc-s1
 # CHECKPKG_OVERRIDES_CSWlibfreebl3 += shared-lib-pkgname-mismatch
 CHECKPKG_OVERRIDES_CSWlibfreebl3 += soname-equals-filename
-CHECKPKG_OVERRIDES_CSWlibfreebl3 += shared-lib-pkgname-mismatch
+# CHECKPKG_OVERRIDES_CSWlibfreebl3 += shared-lib-pkgname-mismatch
 
 PACKAGES += CSWlibnss-dev
 CATALOGNAME_CSWlibnss-dev = libnss_dev
@@ -236,7 +245,7 @@ endif
 endif
 export NSPR_LIB_DIR
 
-# LD_OPTIONS = -z ignore -Bdirect
+# LD_OPTIONS = -z ignore
 ifeq ($(USE_64),1) 
   SQLITE_LIB_DIR = /opt/csw/lib/64
 #   LD_OPTIONS += -R/opt/csw/lib/64/\$$ISALIST
@@ -267,7 +276,7 @@ LICENSE = mpl-tri-license-txt
 # PATCHFILES  = whoami.patch
 
 # Required patches.
-PATCHFILES += include.patch
+# PATCHFILES += include.patch
 # PATCHFILES += ld-options.patch
 PATCHFILES += 0004-fix-xarch-and-add-SQLITE_LIB_DIR-var.patch
 PATCHFILES += 0006-platlibs.mk-linking-bltest.patch
@@ -287,14 +296,14 @@ build-coreconf:
 	(cd $(WORKSRC)/mozilla/security/coreconf \
 		&& \
 	CPPFLAGS='$(CPPFLAGS)' LD_OPTIONS='$(LD_OPTIONS)' \
-	gmake -j1)
+	gmake -j1 NS_USE_GCC=1 NO_MDUPDATE=1)
 	@$(MAKECOOKIE)
 
 build-dbm:
 	(cd $(WORKSRC)/mozilla/security/dbm \
 		&& \
 	CPPFLAGS='$(CPPFLAGS)' LD_OPTIONS='$(LD_OPTIONS)' \
-	gmake -j1)
+	gmake -j1 NS_USE_GCC=1 NO_MDUPDATE=1)
 	@$(MAKECOOKIE)
 
 # There's an extra interpolation somehwere inside nss' build system, so $$$$
@@ -303,7 +312,7 @@ build-nss-compile:
 	@echo $(LD_OPTIONS)
 	(cd $(WORKSRC)/mozilla/security/nss \
 		&& env \
-	gmake -j1 BUILD_SUN_PKG=1)
+		&& gmake -j1 BUILD_SUN_PKG=1 NS_USE_GCC=1 NO_MDUPDATE=1)
 	@$(MAKECOOKIE)
 
 install-nss:
