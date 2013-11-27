@@ -8,7 +8,7 @@
 
 NAME = nspr
 MAJOR_VERSION = 4
-MIN_VERSION = 9.4
+MIN_VERSION = 10.2
 VERSION = $(MAJOR_VERSION).$(MIN_VERSION)
 GARTYPE = v2
 
@@ -24,6 +24,7 @@ DISTFILES += LICENSE
 # PATCHFILES  = nspr-4.6.1-config.patch
 
 PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386
+GARCOMPILER = GCC4
 
 # Library splits
 
@@ -31,7 +32,7 @@ PACKAGES += CSWlibnspr4
 CATALOGNAME_CSWlibnspr4 = libnspr4
 SPKG_DESC_CSWlibnspr4 = Netscape Portable Runtime, libnspr4.so
 PKGFILES_CSWlibnspr4 += $(call baseisadirs,$(libdir),libnspr4.so)
-# OBSOLETED_BY_CSWlibnspr4 = CSWnspr
+RUNTIME_DEP_PKGS_CSWlibnspr4 += CSWlibgcc-s1
 CHECKPKG_OVERRIDES_CSWlibnspr4 += soname-equals-filename
 
 PACKAGES += CSWlibplc4
@@ -39,6 +40,7 @@ CATALOGNAME_CSWlibplc4 = libplc4
 SPKG_DESC_CSWlibplc4 = Netscape Portable Runtime, libplc4.so
 PKGFILES_CSWlibplc4 += $(call baseisadirs,$(libdir),libplc4.so)
 RUNTIME_DEP_PKGS_CSWlibplc4 += CSWlibnspr4
+RUNTIME_DEP_PKGS_CSWlibplc4 += CSWlibgcc-s1
 CHECKPKG_OVERRIDES_CSWlibplc4 += soname-equals-filename
 
 PACKAGES += CSWlibplds4
@@ -46,6 +48,7 @@ CATALOGNAME_CSWlibplds4 = libplds4
 SPKG_DESC_CSWlibplds4 = Netscape Portable Runtime, libplds4.so
 PKGFILES_CSWlibplds4 += $(call baseisadirs,$(libdir),libplds4.so)
 RUNTIME_DEP_PKGS_CSWlibplds4 += CSWlibnspr4
+RUNTIME_DEP_PKGS_CSWlibplds4 += CSWlibgcc-s1
 CHECKPKG_OVERRIDES_CSWlibplds4 += soname-equals-filename
 
 # this lib is only build on sparc, nobody uses this
@@ -86,7 +89,7 @@ CONFIGURE_ARGS  = $(DIRPATHS)
 CONFIGURE_ARGS_isa-sparcv9 = --enable-64bit
 CONFIGURE_ARGS_isa-amd64 = --enable-64bit
 CONFIGURE_ARGS += $(CONFIGURE_ARGS_$(MODULATION))
-CONFIGURE_ARGS_OPT += --enable-optimize="-xO3"
+CONFIGURE_ARGS_OPT += --enable-optimize="-O3"
 CONFIGURE_ARGS_OPT += --disable-debug
 CONFIGURE_ARGS_OPT += --enable-strip
 CONFIGURE_ARGS_DBG += --enable-debug
@@ -109,8 +112,8 @@ configure-nspr:
 	(cp $(FILEDIR)/LICENSE $(WORKSRC))
 	(cd $(WORKSRC) && mkdir -p build inst)
 	gsed -i -e 's/$$(mkshlib) $$(OBJS)/$$(MKSHLIB) $$(LDFLAGS) $$(OBJS)/g' \
-		        $(WORKSRC)/mozilla/nsprpub/config/rules.mk
-	cd $(WORKSRC)/build && $(CONFIGURE_ENV) ../mozilla/nsprpub/configure $(CONFIGURE_ARGS)
+		        $(WORKSRC)/nspr/config/rules.mk
+	cd $(WORKSRC)/build && $(CONFIGURE_ENV) ../nspr/configure $(CONFIGURE_ARGS)
 	@$(MAKECOOKIE)
 
 build-nspr:
@@ -125,7 +128,7 @@ test-accept:
 	@$(MAKECOOKIE)
 
 test-runtests:
-	(cd $(WORKSRC)/build/pr/tests && DYLD_LIBRARY_PATH=../../dist/lib ../../../mozilla/nsprpub/pr/tests/runtests.sh)
+	(cd $(WORKSRC)/build/pr/tests && DYLD_LIBRARY_PATH=../../dist/lib ../../../nspr/pr/tests/runtests.sh)
 	@$(MAKECOOKIE)
 
 install-nspr:
