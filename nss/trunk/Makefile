@@ -155,9 +155,9 @@ PKGFILES_CSWlibfreebl3 += $(call baseisadirs,$(libdir),libfreebl.*)
 RUNTIME_DEP_PKGS_CSWlibfreebl3 += CSWlibnssutil3
 RUNTIME_DEP_PKGS_CSWlibfreebl3 += CSWlibnspr4
 RUNTIME_DEP_PKGS_CSWlibfreebl3 += CSWlibgcc-s1
-# CHECKPKG_OVERRIDES_CSWlibfreebl3 += shared-lib-pkgname-mismatch
 CHECKPKG_OVERRIDES_CSWlibfreebl3 += soname-equals-filename
-# CHECKPKG_OVERRIDES_CSWlibfreebl3 += shared-lib-pkgname-mismatch
+CHECKPKG_OVERRIDES_CSWlibfreebl3_sparc += shared-lib-pkgname-mismatch
+CHECKPKG_OVERRIDES_CSWlibfreebl3 += $(CHECKPKG_OVERRIDES_CSWlibfreebl3_$(GARCH))
 
 PACKAGES += CSWlibnss-dev
 CATALOGNAME_CSWlibnss-dev = libnss_dev
