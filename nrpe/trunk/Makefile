@@ -1,5 +1,5 @@
 NAME = nrpe
-VERSION = 2.13
+VERSION = 2.15
 GARTYPE = v2
 
 SPKG_DESC_CSWnrpe 	= Nagios remote plugin executor
@@ -79,8 +79,8 @@ PKGFILES_CSWnrpe-plugin	 += /opt/csw/share/doc/nrpe_plugin/license
 # replace /usr/local
 #
 
-REINPLACE_USRLOCAL	+= .*/nrpe-2.13/SECURITY
-REINPLACE_USRLOCAL	+= .*/nrpe-2.13/README
+REINPLACE_USRLOCAL	+= .*/nrpe-2.15/SECURITY
+REINPLACE_USRLOCAL	+= .*/nrpe-2.15/README
 REINPLACE_USRLOCAL	+= sample-config/nrpe.cfg.in
 
 #
