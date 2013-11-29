@@ -50,8 +50,6 @@ DISTFILES += changelog.CSW
 # (patch only mandatory to compile with gnutls)
 #PATCHFILES = munmap.patch
 
-PATCHFILES += dont_use_csw_getopt_h.patch
-
 # Update the system-wide lftp.conf path in the man page
 PATCHFILES += 0007-update-configuration-files-paths-in-documentation.patch
 
@@ -89,9 +87,9 @@ TEST_SCRIPTS =
 include gar/category.mk
 
 # we re-run autoconf because we patched a m4 file
-pre-configure-modulated:
-	cd $(WORKSRC) && autoconf
-	@$(MAKECOOKIE)
+#pre-configure-modulated:
+#	cd $(WORKSRC) && autoconf
+#	@$(MAKECOOKIE)
 
 post-merge:
 	@ginstall -D $(DOWNLOADDIR)/changelog.CSW $(PKGROOT)/$(docdir)/lftp/changelog.CSW
