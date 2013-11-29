@@ -13,7 +13,7 @@
 ###### Package information #######
 
 NAME = lftp
-VERSION = 4.4.9
+VERSION = 4.4.13
 GARTYPE = v2
 
 DESCRIPTION = A sophisticated command-line ftp/http client
@@ -40,7 +40,7 @@ PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386
 
 ###### Upstream and opencsw files information #######
 
-MASTER_SITES = http://lftp.cybermirror.org/
+MASTER_SITES = http://lftp.yar.ru/ftp/
 
 DISTFILES  = $(NAME)-$(VERSION).tar.gz
 DISTFILES += changelog.CSW
