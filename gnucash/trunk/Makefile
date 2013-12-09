@@ -1,7 +1,7 @@
 # $Id$
 
 NAME = gnucash
-VERSION = 2.4.11
+VERSION = 2.4.13
 GARTYPE = v2
 
 DESCRIPTION = A personal and small-business financial-accounting software
@@ -44,7 +44,6 @@ BUILD_DEP_PKGS	+=	CSWswig
 BUILD_DEP_PKGS	+=	CSWgtkhtml31
 BUILD_DEP_PKGS	+=	CSWlibdbi-dev
 BUILD_DEP_PKGS	+=	CSWlibgnome-dev
-BUILD_DEP_PKGS	+=	CSWlibgtkhtml
 BUILD_DEP_PKGS	+=	CSWlibgnomecanvas-dev
 
 GARCOMPILER		=	GNU
@@ -55,7 +54,7 @@ PACKAGING_PLATFORMS	+=	solaris10-i386
 
 include gar/category.mk
 
-PATH := /opt/csw/gnu:/opt/csw/libexec/flex-2.5.35/bin:$(PATH)
+PATH := /opt/csw/gnu:$(PATH)
 
 # this is private and not available publicly
 mydependencies:
