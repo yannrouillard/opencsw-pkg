@@ -90,7 +90,7 @@ NAME = postgresql
 BASE_VERSION = 9.2
 VERSION_NODOT = $(subst .,_,$(BASE_VERSION))
 BASE_VERSION_NODOT = $(subst .,,$(BASE_VERSION))
-PATCHLEVEL = 5
+PATCHLEVEL = 6
 VERSION = $(BASE_VERSION).$(PATCHLEVEL)
 GARTYPE = v2
 
@@ -413,6 +413,9 @@ PKGFILES_CSWlibecpg-compat3  = $(call pkgfiles_lib,libecpg_compat.so.3)
 PKGFILES_CSWlibecpg-compat3 += .*/libecpg_compat3/changelog.CSW
 RUNTIME_DEP_PKGS_CSWlibecpg-compat3  = CSWlibecpg6
 RUNTIME_DEP_PKGS_CSWlibecpg-compat3 += CSWlibpgtypes3
+# ld -z ignore issue on sparc
+RUNTIME_DEP_PKGS_CSWlibecpg-compat3 += CSWlibpq5
+CHECKPKG_OVERRIDES_CSWlibecpg-compat3 += surplus-dependency|CSWlibpq5
 
 PACKAGES += CSWlibecpg6
 SPKG_DESC_CSWlibecpg6 = PostgreSQL $(VERSION), libecpg
