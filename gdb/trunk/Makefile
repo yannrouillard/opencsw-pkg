@@ -1,7 +1,7 @@
 # $Id$
 
 NAME = gdb
-VERSION = 7.6.1
+VERSION = 7.6.2
 GARTYPE = v2
 
 DESCRIPTION = The GNU Debugger
@@ -26,7 +26,7 @@ define BLURB
 endef
 
 MASTER_SITES	=	$(GNU_MIRROR)
-DISTFILES		= $(DISTNAME).tar.gz
+DISTFILES		= $(DISTNAME).tar.bz2
 # from private patch 2:
 PATCHFILES		+=	0001-OpenSolaris-gdb-solib-svr4.patch
 # from private patch 3:
@@ -49,6 +49,7 @@ BUILD_DEP_PKGS	+=	CSWdejagnu
 BUILD_DEP_PKGS	+=	CSWlibiconv-dev
 BUILD_DEP_PKGS	+=	CSWlibncurses-dev
 BUILD_DEP_PKGS	+=	CSWlibz-dev
+BUILD_DEP_PKGS	+=	CSWliblzma-dev
 BUILD_DEP_PKGS	+=	CSWlibreadline-dev
 
 CONFIGURE_ARGS-32	+=	--with-python
