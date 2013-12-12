@@ -1,5 +1,5 @@
 NAME = mpg123
-VERSION = 1.13.3
+VERSION = 1.16.0
 GARTYPE = v2
 
 DESCRIPTION = A command-line MP3 player
@@ -14,10 +14,27 @@ endef
 MASTER_SITES = $(SF_MIRRORS)
 DISTFILES  = $(DISTNAME).tar.bz2
 
+PACKAGES += CSWmpg123
+SPKG_DESC_CSWmpg123 = A command-line MP3 player
+# PKGFILES is catchall
+RUNTIME_DEP_PKGS_CSWmpg123 += CSWlibmpg123-0
 RUNTIME_DEP_PKGS_CSWmpg123 += CSWlibltdl7
-RUNTIME_DEP_PKGS_CSWmpg123 += CSWlibesd0
-RUNTIME_DEP_PKGS_CSWmpg123 += CSWnas
-RUNTIME_DEP_PKGS_CSWmpg123 += CSWlibsdl
+
+PACKAGES += CSWlibmpg123-dev
+SPKG_DESC_CSWlibmpg123-dev = Development files for libmpg123.so.0
+# The .la files are needed for the main library for dynamically loading the output libs
+PKGFILES_DEVEL_LIBTOOL =
+PKGFILES_CSWlibmpg123-dev += $(PKGFILES_DEVEL)
+RUNTIME_DEP_PKGS_CSWlibmpg123-dev += CSWlibmpg123-0
+
+PACKAGES += CSWlibmpg123-0
+SPKG_DESC_CSWlibmpg123-0 = MP3 decoding library, libmpg123.so.0
+PKGFILES_CSWlibmpg123-0 += $(call pkgfiles_lib,libmpg123.so.0)
+# These are output libraries, bundle with primary library for now
+PKGFILES_CSWlibmpg123-0 += $(call baseisadirs,$(libdir),mpg123/.*)
+RUNTIME_DEP_PKGS_CSWlibmpg123-0 += CSWnas
+RUNTIME_DEP_PKGS_CSWlibmpg123-0 += CSWlibsdl1-2-0
+RUNTIME_DEP_PKGS_CSWlibmpg123-0 += CSWlibesd0
 
 BUILD64_LIBS_ONLY = 1
 EXTRA_BUILD_ISAS = sparcv8plus+vis pentium
@@ -36,7 +53,7 @@ MERGE_EXCLUDE_LIBTOOL = $(libdir)/[^/]*\.la
 
 # The other one is mpg321
 # This fixes #4342
-ALTERNATIVES = mpg123
+ALTERNATIVES_CSWmpg123 = mpg123
 ALTERNATIVE_mpg123 = $(bindir)/mpg123 mpg123 $(bindir)/mpg123 100
 
 # Checkpkg can't check this
