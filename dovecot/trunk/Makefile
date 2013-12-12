@@ -42,6 +42,7 @@ RUNTIME_DEP_PKGS_CSWdovecot += CSWlibssl1-0-0
 RUNTIME_DEP_PKGS_CSWdovecot += CSWliblber2-4-2
 RUNTIME_DEP_PKGS_CSWdovecot += CSWlibldap2-4-2
 RUNTIME_DEP_PKGS_CSWdovecot += CSWliblzma5
+RUNTIME_DEP_PKGS_CSWdovecot += CSWlibintl8
 
 PKGFILES_CSWdovecot-dev = $(PKGFILES_DEVEL)
 
@@ -88,6 +89,9 @@ MIGRATE_FILES = dovecot.conf
 # lines.  For now overriding since the file(s) are only documentation.
 
 PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386
+
+# override needed until ld inconsistancy is resolved on buildfarm
+CHECKPKG_OVERRIDES_CSWdovecot += surplus-dependency|CSWlibintl8
 
 include gar/category.mk
 
