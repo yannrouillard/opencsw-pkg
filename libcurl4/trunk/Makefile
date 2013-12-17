@@ -1,5 +1,5 @@
 NAME = curl
-VERSION = 7.33.0
+VERSION = 7.34.0
 GARTYPE = v2
 
 DESCRIPTION = Command line tool and library for client-side URL transfers
@@ -15,10 +15,6 @@ endef
 
 MASTER_SITES = http://curl.haxx.se/download/
 DISTFILES += $(NAME)-$(VERSION).tar.lzma
-
-# Use patch until this is fixed:
-#   http://sourceforge.net/p/curl/bugs/1291/
-PATCHFILES += 0001-Add-patch-from-bug-1291.patch
 
 VENDOR_URL = http://curl.haxx.se
 
