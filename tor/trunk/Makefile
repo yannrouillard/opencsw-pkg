@@ -36,6 +36,8 @@ INITSMF = /etc/opt/csw/init.d/cswtor
 
 PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386
 
+PKGFILES_CSWtor = /opt/csw/share/doc/tor/README.CSW
+
 include gar/category.mk
 
 post-install-modulated:
@@ -45,4 +47,13 @@ post-install-modulated:
 	echo "Log syslog" >> $(DESTDIR)$(sysconfdir)/tor/torrc.sample
 	echo "PidFile /var/run/tor.pid" >> $(DESTDIR)$(sysconfdir)/tor/torrc.sample
 	echo "RunAsDaemon 1" >> $(DESTDIR)$(sysconfdir)/tor/torrc.sample
+
+	# Copy SMF script
+	ginstall -Dm 755 $(FILEDIR)/cswtor \
+		$(DESTDIR)/etc/opt/csw/init.d/cswtor
+
+	# Copy README.CSW to docs
+	ginstall -m 444 $(FILEDIR)/README.CSW \
+		$(DESTDIR)/opt/csw/share/doc/tor/
+
 	@$(MAKECOOKIE)
