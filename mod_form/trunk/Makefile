@@ -11,6 +11,10 @@ DISTFILES += gpl.html
 DISTFILES += CSWap2-mod-form.postinstall
 DISTFILES += CSWap2-mod-form.preremove
 
+# Patch from http://mirrorbrain.org/docs/installation/source/
+PATCHFILES += formget.patch
+PATCHDIRLEVEL = 0
+
 VENDOR_URL = http://apache.webthing.com/mod_form/
 LICENSE = gpl.html
 
@@ -35,14 +39,18 @@ STRIP_DIRS = $(DESTDIR)$(prefix)/apache2/libexec
 
 include gar/category.mk
 
+post-extract:
+	ginstall -d $(WORKSRC)
+	cp $(WORKDIR)/mod_form.c $(WORKDIR)/mod_form.h $(WORKSRC)
+
 build-custom:
-	cd $(WORKDIR) && $(APXS) -c mod_form.c
+	cd $(WORKSRC) && $(APXS) -c mod_form.c
 	@$(MAKECOOKIE)
 
 install-custom:
 	mkdir -p $(AP2_LIBEXEC)
-	cd $(WORKDIR) && $(APXS) -S LIBEXECDIR=$(AP2_LIBEXEC) -i mod_form.la
+	cd $(WORKSRC) && $(APXS) -S LIBEXECDIR=$(AP2_LIBEXEC) -i mod_form.la
 	ginstall -d $(DESTDIR)$(prefix)/apache2/include
-	ginstall -m 0644 $(WORKDIR)/mod_form.h $(DESTDIR)$(prefix)/apache2/include/mod_form.h
+	ginstall -m 0644 $(WORKSRC)/mod_form.h $(DESTDIR)$(prefix)/apache2/include/mod_form.h
 	@$(MAKECOOKIE)
 
