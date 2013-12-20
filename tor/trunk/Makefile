@@ -36,8 +36,6 @@ INITSMF = /etc/opt/csw/init.d/cswtor
 
 PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386
 
-PKGFILES_CSWtor = /opt/csw/share/doc/tor/README.CSW
-
 include gar/category.mk
 
 post-install-modulated:
