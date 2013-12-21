@@ -30,6 +30,8 @@ CONFIGURE_ARGS += --enable-fndir=$(sharedstatedir)/$(NAME)/functions
 CONFIGURE_ARGS += --enable-pcre
 CONFIGURE_ARGS += --enable-etcdir=$(sysconfdir)
 
+CHECKPKG_OVERRIDES_CSWzsh += file-with-bad-content|/usr/local|root/opt/csw/bin/zsh-$(VERSION)
+
 ETCSHELLS = /opt/csw/bin/zsh
 
 include gar/category.mk
