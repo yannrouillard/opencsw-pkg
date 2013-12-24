@@ -46,7 +46,6 @@ RUNTIME_DEP_PKGS_CSWlibserf-dev = CSWlibserf1-3
 
 EXTRA_LIB = $(prefix)/bdb48/lib
 
-SCONS_FLAGS += PREFIX=$(prefix) 
 SCONS_FLAGS += APR=$(bindir)/apr-1-config
 SCONS_FLAGS += APU=$(bindir)/apu-1-config
 
@@ -55,14 +54,14 @@ include gar/category.mk
 build-serf:
 	(cd $(WORKSRC); \
 		scons \
-		$(SCONS_FLAGS))
+		$(SCONS_FLAGS) PREFIX=$(prefix) )
 	@$(MAKECOOKIE)
 
 install-serf:
 	(cd $(WORKSRC); \
 		scons  \
 		$(SCONS_FLAGS) \
-		-Q --prefix=$(DESTDIR)$(BUILD_PREFIX) \
+		-Q PREFIX=$(DESTDIR)$(BUILD_PREFIX) \
 		install)
 	@$(MAKECOOKIE)
 
