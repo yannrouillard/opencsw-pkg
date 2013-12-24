@@ -13,9 +13,10 @@ define BLURB
 endef
 
 MASTER_SITES = http://serf.googlecode.com/files/
-DISTFILES  = $(DISTNAME).tar.bz2
-LICENSE = LICENSE
-VENDOR_URL = http://code.google.com/p/serf/
+DISTFILES    = $(DISTNAME).tar.bz2
+PATCHFILES  += 0001-mark-solaris-as-posix-for-scons.patch
+LICENSE      = LICENSE
+VENDOR_URL   = http://code.google.com/p/serf/
 
 CONFIGURE_SCRIPTS =
 BUILD_SCRIPTS = serf
