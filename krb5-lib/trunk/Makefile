@@ -41,7 +41,7 @@ RUNTIME_DEP_PKGS_CSWlibkrb5-dev += CSWlibintl8
 OBSOLETED_BY_CSWlibkrb5-dev = CSWkrb5libdev
 CATALOGNAME_CSWkrb5libdev = krb5_lib_dev_stub
 # On unstable10x, that lib does not appear to be linked
-#CHECKPKG_OVERRIDES_CSWlibkrb5-dev += surplus-dependency|CSWlibintl8
+CHECKPKG_OVERRIDES_CSWlibkrb5-dev += surplus-dependency|CSWlibintl8
 
 PACKAGES += CSWlibcom-err3
 CATALOGNAME_CSWlibcom-err3 = libcom_err3
