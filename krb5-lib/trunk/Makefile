@@ -39,7 +39,6 @@ PKGFILES_CSWlibkrb5-dev += $(sbindir)/(uuserver|sserver|sim_server|gss-server)
 PKGFILES_CSWlibkrb5-dev += $(PKGFILES_DEVEL)
 PKGFILES_CSWlibkrb5-dev += $(bindir)/(uuclient|sim_client|sclient|krb5-config|gss-client|compile_et)
 RUNTIME_DEP_PKGS_CSWlibkrb5-dev += CSWlibintl8
-RUNTIME_DEP_PKGS_CSWlibkrb5-dev += CSWlibkrb5-priv
 OBSOLETED_BY_CSWlibkrb5-dev = CSWkrb5libdev
 CATALOGNAME_CSWkrb5libdev = krb5_lib_dev_stub
 # On unstable10x, that lib does not appear to be linked
@@ -75,39 +74,49 @@ RUNTIME_DEP_PKGS_CSWlibk5crypto3 += CSWlibintl8
 RUNTIME_DEP_PKGS_CSWlibk5crypto3 += CSWlibgcc-s1
 OBSOLETED_BY_CSWlibk5crypto3 = CSWkrb5lib
 
-PACKAGES += CSWlibkrb5-priv
-SPKG_DESC_CSWlibkrb5-priv = Kerberos private shared libraries, do not link against this package
-PKGFILES_CSWlibkrb5-priv += $(call baseisadirs,$(libdir),libgssrpc\.so\.\d+(\.\d+)*)
-PKGFILES_CSWlibkrb5-priv += $(call baseisadirs,$(libdir),libkadm5clnt_mit\.so\.\d+(\.\d+)*)
-PKGFILES_CSWlibkrb5-priv += $(call baseisadirs,$(libdir),libkadm5srv_mit\.so\.\d+(\.\d+)*)
-PKGFILES_CSWlibkrb5-priv += $(call baseisadirs,$(libdir),libkdb5\.so\.\d+(\.\d+)*)
-PKGFILES_CSWlibkrb5-priv += $(call baseisadirs,$(libdir),krb5.*)
-# Private libraries in one common package.
-CHECKPKG_OVERRIDES_CSWlibkrb5-priv += shared-lib-pkgname-mismatch
-CHECKPKG_OVERRIDES_CSWlibkrb5-priv += soname-not-part-of-filename
-RUNTIME_DEP_PKGS_CSWlibkrb5-priv += CSWlibssl1-0-0
-RUNTIME_DEP_PKGS_CSWlibkrb5-priv += CSWlibgssapi-krb5-2
-RUNTIME_DEP_PKGS_CSWlibkrb5-priv += CSWlibkrb5-3
-RUNTIME_DEP_PKGS_CSWlibkrb5-priv += CSWlibkrb5support0
-RUNTIME_DEP_PKGS_CSWlibkrb5-priv += CSWlibcom-err3
-RUNTIME_DEP_PKGS_CSWlibkrb5-priv += CSWlibk5crypto3
-RUNTIME_DEP_PKGS_CSWlibkrb5-priv += CSWlibintl8
-RUNTIME_DEP_PKGS_CSWlibkrb5-priv += CSWlibgcc-s1
-
+# It would be nice to have this as a separate package again, but the deps
+# are difficult to handle without a full Kerberos package
+#PACKAGES += CSWlibkrb5-priv
+#SPKG_DESC_CSWlibkrb5-priv = Kerberos private shared libraries, do not link against this package
+#PKGFILES_CSWlibkrb5-priv += $(call baseisadirs,$(libdir),libgssrpc\.so\.\d+(\.\d+)*)
+#PKGFILES_CSWlibkrb5-priv += $(call baseisadirs,$(libdir),libkadm5clnt_mit\.so\.\d+(\.\d+)*)
+#PKGFILES_CSWlibkrb5-priv += $(call baseisadirs,$(libdir),libkadm5srv_mit\.so\.\d+(\.\d+)*)
+#PKGFILES_CSWlibkrb5-priv += $(call baseisadirs,$(libdir),libkdb5\.so\.\d+(\.\d+)*)
+#PKGFILES_CSWlibkrb5-priv += $(call baseisadirs,$(libdir),krb5.*)
+## Private libraries in one common package.
+#CHECKPKG_OVERRIDES_CSWlibkrb5-priv += shared-lib-pkgname-mismatch
+#CHECKPKG_OVERRIDES_CSWlibkrb5-priv += soname-not-part-of-filename
+#RUNTIME_DEP_PKGS_CSWlibkrb5-priv += CSWlibssl1-0-0
+#RUNTIME_DEP_PKGS_CSWlibkrb5-priv += CSWlibgssapi-krb5-2
+#RUNTIME_DEP_PKGS_CSWlibkrb5-priv += CSWlibkrb5support0
+#RUNTIME_DEP_PKGS_CSWlibkrb5-priv += CSWlibcom-err3
+#RUNTIME_DEP_PKGS_CSWlibkrb5-priv += CSWlibk5crypto3
+#RUNTIME_DEP_PKGS_CSWlibkrb5-priv += CSWlibintl8
+#RUNTIME_DEP_PKGS_CSWlibkrb5-priv += CSWlibgcc-s1
+#
 PACKAGES += CSWlibkrb5-3
 CATALOGNAME_CSWlibkrb5-3 = libkrb5_3
 PKGFILES_CSWlibkrb5-3 += $(call baseisadirs,$(libdir),libkrb5\.so\.3(\.\d+)*)
 PKGFILES_CSWlibkrb5-3 += $(sysconfdir)/krb5.conf
 PKGFILES_CSWlibkrb5-3 += $(mandir)/man5/krb5.conf.5
-SPKG_DESC_CSWlibkrb5-3 += MIT Kerberos 5 core libraries, libkrb5.so.3
-OBSOLETED_BY_CSWlibkrb5-3 = CSWkrb5lib
+# Include the private bits in this package
+PKGFILES_CSWlibkrb5-3 += $(call baseisadirs,$(libdir),libgssrpc\.so\.\d+(\.\d+)*)
+PKGFILES_CSWlibkrb5-3 += $(call baseisadirs,$(libdir),libkadm5clnt_mit\.so\.\d+(\.\d+)*)
+PKGFILES_CSWlibkrb5-3 += $(call baseisadirs,$(libdir),libkadm5srv_mit\.so\.\d+(\.\d+)*)
+PKGFILES_CSWlibkrb5-3 += $(call baseisadirs,$(libdir),libkdb5\.so\.\d+(\.\d+)*)
+PKGFILES_CSWlibkrb5-3 += $(call baseisadirs,$(libdir),krb5.*)
+SPKG_DESC_CSWlibkrb5-3 += MIT Kerberos 5 core and private libraries, libkrb5.so.3
+OBSOLETED_BY_CSWlibkrb5-3 += CSWkrb5lib
+OBSOLETED_BY_CSWlibkrb5-3 += CSWlibkrb5-priv
 RUNTIME_DEP_PKGS_CSWlibkrb5-3 += CSWlibkrb5support0
 RUNTIME_DEP_PKGS_CSWlibkrb5-3 += CSWlibcom-err3
 RUNTIME_DEP_PKGS_CSWlibkrb5-3 += CSWlibk5crypto3
 RUNTIME_DEP_PKGS_CSWlibkrb5-3 += CSWlibintl8
 RUNTIME_DEP_PKGS_CSWlibkrb5-3 += CSWlibgcc-s1
-RUNTIME_DEP_PKGS_CSWlibkrb5-3 += CSWlibkrb5-priv
-CHECKPKG_OVERRIDES_CSWlibkrb5-3 += surplus-dependency|CSWlibkrb5-priv
+RUNTIME_DEP_PKGS_CSWlibkrb5-3 += CSWlibssl1-0-0
+RUNTIME_DEP_PKGS_CSWlibkrb5-3 += CSWlibgssapi-krb5-2
+CHECKPKG_OVERRIDES_CSWlibkrb5-3 += soname-not-part-of-filename
+CHECKPKG_OVERRIDES_CSWlibkrb5-3 += shared-lib-pkgname-mismatch
 
 PACKAGES += CSWlibkrb5support0
 CATALOGNAME_CSWlibkrb5support0 = libkrb5support0
@@ -115,7 +124,6 @@ PKGFILES_CSWlibkrb5support0 += $(call baseisadirs,$(libdir),libkrb5support\.so\.
 SPKG_DESC_CSWlibkrb5support0 += MIT Kerberos 5 core libraries, libkrb5support.so.0
 RUNTIME_DEP_PKGS_CSWlibkrb5support0 += CSWlibintl8
 RUNTIME_DEP_PKGS_CSWlibkrb5support0 += CSWlibgcc-s1
-OBSOLETED_BY_CSWlibkrb5-3 = CSWkrb5lib
 
 PACKAGES += CSWlibverto0
 CATALOGNAME_CSWlibverto0 = libverto0
