@@ -247,6 +247,7 @@ post-configure-modulated:
 	@# libtool.gcc, but what for? -mt is recognized by both Sun's cc
 	@# and gcc and is responsible for adding multi-threading support.
 	gsed -i \
+		-e 's,-Wno-int-to-pointer-cast,,' \
 		-e 's,-mt|*,,' \
 		-e 's,-xO3,-pipe -O2,' \
 		-e 's,KPIC,fPIC,' \
