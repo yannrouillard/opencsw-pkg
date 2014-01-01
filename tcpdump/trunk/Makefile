@@ -1,5 +1,5 @@
 NAME = tcpdump
-VERSION = 4.4.0
+VERSION = 4.5.1
 GARTYPE = v2
 
 DESCRIPTION = Dump network traffic
@@ -7,10 +7,7 @@ define BLURB
 endef
 
 MASTER_SITES = http://www.tcpdump.org/release/ 
-DISTFILES  = $(DISTNAME).tar.gz
-
-# For OpenSSL 1.0.0
-PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386
+DISTFILES += $(DISTNAME).tar.gz
 
 VENDOR_URL = http://www.tcpdump.org/
 
@@ -33,5 +30,9 @@ CONFIGURE_ARGS += --with-smi
 
 # There is a versioned tcpdump, which is not a hardlink. No need for that.
 EXTRA_MERGE_EXCLUDE_FILES = $(sbindir)/tcpdump\..*
+
+# There is a failing test:
+#   https://github.com/the-tcpdump-group/tcpdump/issues/351
+SKIPTEST ?= 1
 
 include gar/category.mk
