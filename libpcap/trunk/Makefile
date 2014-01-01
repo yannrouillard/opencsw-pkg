@@ -1,5 +1,5 @@
 NAME = libpcap
-VERSION = 1.4.0
+VERSION = 1.5.2
 GARTYPE = v2
 
 DESCRIPTION = System-independent interface for user-level packet capture
@@ -32,11 +32,10 @@ CATALOGNAME_CSWlibpcapdevel = libpcap_devel_stub
 
 BUILD64 = 1
 
-EXTRA_BUILD_ISAS_sparc = sparcv8plus
-EXTRA_BUILD_ISAS_i386  = pentium
-
 CONFIGURE_ARGS  = $(DIRPATHS)
 CONFIGURE_ARGS += --enable-ipv6
+# This is madness
+CONFIGURE_ARGS += --disable-dbus
 
 # Make sure shared libraries are built
 BUILD_ARGS = shared
@@ -44,9 +43,6 @@ INSTALL_ARGS = install-shared
 
 # No test target for libpcap
 TEST_SCRIPTS =
-
-MERGE_DIRS_isa-sparcv8plus = $(libdir)
-MERGE_DIRS_isa-pentium = $(libdir)
 
 # These are in the binaries only and specifiy compiler lines for unused includes
 CHECKPKG_OVERRIDES_CSWlibpcap1 += file-with-bad-content
