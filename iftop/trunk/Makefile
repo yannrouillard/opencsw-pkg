@@ -16,6 +16,9 @@ endef
 
 MASTER_SITES = http://www.ex-parrot.com/~pdw/iftop/download/
 DISTFILES  += $(DISTNAME).tar.gz
+
+# Track patches as reported in
+#   http://lists.beasts.org/pipermail/iftop-users/2014-January/000400.html
 #PATCHFILES += 0001-old-style-patch-patch-ui.c.patch
 #PATCHFILES += 0002-Omit-static-function-sigalrm.patch
 PATCHFILES += 0003-Add-sys-sockio.h-to-have-SIOCGIFFLAGS.patch
