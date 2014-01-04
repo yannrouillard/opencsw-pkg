@@ -1,5 +1,8 @@
+# TODO:
+# DONE: 1.8.6 does not compile yet as reported in https://bugzilla.gnome.org/show_bug.cgi?id=721479
+#
 NAME = doxygen
-VERSION = 1.8.5
+VERSION = 1.8.6
 GARTYPE = v2
 
 DESCRIPTION = A documentation system for programming languages
@@ -30,9 +33,6 @@ ARCHALL_CSWdoxygen-doc = 1
 CHECKPKG_OVERRIDES_CSWdoxygen-doc = missing-dependency|CSWpython
 OBSOLETED_BY_CSWdoxygen-doc = CSWdoxygendoc
 CATALOGNAME_CSWdoxygendoc = doxygen_doc_stub
-# These are pure examples
-CHECKPKG_OVERRIDES_CSWdoxygen-doc += file-with-bad-content|/usr/local|root/opt/csw/share/doc/doxygen/html/config.html
-CHECKPKG_OVERRIDES_CSWdoxygen-doc += file-with-bad-content|/usr/local|root/opt/csw/share/doc/doxygen/html/install.html
 
 REINPLACEMENTS += cflags
 REINPLACE_MATCH_cflags = (TMAKE_CFLAGS_RELEASE\s*=\s*).*
@@ -48,6 +48,9 @@ REINPLACEMENTS += ldflags
 REINPLACE_MATCH_ldflags = (TMAKE_LFLAGS_RELEASE\s*=).*
 REINPLACE_WITH_ldflags = \1 $(LDFLAGS)
 REINPLACE_FILES_ldflags += tmake/lib/solaris-cc/tmake.conf
+
+# Sun Studio 12 is too old and actually does not work any more
+GARCOMPILER = SOS12U3
 
 EXTRA_CXXFLAGS += -features=tmplrefstatic
 EXTRA_CXXFLAGS += -features=extensions -D__FUNCTION__=__func__
