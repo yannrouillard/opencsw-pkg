@@ -64,26 +64,16 @@ RUNTIME_DEP_PKGS_CSWwireshark += CSWlibgtk-x11-2-0-0
 RUNTIME_DEP_PKGS_CSWwireshark += CSWliblua5-2
 RUNTIME_DEP_PKGS_CSWwireshark += CSWlibgcc-s1
 
+###
 # For the ld bug
 RUNTIME_DEP_PKGS_CSWwireshark += CSWlibfreetype6
 RUNTIME_DEP_PKGS_CSWwireshark += CSWlibintl8
+CHECKPKG_OVERRIDES_CSWwireshark += surplus-dependency
+###
 
 # No more library splitting unless absolutely necessary
 CHECKPKG_OVERRIDES_CSWwireshark += shared-lib-package-contains-so-symlink
 CHECKPKG_OVERRIDES_CSWwireshark += shared-lib-pkgname-mismatch
-
-# example, \fI/usr/local/share/wireshark/preferences\fR) on UNIX-compatible
-CHECKPKG_OVERRIDES_CSWwireshark += file-with-bad-content|/usr/local|root/opt/csw/share/man/man1/rawshark.1
-CHECKPKG_OVERRIDES_CSWwireshark += file-with-bad-content|/usr/local|root/opt/csw/share/wireshark/rawshark.html
-
-# \&\fI/usr/local/lib/wireshark/plugins/$VERSION\fR), and then
-# example, \fI/usr/local/share/wireshark/preferences\fR) on UNIX-compatible
-CHECKPKG_OVERRIDES_CSWwireshark += file-with-bad-content|/usr/local|root/opt/csw/share/man/man1/wireshark.1
-CHECKPKG_OVERRIDES_CSWwireshark += file-with-bad-content|/usr/local|root/opt/csw/share/wireshark/wireshark.html
-
-# example, \fI/usr/local/share/wireshark/preferences\fR) on UNIX-compatible
-CHECKPKG_OVERRIDES_CSWwireshark += file-with-bad-content|/usr/local|root/opt/csw/share/man/man1/tshark.1
-CHECKPKG_OVERRIDES_CSWwireshark += file-with-bad-content|/usr/local|root/opt/csw/share/wireshark/tshark.html
 
 REINPLACEMENTS += mibs
 REINPLACE_MATCH_mibs = /usr/share/snmp/mibs
