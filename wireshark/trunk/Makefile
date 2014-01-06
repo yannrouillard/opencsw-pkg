@@ -1,5 +1,5 @@
 NAME = wireshark
-VERSION = 1.10.2
+VERSION = 1.10.5
 GARTYPE = v2
 
 DESCRIPTION = Wireshark (was Ethereal) is a free network protocol analyzer
