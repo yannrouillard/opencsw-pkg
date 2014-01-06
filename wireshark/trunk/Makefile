@@ -17,6 +17,8 @@ PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386
 
 VENDOR_URL = http://www.wireshark.org/
 
+GARCOMPILER = GCC4
+
 BUILD_DEP_PKGS += CSWlibgcrypt-dev
 BUILD_DEP_PKGS += CSWglib2devel
 BUILD_DEP_PKGS += CSWlibgpg-error-dev
