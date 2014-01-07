@@ -46,6 +46,7 @@ UFILES_REGEX = (\d+(?:\.\d+)*)
 RUNTIME_DEP_PKGS_CSWntop += CSWlibpython2-6-1-0
 CHECKPKG_OVERRIDES_CSWntop += surplus-dependency|CSWpython
 RUNTIME_DEP_PKGS_CSWntop += CSWlibiconv2
+CHECKPKG_OVERRIDES_CSWntop += surplus-dependency|CSWlibiconv2
 RUNTIME_DEP_PKGS_CSWntop += CSWlibpcap1
 RUNTIME_DEP_PKGS_CSWntop += CSWlibssl1-0-0
 RUNTIME_DEP_PKGS_CSWntop += CSWlibrrd-th4
