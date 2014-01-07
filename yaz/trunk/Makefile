@@ -91,6 +91,25 @@ RUNTIME_DEP_PKGS_CSWyaz += CSWlibreadline6
 RUNTIME_DEP_PKGS_CSWyaz += CSWlibyaz-icu5
 RUNTIME_DEP_PKGS_CSWyaz += CSWlibicuuc52
 
+# These are usually not needed, but -z ignore does not work the way it used to
+CHECKPKG_OVERRIDES_CSWlibyaz5 += surplus-dependency|CSWlibz1
+CHECKPKG_OVERRIDES_CSWlibyaz5 += surplus-dependency|CSWlibgcrypt11
+CHECKPKG_OVERRIDES_CSWlibyaz5 += surplus-dependency|CSWlibgpg-error0
+CHECKPKG_OVERRIDES_CSWyaz += surplus-dependency|CSWlibiconv2
+CHECKPKG_OVERRIDES_CSWlibyaz-server5 += surplus-dependency|CSWlibgcrypt11
+CHECKPKG_OVERRIDES_CSWlibyaz-server5 += surplus-dependency|CSWlibiconv2
+CHECKPKG_OVERRIDES_CSWlibyaz-server5 += surplus-dependency|CSWlibgpg-error0
+CHECKPKG_OVERRIDES_CSWlibyaz-server5 += surplus-dependency|CSWlibexslt0
+CHECKPKG_OVERRIDES_CSWlibyaz-server5 += surplus-dependency|CSWlibz1
+CHECKPKG_OVERRIDES_CSWlibyaz-server5 += surplus-dependency|CSWlibxslt1
+CHECKPKG_OVERRIDES_CSWlibyaz-icu5 += surplus-dependency|CSWlibgcrypt11
+CHECKPKG_OVERRIDES_CSWlibyaz-icu5 += surplus-dependency|CSWlibiconv2
+CHECKPKG_OVERRIDES_CSWlibyaz-icu5 += surplus-dependency|CSWlibicudata52
+CHECKPKG_OVERRIDES_CSWlibyaz-icu5 += surplus-dependency|CSWlibgpg-error0
+CHECKPKG_OVERRIDES_CSWlibyaz-icu5 += surplus-dependency|CSWlibexslt0
+CHECKPKG_OVERRIDES_CSWlibyaz-icu5 += surplus-dependency|CSWlibz1
+CHECKPKG_OVERRIDES_CSWlibyaz-icu5 += surplus-dependency|CSWlibxslt1
+
 REINPLACE_USRLOCAL += doc/yaz-config.1
 
 REINPLACEMENTS += usrlocalshare
