@@ -1,5 +1,5 @@
 NAME = multitail
-VERSION = 5.2.9
+VERSION = 6.0
 GARTYPE = v2
 
 DESCRIPTION = View one or multiple files like the original tail program
@@ -16,7 +16,7 @@ define BLURB
 endef
 
 MASTER_SITES = http://www.vanheusden.com/multitail/
-DISTFILES = $(NAME)-$(VERSION).tgz
+DISTFILES += $(DISTNAME).tgz
 LICENSE = license.txt
 
 RUNTIME_DEP_PKGS_CSWmultitail += CSWlibncurses5
@@ -28,8 +28,6 @@ INSTALL_SCRIPTS = custom
 
 # Adjust path to configuration file and compiler options
 PATCHFILES = patch-CSW.diff
-
-sysconfdir = /etc/opt/csw
 
 # Use provided Solaris Makefile
 BUILD_ARGS  = -f makefile.solaris_sunwspro
