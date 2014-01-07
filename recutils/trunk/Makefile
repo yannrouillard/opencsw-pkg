@@ -2,7 +2,7 @@
 # TODO (release-critical prefixed with !, non release-critical with *)
 #
 NAME = recutils
-VERSION = 1.5
+VERSION = 1.6
 GARTYPE = v2
 
 DESCRIPTION = GNU Recutils
@@ -12,7 +12,7 @@ define BLURB
 endef
 
 MASTER_SITES = $(GNU_MIRROR)
-MASTER_SITES += ftp://alpha.gnu.org/gnu/$(GNU_PROJ)/
+MASTER_SITES += ftp://alpha.gnu.org/gnu/$(GNU_PROJECT)/
 DISTFILES  = $(DISTNAME).tar.gz
 
 PACKAGES += CSWrecutils
@@ -21,11 +21,10 @@ SPKG_DESC_CSWrecutils = GNU recutils
 RUNTIME_DEP_PKGS_CSWrecutils += CSWlibgcrypt11
 RUNTIME_DEP_PKGS_CSWrecutils += CSWlibintl8
 RUNTIME_DEP_PKGS_CSWrecutils += CSWlibgpg-error0
-RUNTIME_DEP_PKGS_CSWrecutils += CSWlibcurl4
 RUNTIME_DEP_PKGS_CSWrecutils += CSWlibrec0
 RUNTIME_DEP_PKGS_CSWrecutils += CSWlibreadline6
 # This is just an emacs mode. It can be used when emacs is installed, no need to force dependency
-CHECKPKG_OVERRIDES_CSWrecutils += missing-dependency|CSWemacscommon
+CHECKPKG_OVERRIDES_CSWrecutils += missing-dependency|CSWemacs-common
 
 PACKAGES += CSWlibrec0
 SPKG_DESC_CSWlibrec0 = GNU recutils library, librec.so.0
@@ -34,12 +33,15 @@ RUNTIME_DEP_PKGS_CSWlibrec0 += CSWlibintl8
 RUNTIME_DEP_PKGS_CSWlibrec0 += CSWlibgpg-error0
 RUNTIME_DEP_PKGS_CSWlibrec0 += CSWlibcurl4
 RUNTIME_DEP_PKGS_CSWlibrec0 += CSWlibgcrypt11
-RUNTIME_DEP_PKGS_CSWlibrec0 += CSWlibreadline6
+RUNTIME_DEP_PKGS_CSWlibrec0 += CSWlibuuid1
 
 PACKAGES += CSWlibrec-dev
 SPKG_DESC_CSWlibrec-dev = Development files for librec.so.0
 PKGFILES_CSWlibrec-dev += $(PKGFILES_DEVEL)
 RUNTIME_DEP_PKGS_CSWlibrec-dev += CSWlibrec0
+
+BUILD64 = 1
+ISAEXEC = 1
 
 CONFIGURE_ARGS += $(DIRPATHS)
 CONFIGURE_ARGS += --disable-static
