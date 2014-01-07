@@ -1,5 +1,5 @@
 NAME = texinfo
-VERSION = 4.13a
+VERSION = 5.2
 GARTYPE = v2
 
 DESCRIPTION = The GNU Documentation System
@@ -8,21 +8,34 @@ define BLURB
   on-line information (info, HTML, XML, Docbook) and printed output (DVI, PDF).
 endef
 
-MASTER_SITES = $(GNU_MIRROR)
-DISTFILES = $(NAME)-$(VERSION).tar.gz
+MASTER_SITES += $(GNU_MIRROR)
+DISTFILES += $(DISTNAME).tar.gz
 DISTFILES += CSWtexinfo.postinstall
 DISTFILES += mkdirentries
 
-SPKG_SOURCEURL = http://www.gnu.org/software/texinfo/
+VENDOR_URL = http://www.gnu.org/software/texinfo/
 
-# We define upstream file regex so we can be notifed of new upstream software release
-UFILES_REGEX = $(NAME)-(\d+(?:\.\d+)*).tar.gz
+PACKAGES += CSWtexinfo
+SPKG_DESC_CSWtexinfo = The GNU Documentation System
+# PKGFILES is catchall
+RUNTIME_DEP_PKGS_CSWtexinfo += CSWbash
+RUNTIME_DEP_PKGS_CSWtexinfo += CSWgsed
+RUNTIME_DEP_PKGS_CSWtexinfo += CSWlibintl8
+RUNTIME_DEP_PKGS_CSWtexinfo += CSWlibncurses5
+# Are these really needed? May investigate deeply later.
+CHECKPKG_OVERRIDES_CSWtexinfo += surplus-dependency|CSWbash
+CHECKPKG_OVERRIDES_CSWtexinfo += surplus-dependency|CSWgsed
+CHECKPKG_OVERRIDES_CSWtexinfo += missing-dependency|CSWperl
 
-RUNTIME_DEP_PKGS = CSWbash CSWgsed CSWncurses CSWiconv CSWggettextrt
+# These are in fact commented out
+CHECKPKG_OVERRIDES_CSWtexinfo += file-with-bad-content|/usr/local|root/opt/csw/bin/texi2any
+CHECKPKG_OVERRIDES_CSWtexinfo += file-with-bad-content|/usr/local|root/opt/csw/bin/info
+CHECKPKG_OVERRIDES_CSWtexinfo += file-with-bad-content|/usr/share|root/opt/csw/bin/texi2any
+CHECKPKG_OVERRIDES_CSWtexinfo += file-with-bad-content|/usr/share|root/opt/csw/bin/info
+
 # CSWgzip is needed for zdiff
-BUILD_DEP_PKGS = $(RUNTIME_DEP_PKGS) CSWgzip
-
-DISTNAME = $(NAME)-4.13
+BUILD_DEP_PKGS += $(RUNTIME_DEP_PKGS)
+BUILD_DEP_PKGS += CSWgzip
 
 CONFIGURE_ARGS = $(DIRPATHS)
 
@@ -31,11 +44,6 @@ CONFIGURE_ARGS = $(DIRPATHS)
 NORUNPATH = 1
 
 EXTRA_MERGE_EXCLUDE_FILES = $(libdir)/charset.alias
-
-# Are these really needed? May investigate deeply later.
-CHECKPKG_OVERRIDES_CSWtexinfo += surplus-dependency|CSWbash
-CHECKPKG_OVERRIDES_CSWtexinfo += surplus-dependency|CSWgsed
-CHECKPKG_OVERRIDES_CSWtexinfo += surplus-dependency|CSWiconv
 
 include gar/category.mk
 
