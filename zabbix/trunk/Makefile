@@ -26,6 +26,8 @@ BUILD64-5.10 = 1
 BUILD64 = $(BUILD64-$(GAROSREL))
 ISAEXEC = 1
 
+BUILD_DEP_PKGS += CSWlibiksemel-dev
+
 PACKAGES += CSWzabbix-agent
 SPKG_DESC_CSWzabbix-agent = Zabbix monitoring system agent
 # PKGFILES is catchall
@@ -54,6 +56,7 @@ RUNTIME_DEP_PKGS_CSWzabbix-server += CSWliblber2-4-2
 RUNTIME_DEP_PKGS_CSWzabbix-server += CSWlibnetsnmp25
 RUNTIME_DEP_PKGS_CSWzabbix-server += CSWlibssh2-1
 RUNTIME_DEP_PKGS_CSWzabbix-server += CSWlibldap2-4-2
+RUNTIME_DEP_PKGS_CSWzabbix-server += CSWlibiksemel3
 
 CONFIGURE_ARGS = $(DIRPATHS)
 CONFIGURE_ARGS += --with-mysql=$(bindir)/mysql_config
@@ -83,6 +86,8 @@ CONFIGURE_ARGS += --with-mysql
 CONFIGURE_ARGS += --with-libcurl=$(bindir)/curl-config
 
 CONFIGURE_ARGS += --with-net-snmp=$(bindir)/net-snmp-config
+
+CONFIGURE_ARGS += --with-jabber
 
 PRESERVECONF += $(sysconfdir)/zabbix_agent.conf
 PRESERVECONF += $(sysconfdir)/zabbix_agentd.conf
