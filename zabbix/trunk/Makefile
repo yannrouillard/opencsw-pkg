@@ -2,7 +2,7 @@
 # TODO (release-critical prefixed with !, non release-critical with *)
 #
 NAME = zabbix
-VERSION = 2.0.9rc2
+VERSION = 2.2.1
 GARTYPE = v2
 
 DESCRIPTION = Zabbix monitoring system
@@ -32,7 +32,7 @@ SPKG_DESC_CSWzabbix-agent = Zabbix monitoring system agent
 RUNTIME_DEP_PKGS_CSWzabbix-agent += CSWlibiconv2
 RUNTIME_DEP_PKGS_CSWzabbix-agent += CSWlibcurl4
 RUNTIME_DEP_PKGS_CSWzabbix-agent += CSWlibssh2-1
-RUNTIME_DEP_PKGS_CSWzabbix-agent += CSWlibmysqlclient18
+RUNTIME_DEP_PKGS_CSWzabbix-agent += CSWlibsqlite3-0
 RUNTIME_DEP_PKGS_CSWzabbix-agent += CSWlibnetsnmp25
 RUNTIME_DEP_PKGS_CSWzabbix-agent += CSWlibldap2-4-2
 RUNTIME_DEP_PKGS_CSWzabbix-agent += CSWliblber2-4-2
@@ -47,7 +47,7 @@ PACKAGES-5.10 += CSWzabbix-server
 PACKAGES += $(PACKAGES-$(GAROSREL))
 SPKG_DESC_CSWzabbix-server = Zabbix monitoring system server
 PKGFILES_CSWzabbix-server += $(call baseisadirs,$(sbindir),zabbix_server)
-RUNTIME_DEP_PKGS_CSWzabbix-server += CSWlibmysqlclient18
+RUNTIME_DEP_PKGS_CSWzabbix-server += CSWlibsqlite3-0
 RUNTIME_DEP_PKGS_CSWzabbix-server += CSWlibiconv2
 RUNTIME_DEP_PKGS_CSWzabbix-server += CSWlibcurl4
 RUNTIME_DEP_PKGS_CSWzabbix-server += CSWliblber2-4-2
@@ -73,6 +73,9 @@ CONFIGURE_ARGS += --with-net-snmp
 # This searches libssh2 in $(prefix)/lib regardless if we are building 64 bit or not
 CONFIGURE_ARGS += --with-ssh2=$(prefix)
 CONFIGURE_ARGS += --with-ldap
+
+CONFIGURE_ARGS += --without-mysql
+CONFIGURE_ARGS += --with-sqlite3
 
 PRESERVECONF += $(sysconfdir)/zabbix_agent.conf
 PRESERVECONF += $(sysconfdir)/zabbix_agentd.conf
