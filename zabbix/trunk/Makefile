@@ -32,7 +32,7 @@ SPKG_DESC_CSWzabbix-agent = Zabbix monitoring system agent
 RUNTIME_DEP_PKGS_CSWzabbix-agent += CSWlibiconv2
 RUNTIME_DEP_PKGS_CSWzabbix-agent += CSWlibcurl4
 RUNTIME_DEP_PKGS_CSWzabbix-agent += CSWlibssh2-1
-RUNTIME_DEP_PKGS_CSWzabbix-agent += CSWlibsqlite3-0
+RUNTIME_DEP_PKGS_CSWzabbix-agent += CSWlibmysqlclient18
 RUNTIME_DEP_PKGS_CSWzabbix-agent += CSWlibnetsnmp25
 RUNTIME_DEP_PKGS_CSWzabbix-agent += CSWlibldap2-4-2
 RUNTIME_DEP_PKGS_CSWzabbix-agent += CSWliblber2-4-2
@@ -47,7 +47,7 @@ PACKAGES-5.10 += CSWzabbix-server
 PACKAGES += $(PACKAGES-$(GAROSREL))
 SPKG_DESC_CSWzabbix-server = Zabbix monitoring system server
 PKGFILES_CSWzabbix-server += $(call baseisadirs,$(sbindir),zabbix_server)
-RUNTIME_DEP_PKGS_CSWzabbix-server += CSWlibsqlite3-0
+RUNTIME_DEP_PKGS_CSWzabbix-server += CSWlibmysqlclient18
 RUNTIME_DEP_PKGS_CSWzabbix-server += CSWlibiconv2
 RUNTIME_DEP_PKGS_CSWzabbix-server += CSWlibcurl4
 RUNTIME_DEP_PKGS_CSWzabbix-server += CSWliblber2-4-2
@@ -74,8 +74,15 @@ CONFIGURE_ARGS += --with-net-snmp
 CONFIGURE_ARGS += --with-ssh2=$(prefix)
 CONFIGURE_ARGS += --with-ldap
 
-CONFIGURE_ARGS += --without-mysql
-CONFIGURE_ARGS += --with-sqlite3
+# We need the latest Solaris 10 for the mysql bindings
+LINKER_MAP_RELEASE =
+CONFIGURE_ARGS += --with-mysql
+
+# CONFIGURE_ARGS += --with-sqlite3
+# CONFIGURE_ARGS += --with-postgresql
+CONFIGURE_ARGS += --with-libcurl=$(bindir)/curl-config
+
+CONFIGURE_ARGS += --with-net-snmp=$(bindir)/net-snmp-config
 
 PRESERVECONF += $(sysconfdir)/zabbix_agent.conf
 PRESERVECONF += $(sysconfdir)/zabbix_agentd.conf
