@@ -58,6 +58,9 @@ RUNTIME_DEP_PKGS_CSWzabbix-server += CSWlibssh2-1
 RUNTIME_DEP_PKGS_CSWzabbix-server += CSWlibldap2-4-2
 RUNTIME_DEP_PKGS_CSWzabbix-server += CSWlibiksemel3
 
+# MySQL uses gcc, so we need to do also or the compiler flags bust
+GARCOMPILER = GCC4
+
 CONFIGURE_ARGS = $(DIRPATHS)
 CONFIGURE_ARGS += --with-mysql=$(bindir)/mysql_config
 CONFIGURE_ARGS += --with-libcurl
