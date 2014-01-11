@@ -1,5 +1,5 @@
 NAME = ntop
-VERSION = 4.0.3
+VERSION = 4.1.0
 GARTYPE = v2
 
 DESCRIPTION = A network traffic usage monitor
@@ -13,7 +13,7 @@ define BLURB
 endef
 
 MASTER_SITES = $(SF_MIRRORS)
-DISTFILES  = $(NAME)-$(VERSION).tgz
+DISTFILES  = $(NAME)-$(VERSION).tar.gz
 
 DISTFILES  += cswntop
 EXPANDVARS += cswntop
@@ -24,19 +24,15 @@ DISTFILES  += cswreleasemgr
 
 INITSMF = /etc/opt/csw/init.d/cswntop
 
-PATCHFILES  = 0001-Fix-misplaced-endif.patch
-PATCHFILES += 0002-Do-not-redeclare-__builtin_alloca.patch
-PATCHFILES += 0003-Check-for-uint_-in-addition-to-u_int_.patch
-PATCHFILES += 0004-Strip-default-Solaris-library-pathes-as-we-set-our-o.patch
-PATCHFILES += 0005-Change-default-PID-file-location-to-var-opt-csw-ntop.patch
-PATCHFILES += 0006-Temporary-Fix-for-Broken-sourceforge-CVS-access.patch
-PATCHFILES += 0007-Update-defaults-from-usr-local-to-opt-csw-etc-opt-cs.patch
 
-# Added by bwalton to make auto* happy again; These should likely be
-# upstreamed.
 PATCHFILES += 0001-Update-macros-used-in-Makefile.am-for-modern-convent.patch
-PATCHFILES += 0002-Modernize-a-few-macros-in-configure.in.patch
-PATCHFILES += 0003-Add-an-extra-automake-option-for-per-target-compiler.patch
+PATCHFILES += 0002-Do-not-redeclare-__builtin_alloca.patch
+PATCHFILES += 0003-Modernize-a-few-macros-in-configure.in.patch
+PATCHFILES += 0004-Add-an-extra-automake-option-for-per-target-compiler.patch
+PATCHFILES += 0005-Strip-default-Solaris-library-pathes-as-we-set-our-o.patch
+PATCHFILES += 0006-Change-default-PID-file-location-to-var-opt-csw-ntop.patch
+PATCHFILES += 0007-Update-the-URL-for-etter.finger.os.patch
+PATCHFILES += 0008-Update-defaults-from-usr-local-to-opt-csw-etc-opt-cs.patch
 
 # We define upstream file regex so we can be notifed of new upstream software release
 UPSTREAM_MASTER_SITES = $(SF_PROJECT_SHOWFILE)=17233
