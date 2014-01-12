@@ -4,7 +4,7 @@
 # investigated.
 
 NAME = graphviz
-VERSION = 2.34.0
+VERSION = 2.36.0
 GARTYPE = v2
 
 DESCRIPTION = Graph visualization tools 
