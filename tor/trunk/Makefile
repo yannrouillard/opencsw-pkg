@@ -40,12 +40,6 @@ include gar/category.mk
 
 post-install-modulated:
 
-	# add some config options to sample conf
-	echo "# OpenCSW added default options" >> $(DESTDIR)$(sysconfdir)/tor/torrc.sample
-	echo "Log syslog" >> $(DESTDIR)$(sysconfdir)/tor/torrc.sample
-	echo "PidFile /var/run/tor.pid" >> $(DESTDIR)$(sysconfdir)/tor/torrc.sample
-	echo "RunAsDaemon 1" >> $(DESTDIR)$(sysconfdir)/tor/torrc.sample
-
 	# Copy SMF script
 	ginstall -Dm 755 $(FILEDIR)/cswtor \
 		$(DESTDIR)/etc/opt/csw/init.d/cswtor
