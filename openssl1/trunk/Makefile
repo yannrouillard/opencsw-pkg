@@ -135,8 +135,8 @@ endif
 # To update the patch, do:
 #   cd files && ./update-t4-patch.sh OPENSSL_VERSION
 #
-PATCHFILES.sparc.5.11 += openssl-1.0.1e-t4-engine.sparc-patch
-PATCHFILES.sparc.5.11 += openssl-1.0.1e-t4-engine.sparc-patch.sparcv9+vis
+PATCHFILES.sparc.5.11 += openssl-1.0.1f-t4-engine.sparc.5.11.patch
+PATCHFILES.sparc.5.11 += openssl-1.0.1e-t4-engine-sparcv9+vis.sparc.5.11.patch
 
 PATCHFILES += $(PATCHFILES.$(GARCH).$(GAROSREL))
 
