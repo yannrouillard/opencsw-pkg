@@ -62,6 +62,7 @@ RUNTIME_DEP_PKGS_CSWsvn_5.10   += CSWlibgnome-keyring0
 RUNTIME_DEP_PKGS_CSWsvn_5.10   += CSWlibglib2-0-0
 CHECKPKG_OVERRIDES_CSWsvn += surplus-dependency|CSWlibdbus1-3
 CHECKPKG_OVERRIDES_CSWsvn += file-with-bad-content|/usr/local|root/opt/csw/lib/svn/libsvn_repos-1.so.0.0.0
+CHECKPKG_OVERRIDES_CSWsvn += missing-dependency|CSWlibiconv2
 
 RUNTIME_DEP_PKGS_CSWsvn += $(RUNTIME_DEP_PKGS_CSWsvn_$(GAROSREL))
 
@@ -106,6 +107,16 @@ CHECKPKG_OVERRIDES_CSWjavasvn += bad-rpath-entry|/lib|opt/csw/lib/svn/libsvnjava
 CHECKPKG_OVERRIDES_CSWjavasvn += bad-rpath-entry|/opt/SUNWspro/lib|opt/csw/lib/svn/libsvnjavahl-1.so.0.0.0
 CHECKPKG_OVERRIDES_CSWjavasvn += bad-rpath-entry|/opt/SUNWspro/lib/rw7|opt/csw/lib/svn/libsvnjavahl-1.so.0.0.0
 CHECKPKG_OVERRIDES_CSWjavasvn += bad-rpath-entry|/opt/SUNWspro/lib/v8|opt/csw/lib/svn/libsvnjavahl-1.so.0.0.0
+CHECKPKG_OVERRIDES_CSWjavasvn += bad-rpath-entry|/opt/SUNWspro/lib/sparc|opt/csw/lib/svn/libsvnjavahl-1.so.0.0.0
+CHECKPKG_OVERRIDES_CSWjavasvn += missing-dependency|CSWlibmagic1
+CHECKPKG_OVERRIDES_CSWjavasvn += missing-dependency|CSWlibiconv2
+CHECKPKG_OVERRIDES_CSWjavasvn += missing-dependency|CSWlibz1
+CHECKPKG_OVERRIDES_CSWjavasvn += missing-dependency|CSWbdb48
+CHECKPKG_OVERRIDES_CSWjavasvn += missing-dependency|CSWlibsasl2-2
+CHECKPKG_OVERRIDES_CSWjavasvn += missing-dependency|CSWlibexpat1
+CHECKPKG_OVERRIDES_CSWjavasvn += missing-dependency|CSWlibsqlite3-0
+CHECKPKG_OVERRIDES_CSWjavasvn += missing-dependency|CSWlibaprutil1-0
+CHECKPKG_OVERRIDES_CSWjavasvn += missing-dependency|CSWlibserf1-3
 
 PACKAGES += CSWpmsvn
 SPKG_DESC_CSWpmsvn         = Subversion Perl Language Binding
@@ -118,6 +129,13 @@ RUNTIME_DEP_PKGS_CSWpmsvn += CSWperl
 RUNTIME_DEP_PKGS_CSWpmsvn += CSWsvn
 RUNTIME_DEP_PKGS_CSWpmsvn += CSWlibapr1-0
 CHECKPKG_OVERRIDES_CSWpmsvn += catalogname-does-not-match-pkgname|pkgname=CSWpmsvn|catalogname=pm_subversion|expected-catalogname=pmsvn
+CHECKPKG_OVERRIDES_CSWpmsvn += missing-dependency|CSWlibmagic1
+CHECKPKG_OVERRIDES_CSWpmsvn += missing-dependency|CSWlibiconv2
+CHECKPKG_OVERRIDES_CSWpmsvn += missing-dependency|CSWlibexpat1
+CHECKPKG_OVERRIDES_CSWpmsvn += missing-dependency|CSWlibz1
+CHECKPKG_OVERRIDES_CSWpmsvn += missing-dependency|CSWlibintl8
+CHECKPKG_OVERRIDES_CSWpmsvn += missing-dependency|CSWlibaprutil1-0
+CHECKPKG_OVERRIDES_CSWpmsvn += missing-dependency|CSWlibsqlite3-0
 
 
 PACKAGES += CSWrbsvn
@@ -131,6 +149,15 @@ RUNTIME_DEP_PKGS_CSWrbsvn += CSWruby
 RUNTIME_DEP_PKGS_CSWrbsvn += CSWlibapr1-0
 RUNTIME_DEP_PKGS_CSWrbsvn += CSWlibintl8
 RUNTIME_DEP_PKGS_CSWrbsvn += CSWlibruby18-1
+CHECKPKG_OVERRIDES_CSWrbsvn += missing-dependency|CSWlibmagic1
+CHECKPKG_OVERRIDES_CSWrbsvn += missing-dependency|CSWlibiconv2
+CHECKPKG_OVERRIDES_CSWrbsvn += missing-dependency|CSWlibexpat1
+CHECKPKG_OVERRIDES_CSWrbsvn += missing-dependency|CSWlibz1
+CHECKPKG_OVERRIDES_CSWrbsvn += missing-dependency|CSWlibsasl2-2
+CHECKPKG_OVERRIDES_CSWrbsvn += missing-dependency|CSWbdb48
+CHECKPKG_OVERRIDES_CSWrbsvn += missing-dependency|CSWlibsqlite3-0
+CHECKPKG_OVERRIDES_CSWrbsvn += missing-dependency|CSWlibaprutil1-0
+CHECKPKG_OVERRIDES_CSWrbsvn += missing-dependency|CSWlibserf1-3
 
 
 PACKAGES += CSWpythonsvn
@@ -144,6 +171,16 @@ RUNTIME_DEP_PKGS_CSWpythonsvn += CSWlibapr1-0
 RUNTIME_DEP_PKGS_CSWpythonsvn += CSWsvn
 RUNTIME_DEP_PKGS_CSWpythonsvn += CSWpython
 CHECKPKG_OVERRIDES_CSWpythonsvn += surplus-dependency|CSWpython
+CHECKPKG_OVERRIDES_CSWpythonsvn += missing-dependency|CSWlibmagic1
+CHECKPKG_OVERRIDES_CSWpythonsvn += missing-dependency|CSWlibsqlite3-0
+CHECKPKG_OVERRIDES_CSWpythonsvn += missing-dependency|CSWlibexpat1
+CHECKPKG_OVERRIDES_CSWpythonsvn += missing-dependency|CSWlibz1
+CHECKPKG_OVERRIDES_CSWpythonsvn += missing-dependency|CSWlibintl8
+CHECKPKG_OVERRIDES_CSWpythonsvn += missing-dependency|CSWlibiconv2
+CHECKPKG_OVERRIDES_CSWpythonsvn += missing-dependency|CSWbdb48
+CHECKPKG_OVERRIDES_CSWpythonsvn += missing-dependency|CSWlibsasl2-2
+CHECKPKG_OVERRIDES_CSWpythonsvn += missing-dependency|CSWlibaprutil1-0
+CHECKPKG_OVERRIDES_CSWpythonsvn += missing-dependency|CSWlibserf1-3
 
 
 DISTFILES += CSWsvn.checkinstall
