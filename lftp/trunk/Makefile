@@ -13,7 +13,7 @@
 ###### Package information #######
 
 NAME = lftp
-VERSION = 4.4.13
+VERSION = 4.4.14
 GARTYPE = v2
 
 DESCRIPTION = A sophisticated command-line ftp/http client
