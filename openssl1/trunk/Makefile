@@ -73,6 +73,9 @@ DISTFILES += map.openssl.libcrypto map.openssl.libssl map.openssl.engines
 
 DOCFILES = CHANGES CHANGES.SSLeay PROBLEMS README FAQ README.ASN1 INSTALL NEWS README.ENGINE
 
+# List of engines that will be shipped in the packages
+ENGINES = 4758cca aep atalla cswift gmp chil nuron sureware ubsec padlock capi
+
 # configure targets patchs needs to be different for Solaris 9 as some map files
 # are not available 
 ifeq ($(shell /usr/bin/uname -r),5.9)
@@ -121,11 +124,8 @@ PATCHFILES += make_issetugid_support_configurable.patch
 
 # support for pkcs11 engine http://blogs.sun.com/chichang1/entry/how_to_integrate_pkcs11_engine
 ifneq ($(shell /usr/bin/uname -r),5.9)
-# There is a problem with this patch under sparc when using tls protocol
-# See https://www.opencsw.org/mantis/view.php?id=5098
-ifneq ($(shell /usr/bin/uname -p),sparc)
-       PATCHFILES += pkcs11_engine-1.0.1b.patch.2012-04-30
-endif
+       PATCHFILES += openssl-1.0.1f-pkcs11-engine.patch
+       ENGINES += pk11
 endif
 
 # support for sparc t4 crypto engine 
@@ -135,10 +135,11 @@ endif
 # To update the patch, do:
 #   cd files && ./update-t4-patch.sh OPENSSL_VERSION
 #
-ifeq ($(shell /usr/bin/uname -rp),5.11 sparc) 
-	PATCHFILES += openssl-1.0.1e-t4-engine.sparc-patch
-	PATCHFILES += openssl-1.0.1e-t4-engine.sparc-patch.sparcv9+vis
-endif
+PATCHFILES.sparc.5.11 += openssl-1.0.1e-t4-engine.sparc-patch
+PATCHFILES.sparc.5.11 += openssl-1.0.1e-t4-engine.sparc-patch.sparcv9+vis
+
+PATCHFILES += $(PATCHFILES.$(GARCH).$(GAROSREL))
+
 
 LICENSE = LICENSE
 
@@ -183,6 +184,13 @@ sparcv9_OS_COMPILER		= solaris64-sparcv9-cc-sunw
 # but openssl doesn't use it by default so we manually enable it
 CONFIGURE_FLAGS = -DHAVE_ISSETUGID
 
+# PKCS11 Patch also works on sparc64 athena processors thanks for the FJAES 
+# instruction set. The presence of this instruction set is checked at runtime
+# by looking for the AV_SPARC_JFAES instruction set bit, unfortunately the
+# corresponding macro in not present in Solaris 9-11 headers, so we manually 
+# define it.
+CONFIGURE_FLAGS += -DAV_SPARC_FJAES=0
+
 # --libdir must only be given if the directory is actually different from lib or the creation will fail
 # as the directory is already there
 LIBDIR_64 = --libdir=lib/64
@@ -194,9 +202,7 @@ CONFIGURE_ARGS = --prefix=$(prefix) shared $(CONFIGURE_FLAGS) $($(ISA)_OS_COMPIL
 ifneq ($(shell /usr/bin/uname -r),5.9)
 # There is a problem with this patch under sparc when using tls protocol
 # See https://www.opencsw.org/mantis/view.php?id=5098
-ifneq ($(shell /usr/bin/uname -p),sparc)
-        CONFIGURE_ARGS += --pk11-libname=$(abspath /usr/lib/$(MM_LIBDIR)/libpkcs11.so) 
-endif
+	CONFIGURE_ARGS += --pk11-libname=$(abspath /usr/lib/$(MM_LIBDIR)/libpkcs11.so) 
 endif 
 
 # For now we want the sun perl to be used
@@ -220,6 +226,7 @@ STRIP_DIRS = $(DESTDIR)/$(libdir) $(DESTDIR)/$(libdir)/openssl-$(SONAME)/engines
 
 TEST_SCRIPTS = 
 
+
 include gar/category.mk
 
 # We remove SSE2 hardware capability in the elf header of libcrypto as
@@ -238,7 +245,7 @@ pre-configure-modulated:
 	cd $(WORKSRC) && ln -nf Configure configure
 	ln -nf $(WORKDIR)/map.openssl.libcrypto $(WORKSRC)/map.openssl.libcrypto 
 	ln -nf $(WORKDIR)/map.openssl.libssl $(WORKSRC)/map.openssl.libssl 
-	for ENGINE in 4758cca aep atalla cswift gmp chil nuron sureware ubsec padlock capi; do \
+	for ENGINE in 4758cca aep atalla cswift gmp chil nuron sureware ubsec padlock capi pk11; do \
 		ln -nf $(WORKDIR)/map.openssl.engines $(WORKSRC)/engines/map.openssl.lib$$ENGINE; \
 	done 
 	ln -nf $(WORKDIR)/map.openssl.engines $(WORKSRC)/engines/ccgost/map.openssl.libgost
