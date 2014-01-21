@@ -1,5 +1,5 @@
 NAME = zsh
-VERSION = 5.0.4
+VERSION = 5.0.5
 GARTYPE = v2
 
 DESCRIPTION = Powerful UNIX shell
@@ -30,8 +30,8 @@ CONFIGURE_ARGS += --enable-fndir=$(sharedstatedir)/$(NAME)/functions
 CONFIGURE_ARGS += --enable-pcre
 CONFIGURE_ARGS += --enable-etcdir=$(sysconfdir)
 
-CHECKPKG_OVERRIDES_CSWzsh += file-with-bad-content|/usr/local|root/opt/csw/bin/zsh-$(VERSION)
-
+CHECKPKG_OVERRIDES_CSWzsh += file-with-bad-content|/usr/local|root/opt/csw/bin/zsh
+EXTRA_MERGE_EXCLUDE_FILES = /opt/csw/bin/zsh-$(VERSION)
 ETCSHELLS = /opt/csw/bin/zsh
 
 include gar/category.mk
