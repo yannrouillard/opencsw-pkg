@@ -4,7 +4,7 @@
 #     https://lists.gnu.org/archive/html/bug-wget/2011-09/msg00001.html
 
 NAME = wget
-VERSION = 1.14
+VERSION = 1.15
 
 DESCRIPTION = A network utility to retrieve files from the Web
 define BLURB
@@ -31,6 +31,7 @@ RUNTIME_DEP_PKGS_CSWwget += CSWlibz1
 RUNTIME_DEP_PKGS_CSWwget += CSWlibssl1-0-0
 RUNTIME_DEP_PKGS_CSWwget += CSWlibidn11
 RUNTIME_DEP_PKGS_CSWwget += CSWlibpcre1
+RUNTIME_DEP_PKGS_CSWwget += CSWlibuuid1
 
 EXTRA_MODULATORS = STATIC
 MODULATIONS_STATIC = disable enable
