@@ -21,10 +21,14 @@ PACKAGES = CSWap2modwsgi
 CATALOGNAME_CSWap2modwsgi   = ap2_modwsgi
 RUNTIME_DEP_PKGS_CSWap2modwsgi += CSWpython
 RUNTIME_DEP_PKGS_CSWap2modwsgi += CSWlibpython2-6-1-0
+RUNTIME_DEP_PKGS_CSWap2modwsgi += CSWlibpython2-7-1-0
 RUNTIME_DEP_PKGS_CSWap2modwsgi += CSWapache2
 
 CHECKPKG_OVERRIDES_CSWap2modwsgi += catalogname-does-not-match-pkgname|pkgname=CSWap2modwsgi|catalogname=ap2_modwsgi|expected-catalogname=ap2modwsgi
 CHECKPKG_OVERRIDES_CSWap2modwsgi += surplus-dependency|CSWpython
+
+CHECKPKG_OVERRIDES_CSWap2modwsgi += soname-not-part-of-filename|soname=mod_wsgi.so|filename=mod_wsgi-2.6.so
+CHECKPKG_OVERRIDES_CSWap2modwsgi += soname-not-part-of-filename|soname=mod_wsgi.so|filename=mod_wsgi-2.7.so
 
 EXTRA_MODULATORS += PYTHON
 MODULATIONS_PYTHON = 2.6 2.7
@@ -45,5 +49,5 @@ MERGE_SCRIPTS_isa-default-python-2.7 = copy-all
 include gar/category.mk
 
 post-merge-all:
-	gln -s mod_wsgi-2.6.so $(PKGROOT)opt/csw/apache2/libexec/mod_wsgi.so
+	gln -s mod_wsgi-2.6.so $(PKGROOT)/opt/csw/apache2/libexec/mod_wsgi.so
 	@$(MAKECOOKIE)
