@@ -18,6 +18,8 @@ DISTFILES += $(NAME)-$(VERSION).tar.lzma
 
 VENDOR_URL = http://curl.haxx.se
 
+PATCHFILES += 0000-trynextip-logic-inversion-bug.patch
+
 # Because of OpenSSL 1.0 update
 PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386
 
