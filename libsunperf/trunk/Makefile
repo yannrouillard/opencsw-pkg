@@ -51,13 +51,20 @@ CHECKPKG_OVERRIDES_CSWlibsunperf7 += no-direct-binding
 
 include gar/category.mk
 
-
 SRCDIR-sparcv9 = v9
 SRCDIR-amd64   = amd64
 
-install-custom:
+install-custom-i386:
 	ginstall -d $(DESTDIR)$(libdir)
-	$(foreach L,$(FLIBS-$(GARCH)),if [ -f $(SOS12_CC_HOME)/lib/$L ]; then ginstall $(SOS12_CC_HOME)/lib/$L $(DESTDIR)$(libdir)/$L; fi;)
+	$(foreach L,$(FLIBS-$(GARCH)),if [ -f $(SOS12_CC_HOME)/lib/$L ]; then ginstall $(SOS12_CC_HOME)/lib/$L $(DESTDIR)$(libdir)$(ISA_SS32-$(GARCH))/$L; fi;)
+
+install-custom-sparc:
+	ginstall -d $(DESTDIR)$(libdir)
+	ginstall -d $(DESTDIR)$(libdir)/v8
+	ln -s v8/$(FLIBS-sparc) $(DESTDIR)$(libdir)/$(FLIBS-sparc)
+	$(foreach L,$(FLIBS-$(GARCH)),if [ -f $(SOS12_CC_HOME)/lib/$L ]; then ginstall $(SOS12_CC_HOME)/lib/$L $(DESTDIR)$(libdir)$(ISA_SS32-$(GARCH))/v8/$L; fi;)
+
+install-custom: install-custom-$(GARCH)
 	ginstall -d $(DESTDIR)$(libdir)/$(ISA_DEFAULT64)
 	$(foreach L,$(FLIBS-$(GARCH)),if [ -f $(SOS12_CC_HOME)/lib/$(SRCDIR-$(ISA_DEFAULT64))/$L ]; then ginstall $(SOS12_CC_HOME)/lib/$(SRCDIR-$(ISA_DEFAULT64))/$L $(DESTDIR)$(libdir)/$(ISA_DEFAULT64)/$L; fi;)
 	@$(MAKECOOKIE)
