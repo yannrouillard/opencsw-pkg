@@ -57,12 +57,14 @@ SRCDIR-amd64   = amd64
 install-custom-i386:
 	ginstall -d $(DESTDIR)$(libdir)
 	$(foreach L,$(FLIBS-$(GARCH)),if [ -f $(SOS12_CC_HOME)/lib/$L ]; then ginstall $(SOS12_CC_HOME)/lib/$L $(DESTDIR)$(libdir)$(ISA_SS32-$(GARCH))/$L; fi;)
+	@$(MAKECOOKIE)
 
 install-custom-sparc:
 	ginstall -d $(DESTDIR)$(libdir)
 	ginstall -d $(DESTDIR)$(libdir)/v8
 	ln -s v8/$(FLIBS-sparc) $(DESTDIR)$(libdir)/$(FLIBS-sparc)
 	$(foreach L,$(FLIBS-$(GARCH)),if [ -f $(SOS12_CC_HOME)/lib/$L ]; then ginstall $(SOS12_CC_HOME)/lib/$L $(DESTDIR)$(libdir)$(ISA_SS32-$(GARCH))/v8/$L; fi;)
+	@$(MAKECOOKIE)
 
 install-custom: install-custom-$(GARCH)
 	ginstall -d $(DESTDIR)$(libdir)/$(ISA_DEFAULT64)
