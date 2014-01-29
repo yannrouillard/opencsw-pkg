@@ -1,6 +1,6 @@
 # $Id$
 NAME = lighttpd
-VERSION = 1.4.31
+VERSION = 1.4.34
 GARTYPE = v2
 
 DESCRIPTION = HTTP server built for security, speed, compliance, and flexibility
@@ -19,7 +19,9 @@ MASTER_SITES = http://download.lighttpd.net/lighttpd/releases-1.4.x/
 DISTFILES   += $(NAME)-$(VERSION).tar.gz
 DISTFILES   += cswlighttpd
 
-PATCHFILES += 0001-Work-around-linking-problem-buffer.c.patch
+#PATCHFILES += 0001-Work-around-linking-problem-buffer.c.patch
+#Patch from http://buildfarm.opencsw.org/source/xref/solaris-userland/components/lighttpd/patches/05-network-nodelay.patch
+PATCHFILES += 0002-fix_missing_tcp_nodelay.patch
 
 # When mkdir is issued on an automounted directory like /home/<someuser> errno is
 # set to ENOSYS halting recursive directory generation. This patches handles
@@ -152,6 +154,6 @@ post-merge:
 	ginstall -d -m 755 $(PKGROOT)$(sysconfdir)/pkg/$(NAME)
 	echo "lighttpd:lighttpd:lighttpd web server::::" \
 		> $(PKGROOT)$(sysconfdir)/pkg/$(NAME)/cswusergroup
-	(cd $(PKGROOT)$(libdir_install); ln -s . 32)
-	(cd $(PKGROOT)$(libdir_install); ln -s $(ISA_DEFAULT64) 64)
+	(cd $(PKGROOT)$(libdir_install); gln -s . 32)
+	(cd $(PKGROOT)$(libdir_install); gln -s $(ISA_DEFAULT64) 64)
 	@$(MAKECOOKIE)
