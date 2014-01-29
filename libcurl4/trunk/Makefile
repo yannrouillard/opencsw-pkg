@@ -1,5 +1,5 @@
 NAME = curl
-VERSION = 7.34.0
+VERSION = 7.35.0
 GARTYPE = v2
 
 DESCRIPTION = Command line tool and library for client-side URL transfers
@@ -17,8 +17,6 @@ MASTER_SITES = http://curl.haxx.se/download/
 DISTFILES += $(NAME)-$(VERSION).tar.lzma
 
 VENDOR_URL = http://curl.haxx.se
-
-PATCHFILES += 0000-trynextip-logic-inversion-bug.patch
 
 # Because of OpenSSL 1.0 update
 PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386
