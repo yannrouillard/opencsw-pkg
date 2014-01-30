@@ -20,7 +20,7 @@ DISTFILES   += $(NAME)-$(VERSION).tar.gz
 DISTFILES   += cswlighttpd
 
 #PATCHFILES += 0001-Work-around-linking-problem-buffer.c.patch
-#Patch from http://buildfarm.opencsw.org/source/xref/solaris-userland/components/lighttpd/patches/05-network-nodelay.patch
+# Patch from http://buildfarm.opencsw.org/source/xref/solaris-userland/components/lighttpd/patches/05-network-nodelay.patch
 PATCHFILES += 0002-fix_missing_tcp_nodelay.patch
 
 # When mkdir is issued on an automounted directory like /home/<someuser> errno is
@@ -28,8 +28,8 @@ PATCHFILES += 0002-fix_missing_tcp_nodelay.patch
 # ENOSYS similar to EEXIST and just continues with the creation which then may
 # or may not work later on.
 #
-# There's a thread started on lighttpd forums about the issue:
-#   http://redmine.lighttpd.net/boards/2/topics/4163
+# Use patch until this is fixed:
+#   http://redmine.lighttpd.net/issues/2527
 PATCHFILES += 0003-Ignore-ENOSYS-on-mkdir-which-happens-on-automounted-.patch
 
 # PACKAGING_PLATFORMS = solaris9-sparc solaris9-i386                                                                          
@@ -43,6 +43,7 @@ RUNTIME_DEP_PKGS_CSWlighttpd += CSWlibbz2-1-0
 RUNTIME_DEP_PKGS_CSWlighttpd += CSWlibpcre1
 RUNTIME_DEP_PKGS_CSWlighttpd += CSWlibssl1-0-0
 RUNTIME_DEP_PKGS_CSWlighttpd += CSWlibz1
+RUNTIME_DEP_PKGS_CSWlighttpd += CSWlibfam0
 
 PACKAGES += CSWlighttpd-mod-auth
 SPKG_DESC_CSWlighttpd-mod-auth = Lighttpd module for authentication
@@ -50,6 +51,11 @@ PKGFILES_CSWlighttpd-mod-auth += $(call baseisadirs,$(libdir_install),mod_auth.s
 RUNTIME_DEP_PKGS_CSWlighttpd-mod-auth += CSWlighttpd
 RUNTIME_DEP_PKGS_CSWlighttpd-mod-auth += CSWliblber2-4-2
 RUNTIME_DEP_PKGS_CSWlighttpd-mod-auth += CSWlibldap2-4-2
+RUNTIME_DEP_PKGS_CSWlighttpd-mod-auth += CSWlibssl1-0-0
+
+# These are problems within checkpkg
+CHECKPKG_OVERRIDES_CSWlighttpd-mod-auth += 64-bit-binaries-missing
+CHECKPKG_OVERRIDES_CSWlighttpd-mod-auth += surplus-dependency|CSWlighttpd
 
 PACKAGES += CSWlighttpd-mod-webdav
 SPKG_DESC_CSWlighttpd-mod-webdav = Lighttpd module for WebDAV access
@@ -57,6 +63,11 @@ PKGFILES_CSWlighttpd-mod-webdav += $(call baseisadirs,$(libdir_install),mod_webd
 RUNTIME_DEP_PKGS_CSWlighttpd-mod-webdav += CSWlighttpd
 RUNTIME_DEP_PKGS_CSWlighttpd-mod-webdav += CSWlibsqlite3-0
 RUNTIME_DEP_PKGS_CSWlighttpd-mod-webdav += CSWlibxml2-2
+RUNTIME_DEP_PKGS_CSWlighttpd-mod-webdav += CSWlibuuid1
+
+# These are problems within checkpkg
+CHECKPKG_OVERRIDES_CSWlighttpd-mod-webdav += 64-bit-binaries-missing
+CHECKPKG_OVERRIDES_CSWlighttpd-mod-webdav += surplus-dependency|CSWlighttpd
 
 PACKAGES += CSWlighttpd-mod-mysql-vhost
 SPKG_DESC_CSWlighttpd-mod-mysql-vhost = Lighttpd module for MySQL-driven VHOSTs
@@ -65,6 +76,21 @@ RUNTIME_DEP_PKGS_CSWlighttpd-mod-mysql-vhost += CSWlighttpd
 RUNTIME_DEP_PKGS_CSWlighttpd-mod-mysql-vhost += CSWlibmysqlclient18
 RUNTIME_DEP_PKGS_CSWlighttpd-mod-mysql-vhost += CSWlibssl1-0-0
 RUNTIME_DEP_PKGS_CSWlighttpd-mod-mysql-vhost += CSWlibz1
+
+# These are problems within checkpkg
+CHECKPKG_OVERRIDES_CSWlighttpd-mod-mysql-vhost += 64-bit-binaries-missing
+CHECKPKG_OVERRIDES_CSWlighttpd-mod-mysql-vhost += surplus-dependency|CSWlighttpd
+
+PACKAGES += CSWlighttpd-mod-trigger
+SPKG_DESC_CSWlighttpd-mod-trigger = Lighttpd module
+PKGFILES_CSWlighttpd-mod-trigger += $(call baseisadirs,$(libdir_install),mod_trigger_b4_dl.so)
+RUNTIME_DEP_PKGS_CSWlighttpd-mod-trigger += CSWlighttpd
+RUNTIME_DEP_PKGS_CSWlighttpd-mod-trigger += CSWlibpcre1
+RUNTIME_DEP_PKGS_CSWlighttpd-mod-trigger += CSWlibgdbm4
+
+# These are problems within checkpkg
+CHECKPKG_OVERRIDES_CSWlighttpd-mod-trigger += 64-bit-binaries-missing
+CHECKPKG_OVERRIDES_CSWlighttpd-mod-trigger += surplus-dependency|CSWlighttpd
 
 # Add library needed for sendfilev64 referenced from .libs/liblightcomp_la-network_solaris_sendfilev.o
 EXTRA_LINKER_FLAGS += -lsendfile
@@ -75,13 +101,20 @@ EXTRA_LINKER_FLAGS += $(EXTRA_LINKER_FLAGS_$(GAROSREL))
 
 # lighttpd puts its modules under libdir, so we pass libdir as a subdirectory,
 # because modules are not supposed to be in /opt/csw/lib.
-libdir_install = $(prefix)/lib/lighttpd
+libdir_install = $(exec_prefix)/lib/lighttpd
+#libdir = $(abspath $(libdir_install)/$(MM_LIBDIR))/lighttpd
+#libdir_install = $(prefix)/lib/lighttpd
 
 CONFIGURE_ARGS  = $(DIRPATHS)
 
 CONFIGURE_ARGS += --with-openssl=yes
 CONFIGURE_ARGS += --with-openssl-includes=$(includedir)
 CONFIGURE_ARGS += --with-openssl-libs=$(libpath)
+
+# Hardcode until this is fixed:
+#   http://redmine.lighttpd.net/issues/2528
+CONFIGURE_ARGS += ac_cv_search_crypt=-lcrypto
+
 # EXTRA_LINKER_FLAGS += -lcrypto
 
 # Solaris 9 does not have IPV6_V6ONLY.
@@ -109,6 +142,9 @@ CONFIGURE_ARGS += --with-webdav-locks
 CONFIGURE_ARGS += --with-memcache
 CONFIGURE_ARGS += --with-ldap
 CONFIGURE_ARGS += --with-mysql
+CONFIGURE_ARGS += --with-fam
+CONFIGURE_ARGS += --with-gdbm
+CONFIGURE_ARGS += --with-memcache
 
 # -- LUA support
 # Disable LUA for now until this is fixed:
@@ -117,6 +153,9 @@ CONFIGURE_ARGS += --with-mysql
 #EXTRA_CONFIGURE_EXPORTS += LUA_CFLAGS LUA_LIBS
 CONFIGURE_ENV_LUA_CFLAGS = $(CPPFLAGS)
 CONFIGURE_ENV_LUA_LIBS = -L$(libdir) -llua
+
+# Make sure 'id -u' and 'id -g' works
+CONFIGURE_ENV_PATH = /usr/xpg4/bin:$(PATH)
 
 INITSMF = $(sysconfdir)/init\.d/cswlighttpd
 PRESERVECONF = $(sysconfdir)/lighttpd\.conf
@@ -150,7 +189,7 @@ post-install-modulated:
 	ginstall -d -m 755 $(DESTDIR)$(localstatedir)/log/lighttpd
 	@$(MAKECOOKIE)
 
-post-merge:
+post-merge-all:
 	ginstall -d -m 755 $(PKGROOT)$(sysconfdir)/pkg/$(NAME)
 	echo "lighttpd:lighttpd:lighttpd web server::::" \
 		> $(PKGROOT)$(sysconfdir)/pkg/$(NAME)/cswusergroup
