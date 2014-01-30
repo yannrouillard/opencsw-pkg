@@ -11,7 +11,7 @@ endef
 
 MASTER_SITES = $(SF_MIRRORS)
 DISTFILES  = $(NAME)-$(VERSION).tar.bz2
-DISTFILES += _pkgutil _mgar
+DISTFILES += _pkgutil _mgar _alternatives
 
 PACKAGES = CSWzsh
 CATALOGNAME_CSWzsh = zsh
@@ -41,5 +41,5 @@ include gar/category.mk
 CPPFLAGS := -I$(includedir)/ncursesw $(CPPFLAGS)
 
 post-install-modulated:
-	cp -p $(WORKDIR)/_pkgutil $(WORKDIR)/_mgar $(DESTDIR)$(sharedstatedir)/$(NAME)/functions
+	cp -p $(WORKDIR)/_pkgutil $(WORKDIR)/_mgar $(WORKDIR)/_alternatives $(DESTDIR)$(sharedstatedir)/$(NAME)/functions
 	@$(MAKECOOKIE)
