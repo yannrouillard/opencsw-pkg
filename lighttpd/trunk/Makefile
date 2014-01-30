@@ -56,6 +56,8 @@ RUNTIME_DEP_PKGS_CSWlighttpd-mod-auth += CSWlibssl1-0-0
 # These are problems within checkpkg
 CHECKPKG_OVERRIDES_CSWlighttpd-mod-auth += 64-bit-binaries-missing
 CHECKPKG_OVERRIDES_CSWlighttpd-mod-auth += surplus-dependency|CSWlighttpd
+# Issues with linker defect and -z ignore
+CHECKPKG_OVERRIDES_CSWlighttpd-mod-auth += surplus-dependency|CSWliblber2-4-2
 
 PACKAGES += CSWlighttpd-mod-webdav
 SPKG_DESC_CSWlighttpd-mod-webdav = Lighttpd module for WebDAV access
@@ -80,6 +82,9 @@ RUNTIME_DEP_PKGS_CSWlighttpd-mod-mysql-vhost += CSWlibz1
 # These are problems within checkpkg
 CHECKPKG_OVERRIDES_CSWlighttpd-mod-mysql-vhost += 64-bit-binaries-missing
 CHECKPKG_OVERRIDES_CSWlighttpd-mod-mysql-vhost += surplus-dependency|CSWlighttpd
+# Issues with linker defect and -z ignore
+CHECKPKG_OVERRIDES_CSWlighttpd-mod-mysql-vhost += surplus-dependency|CSWlibz1
+CHECKPKG_OVERRIDES_CSWlighttpd-mod-mysql-vhost += surplus-dependency|CSWlibssl1-0-0
 
 PACKAGES += CSWlighttpd-mod-trigger
 SPKG_DESC_CSWlighttpd-mod-trigger = Lighttpd module
