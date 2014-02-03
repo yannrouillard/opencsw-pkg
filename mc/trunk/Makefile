@@ -29,4 +29,6 @@ CHECKPKG_OVERRIDES_CSWmc += file-with-bad-content|/usr/local|root/opt/csw/libexe
 CHECKPKG_OVERRIDES_CSWmc += file-with-bad-content|/usr/local|root/opt/csw/libexec/mc/extfs.d/ulib
 CHECKPKG_OVERRIDES_CSWmc += missing-dependency|CSWemacs-common
 
+GARCOMPILER = GNU
+
 include gar/category.mk
