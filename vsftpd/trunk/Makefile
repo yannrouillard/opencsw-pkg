@@ -139,6 +139,9 @@ else
 CFLAGS += -I/usr/include -Idummyinc 
 endif
 
+EXTRA_LD_OPTIONS += -z nolazyload
+
+
 INSTALL_ENV += INSTALL="ginstall"
 
 
