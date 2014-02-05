@@ -1,7 +1,7 @@
 # $Id$
 
 NAME    = pidgin
-VERSION = 2.10.7
+VERSION = 2.10.9
 GARTYPE = v2
 
 DESCRIPTION = Multi-protocol IM client
