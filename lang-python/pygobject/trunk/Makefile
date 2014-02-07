@@ -3,6 +3,7 @@
 NAME = pygobject
 VERSION = 2.90.4
 RELVER = $(shell echo $(VERSION) | gsed -e 's/\.[0-9]\+$$//')
+# CATEGORIES = python
 
 DESCRIPTION = Python bindings for the GObject library
 define BLURB
@@ -24,6 +25,11 @@ RUNTIME_DEP_PKGS_CSWpy-gobject-dev += CSWlibpyglib-gi2-0python0
 RUNTIME_DEP_PKGS_CSWlibpyglib-gi2-0python0 += CSWlibgthread2-0-0
 RUNTIME_DEP_PKGS_CSWlibpyglib-gi2-0python0 += CSWlibglib2-0-0
 
+RUNTIME_DEP_PKGS_CSWlibpyglib-gi2-0python0_sparc += CSWlibintl8
+RUNTIME_DEP_PKGS_CSWlibpyglib-gi2-0python0_sparc += CSWlibgobject2-0-0
+RUNTIME_DEP_PKGS_CSWlibpyglib-gi2-0python0_sparc += CSWlibffi5
+RUNTIME_DEP_PKGS_CSWlibpyglib-gi2-0python0 += $(RUNTIME_DEP_PKGS_CSWlibpyglib-gi2-0python0_$(GARCH))
+
 PACKAGES += CSWpy-gobject-dev
 OBSOLETED_BY_CSWpy-gobject-dev += CSWpygobject
 SPKG_DESC_CSWpy-gobject-dev = Development files for the Python GObject library
@@ -34,7 +40,7 @@ CHECKPKG_OVERRIDES_CSWpy-gobject-dev += python-package-missing-py26-files
 CHECKPKG_OVERRIDES_CSWpy-gobject-dev += python-package-missing-py-files
 
 PACKAGES += CSWpy-gobject
-OBSOLETED_BY_CSWpy-gobject += CSWpygobject
+# OBSOLETED_BY_CSWpy-gobject += CSWpygobject
 SPKG_DESC_CSWpy-gobject = $(DESCRIPTION)
 PKGFILES_CSWpy-gobject = $(libdir)/python.*/site-packages/.*
 RUNTIME_DEP_PKGS_CSWpy-gobject += CSWlibcairo2
@@ -43,6 +49,11 @@ RUNTIME_DEP_PKGS_CSWpy-gobject += CSWlibgirepository1-0-1
 RUNTIME_DEP_PKGS_CSWpy-gobject += CSWlibglib2-0-0
 RUNTIME_DEP_PKGS_CSWpy-gobject += CSWlibgobject2-0-0
 RUNTIME_DEP_PKGS_CSWpy-gobject += CSWlibpyglib-gi2-0python0
+
+RUNTIME_DEP_PKGS_CSWpy-gobject_sparc += CSWlibintl8
+RUNTIME_DEP_PKGS_CSWpy-gobject_sparc += CSWlibgthread2-0-0
+RUNTIME_DEP_PKGS_CSWpy-gobject_sparc += CSWlibgmodule2-0-0
+RUNTIME_DEP_PKGS_CSWpy-gobject += $(RUNTIME_DEP_PKGS_CSWpy-gobject_$(GARCH))
 
 PYCOMPILE = 1
 STRIP_LIBTOOL = 1
