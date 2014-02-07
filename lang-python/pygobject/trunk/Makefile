@@ -30,8 +30,6 @@ SPKG_DESC_CSWpy-gobject-dev = Development files for the Python GObject library
 RUNTIME_DEP_PKGS_CSWpy-gobject-dev += CSWlibpyglib2-0python0
 
 # These are just comments
-CHECKPKG_OVERRIDES_CSWpy-gobject-dev += file-with-bad-content|/usr/local|root/opt/csw/share/pygobject/2.0/codegen/defsgen.py
-CHECKPKG_OVERRIDES_CSWpy-gobject-dev += file-with-bad-content|/usr/local|root/opt/csw/share/pygobject/2.0/codegen/h2def.py
 CHECKPKG_OVERRIDES_CSWpy-gobject-dev += python-package-missing-py26-files
 CHECKPKG_OVERRIDES_CSWpy-gobject-dev += python-package-missing-py-files
 
@@ -40,7 +38,7 @@ OBSOLETED_BY_CSWpy-gobject += CSWpygobject
 SPKG_DESC_CSWpy-gobject = $(DESCRIPTION)
 PKGFILES_CSWpy-gobject = $(libdir)/python.*/site-packages/.*
 RUNTIME_DEP_PKGS_CSWpy-gobject += CSWlibcairo2
-RUNTIME_DEP_PKGS_CSWpy-gobject += CSWlibffi4
+RUNTIME_DEP_PKGS_CSWpy-gobject += CSWlibffi5
 RUNTIME_DEP_PKGS_CSWpy-gobject += CSWlibgirepository1-0-1
 RUNTIME_DEP_PKGS_CSWpy-gobject += CSWlibglib2-0-0
 RUNTIME_DEP_PKGS_CSWpy-gobject += CSWlibgobject2-0-0
