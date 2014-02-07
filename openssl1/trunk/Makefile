@@ -102,7 +102,11 @@ PATCHFILES += 0003-make-engines-directory-soname-dependant.patch
 
 # Update openssl.cnf path in man page to follow opencsw standard
 PATCHFILES += opencsw_paths.patch
-#
+
+# Make sure man pages and html docs are installed in proper locations
+# instead of /opt/csw/ssl/man and /opt/csw/ssl/html
+PATCHFILES += 0010-Move-manpages-and-html-doc-in-standard-locations.patch
+
 # Let's always block some compromised CA, whatever the CA configured
 # (patchs taken from Debian Package)
 PATCHFILES += block_bad_certificates.patch
