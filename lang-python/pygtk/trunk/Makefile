@@ -1,5 +1,6 @@
+# is obsoleted since CSWgobject 2.90.4 which presents a gtk+3 interface
 NAME = pygtk
-VERSION = 2.17.0
+VERSION = 2.24.0
 GARTYPE = v2
 RELVER = $(shell echo $(VERSION) |gsed 's/\(^[0-9].*\.[0-9].*\)\.[0-9]*/\1/')
 
