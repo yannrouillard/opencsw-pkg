@@ -49,7 +49,7 @@ RUNTIME_DEP_PKGS_CSWntop += CSWlibssl1-0-0
 RUNTIME_DEP_PKGS_CSWntop += CSWlibrrd-th4
 RUNTIME_DEP_PKGS_CSWntop += CSWlibgeoip1
 RUNTIME_DEP_PKGS_CSWntop += CSWpython
-RUNTIME_DEP_PKGS_CSWntop += CSWlibgdbm4
+RUNTIME_DEP_PKGS_CSWntop += CSWlibgdbm3
 RUNTIME_DEP_PKGS_CSWntop += CSWlibz1
 
 
@@ -80,8 +80,8 @@ localstatedir = /var/opt/csw
 PRESERVECONF = $(sysconfdir)/ntop.conf
 
 CONFIGURE_ARGS = $(DIRPATHS)
-CONFIGURE_ARGS += --with-gdbm-lib=/opt/csw/lib
-CONFIGURE_ARGS += --with-gdbm-include=/opt/csw/include
+CONFIGURE_ARGS += --with-gdbm-lib=$(abspath $(FILEDIR)/gdbm3)
+CONFIGURE_ARGS += --with-gdbm-include=$(abspath $(FILEDIR)/gdbm3)
 CONFIGURE_ARGS += --with-zlib-lib=/opt/csw/lib
 CONFIGURE_ARGS += --with-zlib-include=/opt/csw/include
 CONFIGURE_ARGS += --with-ossl-lib=/opt/csw/lib
@@ -89,6 +89,9 @@ CONFIGURE_ARGS += --with-ossl-include=/opt/csw/include
 CONFIGURE_ARGS += --enable-jumbo-frames
 # CONFIGURE_ARGS += --enable-fc
 # CONFIGURE_ARGS += --enable-mysql
+
+EXTRA_CPPFLAGS = -I$(abspath $(FILEDIR)/gdbm3)
+EXTRA_LDFLAGS = -L$(abspath $(FILEDIR)/gdbm3)
 
 EXTRA_CONFIGURE_ENV += PYTHON=/opt/csw/bin/python2.6-config
 
