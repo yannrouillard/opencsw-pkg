@@ -129,9 +129,6 @@ PATCHFILES += make_issetugid_support_configurable.patch
 
 # support for pkcs11 engine http://blogs.sun.com/chichang1/entry/how_to_integrate_pkcs11_engine
 ifneq ($(shell /usr/bin/uname -r),5.9)
-       # The upstream pkcs11 engine patch depends on the wanboot one
-       # so we will apply the wanboot patch even if we will not enable wanboot
-       PATCHFILES += openssl-1.0.1f-wanboot.patch
        PATCHFILES += openssl-1.0.1f-pkcs11-engine.patch
        ENGINES += pk11
 endif
@@ -142,11 +139,14 @@ endif
 # patch taken from https://hg.openindiana.org/upstream/oracle/userland-gate/
 # To update the patch, do:
 #   cd files && ./update-t4-patch.sh OPENSSL_VERSION
-#
+
+# The upstream t4 engine patch depends on the wanboot one
+# so we will apply the wanboot patch even if we will not enable wanboot
+PATCHFILES.sparc.5.11 += openssl-1.0.1f-wanboot.patch
 PATCHFILES.sparc.5.11 += openssl-1.0.1f-t4-engine.sparc.5.11.patch
 PATCHFILES.sparc.5.11 += openssl-1.0.1e-t4-engine-sparcv9+vis.sparc.5.11.patch
-
 PATCHFILES += $(PATCHFILES.$(GARCH).$(GAROSREL))
+
 
 
 LICENSE = LICENSE
