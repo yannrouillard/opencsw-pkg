@@ -1,7 +1,7 @@
 # $Id$
 
 NAME = pygobject
-VERSION = 2.90.4
+VERSION = 2.28.6
 RELVER = $(shell echo $(VERSION) | gsed -e 's/\.[0-9]\+$$//')
 # CATEGORIES = python
 
@@ -13,27 +13,42 @@ endef
 MASTER_SITES = http://ftp.gnome.org/pub/GNOME/sources/$(NAME)/$(RELVER)/
 DISTFILES  = $(NAME)-$(VERSION).tar.bz2
 
-# PATCHFILES = 0001-forcing-lglib-2.0.patch
+PATCHFILES = 0001-forcing-lglib-2.0.patch
+PATCHFILES = 0002-gi-backport.patch
+
+GARCOMPILER = GCC4
 
 PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386
 BUILD_DEP_PKGS = CSWlibffi-dev
 
-PACKAGES += CSWlibpyglib-gi2-0python0
-PKGFILES_CSWlibpyglib-gi2-0python0 += $(call baseisadirs,$(libdir),libpyglib-gi-2\.0-python\.so\.0(\.\d+)*)
-SPKG_DESC_CSWlibpyglib-gi2-0python0 += $(DESCRIPTION), libpyglib-gi-2.0-python.so.0
-RUNTIME_DEP_PKGS_CSWpy-gobject-dev += CSWlibpyglib-gi2-0python0
-RUNTIME_DEP_PKGS_CSWlibpyglib-gi2-0python0 += CSWlibgthread2-0-0
-RUNTIME_DEP_PKGS_CSWlibpyglib-gi2-0python0 += CSWlibglib2-0-0
+PACKAGES += CSWlibpyglib2-0python0
+CATALOGNAME_CSWlibpyglib2-0python0 = libpyglib2_0python0
+PKGFILES_CSWlibpyglib2-0python0 += $(call baseisadirs,$(libdir),libpyglib-2\.0-python\.so\.0\.0\.0)
+PKGFILES_CSWlibpyglib2-0python0 += $(call baseisadirs,$(libdir),libpyglib-2\.0-python\.so\.0(\.\d+)*)
+SPKG_DESC_CSWlibpyglib2-0python0 += $(DESCRIPTION), libpyglib-2.0-python.so.0
+RUNTIME_DEP_PKGS_CSWlibpyglib2-0python0 += CSWlibgthread2-0-0
+RUNTIME_DEP_PKGS_CSWlibpyglib2-0python0 += CSWlibgcc-s1
+RUNTIME_DEP_PKGS_CSWlibpyglib2-0python0 += CSWlibglib2-0-0
 
-RUNTIME_DEP_PKGS_CSWlibpyglib-gi2-0python0_sparc += CSWlibintl8
-RUNTIME_DEP_PKGS_CSWlibpyglib-gi2-0python0_sparc += CSWlibgobject2-0-0
-RUNTIME_DEP_PKGS_CSWlibpyglib-gi2-0python0_sparc += CSWlibffi5
-RUNTIME_DEP_PKGS_CSWlibpyglib-gi2-0python0 += $(RUNTIME_DEP_PKGS_CSWlibpyglib-gi2-0python0_$(GARCH))
+# PACKAGES += CSWlibpyglib-gi2-0python0
+# PKGFILES_CSWlibpyglib-gi2-0python0 += $(call baseisadirs,$(libdir),libpyglib-gi-2\.0-python\.so\.0(\.\d+)*)
+# SPKG_DESC_CSWlibpyglib-gi2-0python0 += $(DESCRIPTION), libpyglib-gi-2.0-python.so.0
+# RUNTIME_DEP_PKGS_CSWpy-gobject-dev += CSWlibpyglib-gi2-0python0
+# RUNTIME_DEP_PKGS_CSWlibpyglib-gi2-0python0 += CSWlibgthread2-0-0
+# RUNTIME_DEP_PKGS_CSWlibpyglib-gi2-0python0 += CSWlibglib2-0-0
+# 
+# RUNTIME_DEP_PKGS_CSWlibpyglib-gi2-0python0_sparc += CSWlibintl8
+# RUNTIME_DEP_PKGS_CSWlibpyglib-gi2-0python0_sparc += CSWlibgobject2-0-0
+# RUNTIME_DEP_PKGS_CSWlibpyglib-gi2-0python0_sparc += CSWlibffi5
+# RUNTIME_DEP_PKGS_CSWlibpyglib-gi2-0python0 += $(RUNTIME_DEP_PKGS_CSWlibpyglib-gi2-0python0_$(GARCH))
 
 PACKAGES += CSWpy-gobject-dev
 OBSOLETED_BY_CSWpy-gobject-dev += CSWpygobject
 SPKG_DESC_CSWpy-gobject-dev = Development files for the Python GObject library
 RUNTIME_DEP_PKGS_CSWpy-gobject-dev += CSWlibpyglib2-0python0
+RUNTIME_DEP_PKGS_CSWpy-gobject-dev += CSWlibgthread2-0-0
+RUNTIME_DEP_PKGS_CSWpy-gobject-dev += CSWlibgcc-s1
+RUNTIME_DEP_PKGS_CSWpy-gobject-dev += CSWlibglib2-0-0
 
 # These are just comments
 CHECKPKG_OVERRIDES_CSWpy-gobject-dev += python-package-missing-py26-files
@@ -48,7 +63,9 @@ RUNTIME_DEP_PKGS_CSWpy-gobject += CSWlibffi5
 RUNTIME_DEP_PKGS_CSWpy-gobject += CSWlibgirepository1-0-1
 RUNTIME_DEP_PKGS_CSWpy-gobject += CSWlibglib2-0-0
 RUNTIME_DEP_PKGS_CSWpy-gobject += CSWlibgobject2-0-0
-RUNTIME_DEP_PKGS_CSWpy-gobject += CSWlibpyglib-gi2-0python0
+RUNTIME_DEP_PKGS_CSWpy-gobject += CSWlibgio2-0-0
+RUNTIME_DEP_PKGS_CSWpy-gobject += CSWlibpyglib2-0python0
+RUNTIME_DEP_PKGS_CSWpy-gobject += CSWlibgcc-s1
 
 RUNTIME_DEP_PKGS_CSWpy-gobject_sparc += CSWlibintl8
 RUNTIME_DEP_PKGS_CSWpy-gobject_sparc += CSWlibgthread2-0-0
@@ -57,6 +74,9 @@ RUNTIME_DEP_PKGS_CSWpy-gobject += $(RUNTIME_DEP_PKGS_CSWpy-gobject_$(GARCH))
 
 PYCOMPILE = 1
 STRIP_LIBTOOL = 1
+
+EXTRA_CFLAGS = -std=c99 -D_XPG6 -D__EXTENSIONS__
+EXTRA_BUILD_ENV = V=1
 
 CONFIGURE_ARGS  = $(DIRPATHS)
 # CONFIGURE_ARGS += --without-ffi
