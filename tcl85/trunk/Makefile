@@ -69,13 +69,25 @@ PKGFILES_CSWtcl-dev += $(PKGFILES_DEVEL)
 PKGFILES_CSWtcl-dev += $(call baseisadirs,$(libdir),tclConfig.sh)
 RUNTIME_DEP_PKGS_CSWtcl-dev += CSWlibtcl8-5
 
+#EXTRA_ISAEXEC_EXCLUDE_FILES += $(bindir)/tclsh8.5
+
+# No isaexec, use alternatives for now
+# ISAEXEC = 1
+
+# Relocate binaries away as we have the symlink in bindir
+EXTRA_MERGE_DIRS += $(bindir)
+
+ALTERNATIVES += 32 64
+ALTERNATIVE_32 = $(bindir_install)/tclsh8.5 tclsh $(bindir_install)/$(ISA_DEFAULT)/tclsh8.5 320
+ALTERNATIVE_64 = $(bindir_install)/tclsh8.5 tclsh $(bindir_install)/$(ISA_DEFAULT64)/tclsh8.5 640
+#ALTERNATIVE_isaexec = $(bindir_install)/tclsh8.5 tclsh $(bindir_install)/isaexec 100
+
 # Enable 64 bits, but not for Solaris 9 x86
 BUILD64_5.9_sparc  = 1
 BUILD64_5.10_sparc = 1
 BUILD64_5.9_i386   =
 BUILD64_5.10_i386  = 1
 BUILD64 = $(BUILD64_$(GAROSREL)_$(GARCH))
-ISAEXEC = 1
 
 INCLUDE_FLAGS =
 
@@ -94,8 +106,8 @@ CONFIGURE_ARGS += CONFIGURE_ARGS-$(MEMORYMODEL)
 #      against symbol                  offset      in file
 #  st                                  0x634       tclDTrace.o
 #  ld: fatal: relocations remain against allocatable but non-writable sections
-# CONFIGURE_ARGS-5.10 += --enable-dtrace
-# CONFIGURE_ARGS += $(CONFIGURE_ARGS-$(GAROSREL))
+CONFIGURE_ARGS-5.10 += --enable-dtrace
+CONFIGURE_ARGS += $(CONFIGURE_ARGS-$(GAROSREL))
 
 INSTALL_ARGS = install install-libraries install-private-headers install-tzdata install-msgs
 
