@@ -96,13 +96,15 @@ PYCOMPILE = 1
 
 include gar/category.mk
 
-post-build-isa-sparcv8plus-python_version-2.6 post-build-isa-sparcv8plus-python_version-2.7:
+post-build-isa-sparcv8plus-python_version-2.6 post-build-isa-sparcv8plus-python_version-2.7
+post-build-isa-pentium_pro-python_version-2.6 post-build-isa-pentium_pro-python_version-2.7:
 	# This fails for a mysterious reason.  Can't find libmagic (-lmagic).
 	(cd $(WORKSRC)/python && $(PYTHON) setup.py build --compiler=unix)
 	###(cd $(WORKSRC)/python && $(PYTHON) setup.py build)
 	@$(MAKECOOKIE)
 
-post-install-isa-sparcv8plus-python_version-2.6 post-install-isa-sparcv8plus-python_version-2.7:
+post-install-isa-sparcv8plus-python_version-2.6 post-install-isa-sparcv8plus-python_version-2.7
+post-install-isa-pentium_pro-python_version-2.6 post-install-isa-pentium_pro-python_version-2.7:
 	(cd $(WORKSRC)/python && \
 		$(BUILD_ENV) $(PYTHON) setup.py install --root=$(DESTDIR) --prefix=$(prefix))
 	@$(MAKECOOKIE)
