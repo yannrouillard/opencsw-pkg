@@ -2,7 +2,7 @@
 # TODO (release-critical prefixed with !, non release-critical with *)
 #
 NAME = p11-kit
-VERSION = 0.12
+VERSION = 0.20.2
 GARTYPE = v2
 
 DESCRIPTION = Load and enumerate PKCS#11 modules
@@ -12,7 +12,8 @@ DISTFILES  = $(DISTNAME).tar.gz
 
 # Use patch until this has been fixed:
 #   http://bugs.freedesktop.org/show_bug.cgi?id=49218
-PATCHFILES += 0001-Use-getexecname-instead-of-directly-accessing-__argv.patch
+# PATCHFILES += 0001-Use-getexecname-instead-of-directly-accessing-__argv.patch
+PATCHFILES += 0002-remove-include-paths.h.patch
 
 VENDOR_URL = http://p11-glue.freedesktop.org/p11-kit.html
 
@@ -29,6 +30,8 @@ RUNTIME_DEP_PKGS_CSWlibp11kit-dev += CSWlibintl8
 RUNTIME_DEP_PKGS_CSWlibp11kit-dev += CSWlibp11kit0 
 
 EXTRA_CPPFLAGS = -features=extensions -D__PRETTY_FUNCTION__=__func__
+EXTRA_CPPFLAGS += -xc99 -D_POSIX_PTHREAD_SEMANTICS -D__FUNCTION__=__func__
+
 EXTRA_LINKER_FLAGS += -lintl
 
 # For fabs(3m)
@@ -40,6 +43,9 @@ EXTRA_LINKER_FLAGS += -lrt
 BUILD64_LIBS_ONLY = 1
 
 CONFIGURE_ARGS = $(DIRPATHS)
+CONFIGURE_ARGS += --without-trust-paths 
+
+EXTRA_BUILD_ENV = V=1
 
 EXTRA_PAX_ARGS = -s ,pkcs11.conf.example,pkcs11.conf,
 
