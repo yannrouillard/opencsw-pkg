@@ -133,6 +133,12 @@ CONFIGURE_ARGS += --enable-shared
 CONFIGURE_ARGS += --with-soname=ruby$(API_VERSION)
 CONFIGURE_ARGS += --with-out-ext=tk
 
+# gobjcopy (both the OpenCSW and SFW one) corrupts the ruby library
+# (see https://blogs.oracle.com/mandy/entry/building_ruby_1_9_on)
+# We disable objcopy (same workaround as in pkgsrc
+# https://github.com/jsonn/pkgsrc/blob/trunk/lang/ruby193-base/Makefile#L44)
+EXTRA_CONFIGURE_ENV += OBJCOPY=:
+
 EXTRA_INC = $(prefix)/X11/include
 EXTRA_LIB = $(prefix)/X11/lib
 
