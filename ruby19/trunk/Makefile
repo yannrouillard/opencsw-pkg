@@ -18,10 +18,10 @@ PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386
 #
 # [1] http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=543805
 # [2] http://redmine.ruby-lang.org/issues/show/2609
-ifneq ($(VERSION)$(PATCHLEVEL), 1.9.3p0)
-else
+#ifneq ($(VERSION)$(PATCHLEVEL), 1.9.3p0)
+#else
 TEST_SCRIPTS = 
-endif
+#endif
 
 DISTNAME = ruby-$(VERSION)-$(PATCHLEVEL)
 
