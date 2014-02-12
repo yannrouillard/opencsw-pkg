@@ -3,7 +3,7 @@ VERSION = 1.9.3
 # Change this when the build starts putting files in $(libdir)/ruby/$(newver)
 API_VERSION = 1.9.1
 API_SHORT = $(subst .,,$(API_VERSION))
-PATCHLEVEL = p194
+PATCHLEVEL = p0
 GARTYPE = v2
 
 # patchfile 0002-vm.c... is a backport from upstream
@@ -18,10 +18,10 @@ PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386
 #
 # [1] http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=543805
 # [2] http://redmine.ruby-lang.org/issues/show/2609
-#ifneq ($(VERSION)$(PATCHLEVEL), 1.9.3p0)
-#else
+ifneq ($(VERSION)$(PATCHLEVEL), 1.9.3p0)
+else
 TEST_SCRIPTS = 
-#endif
+endif
 
 DISTNAME = ruby-$(VERSION)-$(PATCHLEVEL)
 
