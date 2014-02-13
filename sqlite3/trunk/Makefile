@@ -18,6 +18,9 @@ VENDOR_URL = http://sqlite.org
 
 LICENSE = copyright-release.html
 
+PACKAGING_PLATFORMS += solaris9-sparc solaris9-i386
+PACKAGING_PLATFORMS += solaris10-sparc solaris10-i386
+
 PACKAGES += CSWsqlite3
 SPKG_DESC_CSWsqlite3 = An embeddable SQL engine in a C library
 # PKGFILES_CSWsqlite3 = $(bindir)/.*
@@ -42,6 +45,10 @@ BUILD_DEP_PKGS += CSWreadline
 
 # Enable sqlite3_unlock_notify() API as requested in #4837
 EXTRA_CPPFLAGS += -DSQLITE_ENABLE_UNLOCK_NOTIFY=1
+
+# FOr fchmod in stat.h
+EXTRA_CPPFLAGS-5.9 += -D__EXTENSIONS__=1
+EXTRA_CPPFLAGS += $(EXTRA_CPPFLAGS-$(GAROSREL))
 
 BUILD64 = 1
 ISAEXEC = 1
