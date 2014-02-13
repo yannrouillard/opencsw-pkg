@@ -5,7 +5,7 @@
 #
 
 NAME    = krb5
-VERSION = 1.11.4
+VERSION = 1.12.1
 GARTYPE = v2
 
 DESCRIPTION = MIT Kerberos 5 core libraries
@@ -166,7 +166,7 @@ include gar/category.mk
 
 post-extract-modulated:
 	@# TODO: Check signature
-	cd $(WORKDIR) && (gzip -c -d $(NAME)-$(VERSION).tar.gz | tar xf -)
+	cd $(WORKDIR) && (gzip -c -d $(NAME)-$(VERSION).tar.gz | gtar xf -)
 	@# libcrypto.so is part of openssl and expected to be linkable without setting a linker search path
 	perl -pi -e 's,-lcrypto,-L$(libdir) -lcrypto,' \
 		$(WORKSRC)/src/plugins/preauth/pkinit/Makefile.in
