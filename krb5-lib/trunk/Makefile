@@ -22,8 +22,8 @@ DISTFILES  = $(NAME)-$(VERSION)-signed.tar
 
 GARCOMPILER = GCC4
 
-BUILD_DEP_PKGS += CSWggettext
-BUILD_DEP_PKGS += CSWtcl
+BUILD_DEP_PKGS += CSWggettext-dev
+BUILD_DEP_PKGS += CSWtcl-dev
 
 PACKAGES += CSWlibkrb5-dev
 SPKG_DESC_CSWlibkrb5-dev      = MIT Kerberos 5 developer libraries
@@ -164,7 +164,7 @@ INSTALL_SCRIPTS = $(WORKSRC)/src/Makefile
 
 include gar/category.mk
 
-post-extract-modulated:
+post-extract:
 	@# TODO: Check signature
 	cd $(WORKDIR) && (gzip -c -d $(NAME)-$(VERSION).tar.gz | gtar xf -)
 	@# libcrypto.so is part of openssl and expected to be linkable without setting a linker search path
@@ -172,7 +172,7 @@ post-extract-modulated:
 		$(WORKSRC)/src/plugins/preauth/pkinit/Makefile.in
 	@$(MAKECOOKIE)
 
-post-install-modulated:
+post-install:
 	# Remove Studio-specific arch references
 	gsed -i \
 		-e '/^[^#]/s/-xO[0-5][^ ]* *//g' \
