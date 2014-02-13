@@ -39,9 +39,14 @@ RUNTIME_DEP_PKGS_CSWlibserf1-3 += CSWlibaprutil1-0
 RUNTIME_DEP_PKGS_CSWlibserf1-3 += CSWlibssl1-0-0
 RUNTIME_DEP_PKGS_CSWlibserf1-3 += CSWlibz1
 
+# Yes, this is correct
+CHECKPKG_OVERRIDES_CSWlibserf1-3 += shared-lib-package-contains-so-symlink|file=/opt/csw/lib/libserf-1.so
+
 PACKAGES += CSWlibserf-dev
 CATALOGNAME_CSWlibserf-dev = libserf_dev
 SPKG_DESC_CSWlibserf-dev = Development files for libserf.so.1
+# The .so belongs to the main lib as there is no SONAME magic
+PKGFILES_DEVEL_SHAREDLIBLINK =
 PKGFILES_CSWlibserf-dev += $(PKGFILES_DEVEL)
 RUNTIME_DEP_PKGS_CSWlibserf-dev = CSWlibserf1-3
 
