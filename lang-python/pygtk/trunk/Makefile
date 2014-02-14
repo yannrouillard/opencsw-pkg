@@ -26,8 +26,8 @@ PACKAGING_PLATFORMS=solaris10-i386 solaris10-sparc
 # add this because we do not use the pyton category
 _MERGE_EXCLUDE_CATEGORY += .*/$(NAME)/test
 _MERGE_EXCLUDE_CATEGORY += .*/$(NAME)/test/.*
-PYCOMPILE = 1
-_CATEGORY_MODULATORS ?= PYTHON_VERSION
+
+# _CATEGORY_MODULATORS ?= PYTHON_VERSION
 EXTRA_MODULATORS += PYTHON_VERSION
 MODULATIONS_PYTHON_VERSION = 2.6 2.7
 # We need 64 bit just once as it is without python anyway
@@ -100,8 +100,10 @@ CHECKPKG_OVERRIDES_CSWpy-gtk += surplus-dependency|CSWpy-cairo
 
 EXTRA_MERGE_EXCLUDE_FILES = .*\.pyo .*\.pyc
 PROTOTYPE_FILTER = awk '$$$$3 ~ /.*\.py$$$$/ { $$$$2 = "cswpycompile" } { print }'
-SPKG_CLASSES = none cswpycompile
-RUNTIME_DEP_PKGS += CSWcswclassutils
+# SPKG_CLASSES = none cswpycompile
+# RUNTIME_DEP_PKGS += CSWcswclassutils
+
+PYCOMPILE = 1
 
 # PKG_CONFIG_PATH = /opt/csw/lib/pkgconfig:/opt/csw/X11/lib/pkgconfig
 # EXTRA_EXPORTS = PKG_CONFIG_PATH
