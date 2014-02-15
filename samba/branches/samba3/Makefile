@@ -2,7 +2,7 @@
 # - Check http://src.opensolaris.org/source/xref/userland/src/components/samba/samba/ from time to time
 
 NAME    = samba
-VERSION = 3.6.20
+VERSION = 3.6.22
 GARTYPE = v2
 
 DESCRIPTION = Tools to access a servers filespace and printers via SMB (server)
@@ -29,7 +29,6 @@ DISTFILES += cswkrb5.conf
 PATCHFILES += 0001-nss_winbind.patch
 PATCHFILES += 0002-smbd-patch-for-setgroups.c.patch
 PATCHFILES += 0003-rename-nss-modules.patch
-PATCHFILES += 0004-illegal-multibyte-error.patch
 
 BUILD_DEP_PKGS += CSWlibtalloc-dev
 BUILD_DEP_PKGS += CSWopenldap-dev
@@ -336,8 +335,8 @@ CONFIGURE_ARGS += --with-acl-support
 CONFIGURE_ARGS += --with-aio-support
 CONFIGURE_ARGS += --with-pam
 CONFIGURE_ARGS += --with-winbind
+CONFIGURE_ARGS += --enable-nss-wrapper 
 CONFIGURE_ARGS += --with-static-modules=vfs_solarisacl
-
 # ZFS is only on S10+
 CONFIGURE_ARGS_5.9 += --with-shared-modules=vfs_prealloc,vfs_cacheprime,vfs_commit,idmap_ldap,idmap_tdb2,idmap_rid,idmap_ad,idmap_hash,idmap_adex
 CONFIGURE_ARGS_5.10 += --with-shared-modules=vfs_zfsacl,vfs_prealloc,vfs_cacheprime,vfs_commit,idmap_ldap,idmap_tdb2,idmap_rid,idmap_ad,idmap_hash,idmap_adex
@@ -360,7 +359,8 @@ CONFIGURE_ARGS += --with-piddir=$(SMBLOCKDIR)
 CONFIGURE_ARGS += --with-logfilebase=$(SMBLOGDIR)
 
 # Can't use fdatasync atm do to linker problems
-# Symbols are not in the right libc
+# Symbols are not in the right libc:
+#(symbol belongs to unavailable version /lib/libc.so (SUNW_1.22.7))
 CONFIGURE_ARGS += ac_cv_lib_rt_fdatasync=no
 CONFIGURE_ARGS += ac_cv_have_fdatasync_decl=no
 CONFIGURE_ARGS += ac_cv_lib_ext_rt_fdatasync=no
