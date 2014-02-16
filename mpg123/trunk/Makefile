@@ -1,5 +1,5 @@
 NAME = mpg123
-VERSION = 1.16.0
+VERSION = 1.18.0
 GARTYPE = v2
 
 DESCRIPTION = A command-line MP3 player
@@ -36,7 +36,8 @@ RUNTIME_DEP_PKGS_CSWlibmpg123-0 += CSWnas
 RUNTIME_DEP_PKGS_CSWlibmpg123-0 += CSWlibsdl1-2-0
 RUNTIME_DEP_PKGS_CSWlibmpg123-0 += CSWlibesd0
 
-BUILD64_LIBS_ONLY = 1
+BUILD64 = 1
+ISAEXEC = 1
 EXTRA_BUILD_ISAS = sparcv8plus+vis pentium
 
 CONFIGURE_ARGS = $(DIRPATHS)
@@ -50,17 +51,5 @@ CONFIGURE_ARGS += $(CONFIGURE_ARGS_mm-$(MEMORYMODEL))
 #   http://www.opencsw.org/mantis/view.php?id=4145
 # Skip for libmpg123, though.
 MERGE_EXCLUDE_LIBTOOL = $(libdir)/[^/]*\.la
-
-# The other one is mpg321
-# This fixes #4342
-ALTERNATIVES_CSWmpg123 = mpg123
-ALTERNATIVE_mpg123 = $(bindir)/mpg123 mpg123 $(bindir)/mpg123 100
-
-# Checkpkg can't check this
-CHECKPKG_OVERRIDES_CSWmpg123 += surplus-dependency|CSWalternatives
-
-# No package split as nobody seems to use the library
-CHECKPKG_OVERRIDES_CSWmpg123 += shared-lib-package-contains-so-symlink
-CHECKPKG_OVERRIDES_CSWmpg123 += shared-lib-pkgname-mismatch
 
 include gar/category.mk
