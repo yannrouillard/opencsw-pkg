@@ -123,7 +123,8 @@ UPSTREAM_MASTER_SITES = ftp://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/
 UFILES_REGEX = $(NAME)-(\d+(?:\.\d+)*p\d+).tar.gz
 
 DISTFILES  = $(NAME)-$(VERSION).tar.gz
-DISTFILES += changelog.CSW
+DISTFILES += CSWopenssh.cswreleasenotes
+DISTFILES += CSWopenssh_client.cswreleasenotes
 DISTFILES += cswusergroup
 
 DISTFILES += cswopenssh sshd.smf_wrapper cswopenssh.xml
@@ -211,7 +212,6 @@ merge-doc-files:
 		ginstall -d $(PKGROOT)/$(docdir)/$$DOCDIR; \
 		(cd $(WORKSRC_FIRSTMOD) && ginstall $(DOCFILES) $(PKGROOT)/$(docdir)/$$DOCDIR/); \
 		(cd $(PKGROOT)/$(docdir)/$$DOCDIR && chmod -x $(DOCFILES)); \
-		ginstall $(WORKDIR_FIRSTMOD)/changelog.CSW $(PKGROOT)/$(docdir)/$$DOCDIR/; \
 	done
 
 merge-config-files:
