@@ -306,6 +306,19 @@ OBSOLETED_BY_CSWsamba-winbind += CSWsambawb
 
 CHECKPKG_OVERRIDES_CSWsamba-winbind += surplus-dependency|CSWsamba-nss
 
+### Needed to work around the ld Bug 
+RUNTIME_DEP_PKGS_CSWsamba-swat += CSWlibintl8
+RUNTIME_DEP_PKGS_CSWlibtdb1 += CSWlibintl8
+RUNTIME_DEP_PKGS_CSWlibwbclient0 += CSWlibintl8
+RUNTIME_DEP_PKGS_CSWlibsmbclient0 += CSWlibintl8
+RUNTIME_DEP_PKGS_CSWlibtevent0 += CSWlibintl8
+RUNTIME_DEP_PKGS_CSWlibsmbsharemodes0 += CSWlibintl8
+RUNTIME_DEP_PKGS_CSWlibsmbsharemodes0 += CSWlibtalloc2
+RUNTIME_DEP_PKGS_CSWsamba-nss += CSWlibintl8
+RUNTIME_DEP_PKGS_CSWlibnetapi0 += CSWlibintl8
+RUNTIME_DEP_PKGS_CSWsamba-client += CSWlibintl8
+###
+
 # Needed as the configure script doesn't add it
 EXTRA_LINKER_FLAGS += -lintl 
 EXTRA_LINKER_FLAGS += -z ignore -z lazyload
