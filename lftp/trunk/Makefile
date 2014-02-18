@@ -91,7 +91,3 @@ include gar/category.mk
 #	cd $(WORKSRC) && autoconf
 #	@$(MAKECOOKIE)
 
-post-merge:
-	@ginstall -D $(DOWNLOADDIR)/changelog.CSW $(PKGROOT)/$(docdir)/lftp/changelog.CSW
-	@$(MAKECOOKIE)
-
