@@ -46,7 +46,6 @@ MIGRATE_FILES   = proftpd.conf
 EXTRA_CONFIGURE_ENV  = install_user=$(shell /usr/xpg4/bin/id -un) install_group=$(shell /usr/xpg4/bin/id -gn)
 EXTRA_CONFIGURE_ENV += LD_LIBRARY_PATH="$(libdir)"
 
-libexecdir = $(libdir)/proftpd
 localstatedir = /var/run/
 
 CONFIGURE_ARGS += $(DIRPATHS)
