@@ -5,7 +5,7 @@
 NAME = gflags
 VERSION = 2.0
 GARTYPE = v2
-DESCRIPTION = a library that implements commandline flags processing
+DESCRIPTION = Commandline flags module for C++
 define BLURB
 	The gflags package contains a library that implements commandline flags
 	processing. As such it's a replacement for getopt(). It has increased
@@ -26,5 +26,20 @@ PATCHFILES += 0002-One-more-test.patch
 
 MERGE_DIRS_isa-sparcv9 = $(libdir)
 MERGE_DIRS_isa-amd64   = $(libdir)
+
+
+PACKAGES += CSWlibgflags2
+PKGFILES_CSWlibgflags2 += $(call baseisadirs,$(libdir),libgflags\.so\.2(\.\d+)*)
+SPKG_DESC_CSWlibgflags2 += $(DESCRIPTION), libgflags.so.2
+RUNTIME_DEP_PKGS_CSWlibgflags2 += CSWlibgcc-s1
+RUNTIME_DEP_PKGS_CSWlibgflags2 += CSWlibstdc++6
+RUNTIME_DEP_PKGS_CSWgflags += CSWlibgflags2
+
+PACKAGES += CSWlibgflags-nothreads2
+PKGFILES_CSWlibgflags-nothreads2 += $(call baseisadirs,$(libdir),libgflags_nothreads\.so\.2(\.\d+)*)
+SPKG_DESC_CSWlibgflags-nothreads2 += $(DESCRIPTION), libgflags_nothreads.so.2
+RUNTIME_DEP_PKGS_CSWlibgflags-nothreads2 += CSWlibgcc-s1
+RUNTIME_DEP_PKGS_CSWlibgflags-nothreads2 += CSWlibstdc++6
+RUNTIME_DEP_PKGS_CSWgflags += CSWlibgflags-nothreads2
 
 include gar/category.mk
