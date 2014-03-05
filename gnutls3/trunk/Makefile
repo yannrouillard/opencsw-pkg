@@ -82,6 +82,9 @@ CONFIGURE_ARGS += --disable-guile
 CONFIGURE_ARGS += --disable-libdane
 CONFIGURE_ARGS += --with-default-trust-store-file=$(sysconfdir)/ssl/certs/ca-certificates.crt
 CONFIGURE_ARGS += --with-unbound-root-key-file=$(sysconfdir)/unbound/root.key
+# libopts doesn't contains yet 64 bits libraries so we have to use
+# the included one meanwhile: see https://www.opencsw.org/mantis/view.php?id=5156
+CONFIGURE_ARGS += --enable-local-libopts
 # Workaround a host detection bug in configure for amd64
 CONFIGURE_ARGS += $(CONFIGURE_ARGS_$(ISA))
 CONFIGURE_ARGS_amd64 += --build=x86_64-pc-solaris2$(shell uname -r |sed -e 's/[^.]*//')
