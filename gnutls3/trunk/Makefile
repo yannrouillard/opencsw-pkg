@@ -67,6 +67,9 @@ PKGFILES_CSWlibgnutls-dev = $(PKGFILES_DEVEL)
 RUNTIME_DEP_PKGS_CSWlibgnutls-dev += CSWlibgnutls28
 OBSOLETED_BY_CSWlibgnutls-dev = CSWgnutlsdevel
 
+# The compilation complains with 
+# "gets is a security hole - use fgets instead"
+# even if it is not used, so we remove this warning
 PATCHFILES += 0001-no-gets-warning.patch
 
 # EXTRA_CPPFLAGS = -D_FILE_OFFSET_BITS=64
@@ -88,8 +91,4 @@ CONFIGURE_ARGS_amd64 += --build=x86_64-pc-solaris2$(shell uname -r |sed -e 's/[^
 LD_OPTIONS = $(LINKER_MAPS) $(LINKER_DIRECT) $(LINKER_IGNORE)
 
 include gar/category.mk
-
-pre-configure:
-	cd $(WORKSRC) && autoconf
-	@${MAKECOOKIE}
 
