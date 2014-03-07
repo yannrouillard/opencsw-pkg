@@ -10,8 +10,6 @@ endef
 # client.h collides with Samba and has to be somehow dealt with
 ###
 
-GARCOMPILER=GCC4
-
 MASTER_SITES = http://silcnet.org/download/toolkit/sources/
 DISTFILES += $(DISTNAME).tar.bz2
 PATCHFILES += function.patch
