@@ -231,8 +231,6 @@ CONFIGURE_ARGS += shared
 
 # PKCS11 is only for Solaris 10 so we must create solaris 10 specific packages
 ifneq ($(shell /usr/bin/uname -r),5.9)
-# There is a problem with this patch under sparc when using tls protocol
-# See https://www.opencsw.org/mantis/view.php?id=5098
 	CONFIGURE_ARGS += --pk11-libname=$(abspath /usr/lib/$(MM_LIBDIR)/libpkcs11.so) 
 endif 
 
