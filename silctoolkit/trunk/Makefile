@@ -10,9 +10,12 @@ endef
 # client.h collides with Samba and has to be somehow dealt with
 ###
 
+GARCOMPILER=GCC4
+
 MASTER_SITES = http://silcnet.org/download/toolkit/sources/
 DISTFILES += $(DISTNAME).tar.bz2
 PATCHFILES += function.patch
+PATCHFILES += 0002-linking-lacks-LDFLAGS.patch
 
 VENDOR_URL = http://silcnet.org/software/download/toolkit/
 
