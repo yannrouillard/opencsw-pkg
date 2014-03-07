@@ -53,12 +53,12 @@ PRESERVECONF = $(sysconfdir)/ssl/openssl.cnf
 
 # We do ship libcrypto in libssl package
 CHECKPKG_OVERRIDES_CSWlibssl1-0-0 += shared-lib-pkgname-mismatch|file=opt/csw/lib/libcrypto.so.1.0.0|soname=libcrypto.so.1.0.0|pkgname=CSWlibssl1-0-0|expected=CSWlibcrypto1-0-0
-ifeq ($(shell /usr/bin/uname -p),sparc) 
-CHECKPKG_OVERRIDES_CSWlibssl1-0-0 += shared-lib-pkgname-mismatch|file=opt/csw/lib/sparcv8plus+vis/libcrypto.so.1.0.0|soname=libcrypto.so.1.0.0|pkgname=CSWlibssl1-0-0|expected=CSWlibcrypto1-0-0
-CHECKPKG_OVERRIDES_CSWlibssl1-0-0 += shared-lib-pkgname-mismatch|file=opt/csw/lib/sparcv9/libcrypto.so.1.0.0|soname=libcrypto.so.1.0.0|pkgname=CSWlibssl1-0-0|expected=CSWlibcrypto1-0-0
-else
-CHECKPKG_OVERRIDES_CSWlibssl1-0-0 += shared-lib-pkgname-mismatch|file=opt/csw/lib/amd64/libcrypto.so.1.0.0|soname=libcrypto.so.1.0.0|pkgname=CSWlibssl1-0-0|expected=CSWlibcrypto1-0-0
-endif
+CHECKPKG_OVERRIDES_CSWlibssl1-0-0 += $(CHECKPKG_OVERRIDES_CSWlibssl1-0-0_$(GARCH))
+
+CHECKPKG_OVERRIDES_CSWlibssl1-0-0_sparc += shared-lib-pkgname-mismatch|file=opt/csw/lib/sparcv8plus+vis/libcrypto.so.1.0.0|soname=libcrypto.so.1.0.0|pkgname=CSWlibssl1-0-0|expected=CSWlibcrypto1-0-0
+CHECKPKG_OVERRIDES_CSWlibssl1-0-0_sparc += shared-lib-pkgname-mismatch|file=opt/csw/lib/sparcv9/libcrypto.so.1.0.0|soname=libcrypto.so.1.0.0|pkgname=CSWlibssl1-0-0|expected=CSWlibcrypto1-0-0
+
+CHECKPKG_OVERRIDES_CSWlibssl1-0-0_i386 += shared-lib-pkgname-mismatch|file=opt/csw/lib/amd64/libcrypto.so.1.0.0|soname=libcrypto.so.1.0.0|pkgname=CSWlibssl1-0-0|expected=CSWlibcrypto1-0-0
 
 
 # We use SUN perl, not the opencsw one
@@ -204,7 +204,11 @@ CONFIGURE_FLAGS += -DAV_SPARC_FJAES=0
 LIBDIR_64 = --libdir=lib/64
 LIBDIR = $(LIBDIR_$(MEMORYMODEL))
 
-CONFIGURE_ARGS = --prefix=$(prefix) shared $(CONFIGURE_FLAGS) $($(ISA)_OS_COMPILER) --install_prefix=$(DESTDIR) $(LIBDIR)
+CONFIGURE_ARGS = --prefix=$(prefix)
+CONFIGURE_ARGS += --install_prefix=$(DESTDIR) $(LIBDIR)
+CONFIGURE_ARGS += $(CONFIGURE_FLAGS)
+CONFIGURE_ARGS += $($(ISA)_$(GARCOMPILER_TYPE)_CONFIGURE_TARGET)
+CONFIGURE_ARGS += shared
 
 # PKCS11 is only for Solaris 10 so we must create solaris 10 specific packages
 ifneq ($(shell /usr/bin/uname -r),5.9)
@@ -254,7 +258,7 @@ pre-configure-modulated:
 	cd $(WORKSRC) && ln -nf Configure configure
 	ln -nf $(WORKDIR)/map.openssl.libcrypto $(WORKSRC)/map.openssl.libcrypto 
 	ln -nf $(WORKDIR)/map.openssl.libssl $(WORKSRC)/map.openssl.libssl 
-	for ENGINE in 4758cca aep atalla cswift gmp chil nuron sureware ubsec padlock capi pk11; do \
+	for ENGINE in $(ENGINES); do \
 		ln -nf $(WORKDIR)/map.openssl.engines $(WORKSRC)/engines/map.openssl.lib$$ENGINE; \
 	done 
 	ln -nf $(WORKDIR)/map.openssl.engines $(WORKSRC)/engines/ccgost/map.openssl.libgost
