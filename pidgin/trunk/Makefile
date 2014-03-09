@@ -66,11 +66,7 @@ RUNTIME_DEP_PKGS_CSWpidgin += CSWtcl
 RUNTIME_DEP_PKGS_CSWpidgin += CSWtk
 RUNTIME_DEP_PKGS_CSWpidgin += CSWdbus
 RUNTIME_DEP_PKGS_CSWpidgin += CSWlibidn11
-RUNTIME_DEP_PKGS_CSWpidgin += CSWlibnss3
-RUNTIME_DEP_PKGS_CSWpidgin += CSWlibnspr4
 RUNTIME_DEP_PKGS_CSWpidgin += CSWlibgthread2-0-0
-RUNTIME_DEP_PKGS_CSWpidgin += CSWlibsmime3
-RUNTIME_DEP_PKGS_CSWpidgin += CSWlibssl3
 RUNTIME_DEP_PKGS_CSWpidgin += CSWlibncursesw5
 RUNTIME_DEP_PKGS_CSWpidgin += CSWlibgmodule2-0-0
 RUNTIME_DEP_PKGS_CSWpidgin += CSWlibgdk-x11-2-0-0
@@ -85,6 +81,7 @@ RUNTIME_DEP_PKGS_CSWpidgin += CSWlibpanelw5
 RUNTIME_DEP_PKGS_CSWpidgin += CSWlibsilc1-1-2
 RUNTIME_DEP_PKGS_CSWpidgin += CSWlibsilcclient1-1-3
 RUNTIME_DEP_PKGS_CSWpidgin += CSWlibsasl2-2
+RUNTIME_DEP_PKGS_CSWpidgin += CSWlibgnutls28
 
 ###
 # due to the ld bug
@@ -92,9 +89,6 @@ RUNTIME_DEP_PKGS_CSWpidgin += CSWlibpangoft2-1-0-0
 RUNTIME_DEP_PKGS_CSWpidgin += CSWlibfreetype6
 RUNTIME_DEP_PKGS_CSWpidgin += CSWlibgio2-0-0
 RUNTIME_DEP_PKGS_CSWpidgin += CSWlibfontconfig1
-RUNTIME_DEP_PKGS_CSWpidgin += CSWlibplc4
-RUNTIME_DEP_PKGS_CSWpidgin += CSWlibnssutil3
-RUNTIME_DEP_PKGS_CSWpidgin += CSWlibplds4
 RUNTIME_DEP_PKGS_CSWpidgin += CSWlibpangocairo1-0-0
 ###
 
@@ -117,13 +111,12 @@ BUILD_DEP_PKGS += CSWlibdbus-glib-dev
 BUILD_DEP_PKGS += CSWlibidn-dev
 BUILD_DEP_PKGS += CSWtcl-dev
 BUILD_DEP_PKGS += CSWtk-dev
-BUILD_DEP_PKGS += CSWlibnss-dev
-BUILD_DEP_PKGS += CSWnspr-dev
 BUILD_DEP_PKGS += CSWmeanwhile-dev
 BUILD_DEP_PKGS += CSWlibsilc-dev
 BUILD_DEP_PKGS += CSWgstreamer-dev
 BUILD_DEP_PKGS += CSWsasl-dev
 BUILD_DEP_PKGS += CSWlibpango-dev
+BUILD_DEP_PKGS += CSWlibgnutls-dev
 
 PATCHFILES += patch-pidgin-Makefile.in
 PATCHFILES += patch-pidgin-plugin.c
