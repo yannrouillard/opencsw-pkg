@@ -22,7 +22,7 @@ PATCHFILES = 0001-Hardcode-pathes-to-CSW.patch
 # File name regex to get notifications about upstream software releases
 UFILES_REGEX = $(NAME)-(\d+(?:\.\d+)*).tar.bz2
 
-RUNTIME_DEP_PKGS = CSWperl CSWpmgtk2 CSWosslutils CSWzip CSWgtar
+RUNTIME_DEP_PKGS = CSWperl CSWpmgtk2 CSWopenssl-utils CSWzip CSWgtar
 
 CONFIGURE_SCRIPTS =
 BUILD_SCRIPTS =
@@ -32,7 +32,7 @@ TEST_SCRIPTS =
 ARCHALL = 1
 
 CHECKPKG_OVERRIDES_CSWtinyca2 += surplus-dependency|CSWzip
-CHECKPKG_OVERRIDES_CSWtinyca2 += surplus-dependency|CSWosslutils
+CHECKPKG_OVERRIDES_CSWtinyca2 += surplus-dependency|CSWopenssl-utils
 CHECKPKG_OVERRIDES_CSWtinyca2 += surplus-dependency|CSWgtar
 CHECKPKG_OVERRIDES_CSWtinyca2 += surplus-dependency|CSWpmgtk2
 
