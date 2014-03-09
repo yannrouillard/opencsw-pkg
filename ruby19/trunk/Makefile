@@ -46,7 +46,7 @@ RUNTIME_DEP_PKGS_CSWruby191 += CSWlibruby1-9-1-1
 SPKG_DESC_CSWlibruby1-9-1-1 = The libruby shared object files (Ruby $(VERSION), API $(API_VERSION))
 RUNTIME_DEP_PKGS_CSWlibruby1-9-1-1  = CSWlibgdbm4 CSWlibiconv2 CSWlibncurses5
 RUNTIME_DEP_PKGS_CSWlibruby1-9-1-1 += CSWlibssl1-0-0 CSWlibyaml0-2
-RUNTIME_DEP_PKGS_CSWlibruby1-9-1-1 += CSWlibreadline6 CSWlibz1 CSWlibffi5
+RUNTIME_DEP_PKGS_CSWlibruby1-9-1-1 += CSWlibreadline6 CSWlibz1 CSWlibffi4
 PKGFILES_CSWlibruby1-9-1-1 += $(call baseisadirs,$(libdir),libruby$(API_VERSION)\.so\.1.*)
 PKGFILES_CSWlibruby1-9-1-1 += $(libdir)/ruby/.*
 
@@ -133,6 +133,13 @@ CONFIGURE_ARGS += --program-suffix=$(subst ruby,,$(NAME))
 CONFIGURE_ARGS += --enable-shared
 CONFIGURE_ARGS += --with-soname=ruby$(API_VERSION)
 CONFIGURE_ARGS += --with-out-ext=tk
+
+# Currently, the ruby tests suit core dumps when ruby is linked
+# to libffi5, see https://bugs.ruby-lang.org/issues/9597
+# While waiting for a good solution, we workaround it by linking
+# against the old libffi4
+EXTRA_CPPFLAGS += -I$(abspath $(FILEDIR)/libffi4)
+EXTRA_LDFLAGS += -L$(abspath $(FILEDIR)/libffi4)
 
 # gobjcopy (both the OpenCSW and SFW one) corrupts the ruby library
 # (see https://blogs.oracle.com/mandy/entry/building_ruby_1_9_on)
