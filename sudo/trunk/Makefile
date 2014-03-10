@@ -2,7 +2,7 @@
 #
 
 NAME = sudo
-VERSION = 1.8.9p5
+VERSION = 1.8.10
 GARTYPE = v2
 
 EXTRA_MODULATORS = LDAP
@@ -83,7 +83,8 @@ CHECKPKG_OVERRIDES_CSWsudo += soname-unused|s9_preload.so.1|is|needed|by|/opt/cs
 CHECKPKG_OVERRIDES_CSWsudo-ldap += soname-unused|s9_preload.so.1|is|needed|by|/opt/csw/libexec/sudo/sudoers-ldap.so|but|never|used
 
 LOGPATH    = $(localstatedir)/log/sudo
-TIMEPATH   = $(localstatedir)/sudo
+VARDIR     = $(localstatedir)/sudo
+TIMEPATH   = $(VARDIR)
 IOLOGPATH  = $(LOGPATH)/io
 
 REINPLACE_USRLOCAL += plugins/sudoers/sudoers
@@ -99,7 +100,8 @@ CONFIGURE_ARGS += --enable-zlib=$(libdir)
 CONFIGURE_ARGS += --disable-path-info
 CONFIGURE_ARGS += --with-logpath=$(LOGPATH)/sudolog
 CONFIGURE_ARGS += --with-iologdir=$(IOLOGPATH)
-CONFIGURE_ARGS += --with-timedir=$(TIMEPATH)
+CONFIGURE_ARGS += --with-rundir=$(TIMEPATH)
+CONFIGURE_ARGS += --with-vardir=$(VARDIR)
 CONFIGURE_ARGS += --with-project
 CONFIGURE_ARGS += --with-fqdn
 
