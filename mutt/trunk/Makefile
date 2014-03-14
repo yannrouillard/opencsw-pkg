@@ -1,5 +1,5 @@
 NAME = mutt
-VERSION = 1.5.22
+VERSION = 1.5.23
 GARTYPE = v2
 
 EXTRA_MODULATORS = SLANG
@@ -14,14 +14,14 @@ define BLURB
   selecting groups of messages.
 endef
 
-VENDOR_URL   = http://www.mutt.org
-MASTER_SITES = $(SF_MIRRORS)
-DISTFILES    = $(NAME)-$(VERSION).tar.gz
-DISTFILES   += CSWmutt.postmsg
+MASTER_SITES += ftp://ftp.mutt.org/mutt/
+DISTFILES += $(DISTNAME).tar.gz
+DISTFILES += CSWmutt.postmsg
 UFILES_REGEX = $(NAME)-(\d+(?:\.\d+)*).tar.gz
 
 POSTMSG = $(docdir)/mutt/CSWmutt.postmsg
 
+VENDOR_URL = http://www.mutt.org
 LICENSE = COPYRIGHT
 
 PACKAGES += CSWmutt
@@ -87,8 +87,6 @@ OPT_FLAGS_SOS = -xO4
 # Needed to use stdbool.h, add manually until this is fixed:
 #   http://dev.mutt.org/trac/ticket/3657
 EXTRA_CPPFLAGS += -xc99=all
-
-sysconfdir = /etc/opt/csw
 
 CONFIGURE_ARGS  = $(DIRPATHS)
 CONFIGURE_ARGS += --enable-pop
