@@ -201,6 +201,7 @@ post-install:
 	# Remove Studio-specific arch references
 	gsed -i \
 		-e '/^[^#]/s/-xO[0-5][^ ]* *//g' \
+		-e '/^[^#]/s/-Wa,[^ ]* *//g' \
 		-e '/^[^#]/s/-xarch=[^ ]* *//g' \
 		-e '/^[^#]/s/-xchip=[^ ]* *//g' \
 		-e '/^[^#]/s/-norunpath[^ ]* *//g' \
