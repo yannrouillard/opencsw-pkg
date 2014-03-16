@@ -21,13 +21,15 @@ DISTFILES  = $(NAME)_$(VERSION).tar.gz
 
 CONFIGURE_ARGS = $(DIRPATHS)
 
-RUNTIME_DEP_PKGS += CSWgcc4corert
+PACKAGING_PLATFORMS  = solaris9-i386
+PACKAGING_PLATFORMS += solaris9-sparc
+PACKAGING_PLATFORMS += solaris10-i386
+PACKAGING_PLATFORMS += solaris10-sparc
 
 GARCOMPILER = GNU
 TEST_SCRIPTS =
 
-OBSOLETED_BY_CSWeventlog-dev = CSWeventlog
-OBSOLETED_BY_CSWlibeventlog0 = CSWeventlog
+RUNTIME_DEP_PKGS_CSWlibevtlog0 += CSWlibgcc-s1
 
 PACKAGES = CSWlibevtlog0
 CATALOGNAME_CSWlibevtlog0 = libevtlog0
