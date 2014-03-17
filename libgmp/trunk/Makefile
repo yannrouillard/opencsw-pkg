@@ -1,7 +1,7 @@
 # $Id$
 
 NAME = gmp
-VERSION = 5.0.4
+VERSION = 5.1.3
 GARTYPE = v2
 
 DESCRIPTION = GNU Multiple Precision Arithmetic Library
@@ -20,11 +20,15 @@ define BLURB
 endef
 
 MASTER_SITES = $(GNU_MIRROR)
-DISTFILES  = $(NAME)-$(VERSION).tar.bz2
+DISTFILES  = $(DISTNAME).tar.bz2
 
 SPKG_SOURCEURL = http://gmplib.org/
 
+PACKAGING_PLATFORMS = solaris9-i386 solaris9-sparc
 BUILD64_LIBS_ONLY = 1
+
+PATCHFILES += 0001-Add-missing-cmath-includes.patch
+PATCHFILES += 0002-Work-around-a-compilation-issue.patch
 
 # Disabling sparcv8plus with GCC
 # /var/tmp//ccPKyHnL.s: Assembler messages:
@@ -32,7 +36,7 @@ BUILD64_LIBS_ONLY = 1
 # /var/tmp//ccPKyHnL.s:11:  (Requires v9|v9a|v9b; requested architecture is
 # v8.)
 # EXTRA_BUILD_ISAS_sparc = sparcv8plus
-# EXTRA_BUILD_ISAS_sparc += sparcv8plus+vis 
+# EXTRA_BUILD_ISAS_sparc += sparcv8plus+vis
 #
 # If you believe that a sparcv8plus build is necessary, feel free to develop
 # this recipe so that these ISAs successfully build.
