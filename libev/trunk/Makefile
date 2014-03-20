@@ -12,15 +12,29 @@ define BLURB
   used, among others, in the GNU Virtual Private Ethernet and rxvt-unicode
   packages, and in the Deliantra MORPG Server and Client.
 endef
-SPKG_SOURCEURL = http://software.schmorp.de/pkg/libev.html
+VENDOR_URL = http://software.schmorp.de/pkg/libev.html
 MASTER_SITES += http://dist.schmorp.de/libev/
 MASTER_SITES += http://dist.schmorp.de/libev/Attic/
 DISTFILES  = $(NAME)-$(VERSION).tar.gz
-UFILES_REGEX = $(NAME)-(\d+(?:\.\d+)*).tar.gz
 CONFIGURE_ARGS  = $(DIRPATHS)
 BUILD64_LIBS_ONLY = 1
 LICENSE = LICENSE
 CHECKPKG_OVERRIDES_CSWlibev += soname-not-found|libm.so.2|is|needed|by|opt/csw/lib/amd64/libev.so.3.0.0
+
+PACKAGES = CSWlibev3
+CATALOGNAME_CSWlibev3 = libev3
+PKGFILES_CSWlibev3 += $(call baseisadirs,$(libdir),libev\.so\.3\.0\.0)
+PKGFILES_CSWlibev3 += $(call baseisadirs,$(libdir),libev\.so\.3(\.\d+)*)
+SPKG_DESC_CSWlibev3 += $(DESCRIPTION), libev.so.3
+OBSOLETED_BY_CSWlibev3 = CSWlibev
+
+PACKAGES += CSWlibev-dev
+CATALOGNAME_CSWlibev-dev = libev_dev
+SPKG_DESC_CSWlibev-dev += $(DESCRIPTION), development files
+PKGFILES_CSWlibev-dev += /opt/csw/lib/sparcv9/libev.so
+RUNTIME_DEP_PKGS_CSWlibev-dev += CSWlibev3
+OBSOLETED_BY_CSWlibev-dev = CSWlibev
+
 include gar/category.mk
 
 post-install-modulated:
