@@ -174,6 +174,7 @@ SPKG_DESC_CSWsamba-nss-system-links += Samba nss modules links for the system
 RUNTIME_DEP_PKGS_CSWsamba-nss-system-links += CSWsamba-nss
 CHECKPKG_OVERRIDES_CSWsamba-nss-system-links += surplus-dependency|CSWsamba-nss
 CHECKPKG_OVERRIDES_CSWsamba-nss-system-links += bad-location-of-file
+CHECKPKG_OVERRIDES_CSWsamba-nss-system-links += file-needed-but-no-package-satisfies-it
 
 PACKAGES += CSWsamba-pam-system-links
 CATALOGNAME_CSWsamba-pam-system-links = samba_pam_system_links
@@ -189,6 +190,7 @@ RUNTIME_DEP_PKGS_CSWsamba-pam-system-links += CSWsamba
 CHECKPKG_OVERRIDES_CSWsamba-pam-system-links += surplus-dependency|CSWsamba
 CHECKPKG_OVERRIDES_CSWsamba-pam-system-links += surplus-dependency|CSWsamba-winbind
 CHECKPKG_OVERRIDES_CSWsamba-pam-system-links += bad-location-of-file
+CHECKPKG_OVERRIDES_CSWsamba-pam-system-links += file-needed-but-no-package-satisfies-it
 
 PACKAGES += CSWlibtevent0
 CATALOGNAME_CSWlibtevent0 = libtevent0
@@ -306,7 +308,19 @@ OBSOLETED_BY_CSWsamba-winbind += CSWsambawb
 
 CHECKPKG_OVERRIDES_CSWsamba-winbind += surplus-dependency|CSWsamba-nss
 
+### The dependencies names in S10 are getting simpler
+ifeq ($(shell /usr/bin/uname -r),5.9)
+RUNTIME_DEP_PKGS_CSWsamba += CSWlibgssapi-krb5-2
+RUNTIME_DEP_PKGS_CSWsamba-client += CSWlibgssapi-krb5-2
+RUNTIME_DEP_PKGS_CSWlibsmbclient0 += CSWlibgssapi-krb5-2
+RUNTIME_DEP_PKGS_CSWlibnetapi0 += CSWlibgssapi-krb5-2
+RUNTIME_DEP_PKGS_CSWsamba-swat += CSWlibgssapi-krb5-2
+RUNTIME_DEP_PKGS_CSWsamba-winbind += CSWlibgssapi-krb5-2
+endif
+###
+
 ### Needed to work around the ld Bug 
+ifeq ($(shell /usr/bin/uname -rp),5.10 sparc)
 RUNTIME_DEP_PKGS_CSWsamba-swat += CSWlibintl8
 RUNTIME_DEP_PKGS_CSWlibtdb1 += CSWlibintl8
 RUNTIME_DEP_PKGS_CSWlibwbclient0 += CSWlibintl8
@@ -317,6 +331,7 @@ RUNTIME_DEP_PKGS_CSWlibsmbsharemodes0 += CSWlibtalloc2
 RUNTIME_DEP_PKGS_CSWsamba-nss += CSWlibintl8
 RUNTIME_DEP_PKGS_CSWlibnetapi0 += CSWlibintl8
 RUNTIME_DEP_PKGS_CSWsamba-client += CSWlibintl8
+endif
 ###
 
 # Needed as the configure script doesn't add it
