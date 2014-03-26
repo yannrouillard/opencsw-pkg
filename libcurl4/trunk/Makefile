@@ -1,5 +1,5 @@
 NAME = curl
-VERSION = 7.35.0
+VERSION = 7.36.0
 GARTYPE = v2
 
 DESCRIPTION = Command line tool and library for client-side URL transfers
