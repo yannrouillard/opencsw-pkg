@@ -1,7 +1,7 @@
 # $Id$
 
 NAME = easytag
-VERSION = 2.1.8
+VERSION = 2.1.10
 GARTYPE = v2
 
 DESCRIPTION = Tag editor for MP3, Ogg Vorbis files and more
@@ -24,7 +24,7 @@ BUILD_DEP_PKGS += CSWlibwavpack-dev
 
 # Add more dependencies as suggested by Laurent Blume in
 #   http://lists.opencsw.org/pipermail/users/2013-April/009549.html
-BUILD_DEP_PKGS += CSWfconfig-dev
+BUILD_DEP_PKGS += CSWfontconfig-dev
 BUILD_DEP_PKGS += CSWggettext-dev
 BUILD_DEP_PKGS += CSWintltool
 BUILD_DEP_PKGS += CSWlibfreetype-dev
