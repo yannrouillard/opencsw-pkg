@@ -1,7 +1,7 @@
 # $Id$
 
 NAME = easytag
-VERSION = 2.1.10
+VERSION = 2.1.8
 GARTYPE = v2
 
 DESCRIPTION = Tag editor for MP3, Ogg Vorbis files and more
@@ -11,10 +11,11 @@ define BLURB
   interface makes tagging easier under GNU/Linux or Windows.
 endef
 
-MASTER_SITES = $(GNOME_MIRRORS)
+# MASTER_SITES = $(GNOME_MIRRORS)
+MASTER_SITES = https://download.gnome.org/sources/easytag/2.1/
 DISTFILES += $(NAME)-$(VERSION).tar.xz
 
-VENDOR_URL = http://projects.gnome.org/easytag/
+VENDOR_URL = https://wiki.gnome.org/Apps/EasyTAG
 
 BUILD_DEP_PKGS += CSWlibogg-dev
 BUILD_DEP_PKGS += CSWlibvorbis-dev
