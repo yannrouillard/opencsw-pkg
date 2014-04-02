@@ -31,4 +31,8 @@ CONFIGURE_ARGS += --with-diffutils
 
 BUILD_OVERRIDE_DIRS = DIFF DIFF3
 
+# 'diff -u' is expected to be GNU
+# We need 'id' to take -u, hence /usr/xpg4/bin
+TEST_ENV_PATH = /opt/csw/gnu:/usr/xpg4/bin:$(PATH)
+
 include gar/category.mk
