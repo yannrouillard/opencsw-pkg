@@ -1,5 +1,5 @@
 NAME = iozone
-VERSION = 3.398
+VERSION = 3.420
 DISTVERSION = $(subst .,_,$(VERSION))
 GARTYPE = v2
 
