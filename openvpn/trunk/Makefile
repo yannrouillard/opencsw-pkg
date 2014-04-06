@@ -9,11 +9,18 @@ endef
 
 # master files
 MASTER_SITES = http://openvpn.net/release/
-DISTFILES = $(NAME)-$(VERSION).tar.gz
+DISTFILES += $(DISTNAME).tar.gz
+PATCHFILES += patch.openvpn-2.0.9.tun.c
 
-# we require
-BUILD_DEP_PKGS = CSWtun
-RUNTIME_DEP_PKGS = CSWlibssl1-0-0 CSWliblzo2-2
+VENDOR_URL = http://openvpn.net
+
+BUILD_DEP_PKGS += CSWtun
+
+PACKAGES += CSWopenvpn
+SPKG_DESC_CSWopenvpn = Secure IP tunnel daemon
+# PKGFILES is catchall
+RUNTIME_DEP_PKGS_CSWopenvpn += CSWlibssl1-0-0
+RUNTIME_DEP_PKGS_CSWopenvpn += CSWliblzo2-2
 
 # The references are located in document or sample files and are harmless
 CHECKPKG_OVERRIDES_CSWopenvpn += file-with-bad-content|/usr/share|root/opt/csw/share/doc/openvpn/easy-rsa/vars
@@ -29,14 +36,13 @@ CHECKPKG_OVERRIDES_CSWopenvpn += missing-dependency|CSWperl
 UFILES_REGEX = $(NAME)-(\d+(?:\.\d+)*).tar.gz
 
 CONFIGURE_ARGS  = --prefix=$(prefix) --mandir=/opt/csw/share/man
-PATCHFILES = patch.openvpn-2.0.9.tun.c
 
 # use classes for install/removal
 #PRESERVECONF = $(sysconfdir)/$(NAME)/$(NAME).conf
 INITSMF = /etc/opt/csw/init.d/cswopenvpn
 
 # no build tests
-SKIPTEST = 1
+TEST_SCRIPTS =
 
 include gar/category.mk
 
