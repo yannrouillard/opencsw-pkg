@@ -1,5 +1,5 @@
 NAME = ldns
-VERSION = 1.6.13
+VERSION = 1.6.17
 GARTYPE = v2
 
 DESCRIPTION = A library for programs conforming to DNS RFCs and drafts
@@ -44,7 +44,7 @@ RUNTIME_DEP_PKGS_CSWlibldns-devel += CSWlibldns1
 INCOMPATIBLE_PKGS_CSWlibldns1 = CSWldns
 INCOMPATIBLE_PKGS_CSWlibldns-devel = CSWldnsdevel
 
-PATCHFILES = CSWldns.doxyparse.diff
+#PATCHFILES = CSWldns.doxyparse.diff
 
 CONFIGURE_ARGS = $(DIRPATHS)
 CONFIGURE_ARGS += --with-ssl=/opt/csw
