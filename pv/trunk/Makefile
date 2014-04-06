@@ -1,5 +1,5 @@
 NAME = pv
-VERSION = 1.2.0
+VERSION = 1.5.2
 GARTYPE = v2
 
 DESCRIPTION =  Monitor the progress of data through a pipe
@@ -13,20 +13,19 @@ define BLURB
 endef
 
 VENDOR_URL   = http://www.ivarch.com/programs/pv.shtml
-MASTER_SITES = http://pipeviewer.googlecode.com/files/
-DISTFILES    = $(NAME)-$(VERSION).tar.gz
-LICENSE      = doc/COPYING
+MASTER_SITES = http://www.ivarch.com/programs/sources/
+DISTFILES += $(DISTNAME).tar.bz2
+LICENSE = doc/COPYING
 
-UPSTREAM_MASTER_SITES = $(VENDOR_URL)
+PACKAGES += CSWpv
+SPKG_DESC_CSWpv = Monitor the progress of data through a pipe
+# PKGFILES is catchall
+RUNTIME_DEP_PKGS_CSWpv += CSWlibintl8
 
-RUNTIME_DEP_PKGS = CSWlibintl8
-
-CONFIGURE_ARGS = $(DIRPATHS)
+# We require GNU grep
+TEST_ENV_PATH = /opt/csw/gnu:$(PATH)
 
 include gar/category.mk
-
-# test-012 uses tr complements (-c) which don't work with /usr/bin/tr
-PATH := /opt/csw/gnu:$(PATH)
 
 post-install-modulated: DOCDEST=$(DESTDIR)$(docdir)/$(NAME)
 post-install-modulated:
