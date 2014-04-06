@@ -1,6 +1,6 @@
 NAME = jhead
-VERSION = 2.7
-GARTYPE = v1
+VERSION = 2.97
+
 
 DESCRIPTION = EXIF parser for JPEG images
 define BLURB
@@ -14,6 +14,7 @@ DISTFILES += CSWjhead.gspec CSWjhead.prototype
 # We define upstream file regex so we can be notifed of new upstream software release
 UFILES_REGEX = $(NAME)-(\d+(?:\.\d+)*).tar.gz
 
+GARCOMPILER = GCC4
 PATCHFILES = makefile.patch
 
 # jhead doesn't use configure
