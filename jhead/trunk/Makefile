@@ -1,5 +1,6 @@
 NAME = jhead
 VERSION = 2.97
+GARTYPE = v2
 
 
 DESCRIPTION = EXIF parser for JPEG images
@@ -9,21 +10,19 @@ endef
 
 MASTER_SITES = http://www.sentex.net/~mwandel/jhead/
 DISTFILES  = $(NAME)-$(VERSION).tar.gz
-DISTFILES += CSWjhead.gspec CSWjhead.prototype
-
-# We define upstream file regex so we can be notifed of new upstream software release
-UFILES_REGEX = $(NAME)-(\d+(?:\.\d+)*).tar.gz
+PATCHFILES += makefile.patch
 
 GARCOMPILER = GCC4
-PATCHFILES = makefile.patch
+
+PACKAGES += CSWjhead
 
 # jhead doesn't use configure
 CONFIGURE_SCRIPTS = 
 
 # jhead doesn't have a test target
-TEST_TARGET = 
+TEST_SCRIPTS = 
 
-SPKG_SOURCEURL = http://www.sentex.net/~mwandel/jhead/
-SPKG_PKGBASE = $(DESTDIR)$(prefix)
+VENDOR_URL = http://www.sentex.net/~mwandel/jhead/
+#SPKG_PKGBASE = $(DESTDIR)$(prefix)
 
 include gar/category.mk
