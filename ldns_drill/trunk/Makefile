@@ -1,5 +1,5 @@
 NAME = ldns_drill
-VERSION = 1.6.13
+VERSION = 1.6.17
 GARTYPE = v2
 
 DESCRIPTION = A dig style dnssec aware dns debugging tool (ldns)
