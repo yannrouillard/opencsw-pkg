@@ -11,29 +11,29 @@ define BLURB
 endef
 
 MASTER_SITES = $(SF_MIRRORS)
-DISTFILES  = $(NAME)-$(VERSION).tgz
+DISTFILES += $(DISTNAME).tgz
+DISTFILES += changelog.CSW
 PATCHFILES = patch-Makefile.diff
 
-SPKG_SOURCEURL = http://proxytunnel.sourceforge.net/
+VENDOR_URL = http://proxytunnel.sourceforge.net/
 
-BUILD_DEP_PKGS = CSWlibssl-dev
-RUNTIME_DEP_PKGS = CSWlibssl1-0-0
+BUILD_DEP_PKGS += CSWlibssl-dev
 
-# UFILES_REGEX = $(NAME)-(\d+(?:\.\d+)*).tgz
-# UPSTREAM_MASTER_SITES = 
+PACKAGES += CSWproxytunnel
+SPKG_DESC_CSWproxytunnel = Tunnels network connections through a HTTPS proxy
+# PKGFILES is catchall
+RUNTIME_DEP_PKGS_CSWproxytunnel = CSWlibssl1-0-0
 
 CONFIGURE_SCRIPTS = 
 TEST_SCRIPTS = 
 
-CONFIGURE_ARGS = $(DIRPATHS)
-
-EXTRA_CFLAGS = -I/opt/csw/include
-EXTRA_LDFLAGS = -lnsl -lsocket
+EXTRA_CFLAGS += -I$(includedir)
+EXTRA_LDFLAGS += -lnsl -lsocket
 
 include gar/category.mk
 
 post-install-modulated: DOCDEST=$(DESTDIR)$(docdir)/$(NAME)
 post-install-modulated:
 	@ginstall -d $(DOCDEST)
-	@cp $(FILEDIR)/changelog.CSW $(DOCDEST)
+	@cp $(WORKDIR)/changelog.CSW $(DOCDEST)
 	@$(MAKECOOKIE)
