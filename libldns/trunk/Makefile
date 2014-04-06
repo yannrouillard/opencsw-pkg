@@ -17,12 +17,12 @@ DISTFILES += CSWldns.doxyparse.diff
 
 PACKAGING_PLATFORMS =  solaris10-sparc solaris10-i386
 
-PACKAGES = CSWlibldns1 CSWlibldns-devel
-CATALOGNAME_CSWlibldns1 = libldns1
-CATALOGNAME_CSWlibldns-devel = libldns_devel
+PACKAGES = CSWlibldns1 CSWlibldns-dev
 
 SPKG_DESC_CSWlibldns1 = $(DESCRIPTION)
-SPKG_DESC_CSWlibldns-devel = $(DESCRIPTION) development package
+SPKG_DESC_CSWlibldns-dev = $(DESCRIPTION) development package
+
+OBSOLETED_BY_CSWlibldns-dev += CSWlibldns-devel
 
 SPKG_SOURCEURL = http://www.nlnetlabs.nl/projects/ldns/
 
@@ -39,7 +39,7 @@ BUILD64 = 1
 EXTRA_BUILD_ISAS_sparc += sparcv8plus+vis
 
 RUNTIME_DEP_PKGS_CSWlibldns1 += CSWlibssl1-0-0
-RUNTIME_DEP_PKGS_CSWlibldns-devel += CSWlibldns1
+RUNTIME_DEP_PKGS_CSWlibldns-dev += CSWlibldns1
 
 INCOMPATIBLE_PKGS_CSWlibldns1 = CSWldns
 INCOMPATIBLE_PKGS_CSWlibldns-devel = CSWldnsdevel
@@ -55,7 +55,6 @@ MERGE_DIRS_isa-amd64 = $(libdir)
 
 TEST_TARGET =
 
-PKGFILES_CSWlibldns-devel = $(PKGFILES_DEVEL)
-PKGFILES_CSWlibldnsrt = $(PKGFILES_RT)
+PKGFILES_CSWlibldns-dev = $(PKGFILES_DEVEL)
 
 include gar/category.mk
