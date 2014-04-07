@@ -48,7 +48,8 @@ DISTFILES += mpl-tri-license-txt
 
 PACKAGING_PLATFORMS = solaris10-sparc solaris10-i386
 # GARCOMPILER = GCC4
-# GARCOMPILER = SOS12U3
+GARFLAVOR = DBG
+GARCOMPILER = SOS12U3
 
 PACKAGES += CSWlibnss3
 CATALOGNAME_CSWlibnss3 = libnss3
@@ -59,7 +60,7 @@ RUNTIME_DEP_PKGS_CSWlibnss3 += CSWlibnssutil3
 RUNTIME_DEP_PKGS_CSWlibnss3 += CSWlibplds4
 RUNTIME_DEP_PKGS_CSWlibnss3 += CSWlibnspr4
 RUNTIME_DEP_PKGS_CSWlibnss3 += CSWlibplc4
-RUNTIME_DEP_PKGS_CSWlibnss3 += CSWlibgcc-s1
+RUNTIME_DEP_PKGS_CSWlibnss3_GCC4 += CSWlibgcc-s1
 CHECKPKG_OVERRIDES_CSWlibnss3 += soname-equals-filename
 # CHECKPKG_OVERRIDES_CSWlibnss3 += shared-lib-pkgname-mismatch
 
@@ -71,7 +72,7 @@ SPKG_DESC_CSWlibnssckbi += $(DESCRIPTION), libnssckbi.so
 RUNTIME_DEP_PKGS_CSWlibnssckbi += CSWlibplds4
 RUNTIME_DEP_PKGS_CSWlibnssckbi += CSWlibnspr4
 RUNTIME_DEP_PKGS_CSWlibnssckbi += CSWlibplc4
-RUNTIME_DEP_PKGS_CSWlibnssckbi += CSWlibgcc-s1
+RUNTIME_DEP_PKGS_CSWlibnssckbi_GCC4 += CSWlibgcc-s1
 CHECKPKG_OVERRIDES_CSWlibnssckbi += soname-equals-filename
 # CHECKPKG_OVERRIDES_CSWlibnssckb1 += shared-lib-pkgname-mismatch
 
@@ -85,7 +86,7 @@ RUNTIME_DEP_PKGS_CSWlibnssdbm3 += CSWlibnssutil3
 RUNTIME_DEP_PKGS_CSWlibnssdbm3 += CSWlibplds4
 RUNTIME_DEP_PKGS_CSWlibnssdbm3 += CSWlibnspr4
 RUNTIME_DEP_PKGS_CSWlibnssdbm3 += CSWlibplc4
-RUNTIME_DEP_PKGS_CSWlibnssdbm3 += CSWlibgcc-s1
+RUNTIME_DEP_PKGS_CSWlibnssdbm3_GCC4 += CSWlibgcc-s1
 # i368 needs that, sparcs hates that
 CHECKPKG_OVERRIDES_CSWlibnssdbm3 += surplus-dependency|CSWlibplc4
 CHECKPKG_OVERRIDES_CSWlibnssdbm3 += soname-equals-filename
@@ -99,7 +100,7 @@ SPKG_DESC_CSWlibnssutil3 += $(DESCRIPTION), libnssutil3.so
 RUNTIME_DEP_PKGS_CSWlibnssutil3 += CSWlibplds4
 RUNTIME_DEP_PKGS_CSWlibnssutil3 += CSWlibnspr4
 RUNTIME_DEP_PKGS_CSWlibnssutil3 += CSWlibplc4
-RUNTIME_DEP_PKGS_CSWlibnssutil3 += CSWlibgcc-s1
+RUNTIME_DEP_PKGS_CSWlibnssutil3_GCC4 += CSWlibgcc-s1
 CHECKPKG_OVERRIDES_CSWlibnssutil3 += soname-equals-filename
 # CHECKPKG_OVERRIDES_CSWlibnssutil3 += shared-lib-pkgname-mismatch
 
@@ -113,7 +114,7 @@ RUNTIME_DEP_PKGS_CSWlibsmime3 += CSWlibnssutil3
 RUNTIME_DEP_PKGS_CSWlibsmime3 += CSWlibplds4
 RUNTIME_DEP_PKGS_CSWlibsmime3 += CSWlibnspr4
 RUNTIME_DEP_PKGS_CSWlibsmime3 += CSWlibplc4
-RUNTIME_DEP_PKGS_CSWlibsmime3 += CSWlibgcc-s1
+RUNTIME_DEP_PKGS_CSWlibsmime3_GCC4 += CSWlibgcc-s1
 CHECKPKG_OVERRIDES_CSWlibsmime3 += soname-equals-filename
 # CHECKPKG_OVERRIDES_CSWlibsmine3 += shared-lib-pkgname-mismatch
 
@@ -128,7 +129,7 @@ RUNTIME_DEP_PKGS_CSWlibsoftokn3 += CSWlibplc4
 RUNTIME_DEP_PKGS_CSWlibsoftokn3 += CSWlibsqlite3-0
 RUNTIME_DEP_PKGS_CSWlibsoftokn3 += CSWlibnssutil3 
 RUNTIME_DEP_PKGS_CSWlibsoftokn3 += CSWlibplds4
-RUNTIME_DEP_PKGS_CSWlibsoftokn3 += CSWlibgcc-s1
+RUNTIME_DEP_PKGS_CSWlibsoftokn3_GCC4 += CSWlibgcc-s1
 CHECKPKG_OVERRIDES_CSWlibsoftokn3 += soname-equals-filename
 # CHECKPKG_OVERRIDES_CSWlibsoftokn3 += shared-lib-pkgname-mismatch
 
@@ -141,7 +142,7 @@ RUNTIME_DEP_PKGS_CSWlibssl3 += CSWlibnss3
 RUNTIME_DEP_PKGS_CSWlibssl3 += CSWlibnspr4
 RUNTIME_DEP_PKGS_CSWlibssl3 += CSWlibplc4
 RUNTIME_DEP_PKGS_CSWlibssl3 += CSWlibnssutil3
-RUNTIME_DEP_PKGS_CSWlibssl3 += CSWlibgcc-s1
+RUNTIME_DEP_PKGS_CSWlibssl3_GCC4 += CSWlibgcc-s1
 CHECKPKG_OVERRIDES_CSWlibssl3 += soname-equals-filename
 # CHECKPKG_OVERRIDES_CSWlibssl3 += shared-lib-pkgname-mismatch
 
@@ -154,7 +155,7 @@ SPKG_DESC_CSWlibfreebl3 += $(DESCRIPTION), libfreebl libs
 PKGFILES_CSWlibfreebl3 += $(call baseisadirs,$(libdir),libfreebl.*)
 RUNTIME_DEP_PKGS_CSWlibfreebl3 += CSWlibnssutil3
 RUNTIME_DEP_PKGS_CSWlibfreebl3 += CSWlibnspr4
-RUNTIME_DEP_PKGS_CSWlibfreebl3 += CSWlibgcc-s1
+RUNTIME_DEP_PKGS_CSWlibfreebl3_GCC4 += CSWlibgcc-s1
 CHECKPKG_OVERRIDES_CSWlibfreebl3 += soname-equals-filename
 CHECKPKG_OVERRIDES_CSWlibfreebl3_sparc += shared-lib-pkgname-mismatch
 CHECKPKG_OVERRIDES_CSWlibfreebl3 += $(CHECKPKG_OVERRIDES_CSWlibfreebl3_$(GARCH))
@@ -199,10 +200,6 @@ BUILD_DEP_PKGS += CSWlibsqlite3-dev
 
 BUILD64 = 1
 
-CONFIGURE_SCRIPTS =
-BUILD_SCRIPTS = nss
-INSTALL_SCRIPTS = nss
-TEST_SCRIPTS =
 MERGE_DIRS_isa-sparcv9 = $(libdir)
 MERGE_DIRS_isa-amd64   = $(libdir)
 
@@ -287,6 +284,16 @@ PATCHFILES += 0005-change-rpath-for-bins-in-platlibs.mk.patch
 # http://lists.opencsw.org/pipermail/pkgsubmissions/2010-February/000167.html
 # NOISAEXEC = 1
 
+GARCOMP_FLAGS_GCC4 = NS_USE_GCC=1
+GARCOMP_FLAGS_SOS12U3 = 
+
+# for whoami
+EXTRA_BUILD_ENV = PATH=$(PATH):/usr/ucb
+
+CONFIGURE_SCRIPTS =
+BUILD_SCRIPTS = nss
+INSTALL_SCRIPTS = nss
+TEST_SCRIPTS =
 include gar/category.mk
 
 build-nss: build-coreconf build-dbm build-nss-compile
@@ -294,16 +301,16 @@ build-nss: build-coreconf build-dbm build-nss-compile
 
 build-coreconf:
 	(cd $(WORKSRC)/mozilla/security/coreconf \
-		&& \
+		&& $(BUILD_ENV) \
 	CPPFLAGS='$(CPPFLAGS)' LD_OPTIONS='$(LD_OPTIONS)' \
-	gmake -j1 NS_USE_GCC=1 NO_MDUPDATE=1)
+	gmake -j1 $(GARCOMP_FLAGS_$(GARCOMPILER)) NO_MDUPDATE=1)
 	@$(MAKECOOKIE)
 
 build-dbm:
 	(cd $(WORKSRC)/mozilla/security/dbm \
 		&& \
 	CPPFLAGS='$(CPPFLAGS)' LD_OPTIONS='$(LD_OPTIONS)' \
-	gmake -j1 NS_USE_GCC=1 NO_MDUPDATE=1)
+	gmake -j1 $(GARCOMP_FLAGS_$(GARCOMPILER)) NO_MDUPDATE=1)
 	@$(MAKECOOKIE)
 
 # There's an extra interpolation somehwere inside nss' build system, so $$$$
@@ -312,7 +319,7 @@ build-nss-compile:
 	@echo $(LD_OPTIONS)
 	(cd $(WORKSRC)/mozilla/security/nss \
 		&& env \
-		&& gmake -j1 BUILD_SUN_PKG=1 NS_USE_GCC=1 NO_MDUPDATE=1)
+		&& gmake -j1 BUILD_SUN_PKG=1 $(GARCOMP_FLAGS_$(GARCOMPILER)) NO_MDUPDATE=1)
 	@$(MAKECOOKIE)
 
 install-nss:
