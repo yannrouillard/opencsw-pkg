@@ -280,6 +280,8 @@ PATCHFILES += 0006-platlibs.mk-linking-bltest.patch
 PATCHFILES += 0006-config.mk-linking.patch
 PATCHFILES += 0005-SunOS5.mk.patch
 PATCHFILES += 0005-change-rpath-for-bins-in-platlibs.mk.patch
+PATCHFILES_DBG += 0007-skip-assertion.patch
+PATCHFILES += $(PATCHFILES_$(GARFLAVOR))
 
 # http://lists.opencsw.org/pipermail/pkgsubmissions/2010-February/000167.html
 # NOISAEXEC = 1
