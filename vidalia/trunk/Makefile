@@ -1,5 +1,5 @@
 NAME = vidalia
-VERSION = 0.2.20
+VERSION = 0.2.21
 GARTYPE = v2
 
 DESCRIPTION = Controller GUI for Tor
