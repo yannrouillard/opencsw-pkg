@@ -38,11 +38,11 @@ configure-custom:
 	mkdir $(WORKSRC)/build
 	cd $(WORKSRC)/build && CC=gcc /opt/csw/bin/cmake \
 	-DCMAKE_INSTALL_PREFIX:PATH=/opt/csw \
-	-DCMAKE_INSTALL_RPATH:PATH=/opt/csw/lib:/opt/csw/gxx/lib \
+	-DCMAKE_INSTALL_RPATH:PATH=/opt/csw/lib \
 	-DCMAKE_EXE_LINKER_FLAGS:STRING='-lsocket -lnsl' \
 	-DCMAKE_INCLUDE_PATH:PATH=/opt/csw/include \
 	-DCMAKE_CXX_COMPILER=/opt/csw/bin/g++ \
-	-DQT_QMAKE_EXECUTABLE=/opt/csw/gxx/bin/qmake ..
+	-DQT_QMAKE_EXECUTABLE=/opt/csw/bin/qmake ..
 	@$(MAKECOOKIE)
 
 build-custom:
