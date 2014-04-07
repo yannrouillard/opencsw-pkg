@@ -1,5 +1,5 @@
 NAME = vidalia
-VERSION = 0.2.19
+VERSION = 0.2.20
 GARTYPE = v2
 
 DESCRIPTION = Controller GUI for Tor
@@ -15,11 +15,11 @@ LICENSE = LICENSE
 # no patches so lets skip this to save a little time
 NOGITPATCH = 1
 
-RUNTIME_DEP_PKGS_CSWvidalia += CSWlibqtxml4-gxx
-RUNTIME_DEP_PKGS_CSWvidalia += CSWlibqtnetwork4-gxx
-RUNTIME_DEP_PKGS_CSWvidalia += CSWlibqtcore4-gxx
+RUNTIME_DEP_PKGS_CSWvidalia += CSWlibqtxml4
+RUNTIME_DEP_PKGS_CSWvidalia += CSWlibqtnetwork4
+RUNTIME_DEP_PKGS_CSWvidalia += CSWlibqtcore4
 RUNTIME_DEP_PKGS_CSWvidalia += CSWlibstdc++6
-RUNTIME_DEP_PKGS_CSWvidalia += CSWlibqtgui4-gxx
+RUNTIME_DEP_PKGS_CSWvidalia += CSWlibqtgui4
 RUNTIME_DEP_PKGS_CSWvidalia += CSWlibgcc-s1
 
 GARCOMPILER = GNU
@@ -36,10 +36,12 @@ include gar/category.mk
 
 configure-custom:
 	mkdir $(WORKSRC)/build
-	cd $(WORKSRC)/build && /opt/csw/bin/cmake \
+	cd $(WORKSRC)/build && CC=gcc /opt/csw/bin/cmake \
 	-DCMAKE_INSTALL_PREFIX:PATH=/opt/csw \
 	-DCMAKE_INSTALL_RPATH:PATH=/opt/csw/lib:/opt/csw/gxx/lib \
 	-DCMAKE_EXE_LINKER_FLAGS:STRING='-lsocket -lnsl' \
+	-DCMAKE_INCLUDE_PATH:PATH=/opt/csw/include \
+	-DCMAKE_CXX_COMPILER=/opt/csw/bin/g++ \
 	-DQT_QMAKE_EXECUTABLE=/opt/csw/gxx/bin/qmake ..
 	@$(MAKECOOKIE)
 
